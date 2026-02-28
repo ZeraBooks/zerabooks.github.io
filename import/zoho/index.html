@@ -3,108 +3,386 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zoho Books Bank Statement Import Guide | Zera Books Resources</title>
-  <meta name="description" content="How to import bank statements into Zoho Books. OFX and CSV import steps, required column formats, and handling PDF statements for Zoho reconciliation.">
+  <title>How to Import Bank Statements into Zoho Books (2025) | Zera Books</title>
+  <meta name="description" content="Step-by-step guide to importing bank statements into Zoho Books via the Banking module using CSV. Correct column structure, date format, and AI categorization.">
   <link rel="canonical" href="https://zerabooks.github.io/import/zoho/">
-  <meta property="og:title" content="Zoho Books Bank Statement Import Guide">
-  <meta property="og:description" content="How to import bank statements into Zoho Books. OFX and CSV import steps, required column formats, and handling PDF statements.">
+  <meta property="og:title" content="How to Import Bank Statements into Zoho Books (2025)">
+  <meta property="og:description" content="Import bank statements into Zoho Books Banking module using CSV. Required columns, date format, and step-by-step workflow.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://zerabooks.github.io/import/zoho/">
   <meta property="og:site_name" content="Zera Books Resources">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebPage", "name": "Zoho Books Bank Statement Import Guide", "description": "How to import bank statements into Zoho Books.", "url": "https://zerabooks.github.io/import/zoho/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "headline": "How to Import Bank Statements into Zoho Books (2025)",
+    "description": "Step-by-step guide to importing bank statements into Zoho Books via the Banking module using CSV.",
+    "url": "https://zerabooks.github.io/import/zoho/",
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-02-28",
+    "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" },
+    "author": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" }
+  }
   </script>
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-    { "@type": "Question", "name": "What file formats does Zoho Books accept for bank imports?", "acceptedAnswer": { "@type": "Answer", "text": "Zoho Books accepts OFX, CSV, and TSV files for bank statement imports. OFX is preferred as it preserves transaction IDs for duplicate prevention." } },
-    { "@type": "Question", "name": "How do I import a PDF bank statement into Zoho Books?", "acceptedAnswer": { "@type": "Answer", "text": "Zoho Books cannot process PDFs. Convert the PDF to OFX or CSV first, then import via Banking > your bank account > Import Statement. Zera Books handles the PDF-to-OFX conversion automatically." } },
-    { "@type": "Question", "name": "What is the Zoho Books CSV import column order?", "acceptedAnswer": { "@type": "Answer", "text": "Zoho Books CSV requires: Date (MM/DD/YYYY), Payee Name (optional), Transaction ID (optional), Transaction Type (debit/credit), Amount. Column headers must match exactly." } }
-  ] }
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I import bank transactions into Zoho Books?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In Zoho Books, go to Banking in the left menu, select the bank account, and click Import Statement. Upload your CSV, map the columns (Date, Amount, Description), and click Import. Transactions appear under the account for reconciliation." }
+      },
+      {
+        "@type": "Question",
+        "name": "What CSV format does Zoho Books require for bank imports?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Zoho Books accepts CSV with Date, Description, and Amount (signed) or separate Debit/Credit columns. Date format should match your Zoho organization locale — MM/DD/YYYY for US, DD/MM/YYYY for others." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I import a PDF bank statement into Zoho Books?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Zoho Books does not accept PDF files for import. Convert the PDF to CSV first using Zera Books, which handles any bank format including scanned PDFs with 99.6% accuracy." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is the bank import option in Zoho Books?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Banking module (left sidebar) > select your bank account > click Import Statement or the More/Import option near the top of the account transaction view." }
+      }
+    ]
+  }
   </script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #0A1628; line-height: 1.7; }
+    h1, h2, h3, h4 { font-family: 'Jost', sans-serif; font-weight: 700; line-height: 1.2; }
+    a { color: #00D4AA; text-decoration: none; }
+    a:hover { color: #00E5B8; }
+    .hero { background: #0A1628; position: relative; overflow: hidden; }
+    .hero-gradient { position: absolute; bottom: 0; right: 0; width: 600px; height: 600px; pointer-events: none; }
+    .hero-inner { max-width: 1400px; margin: 0 auto; padding: 80px 24px 64px; position: relative; z-index: 2; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumbs a { color: rgba(255,255,255,0.5); }
+    .breadcrumbs a:hover { color: #fff; }
+    .breadcrumbs svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; }
+    .badge-primary { background: rgba(0,212,170,0.2); color: #00D4AA; }
+    .badge-secondary { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 20px; max-width: 800px; }
+    .hero-description { font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: 32px; line-height: 1.7; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: #00D4AA; color: #0A1628; font-weight: 600; font-size: 1rem; border-radius: 8px; transition: background 0.2s; }
+    .btn-primary:hover { background: #00E5B8; color: #0A1628; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: rgba(255,255,255,0.1); color: #fff; font-weight: 600; font-size: 1rem; border-radius: 8px; transition: background 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    .trust-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 32px; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+    .stars { display: flex; gap: 2px; }
+    .stars svg { width: 12px; height: 12px; }
+    .tldr-section { padding: 32px 0; background: #fff; }
+    .tldr-box { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .tldr-card { background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.25); border-radius: 16px; padding: 32px; }
+    .tldr-title { font-size: 1.5rem; color: #0A1628; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .tldr-title svg { color: #00D4AA; width: 24px; height: 24px; }
+    .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .tldr-list { list-style: none; }
+    .tldr-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: rgba(10,22,40,0.75); }
+    .tldr-list svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+    .icon-check { color: #00D4AA; }
+    .icon-x { color: rgba(10,22,40,0.3); }
+    .content-section { padding: 64px 0; background: #fff; }
+    .content-wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+    .article-sections > * + * { margin-top: 64px; }
+    .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .section-num { width: 44px; height: 44px; background: #00D4AA; color: #0A1628; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+    .section-header h2 { font-size: clamp(1.3rem, 3vw, 1.75rem); color: #0A1628; }
+    .prose p { margin-bottom: 16px; color: rgba(10,22,40,0.75); font-size: 1.05rem; }
+    .prose a { color: #00D4AA; border-bottom: 1px solid rgba(0,212,170,0.3); }
+    .comparison-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin: 24px 0; }
+    .comparison-table thead tr { background: #0A1628; }
+    .comparison-table th { padding: 16px 20px; text-align: left; color: #fff; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 0.9rem; }
+    .comparison-table td { padding: 14px 20px; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; }
+    .comparison-table tbody tr:nth-child(even) { background: #F5FFFC; }
+    .comparison-table tbody tr:nth-child(odd) { background: #fff; }
+    .cell-good { color: #00D4AA; font-weight: 600; }
+    .cell-bad { color: rgba(10,22,40,0.4); }
+    .callout { background: rgba(0,212,170,0.08); border-left: 4px solid #00D4AA; border-radius: 0 12px 12px 0; padding: 24px; margin: 24px 0; }
+    .callout p { margin: 0; color: rgba(10,22,40,0.8); }
+    .callout strong { color: #0A1628; }
+    .mid-cta { background: #0A1628; border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; position: relative; overflow: hidden; }
+    .mid-cta h3 { color: #fff; font-size: 1.5rem; margin-bottom: 12px; }
+    .mid-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .faq-item { background: #F5FFFC; border: 1px solid rgba(0,212,170,0.15); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .faq-item h3 { font-size: 1.05rem; color: #0A1628; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.95rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .sidebar { position: relative; }
+    .sidebar-inner { position: sticky; top: 24px; }
+    .toc-card { background: #F5FFFC; border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+    .toc-card h3 { font-size: 1.1rem; color: #0A1628; margin-bottom: 16px; }
+    .toc-nav a { display: block; padding: 8px 0; font-size: 0.875rem; color: rgba(10,22,40,0.6); border-bottom: none; transition: color 0.15s; }
+    .toc-nav a:hover { color: #00D4AA; }
+    .sidebar-cta { background: #0A1628; border-radius: 16px; padding: 24px; text-align: center; }
+    .sidebar-cta h4 { color: #fff; font-size: 1.05rem; margin-bottom: 8px; }
+    .sidebar-cta p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 16px; }
+    .sidebar-cta .btn-primary { width: 100%; justify-content: center; padding: 14px 24px; }
+    .step-card { background: #fff; border: 2px solid rgba(10,22,40,0.08); border-radius: 12px; padding: 24px; margin-bottom: 16px; transition: border-color 0.2s; }
+    .step-card:hover { border-color: rgba(0,212,170,0.3); }
+    .step-row { display: flex; gap: 16px; align-items: flex-start; }
+    .step-card h3 { font-size: 1.05rem; margin-bottom: 6px; color: #0A1628; }
+    .step-card p { font-size: 0.9rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .step-detail { background: #F5FFFC; border-radius: 8px; padding: 12px 16px; margin-top: 10px; font-size: 0.85rem; color: rgba(10,22,40,0.7); }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .related-card { background: #F5FFFC; border-radius: 12px; padding: 24px; transition: box-shadow 0.2s; }
+    .related-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .related-card h4 { font-size: 1rem; color: #0A1628; margin-bottom: 8px; }
+    .related-card p { font-size: 0.85rem; color: rgba(10,22,40,0.6); margin-bottom: 12px; }
+    .related-card .link-arrow { font-size: 0.85rem; color: #00D4AA; font-weight: 600; }
+    .final-cta { background: #0A1628; padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+    .final-cta-gradient { position: absolute; bottom: 0; right: 0; width: 500px; height: 500px; pointer-events: none; }
+    .final-cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+    .final-cta h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 32px; }
+    .site-footer { background: #0A1628; border-top: 1px solid rgba(255,255,255,0.1); padding: 24px; text-align: center; }
+    .site-footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+    .site-footer a { color: rgba(255,255,255,0.6); }
+    .site-footer a:hover { color: #00D4AA; }
+    @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    @media (max-width: 768px) { .hero-inner { padding: 60px 20px 48px; } .tldr-grid { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } .comparison-table { font-size: 0.85rem; } .comparison-table th, .comparison-table td { padding: 10px 12px; } }
+    @media (max-width: 480px) { .hero-ctas { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } }
   </style>
 </head>
 <body>
 
-<h1>Zoho Books Bank Statement Import: Step-by-Step Guide</h1>
+  <section class="hero">
+    <div class="hero-gradient">
+      <svg viewBox="0 0 600 600" width="100%" height="100%">
+        <defs><linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs>
+        <polygon points="600,600 600,0 0,600" fill="url(#heroGrad)"/>
+      </svg>
+    </div>
+    <div class="hero-inner">
+      <nav class="breadcrumbs">
+        <a href="https://www.zerabooks.com">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="/import/">Import Guides</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span style="color:#fff">Zoho Books Import</span>
+      </nav>
+      <div class="hero-badges">
+        <span class="badge badge-primary">Import Guide</span>
+        <span class="badge badge-secondary">Zoho Books</span>
+        <span class="badge badge-secondary">Updated 2025</span>
+      </div>
+      <h1>How to Import Bank Statements into Zoho Books</h1>
+      <p class="hero-description">Zoho Books has a dedicated Banking module for importing bank transactions via CSV. It supports both signed Amount columns and separate Debit/Credit columns — one of the more flexible import formats among cloud accounting platforms. This guide covers the exact column structure, the correct import path, and how to convert any PDF for a clean import.</p>
+      <div class="hero-ctas">
+        <a href="https://www.zerabooks.com/auth" class="btn-primary">Convert PDF to Zoho Books CSV — try free for one week <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#step-by-step" class="btn-secondary">See the steps</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <span>Trustpilot</span>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+        </div>
+        <div class="trust-item"><span style="background:#C62828;color:#fff;font-size:7px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;">G2</span><span>High Performer</span></div>
+        <div class="trust-item"><span>99.6% accuracy</span></div>
+        <div class="trust-item"><span>3.2M+ docs trained</span></div>
+      </div>
+    </div>
+  </section>
 
-<p>Zoho Books supports importing bank statements as OFX, CSV, or TSV files. It also has a bank feeds feature connecting to many banks directly, but the manual import is needed for banks without a feed, or to load historical data.</p>
+  <section class="tldr-section">
+    <div class="tldr-box">
+      <div class="tldr-card">
+        <h2 class="tldr-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          TL;DR &mdash; Zoho Books Bank Import
+        </h2>
+        <div class="tldr-grid">
+          <div>
+            <p style="font-weight:600;color:#0A1628;margin-bottom:12px;">Common import challenges:</p>
+            <ul class="tldr-list">
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Banking module is separate from the main Accounting menu</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Date format must match your Zoho organization locale settings</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>PDF files not accepted — CSV conversion required first</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Manual categorization needed after import without AI assistance</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-weight:600;color:#0A1628;margin-bottom:12px;">With Zera Books:</p>
+            <ul class="tldr-list">
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Zoho-formatted CSV with correct locale-aware date format</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Converts any PDF bank statement — digital or scanned</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>AI maps transactions to Zoho chart of accounts before export</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>$79/month unlimited for your entire practice</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="callout">
-  <strong>PDF statements?</strong> <a href="https://www.zerabooks.com/import/zoho-books-bank-statement-import">Zera Books</a> converts PDF bank statements from any bank to OFX or Zoho-compatible CSV. Direct integration — push converted transactions straight to your Zoho reconciliation queue.
-</div>
+  <section class="content-section">
+    <div class="content-wrap">
+      <div class="content-grid">
+        <div class="main-content">
+          <div class="article-sections">
 
-<h2>Import Steps in Zoho Books</h2>
+            <div id="csv-requirements">
+              <div class="section-header">
+                <div class="section-num">1</div>
+                <h2>Zoho Books CSV Import Requirements</h2>
+              </div>
+              <div class="prose">
+                <p>Zoho Books Banking module accepts CSV files with flexible column options. Unlike most platforms, Zoho supports both a single signed Amount column and separate Debit/Credit columns.</p>
+              </div>
+              <div style="overflow-x:auto;">
+                <table class="comparison-table">
+                  <thead><tr><th>Column</th><th>Required</th><th>Format</th><th>Notes</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Date</strong></td><td class="cell-good">Required</td><td>Matches org locale</td><td>MM/DD/YYYY for US, DD/MM/YYYY for non-US. Set in Zoho organization settings.</td></tr>
+                    <tr><td><strong>Description</strong></td><td class="cell-good">Required</td><td>Text</td><td>Transaction memo. Used for auto-categorization rule matching.</td></tr>
+                    <tr><td><strong>Amount</strong></td><td class="cell-good">Required*</td><td>Signed decimal</td><td>Negative for debits, positive for credits. Or use separate Debit/Credit columns.</td></tr>
+                    <tr><td><strong>Debit</strong></td><td>Optional*</td><td>Positive decimal</td><td>Withdrawal amount. Use with Credit instead of signed Amount.</td></tr>
+                    <tr><td><strong>Credit</strong></td><td>Optional*</td><td>Positive decimal</td><td>Deposit amount. Use with Debit instead of signed Amount.</td></tr>
+                    <tr><td><strong>Reference</strong></td><td>Optional</td><td>Text</td><td>Check number or bank transaction reference.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="callout">
+                <p><strong>Either Amount or Debit/Credit required — not both.</strong> <a href="https://www.zerabooks.com/import/zoho-books-bank-statement-import">Zera Books Zoho export</a> uses a single signed Amount column with the date format matching your Zoho organization locale. Select US or International when exporting.</p>
+              </div>
+            </div>
 
-<ol>
-  <li>Go to <strong>Banking</strong> in the left sidebar</li>
-  <li>Click the bank account you want to import into</li>
-  <li>Select <strong>Import Statement</strong> from the top menu</li>
-  <li>Choose your file type (OFX, CSV, or TSV)</li>
-  <li>Upload the file and map columns if using CSV</li>
-  <li>Preview transactions, then click <strong>Import</strong></li>
-</ol>
+            <div id="step-by-step">
+              <div class="section-header">
+                <div class="section-num">2</div>
+                <h2>Step-by-Step: PDF Bank Statement to Zoho Books</h2>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="section-num">1</div>
+                  <div>
+                    <h3>Upload PDF to Zera Books</h3>
+                    <p>Go to <a href="https://www.zerabooks.com/auth">zerabooks.com</a> and upload your bank statement PDF. Works with any bank worldwide — ICICI, HDFC, DBS, Standard Chartered, Chase, and hundreds more. Handles scanned and multi-page PDFs.</p>
+                    <div class="step-detail">Zera Books processes any bank format dynamically — no templates required. Trained on 3.2 million financial documents across global banking formats.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="section-num">2</div>
+                  <div>
+                    <h3>Export as Zoho Books CSV</h3>
+                    <p>In the export settings, choose "Zoho Books (.csv)" and select your organization locale. Zera Books outputs a properly structured CSV with the correct date format and column names Zoho expects.</p>
+                    <div class="step-detail">AI categorization maps transactions to your Zoho chart of accounts. Categories are embedded in the CSV — reducing post-import coding time significantly.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="section-num">3</div>
+                  <div>
+                    <h3>In Zoho Books: Banking &rarr; select account &rarr; Import</h3>
+                    <p>Open Zoho Books. Click <strong>Banking</strong> in the left sidebar. Select the bank account you want to import into. Look for <strong>Import Statement</strong> near the top of the account view.</p>
+                    <div class="step-detail">Note: The Banking module is in the left sidebar separate from the Accounting section. If you're in Accounting, navigate to Banking specifically.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="section-num">4</div>
+                  <div>
+                    <h3>Upload and map columns</h3>
+                    <p>Upload your CSV. Zoho shows a column mapping preview — confirm Date, Description, and Amount are correctly mapped. Click <strong>Import</strong>.</p>
+                    <div class="step-detail">With Zera Books Zoho export, column names match Zoho's expected headers and auto-detect without manual adjustment.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="section-num">5</div>
+                  <div>
+                    <h3>Categorize and reconcile</h3>
+                    <p>Imported transactions appear in the Banking account as uncategorized items. Assign accounts from your chart of accounts, or use Zoho's auto-match to link against existing invoices and bills.</p>
+                    <div class="step-detail">With Zera Books pre-categorization, most transactions arrive with the correct account code already suggested. Your review becomes an approval pass rather than starting from zero.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-<h2>Zoho Books CSV Format</h2>
+            <div class="mid-cta">
+              <div style="position:absolute;bottom:0;right:0;width:400px;height:400px;pointer-events:none;"><svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="midGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.2"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#midGrad)"/></svg></div>
+              <h3 style="position:relative;z-index:2;">Convert any PDF to Zoho Books-ready CSV</h3>
+              <p style="position:relative;z-index:2;">Any bank, locale-aware date format, AI categorization. $79/month unlimited for your practice.</p>
+              <a href="https://www.zerabooks.com/auth" class="btn-primary" style="position:relative;z-index:2;">Try for one week <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
 
-<table>
-  <thead><tr><th>Column Header</th><th>Format</th><th>Required</th></tr></thead>
-  <tbody>
-    <tr><td>Date</td><td>MM/DD/YYYY</td><td>Yes</td></tr>
-    <tr><td>Payee Name</td><td>Text</td><td>No (but helps with auto-matching)</td></tr>
-    <tr><td>Transaction ID</td><td>Alphanumeric</td><td>No (used for duplicate prevention)</td></tr>
-    <tr><td>Transaction Type</td><td>"debit" or "credit"</td><td>No (if using signed Amount)</td></tr>
-    <tr><td>Amount</td><td>Positive number</td><td>Yes</td></tr>
-    <tr><td>Description</td><td>Text</td><td>No</td></tr>
-  </tbody>
-</table>
+            <div id="faq">
+              <div class="section-header">
+                <div class="section-num">3</div>
+                <h2>Frequently Asked Questions</h2>
+              </div>
+              <div class="faq-item"><h3>How do I import bank transactions into Zoho Books?</h3><p>Banking (left sidebar) &gt; select account &gt; Import Statement. Upload your CSV, map columns, and import. Transactions appear for categorization and reconciliation.</p></div>
+              <div class="faq-item"><h3>What CSV format does Zoho Books require?</h3><p>Date (locale-appropriate), Description, and either signed Amount or separate Debit/Credit columns. <a href="https://www.zerabooks.com/import/zoho-books-bank-statement-import">Zera Books Zoho export</a> handles locale and format automatically.</p></div>
+              <div class="faq-item"><h3>Can I import a PDF bank statement into Zoho Books?</h3><p>No. Convert to CSV first. Zera Books converts any PDF — digital or scanned — to Zoho-ready CSV in under 2 minutes with 99.6% accuracy.</p></div>
+              <div class="faq-item"><h3>Where is the bank import option in Zoho Books?</h3><p>Banking module in the left sidebar &gt; select your bank account &gt; Import Statement. It's in Banking, not the main Accounting module.</p></div>
+            </div>
 
-<p>If you don't include a Transaction Type column, use a signed Amount instead (negative for withdrawals, positive for deposits). Don't include both — Zoho will get confused about direction.</p>
+            <div>
+              <h2 style="font-size:1.5rem;color:#0A1628;margin-bottom:20px;">Related Resources</h2>
+              <div class="related-grid">
+                <a href="https://www.zerabooks.com/import/zoho-books-bank-statement-import" class="related-card"><h4>Zoho Books Import Guide</h4><p>Full guide to importing any bank statement into Zoho Books with Zera Books.</p><span class="link-arrow">Read guide &rarr;</span></a>
+                <a href="https://www.zerabooks.com/import" class="related-card"><h4>All Import Guides</h4><p>Guides for QuickBooks, Xero, Sage, FreshBooks, MYOB, NetSuite, and more.</p><span class="link-arrow">Browse all &rarr;</span></a>
+                <a href="/import/sage/" class="related-card"><h4>Sage Import Guide</h4><p>How to import bank statements into Sage with the correct CSV format.</p><span class="link-arrow">See guide &rarr;</span></a>
+                <a href="https://www.zerabooks.com/guides" class="related-card"><h4>Accounting Guides</h4><p>76 guides on bank reconciliation, workflow automation, and bookkeeping.</p><span class="link-arrow">Browse guides &rarr;</span></a>
+              </div>
+            </div>
 
-<h2>OFX Import</h2>
+          </div>
+        </div>
 
-<p>OFX is the cleanest option for Zoho Books. Upload via the same Import Statement screen and Zoho reads the file structure directly with no column mapping. The FITID field in OFX acts as a unique transaction ID, preventing reimport of the same transaction.</p>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <div class="toc-card">
+              <h3>On This Page</h3>
+              <nav class="toc-nav">
+                <a href="#csv-requirements">CSV Requirements</a>
+                <a href="#step-by-step">Step-by-Step Import</a>
+                <a href="#faq">FAQ</a>
+              </nav>
+            </div>
+            <div class="sidebar-cta">
+              <h4>Convert PDF to Zoho Books CSV</h4>
+              <p>Any bank, correct locale format, AI categorization. $79/mo unlimited.</p>
+              <a href="https://www.zerabooks.com/auth" class="btn-primary">Start one-week trial <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h2>After Import</h2>
+  <section class="final-cta">
+    <div class="final-cta-gradient">
+      <svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="ctaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.25"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#ctaGrad)"/></svg>
+    </div>
+    <div class="final-cta-inner">
+      <h2>Get Zoho Books-ready data from any bank PDF</h2>
+      <p>Zera Books converts any bank statement to Zoho-compatible CSV in under 2 minutes. AI categorization, batch processing, client dashboard. $79/month unlimited.</p>
+      <a href="https://www.zerabooks.com/auth" class="btn-primary" style="font-size:1.1rem;padding:18px 36px;">Try Zera Books for one week <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </section>
 
-<p>Imported transactions land in the <strong>Uncategorized</strong> section of your bank account in Zoho Books. From there, you can match them against open invoices, create rules for recurring payees, or manually code them. Zoho's auto-categorization learns from your patterns over time.</p>
+  <footer class="site-footer">
+    <p>Published by <a href="https://www.zerabooks.com">Zera Books</a> &middot; AI-powered bookkeeping automation &middot; <a href="https://www.zerabooks.com/platform">Platform</a> &middot; <a href="https://www.zerabooks.com/converters">Converters</a> &middot; <a href="/import/">Import Guides</a></p>
+  </footer>
 
-<div class="callout">
-  <a href="https://www.zerabooks.com/import/zoho-books-bank-statement-import">Zera Books</a> exports pre-formatted files for Zoho Books with AI-powered categorization applied — transactions arrive in Zoho already coded to your chart of accounts.
-</div>
-
-<div class="faq">
-  <h3>Frequently Asked Questions</h3>
-
-  <h3>What file formats does Zoho Books accept for bank imports?</h3>
-  <p>Zoho Books accepts OFX, CSV, and TSV files for bank statement imports. OFX is preferred as it preserves transaction IDs for duplicate prevention.</p>
-
-  <h3>How do I import a PDF bank statement into Zoho Books?</h3>
-  <p>Zoho Books cannot process PDFs. Convert the PDF to OFX or CSV first, then import via Banking &gt; your bank account &gt; Import Statement. Zera Books handles the PDF-to-OFX conversion automatically.</p>
-
-  <h3>What is the Zoho Books CSV import column order?</h3>
-  <p>Zoho Books CSV requires: Date (MM/DD/YYYY), Payee Name (optional), Transaction ID (optional), Transaction Type (debit/credit), Amount. Column headers must match exactly.</p>
-</div>
-
-<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
 </body>
 </html>

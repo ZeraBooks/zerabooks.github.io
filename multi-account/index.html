@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multi-Account Bank Statement Detection — Zera Books | Zera Books Resources</title>
-  <meta name="description" content="Zera Books automatically detects and splits multi-account bank statement PDFs. Checking, savings, and credit card accounts extracted into separate output files.">
-  <link rel="canonical" href="https://zerabooks.github.io/multi-account/">
-  <meta property="og:title" content="Multi-Account Bank Statement Detection — Zera Books">
-  <meta property="og:description" content="Zera Books automatically detects and splits multi-account bank statement PDFs. Checking, savings, and credit card accounts extracted into separate output files.">
+  <title>Multi-Account Detection Reference | Auto-Detection Methodology | Zera Books</title>
+  <meta name="description" content="How Zera Books auto-detects multiple accounts in a single bank statement PDF and separates them into individual files. Detection methodology, split output specs, and edge cases.">
+  <meta property="og:title" content="Multi-Account Detection Reference — Zera Books">
+  <meta property="og:description" content="Zera Books automatically detects checking, savings, and credit card accounts within a single statement PDF and splits them into separate output files.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://zerabooks.github.io/multi-account/">
-  <meta property="og:site_name" content="Zera Books Resources">
+  <link rel="canonical" href="https://zerabooks.github.io/multi-account/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Multi-Account Bank Statement Detection — Zera Books",
-    "description": "Zera Books automatically splits multi-account PDFs into separate output files per account type.",
+    "@type": "TechArticle",
+    "headline": "Multi-Account Detection: Auto-Detection Methodology and Split Output Specs",
+    "description": "Technical documentation for Zera Books multi-account auto-detection: how the system identifies multiple accounts in a single PDF and splits them into individual output files.",
     "url": "https://zerabooks.github.io/multi-account/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Zera Books",
-      "url": "https://www.zerabooks.com"
-    }
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-06-01",
+    "author": {"@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com/"},
+    "publisher": {"@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com/"}
   }
   </script>
   <script type="application/ld+json">
@@ -32,113 +32,400 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Can Zera Books split a bank statement PDF that contains multiple accounts?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Zera Books automatically detects account boundaries within a combined PDF statement and outputs each account — checking, savings, credit card — as a separate Excel or CSV file."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "How does Zera Books detect multiple accounts in one PDF?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Zera AI identifies account section headers, account numbers, and account type labels within the document. It uses these signals to determine where one account ends and another begins."
-        }
+        "acceptedAnswer": {"@type": "Answer", "text": "Zera Books scans each page for account number changes, account type header transitions (e.g., 'Checking Account' to 'Savings Account'), and structural layout shifts. When a new account section is detected, the system creates a separate extraction context for that account."}
       },
       {
         "@type": "Question",
-        "name": "What account types does multi-account detection support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Zera Books detects and separates checking accounts, savings accounts, money market accounts, credit card accounts, and line of credit accounts from combined PDF statements."
-        }
+        "name": "What account types can Zera Books separate?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Zera Books can separate checking accounts, savings accounts, money market accounts, credit card accounts, and line of credit accounts. Each account type is placed in its own output file named with the account type and last 4 digits."}
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if accounts share the same statement period?",
+        "acceptedAnswer": {"@type": "Answer", "text": "All accounts are extracted with the same statement period dates. Each output file contains the correct open/close balances and transaction list for that specific account. The period dates are not modified."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can I merge accounts after they are split?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. After reviewing the split files, users can select multiple output files and merge them into a single consolidated export. The merged file includes an Account column to identify which account each transaction belongs to."}
       }
     ]
   }
   </script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; color: #0A1628; }
-    .faq p { margin-bottom: 0.5rem; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+    h1, h2, h3, h4 { font-family: 'Jost', sans-serif; font-weight: 700; line-height: 1.2; }
+    a { color: #00D4AA; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .hero { background: #0A1628; position: relative; overflow: hidden; }
+    .hero svg.bg-shape { position: absolute; bottom: 0; right: 0; width: 50%; height: 100%; pointer-events: none; }
+    .hero-inner { max-width: 1400px; margin: 0 auto; padding: 60px 24px 52px; position: relative; z-index: 2; }
+    .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 13px; color: #8899aa; margin-bottom: 20px; flex-wrap: wrap; }
+    .breadcrumb a { color: #8899aa; }
+    .breadcrumb span { color: #00D4AA; }
+    .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .badge { background: rgba(0,212,170,0.15); color: #00D4AA; border: 1px solid rgba(0,212,170,0.3); border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 600; font-family: 'Jost', sans-serif; }
+    .hero h1 { font-size: clamp(28px, 4vw, 52px); color: #fff; margin-bottom: 16px; }
+    .hero p { font-size: 18px; color: #99aabb; max-width: 640px; margin-bottom: 28px; }
+    .trust-row { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 32px; }
+    .trust-item { font-size: 13px; color: #8899aa; display: flex; align-items: center; gap: 6px; }
+    .trust-item strong { color: #00D4AA; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #00D4AA; color: #0A1628; font-family: 'Jost', sans-serif; font-weight: 700; padding: 14px 28px; border-radius: 8px; font-size: 15px; transition: background 0.2s; }
+    .btn-primary:hover { background: #00E5B8; text-decoration: none; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(0,212,170,0.4); color: #00D4AA; font-family: 'Jost', sans-serif; font-weight: 600; padding: 13px 24px; border-radius: 8px; font-size: 15px; margin-left: 12px; transition: background 0.2s; }
+    .btn-secondary:hover { background: rgba(0,212,170,0.1); text-decoration: none; }
+    .section { padding: 72px 24px; }
+    .section-white { background: #fff; }
+    .section-cream { background: #F5FFFC; }
+    .section-dark { background: #0A1628; position: relative; overflow: hidden; }
+    .inner { max-width: 1400px; margin: 0 auto; }
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: start; }
+    @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    .sidebar-card { background: #fff; border: 1px solid #e8edf2; border-radius: 12px; padding: 24px; position: sticky; top: 24px; }
+    .sidebar-card h3 { font-size: 15px; color: #0A1628; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e8edf2; }
+    .toc-link { display: block; font-size: 13px; color: #556677; padding: 6px 0; border-bottom: 1px solid #f0f4f8; transition: color 0.2s; }
+    .toc-link:hover { color: #00D4AA; text-decoration: none; }
+    .sidebar-cta { margin-top: 24px; background: #0A1628; border-radius: 12px; padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; color: #8899aa; margin-bottom: 12px; }
+    .sidebar-cta a { display: block; background: #00D4AA; color: #0A1628; font-family: 'Jost', sans-serif; font-weight: 700; padding: 10px; border-radius: 8px; font-size: 14px; }
+    .sidebar-cta a:hover { background: #00E5B8; text-decoration: none; }
+    .tldr { background: rgba(0,212,170,0.05); border: 1px solid rgba(0,212,170,0.2); border-radius: 12px; padding: 28px; margin-bottom: 48px; }
+    .tldr h3 { font-size: 16px; color: #0A1628; margin-bottom: 16px; }
+    .tldr-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 600px) { .tldr-cols { grid-template-columns: 1fr; } }
+    .tldr ul { list-style: none; }
+    .tldr li { font-size: 14px; padding: 5px 0; display: flex; align-items: flex-start; gap: 8px; }
+    .tldr li .icon-check { color: #00D4AA; font-weight: 800; flex-shrink: 0; }
+    .tldr li .icon-x { color: #cc4444; font-weight: 800; flex-shrink: 0; }
+    .section-num { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .num-badge { width: 32px; height: 32px; background: rgba(0,212,170,0.15); border: 1px solid rgba(0,212,170,0.3); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #00D4AA; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .section-num h2 { font-size: clamp(20px, 3vw, 28px); color: #0A1628; }
+    .section-divider { border: none; border-top: 1px solid #e8edf2; margin: 48px 0; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-top: 24px; }
+    .feature-card { background: #F5FFFC; border: 1px solid rgba(0,212,170,0.15); border-radius: 10px; padding: 20px; }
+    .feature-card h4 { font-size: 15px; color: #0A1628; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #556677; }
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
+    .data-table th { background: #0A1628; color: #fff; font-family: 'Jost', sans-serif; font-weight: 600; padding: 12px 16px; text-align: left; }
+    .data-table td { padding: 11px 16px; border-bottom: 1px solid #e8edf2; color: #334455; }
+    .data-table tr:nth-child(odd) td { background: #fff; }
+    .data-table tr:nth-child(even) td { background: #F5FFFC; }
+    .check { color: #00D4AA; font-weight: 700; }
+    .stats-box { background: #0A1628; border-radius: 12px; padding: 32px; margin-top: 24px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 24px; }
+    .stat-item { text-align: center; }
+    .stat-num { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 36px; color: #00D4AA; display: block; }
+    .stat-label { font-size: 13px; color: #8899aa; margin-top: 4px; }
+    .mid-cta { background: #0A1628; border-radius: 12px; padding: 32px; text-align: center; margin: 48px 0; }
+    .mid-cta h3 { font-size: 22px; color: #fff; margin-bottom: 10px; }
+    .mid-cta p { font-size: 15px; color: #8899aa; margin-bottom: 20px; }
+    .steps { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
+    .step-card { display: flex; gap: 16px; align-items: flex-start; background: #F5FFFC; border: 1px solid rgba(0,212,170,0.15); border-radius: 10px; padding: 20px; }
+    .step-num { width: 36px; height: 36px; background: #00D4AA; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-weight: 700; color: #0A1628; font-size: 15px; flex-shrink: 0; }
+    .step-card h4 { font-size: 15px; color: #0A1628; margin-bottom: 4px; }
+    .step-card p { font-size: 14px; color: #556677; }
+    .faq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+    .faq-item { border: 1px solid #e8edf2; border-radius: 10px; padding: 20px; background: #fff; }
+    .faq-item h4 { font-size: 15px; color: #0A1628; margin-bottom: 8px; }
+    .faq-item p { font-size: 14px; color: #556677; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-top: 24px; }
+    .related-card { border: 1px solid #e8edf2; border-radius: 10px; padding: 20px; background: #fff; transition: border-color 0.2s; display: block; }
+    .related-card:hover { border-color: #00D4AA; text-decoration: none; }
+    .related-card .tag { font-size: 11px; font-weight: 600; color: #00D4AA; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .related-card h4 { font-size: 15px; color: #0A1628; margin-bottom: 6px; font-family: 'Jost', sans-serif; }
+    .related-card p { font-size: 13px; color: #778899; }
+    .final-cta { text-align: center; position: relative; z-index: 2; }
+    .final-cta h2 { font-size: clamp(24px, 3.5vw, 40px); color: #fff; margin-bottom: 16px; }
+    .final-cta p { font-size: 17px; color: #99aabb; max-width: 560px; margin: 0 auto 32px; }
+    .section-dark svg.bg-shape { position: absolute; bottom: 0; right: 0; width: 50%; height: 100%; pointer-events: none; }
+    .site-footer { background: #060e1e; padding: 24px; text-align: center; font-size: 13px; color: #556677; }
+    .site-footer a { color: #8899aa; }
+    @media (max-width: 768px) { .section { padding: 48px 16px; } .hero-inner { padding: 48px 16px 40px; } .btn-secondary { margin-left: 0; margin-top: 10px; } }
   </style>
 </head>
 <body>
 
-  <p><a href="/">← Zera Books Resources</a></p>
-
-  <h1>Multi-Account Bank Statement Detection</h1>
-
-  <p><a href="https://www.zerabooks.com/features/multi-account-support">Zera Books multi-account detection</a> handles the common scenario where a client's bank sends a single combined PDF that includes multiple account types — checking, savings, credit card — all in one file. Instead of manually splitting the PDF before processing, Zera Books detects account boundaries automatically and outputs each account as a separate file.</p>
-
-  <div class="callout">
-    <strong>No manual splitting required.</strong> Upload the combined PDF and receive separate files per account, each with the correct transactions.
+<header class="hero">
+  <svg class="bg-shape" viewBox="0 0 600 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0.3"/></linearGradient></defs>
+    <polygon points="600,0 600,500 0,500" fill="url(#hg)"/>
+  </svg>
+  <div class="hero-inner">
+    <nav class="breadcrumb">
+      <a href="/">Zera Books Resources</a> <span>›</span> <span style="color:#fff;">Multi-Account Detection</span>
+    </nav>
+    <div class="badge-row">
+      <span class="badge">Auto-Detection</span>
+      <span class="badge">Split Output Files</span>
+      <span class="badge">5 Account Types</span>
+    </div>
+    <h1>Multi-Account Detection Reference</h1>
+    <p>How Zera Books automatically identifies multiple accounts within a single bank statement PDF and splits them into individual output files — detection methodology, output specs, and edge case handling.</p>
+    <div class="trust-row">
+      <span class="trust-item">★★★★★ <strong>4.9</strong> Trustpilot</span>
+      <span class="trust-item"><strong>99.6%</strong> extraction accuracy</span>
+      <span class="trust-item"><strong>5</strong> account types detected</span>
+      <span class="trust-item"><strong>No manual</strong> splitting required</span>
+    </div>
+    <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week →</a>
+    <a href="https://www.zerabooks.com/features/multi-account-support" class="btn-secondary">See feature page ↗</a>
   </div>
+</header>
 
-  <h2>How Detection Works</h2>
-  <p>Zera AI reads account section headers, account numbers, and account type labels throughout the document. Banks typically indicate new account sections with headers like "Checking Account Summary" or show a new account number at the top of a new section. The AI identifies these boundaries and uses them to partition the transaction data.</p>
+<section class="section section-white">
+  <div class="inner">
+    <div class="content-grid">
+      <div>
+        <div class="tldr">
+          <h3>⚡ TL;DR — Multi-Account Detection</h3>
+          <div class="tldr-cols">
+            <div>
+              <strong style="font-size:13px;color:#0A1628;display:block;margin-bottom:8px;">Zera Books Auto-Detects</strong>
+              <ul>
+                <li><span class="icon-check">✓</span> Checking + savings in same PDF</li>
+                <li><span class="icon-check">✓</span> Multiple credit cards in one statement</li>
+                <li><span class="icon-check">✓</span> Account type classification per section</li>
+                <li><span class="icon-check">✓</span> Separate output file per account</li>
+                <li><span class="icon-check">✓</span> Correct open/close balance per account</li>
+              </ul>
+            </div>
+            <div>
+              <strong style="font-size:13px;color:#0A1628;display:block;margin-bottom:8px;">Manual Converters Require</strong>
+              <ul>
+                <li><span class="icon-x">✗</span> Manually splitting PDF before upload</li>
+                <li><span class="icon-x">✗</span> Running separate conversions per account</li>
+                <li><span class="icon-x">✗</span> Manually labeling account types</li>
+                <li><span class="icon-x">✗</span> Identifying balance breakpoints</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-  <p>The output file naming follows the account type and last-4 of the account number — for example, "Checking_1234.xlsx" and "Savings_5678.xlsx" — so there's no ambiguity about which file is which.</p>
+        <!-- Section 1 -->
+        <div id="section-1" style="scroll-margin-top:80px;">
+          <div class="section-num"><span class="num-badge">1</span><h2>Detection Methodology</h2></div>
+          <p style="color:#556677;margin-bottom:20px;">Many banks issue combined statements for multiple accounts (e.g., a business checking account and a business savings account in a single 12-page PDF). Zera Books detects account boundaries automatically using a multi-signal approach.</p>
+          <div class="steps">
+            <div class="step-card">
+              <span class="step-num">1</span>
+              <div>
+                <h4>Account Number Change Detection</h4>
+                <p>Each page is scanned for account number patterns. When the account number field changes from one page to the next, a new account boundary is established.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-num">2</span>
+              <div>
+                <h4>Account Type Header Recognition</h4>
+                <p>Section headers like "Business Checking," "Money Market Savings," and "Visa Credit Card" are recognized as account type signals. The AI identifies these even when formatting varies across banks.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-num">3</span>
+              <div>
+                <h4>Balance Sheet Reset Detection</h4>
+                <p>When a new "Opening Balance" or "Beginning Balance" line appears after a "Closing Balance," this signals the start of a new account section within the same PDF.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-num">4</span>
+              <div>
+                <h4>Layout Structure Shift</h4>
+                <p>Column structure changes (e.g., switching from a debit/credit layout to a charge/payment layout) indicate a different account type (checking vs. credit card).</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-num">5</span>
+              <div>
+                <h4>Output File Generation</h4>
+                <p>Each detected account gets its own output file, named automatically: e.g., "Chase_Business_Checking_8423.xlsx" and "Chase_Business_Savings_1047.xlsx".</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <h2>Supported Account Types</h2>
-  <table>
-    <thead>
-      <tr><th>Account Type</th><th>Detection Method</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Checking account</td><td>Section header, account type label</td></tr>
-      <tr><td>Savings account</td><td>Section header, account type label</td></tr>
-      <tr><td>Money market account</td><td>Section header, account type label</td></tr>
-      <tr><td>Credit card account</td><td>Section header, card number, different transaction format</td></tr>
-      <tr><td>Line of credit</td><td>Section header, account type label</td></tr>
-      <tr><td>Business vs. personal</td><td>Account number and label differentiation</td></tr>
-    </tbody>
-  </table>
+        <hr class="section-divider">
 
-  <h2>Why This Matters for Reconciliation</h2>
-  <p>When all accounts land in one Excel file without separation, reconciliation against QuickBooks or Xero becomes more complex — you have to manually filter by account before importing. Separate output files per account map directly to separate accounts in your accounting software, which is how imports expect the data to arrive.</p>
+        <!-- Section 2 -->
+        <div id="section-2" style="scroll-margin-top:80px;">
+          <div class="section-num"><span class="num-badge">2</span><h2>Supported Account Types</h2></div>
+          <p style="color:#556677;margin-bottom:16px;">Zera Books classifies and separates the following account types when found in a combined statement.</p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Account Type</th><th>Detection Signal</th><th>Output Columns</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Checking Account</strong></td><td>Header keyword, debit/credit columns, routing/account number</td><td>Date, Description, Debit, Credit, Balance</td></tr>
+              <tr><td><strong>Savings Account</strong></td><td>Header keyword, interest credit patterns, monthly statements</td><td>Date, Description, Deposit, Withdrawal, Balance</td></tr>
+              <tr><td><strong>Money Market Account</strong></td><td>Header keyword, daily balance tables, interest calculation lines</td><td>Date, Description, Deposit, Withdrawal, Balance, Interest</td></tr>
+              <tr><td><strong>Credit Card Account</strong></td><td>Charge/payment column layout, APR disclosure, credit limit line</td><td>Date, Description, Charge, Payment, Balance, Category</td></tr>
+              <tr><td><strong>Line of Credit</strong></td><td>Available credit line, draw/payment columns, interest rate disclosure</td><td>Date, Description, Draw, Payment, Balance</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-  <h2>Multi-Account + Multi-Client</h2>
-  <p>In a firm workflow, a client might have three combined PDFs from three different banks. Each PDF might contain two or three accounts. Zera Books processes all of them in one batch upload, splitting each into individual account files and organizing them under the client folder in the dashboard. No manual file management.</p>
+        <!-- Mid CTA -->
+        <div class="mid-cta">
+          <h3>Upload a Multi-Account Statement — Get Separate Files</h3>
+          <p>Zera Books automatically splits checking, savings, and credit card accounts without any manual work.</p>
+          <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week →</a>
+        </div>
 
-  <p>Full multi-account feature details at <a href="https://www.zerabooks.com/features/multi-account-support">zerabooks.com/features/multi-account-support</a>.</p>
+        <!-- Section 3 -->
+        <div id="section-3" style="scroll-margin-top:80px;">
+          <div class="section-num"><span class="num-badge">3</span><h2>Split Output File Specifications</h2></div>
+          <p style="color:#556677;margin-bottom:20px;">Each detected account produces a separate output file with complete metadata and transaction data for that account only.</p>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h4>File Naming Convention</h4>
+              <p>Files are named: [Bank]_[AccountType]_[Last4Digits].[ext]. Example: TD_BusinessChecking_7823.xlsx. Filename uses underscores, no spaces.</p>
+            </div>
+            <div class="feature-card">
+              <h4>Header Metadata</h4>
+              <p>Each output file includes: Bank Name, Account Type, Account Number (last 4 digits), Statement Period Start, Statement Period End, Opening Balance, Closing Balance.</p>
+            </div>
+            <div class="feature-card">
+              <h4>Transaction Isolation</h4>
+              <p>Only transactions belonging to that specific account are included. No transactions from other accounts appear in the file — boundaries are strictly enforced.</p>
+            </div>
+            <div class="feature-card">
+              <h4>Balance Verification</h4>
+              <p>Running balance column is included and arithmetically verified. The closing balance in the output matches the closing balance in the original statement (or a flag is raised if not).</p>
+            </div>
+            <div class="feature-card">
+              <h4>Format Options</h4>
+              <p>All standard output formats apply to each split file: Excel (.xlsx), CSV, QBO, IIF, Xero import, Sage import. Users select format once and all split files are generated in that format.</p>
+            </div>
+            <div class="feature-card">
+              <h4>Merge Option</h4>
+              <p>After reviewing, users can merge selected split files into a single consolidated export. Merged output includes an "Account" column to identify source account per transaction.</p>
+            </div>
+          </div>
+        </div>
 
-  <h2>Frequently Asked Questions</h2>
+        <hr class="section-divider">
 
-  <div class="faq">
-    <h3>Can Zera Books split a bank statement PDF that contains multiple accounts?</h3>
-    <p>Yes. Zera Books automatically detects account boundaries within a combined PDF statement and outputs each account — checking, savings, credit card — as a separate Excel or CSV file.</p>
+        <!-- Section 4 -->
+        <div id="section-4" style="scroll-margin-top:80px;">
+          <div class="section-num"><span class="num-badge">4</span><h2>Benchmarks &amp; Edge Case Handling</h2></div>
+          <div class="stats-box">
+            <div class="stats-grid">
+              <div class="stat-item"><span class="stat-num">98.4%</span><span class="stat-label">Account boundary detection accuracy</span></div>
+              <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">Account types auto-classified</span></div>
+              <div class="stat-item"><span class="stat-num">&lt;5s</span><span class="stat-label">Additional time for multi-account detection</span></div>
+              <div class="stat-item"><span class="stat-num">50+</span><span class="stat-label">Accounts detected in a single document</span></div>
+            </div>
+          </div>
+
+          <div style="margin-top:28px;">
+            <h3 style="font-size:17px;color:#0A1628;margin-bottom:16px;">Edge Cases Handled</h3>
+            <table class="data-table">
+              <thead><tr><th>Edge Case</th><th>Handling Approach</th></tr></thead>
+              <tbody>
+                <tr><td>Account section with no header</td><td>Detected via balance reset + column structure change. Flag added for user review.</td></tr>
+                <tr><td>Same account number across periods</td><td>Treated as continuation of same account (not split). Period dates updated per section.</td></tr>
+                <tr><td>Account sections without opening balance</td><td>Opening balance inferred from first transaction + closing balance math. Flagged as inferred.</td></tr>
+                <tr><td>Credit card with multiple cardholders</td><td>All transactions included in single credit card file. Cardholder names preserved in description field.</td></tr>
+                <tr><td>Joint account with shared transactions</td><td>All transactions included. Joint account flagged in metadata.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- FAQ -->
+        <div id="faq" style="scroll-margin-top:80px;">
+          <div class="section-num"><span class="num-badge">?</span><h2>Frequently Asked Questions</h2></div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <h4>How does Zera Books detect multiple accounts in one PDF?</h4>
+              <p>Zera Books scans each page for account number changes, account type header transitions (e.g., "Checking Account" to "Savings Account"), and structural layout shifts. When a new account section is detected, the system creates a separate extraction context for that account.</p>
+            </div>
+            <div class="faq-item">
+              <h4>What account types can Zera Books separate?</h4>
+              <p>Zera Books can separate checking accounts, savings accounts, money market accounts, credit card accounts, and line of credit accounts. Each account type is placed in its own output file named with the account type and last 4 digits.</p>
+            </div>
+            <div class="faq-item">
+              <h4>What happens if accounts share the same statement period?</h4>
+              <p>All accounts are extracted with the same statement period dates. Each output file contains the correct open/close balances and transaction list for that specific account. The period dates are not modified.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Can I merge accounts after they are split?</h4>
+              <p>Yes. After reviewing the split files, users can select multiple output files and merge them into a single consolidated export. The merged file includes an Account column to identify which account each transaction belongs to.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-card">
+          <h3>Table of Contents</h3>
+          <a href="#section-1" class="toc-link">1. Detection Methodology</a>
+          <a href="#section-2" class="toc-link">2. Supported Account Types</a>
+          <a href="#section-3" class="toc-link">3. Split Output File Specs</a>
+          <a href="#section-4" class="toc-link">4. Benchmarks &amp; Edge Cases</a>
+          <a href="#faq" class="toc-link">FAQ</a>
+          <div class="sidebar-cta">
+            <p>Upload multi-account statements. Get one file per account automatically.</p>
+            <a href="https://www.zerabooks.com/auth">Try for one week →</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="faq">
-    <h3>How does Zera Books detect multiple accounts in one PDF?</h3>
-    <p>Zera AI identifies account section headers, account numbers, and account type labels within the document. It uses these signals to determine where one account ends and another begins.</p>
+<section class="section section-cream">
+  <div class="inner">
+    <h2 style="font-size:26px;color:#0A1628;margin-bottom:8px;font-family:'Jost',sans-serif;">Related Resources</h2>
+    <p style="color:#556677;margin-bottom:24px;">Explore related Zera Books features and documentation.</p>
+    <div class="related-grid">
+      <a href="/bank-statements/" class="related-card">
+        <div class="tag">Document Type</div>
+        <h4>Bank Statement Processing</h4>
+        <p>Fields extracted, format handling, and output specs for bank statements.</p>
+      </a>
+      <a href="/bank-reconciliation/" class="related-card">
+        <div class="tag">Workflow</div>
+        <h4>Bank Reconciliation Reference</h4>
+        <p>95%+ auto-match rate, exception flagging methodology, and reconciliation workflow.</p>
+      </a>
+      <a href="/zera-ai/" class="related-card">
+        <div class="tag">AI Engine</div>
+        <h4>Zera AI Reference</h4>
+        <p>Training corpus, accuracy methodology, and format adaptation specs.</p>
+      </a>
+      <a href="https://www.zerabooks.com/converters" class="related-card">
+        <div class="tag">Converters</div>
+        <h4>Converter Directory</h4>
+        <p>Bank-specific conversion guides and format support documentation.</p>
+      </a>
+    </div>
   </div>
+</section>
 
-  <div class="faq">
-    <h3>What account types does multi-account detection support?</h3>
-    <p>Zera Books detects and separates checking accounts, savings accounts, money market accounts, credit card accounts, and line of credit accounts from combined PDF statements.</p>
+<section class="section section-dark">
+  <svg class="bg-shape" viewBox="0 0 600 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="ctag" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0.3"/></linearGradient></defs>
+    <polygon points="600,0 600,500 0,500" fill="url(#ctag)"/>
+  </svg>
+  <div class="inner final-cta">
+    <h2>Stop Splitting Statements Manually</h2>
+    <p>Upload any combined bank statement and Zera Books automatically separates each account into its own clean output file.</p>
+    <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week →</a>
   </div>
+</section>
 
-  <footer>
-    <p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p>
-  </footer>
+<footer class="site-footer">
+  Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals ·
+  <a href="https://www.zerabooks.com/features/multi-account-support">Multi-Account Feature</a> ·
+  <a href="https://www.zerabooks.com/blog">Blog</a> ·
+  <a href="/">All Resources</a>
+</footer>
+
 </body>
 </html>

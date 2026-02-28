@@ -3,117 +3,449 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Excel to QuickBooks Bank Import Guide | Zera Books Resources</title>
-  <meta name="description" content="How to import Excel bank data into QuickBooks. Convert XLSX to CSV correctly, fix date and currency formatting, and avoid the most common QuickBooks import errors.">
+  <title>Excel to QuickBooks: Import Excel Bank Statements into QBO | Zera Books</title>
+  <meta name="description" content="How to import Excel bank statements into QuickBooks Online. Convert .xlsx to CSV, correct column format, date requirements, and step-by-step Banking tab import instructions.">
   <link rel="canonical" href="https://zerabooks.github.io/import/excel-to-quickbooks/">
-  <meta property="og:title" content="Excel to QuickBooks Bank Import Guide">
-  <meta property="og:description" content="How to import Excel bank data into QuickBooks. Convert XLSX to CSV correctly and fix date and currency formatting issues.">
-  <meta property="og:type" content="article">
+  <meta property="og:title" content="Excel to QuickBooks: Import Excel Bank Statements into QBO">
+  <meta property="og:description" content="Step-by-step guide to importing Excel bank statements into QuickBooks Online — convert XLSX to CSV, Banking tab upload, column mapping.">
   <meta property="og:url" content="https://zerabooks.github.io/import/excel-to-quickbooks/">
-  <meta property="og:site_name" content="Zera Books Resources">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebPage", "name": "Excel to QuickBooks Bank Import Guide", "description": "How to import Excel bank data into QuickBooks.", "url": "https://zerabooks.github.io/import/excel-to-quickbooks/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Excel to QuickBooks: Import Excel Bank Statements into QBO",
+    "description": "Step-by-step guide to importing Excel bank statements into QuickBooks Online via the Banking tab.",
+    "url": "https://zerabooks.github.io/import/excel-to-quickbooks/",
+    "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com/" },
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-06-01"
+  }
   </script>
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-    { "@type": "Question", "name": "Can QuickBooks import Excel files directly?", "acceptedAnswer": { "@type": "Answer", "text": "No. QuickBooks Online does not accept XLSX files. You must save the Excel file as CSV first (File > Save As > CSV Comma delimited), then upload the CSV through QuickBooks Banking > Upload transactions." } },
-    { "@type": "Question", "name": "Why do my Excel dates look wrong after importing to QuickBooks?", "acceptedAnswer": { "@type": "Answer", "text": "Excel stores dates as serial numbers internally. When you save as CSV, dates are written as text in whatever format Excel displays them. If Excel shows 15-Jan-25 instead of 01/15/2025, QuickBooks may reject or misread the date. Format the date column as MM/DD/YYYY before saving as CSV." } },
-    { "@type": "Question", "name": "How do I remove currency formatting from Excel before QuickBooks import?", "acceptedAnswer": { "@type": "Answer", "text": "Select the Amount column, press Ctrl+1 to open Format Cells, choose Number with 2 decimal places (no currency symbol), then save as CSV. Alternatively use a formula like =VALUE(SUBSTITUTE(A2,\"$\",\"\")) to strip the symbol." } }
-  ] }
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can QuickBooks Online import Excel (.xlsx) files directly?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. QuickBooks Online does not accept .xlsx files directly. You must save your Excel file as CSV first: File > Save As > CSV (Comma delimited). Then import the CSV file through the Banking tab." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert an Excel bank statement to QuickBooks format?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open your Excel file, ensure it has Date, Description, and Amount columns, then save as CSV (File > Save As > CSV Comma delimited). If your bank statement Excel file has multiple sheets or header rows, clean those up first. Then import the CSV via Banking > Banking tab > upload icon in QuickBooks Online." }
+      },
+      {
+        "@type": "Question",
+        "name": "What Excel column format does QuickBooks Online require?",
+        "acceptedAnswer": { "@type": "Answer", "text": "QuickBooks Online requires Date, Description, and Amount columns. Amount can be a single signed column (negative for debits) or separate Debit and Credit columns. Remove any merged cells, formulas, and header rows beyond the first column header row before saving as CSV." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Zera Books convert Excel bank statements to QuickBooks format?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Zera Books accepts Excel files and PDF bank statements, converts them to QuickBooks-compatible CSV format, and optionally pre-categorizes transactions using AI. The output is ready for direct Banking tab import into QuickBooks Online." }
+      }
+    ]
+  }
   </script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.9em; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: #1a2332; line-height: 1.7; background: #fff; }
+    h1,h2,h3,h4 { font-family: 'Jost', sans-serif; font-weight: 700; line-height: 1.2; }
+    a { color: #00D4AA; text-decoration: none; } a:hover { text-decoration: underline; }
+    .nav { background: #0A1628; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 1.25rem; color: #fff; }
+    .nav-logo span { color: #00D4AA; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: #94a3b8; font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover { color: #fff; text-decoration: none; }
+    .nav-cta { background: #00D4AA; color: #0A1628 !important; padding: 8px 20px; border-radius: 6px; font-weight: 600 !important; }
+    .hero { background: #0A1628; padding: 64px 24px 56px; position: relative; overflow: hidden; }
+    .hero-svg { position: absolute; bottom: 0; right: 0; width: 500px; height: 300px; pointer-events: none; }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; gap: 8px; align-items: center; margin-bottom: 20px; font-size: 0.8rem; color: #64748b; flex-wrap: wrap; }
+    .breadcrumb a { color: #64748b; } .breadcrumb a:hover { color: #00D4AA; text-decoration: none; } .breadcrumb span { color: #475569; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,212,170,0.15); border: 1px solid rgba(0,212,170,0.3); color: #00D4AA; padding: 6px 14px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 18px; }
+    .hero p { font-size: 1.05rem; color: #94a3b8; max-width: 640px; margin-bottom: 28px; }
+    .hero-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+    .hero-meta span { font-size: 0.8rem; color: #64748b; } .hero-meta strong { color: #94a3b8; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #00D4AA; color: #0A1628; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; font-family: 'Jost', sans-serif; }
+    .btn-primary:hover { background: #00E5B8; text-decoration: none; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #94a3b8; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; border: 1px solid #334155; }
+    .btn-secondary:hover { color: #fff; border-color: #64748b; text-decoration: none; }
+    .tldr { background: #fff; padding: 48px 24px; }
+    .tldr-inner { max-width: 900px; margin: 0 auto; }
+    .tldr-box { background: rgba(0,212,170,0.05); border: 1px solid rgba(0,212,170,0.2); border-radius: 12px; padding: 28px 32px; }
+    .tldr-box h2 { font-size: 1.1rem; color: #0A1628; margin-bottom: 16px; }
+    .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tldr-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; }
+    .tldr-item .icon { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; font-size: 0.7rem; font-weight: 700; }
+    .icon-check { background: #00D4AA; color: #0A1628; } .icon-x { background: #ef4444; color: #fff; }
+    .main-content { background: #fff; padding: 0 24px 64px; }
+    .main-inner { max-width: 900px; margin: 0 auto; }
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+    .article-body { min-width: 0; }
+    .sidebar { position: sticky; top: 24px; }
+    .toc-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; }
+    .toc-card h3 { font-size: 0.9rem; color: #0A1628; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a { font-size: 0.85rem; color: #64748b; padding: 6px 10px; border-radius: 6px; display: block; }
+    .toc-list a:hover { background: #F5FFFC; color: #00D4AA; text-decoration: none; }
+    .sidebar-cta { margin-top: 20px; background: #0A1628; border-radius: 12px; padding: 24px; text-align: center; }
+    .sidebar-cta h4 { font-size: 1rem; color: #fff; margin-bottom: 8px; }
+    .sidebar-cta p { font-size: 0.8rem; color: #94a3b8; margin-bottom: 16px; }
+    .sidebar-cta a { display: block; background: #00D4AA; color: #0A1628; padding: 10px; border-radius: 8px; font-weight: 700; font-size: 0.875rem; }
+    .sidebar-cta a:hover { background: #00E5B8; text-decoration: none; }
+    .section { margin-bottom: 48px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .section-num { width: 32px; height: 32px; background: #00D4AA; color: #0A1628; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.875rem; font-family: 'Jost', sans-serif; flex-shrink: 0; }
+    .section h2 { font-size: 1.5rem; color: #0A1628; }
+    .section p { color: #475569; margin-bottom: 16px; }
+    .section ul { color: #475569; padding-left: 20px; margin-bottom: 16px; }
+    .section li { margin-bottom: 8px; }
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 10px; border: 1px solid #e2e8f0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    thead { background: #0A1628; }
+    thead th { color: #fff; padding: 12px 16px; text-align: left; font-family: 'Jost', sans-serif; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #F5FFFC; } tbody tr:nth-child(odd) { background: #fff; }
+    tbody td { padding: 11px 16px; color: #374151; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; font-family: monospace; color: #0A1628; }
+    .steps { display: flex; flex-direction: column; gap: 16px; margin: 20px 0; }
+    .step { display: flex; gap: 16px; align-items: flex-start; }
+    .step-num { width: 36px; height: 36px; background: #00D4AA; color: #0A1628; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; font-family: 'Jost', sans-serif; flex-shrink: 0; }
+    .step-body h4 { font-size: 0.95rem; color: #0A1628; font-family: 'Jost', sans-serif; font-weight: 600; margin-bottom: 4px; }
+    .step-body p { font-size: 0.875rem; color: #64748b; }
+    .mid-cta { background: #0A1628; border-radius: 12px; padding: 32px; margin: 40px 0; position: relative; overflow: hidden; }
+    .mid-cta-svg { position: absolute; bottom: 0; right: 0; opacity: 0.4; pointer-events: none; }
+    .mid-cta h3 { font-size: 1.3rem; color: #fff; margin-bottom: 8px; position: relative; z-index: 1; }
+    .mid-cta p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; position: relative; z-index: 1; }
+    .mid-cta a { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; background: #00D4AA; color: #0A1628; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; font-family: 'Jost', sans-serif; }
+    .mid-cta a:hover { background: #00E5B8; text-decoration: none; }
+    .notice { background: rgba(0,212,170,0.08); border-left: 3px solid #00D4AA; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; font-size: 0.875rem; color: #374151; }
+    .faq-section { background: #F5FFFC; padding: 64px 24px; }
+    .faq-inner { max-width: 900px; margin: 0 auto; }
+    .faq-section h2 { font-size: 1.8rem; color: #0A1628; margin-bottom: 32px; text-align: center; }
+    .faq-list { display: flex; flex-direction: column; gap: 16px; }
+    .faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 24px; }
+    .faq-item h3 { font-size: 1rem; color: #0A1628; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.9rem; color: #64748b; }
+    .related { background: #fff; padding: 64px 24px; }
+    .related-inner { max-width: 900px; margin: 0 auto; }
+    .related h2 { font-size: 1.5rem; color: #0A1628; margin-bottom: 24px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .related-card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; }
+    .related-card h4 { font-size: 0.9rem; color: #0A1628; margin-bottom: 6px; }
+    .related-card p { font-size: 0.8rem; color: #64748b; margin-bottom: 12px; }
+    .related-card a { font-size: 0.8rem; color: #00D4AA; font-weight: 600; }
+    .final-cta { background: #0A1628; padding: 72px 24px; position: relative; overflow: hidden; text-align: center; }
+    .final-cta-svg { position: absolute; bottom: 0; right: 0; pointer-events: none; }
+    .final-cta h2 { font-size: clamp(1.5rem, 3vw, 2rem); color: #fff; margin-bottom: 12px; position: relative; z-index: 1; }
+    .final-cta p { color: #94a3b8; margin-bottom: 28px; position: relative; z-index: 1; }
+    .final-cta a { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; background: #00D4AA; color: #0A1628; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 1rem; font-family: 'Jost', sans-serif; }
+    .final-cta a:hover { background: #00E5B8; text-decoration: none; }
+    .footer { background: #0A1628; border-top: 1px solid #1e3a5f; padding: 24px; text-align: center; }
+    .footer p { color: #475569; font-size: 0.8rem; }
+    .footer a { color: #64748b; } .footer a:hover { color: #00D4AA; }
+    @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    @media (max-width: 768px) { .tldr-grid { grid-template-columns: 1fr; } .hero-actions { flex-direction: column; } }
+    @media (max-width: 480px) { .nav-links { display: none; } }
   </style>
 </head>
 <body>
 
-<h1>Excel to QuickBooks: Import Guide for Bank Transactions</h1>
+<nav class="nav">
+  <div class="nav-logo">Zera<span>Books</span></div>
+  <ul class="nav-links">
+    <li><a href="/import/">Import Guides</a></li>
+    <li><a href="/converters/">Converters</a></li>
+    <li><a href="/banks/">Banks</a></li>
+    <li><a href="https://www.zerabooks.com/auth" class="nav-cta">Try for one week</a></li>
+  </ul>
+</nav>
 
-<p>QuickBooks does not accept XLSX files. If you have bank transaction data in Excel — from a bank export, a reconciliation spreadsheet, or a client-provided file — you need to convert it to CSV with the right formatting before QuickBooks will accept it.</p>
+<section class="hero">
+  <svg class="hero-svg" viewBox="0 0 500 300" preserveAspectRatio="none">
+    <defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs>
+    <polygon points="500,0 500,300 0,300" fill="url(#hg)"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/import/">Import Guides</a><span>›</span>
+      <span>Excel to QuickBooks</span>
+    </div>
+    <div class="hero-badge">&#9432; Import Guide</div>
+    <h1>Excel to QuickBooks: Import Excel Bank Statements into QBO</h1>
+    <p>How to convert Excel bank statements to QuickBooks Online format &#8212; the XLSX to CSV conversion step, correct column structure, date formats, and the Banking tab upload process.</p>
+    <div class="hero-meta">
+      <span><strong>Updated:</strong> June 2025</span>
+      <span><strong>Read time:</strong> 6 min</span>
+      <span><strong>Works with:</strong> QuickBooks Online, Excel / Google Sheets</span>
+    </div>
+    <div class="hero-actions">
+      <a href="https://www.zerabooks.com/auth" class="btn-primary">Try Zera Books Free &#8250;</a>
+      <a href="https://www.zerabooks.com/import/excel-to-quickbooks" class="btn-secondary">Full Excel Import Guide &#8250;</a>
+    </div>
+  </div>
+</section>
 
-<div class="callout">
-  <strong>Faster path:</strong> If the Excel data originated from a PDF bank statement, <a href="https://www.zerabooks.com/import/excel-to-quickbooks">Zera Books</a> processes the original PDF directly and exports a QuickBooks-ready QBO or CSV — skipping the Excel conversion step entirely.
+<div class="tldr">
+  <div class="tldr-inner">
+    <div class="tldr-box">
+      <h2>&#9889; TL;DR &#8212; Excel to QuickBooks Online</h2>
+      <div class="tldr-grid">
+        <div class="tldr-item"><span class="icon icon-check">&#10003;</span><span>QBO does not accept .xlsx &#8212; save as CSV first (File &#8250; Save As &#8250; CSV)</span></div>
+        <div class="tldr-item"><span class="icon icon-check">&#10003;</span><span>Required columns: Date, Description, Amount (or separate Debit + Credit)</span></div>
+        <div class="tldr-item"><span class="icon icon-check">&#10003;</span><span>Remove merged cells, formulas, and extra header rows before saving as CSV</span></div>
+        <div class="tldr-item"><span class="icon icon-check">&#10003;</span><span>Import via Banking tab &#8250; select account &#8250; upload icon &#8250; map columns</span></div>
+        <div class="tldr-item"><span class="icon icon-x">&#10007;</span><span>Multiple Excel sheets don't export to CSV &#8212; each sheet must be saved separately</span></div>
+        <div class="tldr-item"><span class="icon icon-x">&#10007;</span><span>Excel date serial numbers (e.g., 45307) aren't valid &#8212; format as MM/DD/YYYY first</span></div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<h2>Step 1: Clean the Excel File</h2>
+<section class="main-content">
+  <div class="main-inner">
+    <div class="content-grid">
+      <article class="article-body">
 
-<p>Before converting to CSV, clean the Excel file:</p>
+        <div class="section" id="s1">
+          <div class="section-header">
+            <div class="section-num">1</div>
+            <h2>Why QBO Doesn't Accept .xlsx Directly</h2>
+          </div>
+          <p>QuickBooks Online's Banking tab only accepts CSV files for transaction import. Excel's .xlsx format contains formatting, formulas, multiple sheets, and metadata that the QBO import engine can't parse.</p>
+          <p>The fix is straightforward: save your Excel file as a CSV before importing. But there are several common Excel pitfalls that cause the CSV import to fail even after conversion.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Excel Issue</th><th>What Happens in QBO</th><th>Fix Before Saving CSV</th></tr></thead>
+              <tbody>
+                <tr><td>Merged cells in header row</td><td>QBO reads merged cell as blank column</td><td>Unmerge all cells; give each column a clear header</td></tr>
+                <tr><td>Date stored as Excel serial number</td><td>QBO sees a 5-digit number, not a date</td><td>Format the date column as MM/DD/YYYY text before saving</td></tr>
+                <tr><td>Amount column contains formulas</td><td>CSV exports formula result correctly, but sometimes fails</td><td>Copy &#8250; Paste Special &#8250; Values Only to convert formulas to static values</td></tr>
+                <tr><td>Currency-formatted amounts ($1,250.00)</td><td>QBO reads as text, shows amount as 0</td><td>Remove $ and , characters; use plain decimals (1250.00)</td></tr>
+                <tr><td>Multiple sheets in workbook</td><td>CSV only exports the active sheet</td><td>One sheet at a time &#8212; save each account's transactions as separate CSV files</td></tr>
+                <tr><td>Extra rows above column headers</td><td>QBO tries to map report title row as column header</td><td>Delete all rows above the column header row</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-<ol>
-  <li><strong>Remove summary rows:</strong> Delete opening/closing balance rows, total rows, and blank spacer rows</li>
-  <li><strong>Remove extra columns:</strong> Keep only Date, Description, and Amount (or Debit/Credit). Extra columns like Running Balance will confuse QuickBooks' column mapper</li>
-  <li><strong>Fix date format:</strong> Select the date column &gt; Format Cells &gt; Custom &gt; enter <code>mm/dd/yyyy</code></li>
-  <li><strong>Fix amount format:</strong> Select amount cells &gt; Format Cells &gt; Number &gt; 2 decimal places (uncheck "Use 1000 separator")</li>
-  <li><strong>Check negative signs:</strong> Withdrawals must be negative. If your bank export shows debits as positive, multiply the column by -1 for debits</li>
-</ol>
+        <div class="section" id="s2">
+          <div class="section-header">
+            <div class="section-num">2</div>
+            <h2>Preparing Your Excel File for QBO Import</h2>
+          </div>
+          <p>Before saving as CSV, clean your Excel file to avoid the common errors above:</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>Delete Rows Above Column Headers</h4>
+                <p>Bank statement Excel exports often include 3-5 header rows (account name, date range, etc.) above the actual column headers. Delete all of these so row 1 is your column header row (Date, Description, Amount, etc.).</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>Fix Date Formatting</h4>
+                <p>Select the date column &#8250; Format Cells &#8250; Custom &#8250; type <code>MM/DD/YYYY</code>. Verify dates display as 01/15/2025, not as 5-digit serial numbers. If dates show as serial numbers after CSV save, convert them to text first.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>Clean Amount Columns</h4>
+                <p>Remove $ signs and comma separators from amounts. Select the Amount column &#8250; Find &amp; Replace &#8250; replace "$" with "" and "," with "". Ensure negative numbers use a minus sign, not parentheses: -500.00 not (500.00).</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>Save as CSV</h4>
+                <p>File &#8250; Save As &#8250; choose <strong>CSV (Comma delimited) (*.csv)</strong>. Excel will warn that only the active sheet will be saved &#8212; click OK. You now have a CSV ready for QBO import.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<h2>Step 2: Save as CSV</h2>
+        <div class="mid-cta">
+          <svg class="mid-cta-svg" width="200" height="120" viewBox="0 0 200 120">
+            <defs><linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs>
+            <polygon points="200,0 200,120 0,120" fill="url(#mg)"/>
+          </svg>
+          <h3>Skip the Excel Cleanup</h3>
+          <p>Zera Books accepts Excel and PDF bank statements and converts them directly to QuickBooks-ready CSV &#8212; no manual cell formatting, no formula cleanup, no date reformatting.</p>
+          <a href="https://www.zerabooks.com/auth">Try Zera Books Free &#8250;</a>
+        </div>
 
-<ol>
-  <li>Go to <strong>File</strong> &gt; <strong>Save As</strong></li>
-  <li>Change "Save as type" to <strong>CSV (Comma delimited)</strong></li>
-  <li>Click <strong>Save</strong> — Excel will warn about formatting loss, click Yes</li>
-  <li>Open the CSV in Notepad to verify the output looks correct</li>
-</ol>
+        <div class="section" id="s3">
+          <div class="section-header">
+            <div class="section-num">3</div>
+            <h2>Step-by-Step: Import CSV into QuickBooks Online</h2>
+          </div>
+          <p>Once your Excel file has been saved as a clean CSV:</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>Open Banking Tab in QBO</h4>
+                <p>Click <strong>Banking</strong> in the left sidebar. Ensure you're on the <strong>Banking</strong> tab (not Rules or Receipts).</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>Select Account and Click Upload</h4>
+                <p>Click the bank account tile, then click the upload/cloud icon. Choose <strong>Upload from file</strong> and browse to your CSV file.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>Map Column Headers</h4>
+                <p>QBO displays your CSV column headers and asks you to map each one to: Date, Description, Amount (or Debit/Credit). Select the date format that matches your CSV. Click <strong>Next</strong>.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>Review and Finish</h4>
+                <p>Review the transaction preview. Transactions appear in <strong>For Review</strong> after you click <strong>Finish import</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<h2>Common Excel-Specific Issues</h2>
+        <div class="section" id="s4">
+          <div class="section-header">
+            <div class="section-num">4</div>
+            <h2>When to Use Zera Books Instead of Manual Conversion</h2>
+          </div>
+          <p>The manual Excel-to-CSV workflow works for occasional imports with clean Excel files. But it breaks down in several common scenarios:</p>
+          <ul>
+            <li><strong>Scanned bank statements saved as .xlsx:</strong> OCR-based Excel files often have irregular layouts that require extensive cleanup</li>
+            <li><strong>Bank statements with merged headers:</strong> Some banks export Excel files with multi-row merged headers that require tedious unmerging</li>
+            <li><strong>Multi-account workbooks:</strong> If your bank exports all accounts in one Excel file (multiple sheets), you need to process each sheet separately</li>
+            <li><strong>High volume:</strong> Manually cleaning 12 months of statements across 20 clients is not practical</li>
+          </ul>
+          <p><a href="https://www.zerabooks.com/import/excel-to-quickbooks" rel="dofollow">Zera Books handles all these cases</a> &#8212; it accepts both Excel (.xlsx) and PDF bank statements, processes them through AI extraction, and outputs clean QuickBooks-compatible CSV files with pre-categorized transactions. $79/month unlimited processing for all clients.</p>
+        </div>
 
-<table>
-  <thead><tr><th>Problem</th><th>Cause</th><th>Fix</th></tr></thead>
-  <tbody>
-    <tr><td>Dates show as numbers (e.g., 45672)</td><td>Excel serial date not formatted</td><td>Format column as date MM/DD/YYYY before saving as CSV</td></tr>
-    <tr><td>Amounts show as $1,234.56</td><td>Currency formatting in CSV</td><td>Change to Number format (no symbol, no comma separator)</td></tr>
-    <tr><td>Amounts in parentheses (1,234.56)</td><td>Accounting number format</td><td>Change to Number format with negative sign</td></tr>
-    <tr><td>Blank rows imported as $0 transactions</td><td>Empty rows in data range</td><td>Delete all blank rows before saving</td></tr>
-  </tbody>
-</table>
+        <div class="section" id="s5">
+          <div class="section-header">
+            <div class="section-num">5</div>
+            <h2>Common Errors After Excel-to-CSV Conversion</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Error in QBO</th><th>Root Cause in Excel</th><th>Fix</th></tr></thead>
+              <tbody>
+                <tr><td>Amounts show as 0 or text</td><td>Amounts formatted as currency with $ and commas</td><td>Strip $ and , before saving; use plain 1250.00 format</td></tr>
+                <tr><td>Dates don't parse</td><td>Dates saved as Excel serial numbers (e.g., 45307)</td><td>Format date column as MM/DD/YYYY, copy-paste as values, then save CSV</td></tr>
+                <tr><td>Wrong column mapped</td><td>Column headers include spaces or special characters</td><td>Rename headers to simple words (Date, Amount, Description) before saving</td></tr>
+                <tr><td>First row treated as data, not header</td><td>Extra blank row above header in Excel</td><td>Delete all blank rows above the column header row</td></tr>
+                <tr><td>Negative amounts not recognized</td><td>Excel uses parentheses for negatives: (500.00)</td><td>Replace (500.00) with -500.00 using Find &amp; Replace</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-<h2>Step 3: Import into QuickBooks</h2>
+      </article>
 
-<ol>
-  <li>In QuickBooks Online, go to <strong>Banking</strong> &gt; <strong>Upload transactions</strong></li>
-  <li>Select the CSV file you saved</li>
-  <li>Map columns: Date, Description, Amount</li>
-  <li>Confirm date format matches your QuickBooks region</li>
-  <li>Review the preview and click <strong>Next</strong> to import</li>
-</ol>
+      <aside class="sidebar">
+        <div class="toc-card">
+          <h3>Contents</h3>
+          <ul class="toc-list">
+            <li><a href="#s1">1. Why QBO Rejects .xlsx</a></li>
+            <li><a href="#s2">2. Preparing Excel for CSV</a></li>
+            <li><a href="#s3">3. Banking Tab Import Steps</a></li>
+            <li><a href="#s4">4. When to Use Zera Books</a></li>
+            <li><a href="#s5">5. Common Errors After Conversion</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-cta">
+          <h4>Excel + PDF to QBO CSV</h4>
+          <p>Skip manual formatting &#8212; Zera Books handles both Excel and PDF input.</p>
+          <a href="https://www.zerabooks.com/auth">Try Zera Books &#8250;</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
-<div class="callout">
-  For accounting firms processing multiple clients' Excel exports, <a href="https://www.zerabooks.com/import/excel-to-quickbooks">Zera Books</a> handles batch conversion with AI categorization — transactions arrive in QuickBooks already coded, reducing review time significantly.
-</div>
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Can QuickBooks Online import Excel (.xlsx) files directly?</h3>
+        <p>No. QuickBooks Online does not accept .xlsx files. You must save your Excel file as CSV first: File &#8250; Save As &#8250; CSV (Comma delimited). Then import the CSV file through the Banking tab upload wizard.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I convert an Excel bank statement to QuickBooks format?</h3>
+        <p>Open your Excel file, ensure it has Date, Description, and Amount columns, delete any rows above the column headers, remove currency formatting from amounts, then save as CSV. Import the CSV via Banking &#8250; Banking tab &#8250; upload icon in QuickBooks Online.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What Excel column format does QuickBooks Online require?</h3>
+        <p>QuickBooks Online requires Date, Description, and Amount columns. Amount can be a single signed column (negative for debits) or separate Debit and Credit columns. Remove merged cells, formulas, and header rows above the column header row before saving as CSV.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can Zera Books convert Excel bank statements to QuickBooks format?</h3>
+        <p>Yes. Zera Books accepts Excel files (.xlsx) and PDF bank statements, converts them to QuickBooks-compatible CSV, and optionally pre-categorizes transactions using AI. The output is ready for direct Banking tab import into QuickBooks Online.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="faq">
-  <h3>Frequently Asked Questions</h3>
+<section class="related">
+  <div class="related-inner">
+    <h2>Related Import Guides</h2>
+    <div class="related-grid">
+      <div class="related-card">
+        <h4>CSV to QuickBooks</h4>
+        <p>Import CSV bank statements directly into QuickBooks Online.</p>
+        <a href="/import/csv-to-quickbooks/">Read guide &#8250;</a>
+      </div>
+      <div class="related-card">
+        <h4>PDF to QuickBooks</h4>
+        <p>Convert PDF bank statements to QuickBooks-ready format.</p>
+        <a href="/import/pdf-to-quickbooks/">Read guide &#8250;</a>
+      </div>
+      <div class="related-card">
+        <h4>Excel to Xero</h4>
+        <p>Import Excel bank statements into Xero with correct column format.</p>
+        <a href="/import/excel-to-xero/">Read guide &#8250;</a>
+      </div>
+      <div class="related-card">
+        <h4>PDF to Excel Converter</h4>
+        <p>Convert bank statement PDFs to structured Excel files.</p>
+        <a href="https://www.zerabooks.com/features/pdf-to-excel-converter" rel="dofollow">Learn more &#8250;</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h3>Can QuickBooks import Excel files directly?</h3>
-  <p>No. QuickBooks Online does not accept XLSX files. You must save the Excel file as CSV first (File &gt; Save As &gt; CSV Comma delimited), then upload the CSV through QuickBooks Banking &gt; Upload transactions.</p>
+<section class="final-cta">
+  <svg class="final-cta-svg" width="500" height="300" viewBox="0 0 500 300">
+    <defs><linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs>
+    <polygon points="500,0 500,300 0,300" fill="url(#fg)"/>
+  </svg>
+  <h2>Convert Excel and PDF Bank Statements to QuickBooks CSV</h2>
+  <p>Zera Books accepts Excel and PDF input, cleans up formatting automatically, and outputs QuickBooks-ready CSV &#8212; pre-categorized, correctly formatted, no manual cleanup.</p>
+  <a href="https://www.zerabooks.com/auth">Try for one week &#8250;</a>
+</section>
 
-  <h3>Why do my Excel dates look wrong after importing to QuickBooks?</h3>
-  <p>Excel stores dates as serial numbers internally. When you save as CSV, dates are written as text in whatever format Excel displays them. If Excel shows 15-Jan-25 instead of 01/15/2025, QuickBooks may reject or misread the date. Format the date column as MM/DD/YYYY before saving as CSV.</p>
+<footer class="footer">
+  <p>&copy; 2025 <a href="https://www.zerabooks.com/">Zera Books</a>. QuickBooks is a trademark of Intuit Inc. <a href="/import/">Import Guides</a> &middot; <a href="/converters/">Converters</a> &middot; <a href="https://www.zerabooks.com/guides">Guides</a></p>
+</footer>
 
-  <h3>How do I remove currency formatting from Excel before QuickBooks import?</h3>
-  <p>Select the Amount column, press Ctrl+1 to open Format Cells, choose Number with 2 decimal places (no currency symbol), then save as CSV. Alternatively use a formula like =VALUE(SUBSTITUTE(A2,"$","")) to strip the symbol.</p>
-</div>
-
-<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
 </body>
 </html>

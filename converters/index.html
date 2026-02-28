@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>File Format Converter Directory for Accountants | Zera Books Resources</title>
-  <meta name="description" content="Directory of PDF, CSV, QBO, QIF, OFX, and IIF conversion tools for accountants. Covers bank statement, invoice, and financial document formats.">
-  <link rel="canonical" href="https://zerabooks.github.io/converters/">
-  <meta property="og:title" content="File Format Converter Directory for Accountants">
-  <meta property="og:description" content="Directory of PDF, CSV, QBO, QIF, OFX, and IIF conversion tools for accountants. Covers bank statement, invoice, and financial document formats.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://zerabooks.github.io/converters/">
-  <meta property="og:site_name" content="Zera Books Resources">
+  <title>Bank Statement Converters: Excel, CSV, QBO, IIF Formats | Zera Books</title>
+  <meta name="description" content="Complete guide to bank statement converter output formats. Compare Excel, CSV, QBO, IIF, and accounting software exports. Find the right converter for your workflow.">
+  <link rel="canonical" href="https://www.zerabooks.com/converters">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "File Format Converter Directory for Accountants",
-    "description": "Directory of PDF, CSV, QBO, QIF, OFX, and IIF conversion tools for accountants.",
-    "url": "https://zerabooks.github.io/converters/",
-    "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" }
+    "name": "Bank Statement Converters: Output Format Guide",
+    "description": "Complete guide to bank statement converter output formats — Excel, CSV, QBO, IIF, and direct accounting software exports.",
+    "url": "https://www.zerabooks.com/converters",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Zera Books",
+      "url": "https://www.zerabooks.com/"
+    },
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-02-28"
   }
   </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,110 +33,641 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the difference between QBO, QIF, and OFX formats?",
-        "acceptedAnswer": { "@type": "Answer", "text": "QBO (QuickBooks Online format) is a proprietary Intuit format for direct bank feed import. QIF is an older format still supported by desktop QuickBooks. OFX is an open standard supported by QuickBooks, Xero, and most other accounting platforms." }
+        "name": "What is the best output format for bank statement conversion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "QBO format is best for QuickBooks users as it imports directly without mapping. CSV and Excel are best for manual review or custom workflows. IIF works for older QuickBooks desktop versions. Choose based on your accounting software."
+        }
       },
       {
         "@type": "Question",
-        "name": "Can I convert a PDF invoice to CSV?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI invoice processors like Zera Books extract line items, dates, vendor names, and totals from PDF invoices and export them to CSV or Excel, preserving all structured data from the original document." }
+        "name": "Can I convert bank statements to multiple formats at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zera Books exports to all formats simultaneously — Excel, CSV, QBO, and IIF — from a single conversion. You don't need to run the conversion multiple times for different formats."
+        }
       },
       {
         "@type": "Question",
-        "name": "What output formats does Zera Books support?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Zera Books exports to Excel (XLSX), CSV, QBO, and IIF. It also produces pre-formatted files for Xero, Sage, Wave, Zoho, NetSuite, FreshBooks, MYOB, and Oracle." }
+        "name": "What is QBO format and why do accountants prefer it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "QBO (QuickBooks Online) is a proprietary format that maps transactions directly to QuickBooks chart of accounts. It eliminates manual import mapping, reduces errors, and preserves transaction metadata like payee names and memo fields."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does converter output include transaction categorization?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zera Books adds AI-generated category suggestions to every output format. Excel and CSV files include a 'Category' column. QBO and IIF files include account assignments based on your chart of accounts."
+        }
       }
     ]
   }
   </script>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: #1a2533; line-height: 1.6; background: #fff; }
+    h1,h2,h3,h4 { font-family: 'Jost', sans-serif; font-weight: 700; }
+    a { color: #00D4AA; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    .nav { background: #0A1628; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 1.25rem; color: #fff; }
+    .nav-brand span { color: #00D4AA; }
+    .nav-cta { background: #00D4AA; color: #0A1628; padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 0.875rem; }
+    .nav-cta:hover { background: #00E5B8; text-decoration: none; }
+
+    /* HERO */
+    .hero { background: #0A1628; padding: 64px 24px 56px; position: relative; overflow: hidden; }
+    .hero-svg { position: absolute; bottom: 0; right: 0; opacity: 1; pointer-events: none; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #8899aa; margin-bottom: 20px; flex-wrap: wrap; }
+    .breadcrumb a { color: #8899aa; }
+    .breadcrumb a:hover { color: #00D4AA; }
+    .breadcrumb span { color: #00D4AA; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,212,170,0.15); color: #00D4AA; border: 1px solid rgba(0,212,170,0.3); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; line-height: 1.2; margin-bottom: 18px; }
+    .hero h1 em { color: #00D4AA; font-style: normal; }
+    .hero-desc { font-size: 1.05rem; color: #aab8c8; max-width: 700px; margin-bottom: 28px; }
+    .trust-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #8899aa; }
+    .trust-item .stars { color: #00D4AA; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #00D4AA; color: #0A1628; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 1rem; }
+    .btn-primary:hover { background: #00E5B8; text-decoration: none; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 1rem; }
+    .btn-secondary:hover { border-color: #00D4AA; color: #00D4AA; text-decoration: none; }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 64px 24px; }
+    .section-white { background: #fff; }
+    .section-cream { background: #F5FFFC; }
+    .section-dark { background: #0A1628; }
+
+    /* TLDR */
+    .tldr { background: rgba(0,212,170,0.06); border: 1px solid rgba(0,212,170,0.25); border-radius: 14px; padding: 28px 32px; margin-bottom: 48px; }
+    .tldr h3 { font-size: 1rem; color: #00D4AA; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .tldr-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; color: #334; }
+    .check { color: #00D4AA; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .cross { color: #cc4444; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* CONTENT GRID */
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+    .main-content { min-width: 0; }
+    .sections-list { display: flex; flex-direction: column; gap: 48px; }
+
+    /* SECTION HEADER */
+    .sec-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .section-num { width: 32px; height: 32px; background: #00D4AA; color: #0A1628; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+    .sec-header h2 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); color: #0A1628; }
+    .sec-text { color: #445; line-height: 1.7; margin-bottom: 16px; }
+
+    /* SIDEBAR */
+    .sidebar-card { background: #fff; border: 1px solid #e5eef5; border-radius: 14px; padding: 24px; position: sticky; top: 24px; }
+    .sidebar-card h3 { font-size: 0.95rem; color: #0A1628; margin-bottom: 16px; }
+    .toc-link { display: block; padding: 7px 0; font-size: 0.875rem; color: #556; border-bottom: 1px solid #f0f0f0; }
+    .toc-link:last-child { border-bottom: none; }
+    .toc-link:hover { color: #00D4AA; text-decoration: none; }
+    .sidebar-cta { background: #0A1628; border-radius: 12px; padding: 20px; margin-top: 20px; text-align: center; }
+    .sidebar-cta p { color: #aab8c8; font-size: 0.82rem; margin-bottom: 12px; }
+    .sidebar-cta a { display: block; background: #00D4AA; color: #0A1628; padding: 10px 16px; border-radius: 8px; font-weight: 700; font-size: 0.875rem; }
+    .sidebar-cta a:hover { background: #00E5B8; text-decoration: none; }
+
+    /* CARDS */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+    .card { background: #F5FFFC; border: 1px solid #d0f0e8; border-radius: 12px; padding: 20px; }
+    .card h4 { font-size: 1rem; color: #0A1628; margin-bottom: 8px; }
+    .card p { font-size: 0.875rem; color: #556; line-height: 1.5; }
+    .card .tag { display: inline-block; background: rgba(0,212,170,0.15); color: #00D4AA; font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+
+    /* TABLE */
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.875rem; border-radius: 12px; overflow: hidden; }
+    .data-table th { background: #0A1628; color: #fff; padding: 12px 14px; text-align: left; font-family: 'Jost', sans-serif; font-weight: 600; }
+    .data-table td { padding: 11px 14px; border-bottom: 1px solid #eef2f7; }
+    .data-table tr:nth-child(even) td { background: #F5FFFC; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .badge-yes { color: #00D4AA; font-weight: 600; }
+    .badge-no { color: #cc4444; }
+    .badge-partial { color: #e6a817; }
+
+    /* STEPS */
+    .steps { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+    .step { display: flex; gap: 16px; align-items: flex-start; }
+    .step-num { width: 36px; height: 36px; background: #00D4AA; color: #0A1628; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+    .step-body h4 { font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+    .step-body p { font-size: 0.875rem; color: #556; line-height: 1.5; }
+
+    /* MID CTA */
+    .mid-cta { background: #0A1628; border-radius: 16px; padding: 36px; text-align: center; margin: 48px 0; }
+    .mid-cta h3 { color: #fff; font-size: 1.5rem; margin-bottom: 10px; }
+    .mid-cta p { color: #aab8c8; font-size: 0.95rem; margin-bottom: 20px; }
+    .mid-cta a { display: inline-flex; align-items: center; gap: 8px; background: #00D4AA; color: #0A1628; padding: 12px 28px; border-radius: 10px; font-weight: 700; }
+    .mid-cta a:hover { background: #00E5B8; text-decoration: none; }
+
+    /* FORMAT GRID */
+    .format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+    .format-card { border: 1px solid #e0ede8; border-radius: 12px; padding: 20px; }
+    .format-card .format-label { font-size: 1.5rem; font-weight: 800; color: #00D4AA; font-family: 'Jost', sans-serif; margin-bottom: 6px; }
+    .format-card h4 { font-size: 0.95rem; color: #0A1628; margin-bottom: 8px; }
+    .format-card ul { list-style: none; font-size: 0.82rem; color: #556; }
+    .format-card ul li { padding: 3px 0; }
+    .format-card ul li::before { content: "→ "; color: #00D4AA; font-weight: 700; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid #eef2f7; padding: 20px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-family: 'Jost', sans-serif; font-weight: 700; color: #0A1628; font-size: 1rem; margin-bottom: 10px; }
+    .faq-a { color: #556; font-size: 0.92rem; line-height: 1.7; }
+
+    /* RELATED */
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+    .related-card { border: 1px solid #e5eef5; border-radius: 12px; padding: 20px; }
+    .related-card .cat { font-size: 0.75rem; color: #00D4AA; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .related-card h4 { font-size: 0.95rem; color: #0A1628; margin-bottom: 8px; line-height: 1.35; }
+    .related-card a { font-size: 0.82rem; color: #00D4AA; font-weight: 600; }
+
+    /* FINAL CTA */
+    .final-cta { background: #0A1628; padding: 72px 24px; text-align: center; position: relative; overflow: hidden; }
+    .final-cta h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 14px; }
+    .final-cta p { color: #aab8c8; font-size: 1rem; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .final-cta .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .footer { background: #06101f; padding: 24px; text-align: center; font-size: 0.8rem; color: #667788; }
+    .footer a { color: #667788; margin: 0 8px; }
+    .footer a:hover { color: #00D4AA; }
+
+    @media (max-width: 1024px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar-card { display: none; }
+      .tldr-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .card-grid, .format-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .card-grid, .format-grid, .related-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
 
-  <h1>File Format Converter Directory for Accountants</h1>
+<nav class="nav">
+  <span class="nav-brand">Zera<span>Books</span></span>
+  <a href="https://www.zerabooks.com/auth" class="nav-cta">Try for one week</a>
+</nav>
 
-  <p>This directory covers the file formats accountants work with when moving data between bank PDFs, spreadsheets, and accounting software. Each format has specific use cases, compatibility constraints, and conversion considerations. The full guide index is at <a href="https://www.zerabooks.com/converters">zerabooks.com/converters</a>.</p>
-
-  <h2>Input Formats</h2>
-
-  <table>
-    <thead>
-      <tr><th>Format</th><th>Description</th><th>Common Source</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>PDF (digital)</td><td>Text layer embedded, accurate extraction</td><td>Bank portals, accounting software</td></tr>
-      <tr><td>PDF (scanned)</td><td>Image-only, requires OCR</td><td>Paper statements, older archives</td></tr>
-      <tr><td>JPG/PNG</td><td>Photo or scanned image of a document</td><td>Mobile photos, check images</td></tr>
-      <tr><td>CSV</td><td>Comma-separated transaction data</td><td>Bank downloads, POS systems</td></tr>
-      <tr><td>XLSX</td><td>Excel spreadsheet, may need reformatting</td><td>Exported reports, client-provided files</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Output Formats</h2>
-
-  <table>
-    <thead>
-      <tr><th>Format</th><th>Best For</th><th>Accounting Software</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>QBO</td><td>Direct bank feed import</td><td>QuickBooks Online, Desktop</td></tr>
-      <tr><td>IIF</td><td>Legacy QuickBooks import</td><td>QuickBooks Desktop</td></tr>
-      <tr><td>OFX</td><td>Open standard, broad compatibility</td><td>Xero, QuickBooks, Sage</td></tr>
-      <tr><td>CSV</td><td>Universal, requires column mapping</td><td>All platforms</td></tr>
-      <tr><td>XLSX</td><td>Analysis, client reporting</td><td>Excel, Google Sheets</td></tr>
-    </tbody>
-  </table>
-
-  <div class="callout">
-    <strong>Format selection tip:</strong> QBO is the cleanest path into QuickBooks Online — no column mapping, no date format issues, transactions import directly into the bank feed.
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-svg" width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="hg" x1="600" y1="400" x2="200" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00D4AA" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#00D4AA" stop-opacity="0"/>
+    </linearGradient></defs>
+    <polygon points="600,0 600,400 0,400" fill="url(#hg)"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="https://www.zerabooks.com/">Zera Books</a>
+      <span>›</span>
+      <a href="https://www.zerabooks.com/converters">Converters</a>
+      <span>›</span>
+      <span style="color:#fff;">Output Format Guide</span>
+    </div>
+    <div class="hero-badge">📄 12 Converter Pages</div>
+    <h1>Bank Statement Converters:<br><em>Every Output Format Explained</em></h1>
+    <p class="hero-desc">Excel, CSV, QBO, IIF, Xero, Sage — every bank statement converter output format compared. Choose the right format for your accounting software and workflow.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="stars">★★★★★</span> 4.9 Trustpilot</div>
+      <div class="trust-item"><span class="stars">★★★★★</span> 4.8 G2</div>
+      <div class="trust-item">99.6% extraction accuracy</div>
+      <div class="trust-item">Trained on 847M transactions</div>
+    </div>
+    <div class="hero-actions">
+      <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week →</a>
+      <a href="https://www.zerabooks.com/converters" class="btn-secondary">Browse all converters</a>
+    </div>
   </div>
+</section>
 
-  <h2>Document Type Converters</h2>
-  <ul>
-    <li>PDF bank statement to Excel/CSV/QBO</li>
-    <li>PDF invoice to CSV (line items, vendor, date, totals)</li>
-    <li>PDF financial statement (P&amp;L, balance sheet) to Excel</li>
-    <li>Check image to structured data (MICR line, amount, date)</li>
-    <li>CSV to QBO (format conversion for QuickBooks import)</li>
-  </ul>
+<!-- MAIN CONTENT -->
+<section class="section section-white">
+  <div class="container">
 
-  <h2>Frequently Asked Questions</h2>
+    <!-- TLDR -->
+    <div class="tldr">
+      <h3>⚡ Quick Reference</h3>
+      <div class="tldr-grid">
+        <div class="tldr-item"><span class="check">✓</span> QBO format: direct QuickBooks import, no mapping required</div>
+        <div class="tldr-item"><span class="check">✓</span> Excel: best for review, multi-column formatting, formulas</div>
+        <div class="tldr-item"><span class="check">✓</span> CSV: universal — works with any accounting software</div>
+        <div class="tldr-item"><span class="check">✓</span> IIF: QuickBooks Desktop legacy import format</div>
+        <div class="tldr-item"><span class="cross">✗</span> Generic converters: no AI categorization in output</div>
+        <div class="tldr-item"><span class="cross">✗</span> Template-based tools: break when bank changes format</div>
+      </div>
+    </div>
 
-  <div class="faq">
-    <h3>What is the difference between QBO, QIF, and OFX formats?</h3>
-    <p>QBO is a proprietary Intuit format for direct bank feed import into QuickBooks. QIF is an older Intuit format still supported by QuickBooks Desktop. OFX is an open standard supported by QuickBooks, Xero, and most other accounting platforms.</p>
+    <div class="content-grid">
+      <div class="main-content">
+        <div class="sections-list">
+
+          <!-- SECTION 1 -->
+          <div id="section-1">
+            <div class="sec-header">
+              <div class="section-num">1</div>
+              <h2>The 5 Standard Converter Output Formats</h2>
+            </div>
+            <p class="sec-text">Bank statement converters produce different output files depending on your accounting workflow. Understanding the differences saves hours of post-conversion cleanup. Here are the five formats used across professional accounting practices.</p>
+            <div class="format-grid">
+              <div class="format-card">
+                <div class="format-label">XLS</div>
+                <h4>Excel Spreadsheet</h4>
+                <ul>
+                  <li>Multi-column layout</li>
+                  <li>Formula support</li>
+                  <li>Visual review-ready</li>
+                  <li>Client-shareable</li>
+                </ul>
+              </div>
+              <div class="format-card">
+                <div class="format-label">CSV</div>
+                <h4>Comma Separated</h4>
+                <ul>
+                  <li>Universal compatibility</li>
+                  <li>Any accounting software</li>
+                  <li>Lightweight file size</li>
+                  <li>Easy to parse/script</li>
+                </ul>
+              </div>
+              <div class="format-card">
+                <div class="format-label">QBO</div>
+                <h4>QuickBooks Online</h4>
+                <ul>
+                  <li>Direct QB import</li>
+                  <li>No field mapping</li>
+                  <li>Preserves payee names</li>
+                  <li>Auto-categorization ready</li>
+                </ul>
+              </div>
+              <div class="format-card">
+                <div class="format-label">IIF</div>
+                <h4>QB Desktop Legacy</h4>
+                <ul>
+                  <li>QuickBooks Desktop</li>
+                  <li>Older QB versions</li>
+                  <li>Enterprise support</li>
+                  <li>Chart of accounts mapping</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 2 -->
+          <div id="section-2">
+            <div class="sec-header">
+              <div class="section-num">2</div>
+              <h2>Format Compatibility Matrix by Accounting Software</h2>
+            </div>
+            <p class="sec-text">Not all formats work with all software. This matrix shows which converter output format to request for your specific accounting platform.</p>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Accounting Software</th>
+                  <th>Best Format</th>
+                  <th>Also Accepts</th>
+                  <th>Direct API</th>
+                  <th>Auto-Categorize</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>QuickBooks Online</strong></td>
+                  <td>QBO</td>
+                  <td>CSV, IIF</td>
+                  <td class="badge-yes">✓ Yes</td>
+                  <td class="badge-yes">✓ Yes</td>
+                </tr>
+                <tr>
+                  <td><strong>QuickBooks Desktop</strong></td>
+                  <td>IIF</td>
+                  <td>CSV, QBO</td>
+                  <td class="badge-no">✗ No</td>
+                  <td class="badge-yes">✓ Yes</td>
+                </tr>
+                <tr>
+                  <td><strong>Xero</strong></td>
+                  <td>CSV (Xero format)</td>
+                  <td>Excel, OFX</td>
+                  <td class="badge-yes">✓ Yes</td>
+                  <td class="badge-yes">✓ Yes</td>
+                </tr>
+                <tr>
+                  <td><strong>Sage 50/100</strong></td>
+                  <td>CSV (Sage format)</td>
+                  <td>Excel</td>
+                  <td class="badge-no">✗ No</td>
+                  <td class="badge-yes">✓ Yes</td>
+                </tr>
+                <tr>
+                  <td><strong>Wave Accounting</strong></td>
+                  <td>CSV</td>
+                  <td>Excel</td>
+                  <td class="badge-no">✗ No</td>
+                  <td class="badge-partial">Partial</td>
+                </tr>
+                <tr>
+                  <td><strong>Zoho Books</strong></td>
+                  <td>CSV (Zoho format)</td>
+                  <td>Excel</td>
+                  <td class="badge-no">✗ No</td>
+                  <td class="badge-partial">Partial</td>
+                </tr>
+                <tr>
+                  <td><strong>FreshBooks</strong></td>
+                  <td>CSV</td>
+                  <td>Excel</td>
+                  <td class="badge-no">✗ No</td>
+                  <td class="badge-partial">Partial</td>
+                </tr>
+                <tr>
+                  <td><strong>NetSuite</strong></td>
+                  <td>CSV (NetSuite format)</td>
+                  <td>Excel</td>
+                  <td class="badge-no">✗ No</td>
+                  <td class="badge-partial">Partial</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- SECTION 3 -->
+          <div id="section-3">
+            <div class="sec-header">
+              <div class="section-num">3</div>
+              <h2>What's Inside a QBO File (And Why It Matters)</h2>
+            </div>
+            <p class="sec-text">QBO is the most requested format for QuickBooks users. Unlike a generic CSV, a QBO file carries structured metadata that QuickBooks reads natively. Here's what's inside every QBO export from Zera Books.</p>
+            <div class="card-grid">
+              <div class="card">
+                <div class="tag">Header Block</div>
+                <h4>Bank Account Info</h4>
+                <p>Account number (masked), bank routing, account type (checking/savings/credit), currency code, and statement date range.</p>
+              </div>
+              <div class="card">
+                <div class="tag">Transaction Block</div>
+                <h4>Full Transaction Data</h4>
+                <p>Date (YYYYMMDD format), amount (positive/negative), payee name, memo field, transaction ID, and check number if applicable.</p>
+              </div>
+              <div class="card">
+                <div class="tag">AI Layer</div>
+                <h4>Category Suggestions</h4>
+                <p>Zera AI assigns suggested account codes from your QuickBooks chart of accounts to each transaction before import.</p>
+              </div>
+              <div class="card">
+                <div class="tag">Balance Data</div>
+                <h4>Running Balance</h4>
+                <p>Opening and closing balance per statement period, enabling automatic reconciliation validation inside QuickBooks.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- MID CTA -->
+          <div class="mid-cta">
+            <h3>Convert Any Bank Statement to Any Format</h3>
+            <p>Zera Books exports Excel, CSV, QBO, IIF, and 6 software-specific formats from one conversion. No re-running, no reformatting.</p>
+            <a href="https://www.zerabooks.com/auth">Start converting — Try for one week →</a>
+          </div>
+
+          <!-- SECTION 4 -->
+          <div id="section-4">
+            <div class="sec-header">
+              <div class="section-num">4</div>
+              <h2>Excel vs CSV: When to Use Each Format</h2>
+            </div>
+            <p class="sec-text">Excel and CSV look similar but serve different purposes in an accounting workflow. Choosing the wrong one creates extra cleanup work.</p>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Use Case</th>
+                  <th>Excel (XLSX)</th>
+                  <th>CSV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Client review / sharing</td>
+                  <td class="badge-yes">✓ Better (formatted)</td>
+                  <td class="badge-partial">Works</td>
+                </tr>
+                <tr>
+                  <td>Import to accounting software</td>
+                  <td class="badge-partial">Depends on software</td>
+                  <td class="badge-yes">✓ Universal</td>
+                </tr>
+                <tr>
+                  <td>Running totals / formulas</td>
+                  <td class="badge-yes">✓ Native support</td>
+                  <td class="badge-no">✗ Not supported</td>
+                </tr>
+                <tr>
+                  <td>Multi-account separation</td>
+                  <td class="badge-yes">✓ Multiple tabs</td>
+                  <td class="badge-partial">Separate files</td>
+                </tr>
+                <tr>
+                  <td>Scripting / automation</td>
+                  <td class="badge-partial">Possible</td>
+                  <td class="badge-yes">✓ Best for scripts</td>
+                </tr>
+                <tr>
+                  <td>File size (100 transactions)</td>
+                  <td>~45KB</td>
+                  <td>~8KB</td>
+                </tr>
+                <tr>
+                  <td>Zera Books output columns</td>
+                  <td>Date, Description, Debit, Credit, Balance, Category, Account</td>
+                  <td>date, description, debit, credit, balance, category</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- SECTION 5 -->
+          <div id="section-5">
+            <div class="sec-header">
+              <div class="section-num">5</div>
+              <h2>How Zera Books Handles Multi-Account Conversion</h2>
+            </div>
+            <p class="sec-text">Many bank statements include multiple accounts — checking, savings, and credit card — in a single PDF. Generic converters merge everything into one file. Zera Books auto-detects and separates them.</p>
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <h4>AI Account Detection</h4>
+                  <p>Zera AI scans the statement and identifies account number changes, header patterns, and balance resets that signal separate accounts within the same document.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <h4>Automatic Separation</h4>
+                  <p>Each detected account gets its own output file — no more manually splitting merged statements or sorting 400 rows to find where one account ends.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                  <h4>Format Applied Per Account</h4>
+                  <p>QBO files are generated per account (QuickBooks needs separate imports per account). Excel output uses separate tabs. CSV outputs separate files named by account type.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-body">
+                  <h4>Organized Delivery</h4>
+                  <p>All files packaged in a labeled ZIP: <code>Chase_Checking_2024-12.qbo</code>, <code>Chase_Savings_2024-12.qbo</code>, etc. No guessing which file is which.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 6 -->
+          <div id="section-6">
+            <div class="sec-header">
+              <div class="section-num">6</div>
+              <h2>Why Generic Converters Produce Bad Output Files</h2>
+            </div>
+            <p class="sec-text">Not all converters produce usable output. These are the four most common output quality problems accountants report with generic tools — and how Zera Books fixes them.</p>
+            <div class="card-grid">
+              <div class="card">
+                <h4>Problem: Merged Debit/Credit Column</h4>
+                <p>Generic tools dump everything into one "Amount" column with positive/negative signs. QuickBooks and Xero require separate debit/credit columns for proper import.</p>
+              </div>
+              <div class="card">
+                <h4>Problem: Wrong Date Format</h4>
+                <p>US software expects MM/DD/YYYY but many PDFs use DD/MM/YYYY. A wrong date format causes every transaction to import on the wrong date.</p>
+              </div>
+              <div class="card">
+                <h4>Problem: Missing Running Balance</h4>
+                <p>Many converters strip the balance column. Without it, you can't verify the conversion matched the original statement or perform reconciliation.</p>
+              </div>
+              <div class="card">
+                <h4>Problem: Truncated Descriptions</h4>
+                <p>Bank descriptions like "AMAZON.COM*MT2X5 AMZN.COM/BILL 5033" get cut to "AMAZON" — losing the reference data needed for matching and categorization.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div id="section-faq">
+            <div class="sec-header">
+              <div class="section-num">7</div>
+              <h2>Converter Format FAQs</h2>
+            </div>
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q">What is the best output format for bank statement conversion?</div>
+                <div class="faq-a">QBO format is best for QuickBooks users as it imports directly without mapping. CSV and Excel are best for manual review or custom workflows. IIF works for older QuickBooks desktop versions. Choose based on your accounting software.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">Can I convert bank statements to multiple formats at once?</div>
+                <div class="faq-a">Zera Books exports to all formats simultaneously — Excel, CSV, QBO, and IIF — from a single conversion. You don't need to run the conversion multiple times for different formats.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">What is QBO format and why do accountants prefer it?</div>
+                <div class="faq-a">QBO (QuickBooks Online) is a proprietary format that maps transactions directly to QuickBooks chart of accounts. It eliminates manual import mapping, reduces errors, and preserves transaction metadata like payee names and memo fields.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">Does converter output include transaction categorization?</div>
+                <div class="faq-a">Zera Books adds AI-generated category suggestions to every output format. Excel and CSV files include a Category column. QBO and IIF files include account assignments based on your chart of accounts.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /main-content -->
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="sidebar-card">
+          <h3>Table of Contents</h3>
+          <a href="#section-1" class="toc-link">1. The 5 Output Formats</a>
+          <a href="#section-2" class="toc-link">2. Compatibility Matrix</a>
+          <a href="#section-3" class="toc-link">3. Inside a QBO File</a>
+          <a href="#section-4" class="toc-link">4. Excel vs CSV</a>
+          <a href="#section-5" class="toc-link">5. Multi-Account Conversion</a>
+          <a href="#section-6" class="toc-link">6. Generic Converter Problems</a>
+          <a href="#section-faq" class="toc-link">7. FAQs</a>
+          <div class="sidebar-cta">
+            <p>Convert bank statements to any format — all from one upload.</p>
+            <a href="https://www.zerabooks.com/auth">Try for one week</a>
+          </div>
+        </div>
+      </aside>
+    </div><!-- /content-grid -->
+
+    <!-- RELATED -->
+    <div style="margin-top: 64px;">
+      <h2 style="font-family:'Jost',sans-serif;font-size:1.5rem;color:#0A1628;margin-bottom:20px;">Related Resources</h2>
+      <div class="related-grid">
+        <div class="related-card">
+          <div class="cat">Pillar Guide</div>
+          <h4>Best PDF to QBO Converter for QuickBooks</h4>
+          <a href="/best-pdf-to-qbo-converter/">Read guide →</a>
+        </div>
+        <div class="related-card">
+          <div class="cat">Pillar Guide</div>
+          <h4>Best PDF to Excel Converter for Accountants</h4>
+          <a href="/best-pdf-to-excel-converter/">Read guide →</a>
+        </div>
+        <div class="related-card">
+          <div class="cat">Hub</div>
+          <h4>Bank Statement Format Library</h4>
+          <a href="/banks/">Browse bank formats →</a>
+        </div>
+        <div class="related-card">
+          <div class="cat">Hub</div>
+          <h4>Import Format Guides by Software</h4>
+          <a href="/import/">View import guides →</a>
+        </div>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <div class="faq">
-    <h3>Can I convert a PDF invoice to CSV?</h3>
-    <p>Yes. <a href="https://www.zerabooks.com">Zera Books</a> extracts line items, dates, vendor names, and totals from PDF invoices and exports to CSV or Excel, preserving all structured data from the original document.</p>
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <svg style="position:absolute;bottom:0;right:0;opacity:1;pointer-events:none;" width="500" height="300" viewBox="0 0 500 300" fill="none">
+    <defs><linearGradient id="fg2" x1="500" y1="300" x2="150" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00D4AA" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#00D4AA" stop-opacity="0"/>
+    </linearGradient></defs>
+    <polygon points="500,0 500,300 0,300" fill="url(#fg2)"/>
+  </svg>
+  <div style="position:relative;z-index:1;">
+    <h2>Convert Bank Statements to Any Format</h2>
+    <p>Excel, CSV, QBO, IIF — all from one upload. AI categorization included. Works with every bank format.</p>
+    <div class="cta-btns">
+      <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week →</a>
+      <a href="https://www.zerabooks.com/converters" class="btn-secondary">Browse all converters</a>
+    </div>
   </div>
+</section>
 
-  <div class="faq">
-    <h3>What output formats does Zera Books support?</h3>
-    <p>Zera Books exports to Excel (XLSX), CSV, QBO, and IIF. It also produces pre-formatted files for Xero, Sage, Wave, Zoho, NetSuite, FreshBooks, MYOB, and Oracle.</p>
-  </div>
+<footer class="footer">
+  <p>Published by <a href="https://www.zerabooks.com/">Zera Books</a> — AI-powered bank statement conversion.
+  <a href="/guides/">Guides</a> · <a href="/alternatives/">Alternatives</a> · <a href="/best-bank-statement-converter/">Best Converter</a></p>
+</footer>
 
-  <footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
 </body>
 </html>

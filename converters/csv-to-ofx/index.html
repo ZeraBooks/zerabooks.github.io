@@ -3,132 +3,435 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSV to OFX Converter — OFX Format Specification Reference | Zera Books Resources</title>
-  <meta name="description" content="Technical reference for converting CSV transaction data to OFX format. Covers OFX file structure, required fields, and compatibility with Xero, Sage, and MYOB.">
+  <title>CSV to OFX Converter (2025) — For Accounting Software Import | Zera Books</title>
+  <meta name="description" content="Convert CSV bank transaction files to OFX format for QuickBooks, Sage, MYOB, and other accounting software. Proper OFX structure, FITID generation, and AI categorization included.">
   <link rel="canonical" href="https://zerabooks.github.io/converters/csv-to-ofx/">
-  <meta property="og:title" content="CSV to OFX Converter — OFX Format Specification Reference">
-  <meta property="og:description" content="Technical reference for converting CSV transaction data to OFX format. Covers OFX file structure, required fields, and compatibility with Xero, Sage, and MYOB.">
+  <meta property="og:title" content="CSV to OFX Converter (2025)">
+  <meta property="og:description" content="Convert CSV bank files to OFX format for QuickBooks, Sage, MYOB, and other accounting software. Proper structure and AI categorization.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://zerabooks.github.io/converters/csv-to-ofx/">
   <meta property="og:site_name" content="Zera Books Resources">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebPage", "name": "CSV to OFX Converter — OFX Format Specification Reference", "description": "Technical reference for converting CSV transaction data to OFX format for accounting software import.", "url": "https://zerabooks.github.io/converters/csv-to-ofx/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "CSV to OFX Converter (2025)",
+    "description": "Convert CSV bank transaction files to OFX format for accounting software import.",
+    "url": "https://zerabooks.github.io/converters/csv-to-ofx/",
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-02-28",
+    "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" },
+    "author": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" }
+  }
   </script>
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-    { "@type": "Question", "name": "What is OFX format?", "acceptedAnswer": { "@type": "Answer", "text": "OFX (Open Financial Exchange) is an open standard for financial data exchange. It uses an SGML-based structure similar to XML and is accepted by Xero, Sage, MYOB, and most major accounting platforms." } },
-    { "@type": "Question", "name": "What is the difference between OFX and QBO?", "acceptedAnswer": { "@type": "Answer", "text": "QBO is Intuit's proprietary variant of OFX with slight modifications. OFX is the open standard used by non-Intuit accounting software. They share the same core structure but QBO has Intuit-specific headers." } },
-    { "@type": "Question", "name": "Which accounting software accepts OFX imports?", "acceptedAnswer": { "@type": "Answer", "text": "Xero, Sage, MYOB, Wave, and Zoho Books all accept OFX for bank statement import. QuickBooks accepts QBO (Intuit's variant) rather than standard OFX." } }
-  ] }
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is OFX format and which software accepts it?", "acceptedAnswer": { "@type": "Answer", "text": "OFX (Open Financial Exchange) is an open standard for financial data exchange. QBO is a proprietary Intuit variant of OFX. Software that accepts OFX includes QuickBooks (via QBO), MYOB, Sage, Money, and various European accounting platforms. OFX is the more broadly compatible format when QBO isn't specifically required." } },
+      { "@type": "Question", "name": "What is the difference between OFX and QBO?", "acceptedAnswer": { "@type": "Answer", "text": "QBO is a proprietary Intuit modification of the OFX standard. QBO files work specifically with QuickBooks. OFX files work with a broader range of accounting software including MYOB, Sage, and others. The internal structure is very similar — the main difference is the file header and some Intuit-specific extensions in QBO." } },
+      { "@type": "Question", "name": "Can I convert a CSV from any bank to OFX?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Zera Books accepts CSV files from any bank in any column layout. Date, amount, and description columns are auto-detected. Separate debit and credit columns are consolidated into a single signed amount field as OFX requires." } },
+      { "@type": "Question", "name": "Does OFX conversion include transaction categorization?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Zera Books AI categorizes each transaction before generating the OFX file. You review and adjust suggested categories, then export. The OFX file includes account code metadata that compatible software reads on import." } }
+    ]
+  }
   </script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    pre { background: #f4f4f4; padding: 1rem; border-radius: 6px; font-size: 0.85rem; overflow-x: auto; margin-bottom: 1rem; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #0A1628; line-height: 1.7; }
+    h1, h2, h3, h4 { font-family: 'Jost', sans-serif; font-weight: 700; line-height: 1.2; }
+    a { color: #00D4AA; text-decoration: none; }
+    a:hover { color: #00E5B8; }
+    .hero { background: #0A1628; position: relative; overflow: hidden; }
+    .hero-gradient { position: absolute; bottom: 0; right: 0; width: 600px; height: 600px; pointer-events: none; }
+    .hero-inner { max-width: 1400px; margin: 0 auto; padding: 80px 24px 64px; position: relative; z-index: 2; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumbs a { color: rgba(255,255,255,0.5); }
+    .breadcrumbs a:hover { color: #fff; }
+    .breadcrumbs svg { width: 16px; height: 16px; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; }
+    .badge-primary { background: rgba(0,212,170,0.2); color: #00D4AA; }
+    .badge-secondary { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 20px; max-width: 800px; }
+    .hero-description { font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: 32px; line-height: 1.7; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: #00D4AA; color: #0A1628; font-weight: 600; font-size: 1rem; border-radius: 8px; transition: background 0.2s; border: none; cursor: pointer; }
+    .btn-primary:hover { background: #00E5B8; color: #0A1628; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: rgba(255,255,255,0.1); color: #fff; font-weight: 600; font-size: 1rem; border-radius: 8px; transition: background 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    .trust-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 32px; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+    .stars { display: flex; gap: 2px; }
+    .stars svg { width: 12px; height: 12px; }
+    .tldr-section { padding: 32px 0; background: #fff; }
+    .tldr-box { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .tldr-card { background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.25); border-radius: 16px; padding: 32px; }
+    .tldr-title { font-size: 1.5rem; color: #0A1628; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .tldr-title svg { color: #00D4AA; width: 24px; height: 24px; }
+    .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .tldr-list { list-style: none; }
+    .tldr-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: rgba(10,22,40,0.75); }
+    .tldr-list svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+    .icon-check { color: #00D4AA; }
+    .icon-x { color: rgba(10,22,40,0.3); }
+    .content-section { padding: 64px 0; background: #fff; }
+    .content-wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+    .article-sections > * + * { margin-top: 64px; }
+    .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .section-num { width: 44px; height: 44px; background: #00D4AA; color: #0A1628; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+    .section-header h2 { font-size: clamp(1.3rem, 3vw, 1.75rem); color: #0A1628; }
+    .prose p { margin-bottom: 16px; color: rgba(10,22,40,0.75); font-size: 1.05rem; }
+    .prose a { color: #00D4AA; border-bottom: 1px solid rgba(0,212,170,0.3); }
+    .prose a:hover { border-bottom-color: #00D4AA; }
+    .comparison-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin: 24px 0; }
+    .comparison-table thead tr { background: #0A1628; }
+    .comparison-table th { padding: 16px 20px; text-align: left; color: #fff; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 0.9rem; }
+    .comparison-table td { padding: 14px 20px; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; }
+    .comparison-table tbody tr:nth-child(even) { background: #F5FFFC; }
+    .comparison-table tbody tr:nth-child(odd) { background: #fff; }
+    .cell-good { color: #00D4AA; font-weight: 600; }
+    .cell-bad { color: rgba(10,22,40,0.4); }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .feature-card { background: #F5FFFC; border-radius: 12px; padding: 24px; }
+    .feature-card h3 { font-size: 1.05rem; color: #0A1628; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.9rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .feature-icon { width: 48px; height: 48px; background: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+    .feature-icon svg { width: 24px; height: 24px; color: #00D4AA; }
+    .callout { background: rgba(0,212,170,0.08); border-left: 4px solid #00D4AA; border-radius: 0 12px 12px 0; padding: 24px; margin: 24px 0; }
+    .callout p { margin: 0; color: rgba(10,22,40,0.8); }
+    .callout strong { color: #0A1628; }
+    .mid-cta { background: #0A1628; border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; position: relative; overflow: hidden; }
+    .mid-cta h3 { color: #fff; font-size: 1.5rem; margin-bottom: 12px; }
+    .mid-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .faq-item { background: #F5FFFC; border: 1px solid rgba(0,212,170,0.15); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .faq-item h3 { font-size: 1.05rem; color: #0A1628; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.95rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .sidebar { position: relative; }
+    .sidebar-inner { position: sticky; top: 24px; }
+    .toc-card { background: #F5FFFC; border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+    .toc-card h3 { font-size: 1.1rem; color: #0A1628; margin-bottom: 16px; }
+    .toc-nav a { display: block; padding: 8px 0; font-size: 0.875rem; color: rgba(10,22,40,0.6); border-bottom: none; transition: color 0.15s; }
+    .toc-nav a:hover { color: #00D4AA; }
+    .sidebar-cta { background: #0A1628; border-radius: 16px; padding: 24px; text-align: center; }
+    .sidebar-cta h4 { color: #fff; font-size: 1.05rem; margin-bottom: 8px; }
+    .sidebar-cta p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 16px; }
+    .sidebar-cta .btn-primary { width: 100%; justify-content: center; padding: 14px 24px; }
+    .step-card { background: #fff; border: 2px solid rgba(10,22,40,0.08); border-radius: 12px; padding: 24px; margin-bottom: 16px; transition: border-color 0.2s; }
+    .step-card:hover { border-color: rgba(0,212,170,0.3); }
+    .step-row { display: flex; gap: 16px; align-items: flex-start; }
+    .step-num { width: 36px; height: 36px; background: #00D4AA; color: #0A1628; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 0.95rem; flex-shrink: 0; }
+    .step-card h3 { font-size: 1.05rem; margin-bottom: 6px; color: #0A1628; }
+    .step-card p { font-size: 0.9rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .step-detail { background: #F5FFFC; border-radius: 8px; padding: 12px 16px; margin-top: 10px; font-size: 0.85rem; color: rgba(10,22,40,0.7); }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .related-card { background: #F5FFFC; border-radius: 12px; padding: 24px; transition: box-shadow 0.2s; display: block; }
+    .related-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .related-card h4 { font-size: 1rem; color: #0A1628; margin-bottom: 8px; }
+    .related-card p { font-size: 0.85rem; color: rgba(10,22,40,0.6); margin-bottom: 12px; }
+    .related-card .link-arrow { font-size: 0.85rem; color: #00D4AA; font-weight: 600; }
+    .final-cta { background: #0A1628; padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+    .final-cta-gradient { position: absolute; bottom: 0; right: 0; width: 500px; height: 500px; pointer-events: none; }
+    .final-cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+    .final-cta h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 32px; }
+    .site-footer { background: #0A1628; border-top: 1px solid rgba(255,255,255,0.1); padding: 24px; text-align: center; }
+    .site-footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+    .site-footer a { color: rgba(255,255,255,0.6); }
+    .site-footer a:hover { color: #00D4AA; }
+    @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    @media (max-width: 768px) { .hero-inner { padding: 60px 20px 48px; } .tldr-grid { grid-template-columns: 1fr; } .feature-grid { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } .comparison-table { font-size: 0.85rem; } .comparison-table th, .comparison-table td { padding: 10px 12px; } }
+    @media (max-width: 480px) { .hero-ctas { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } }
   </style>
 </head>
 <body>
 
-  <h1>CSV to OFX: Format Specification and Conversion Reference</h1>
+  <section class="hero">
+    <div class="hero-gradient">
+      <svg viewBox="0 0 600 600" width="100%" height="100%">
+        <defs><linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs>
+        <polygon points="600,600 600,0 0,600" fill="url(#heroGrad)"/>
+      </svg>
+    </div>
+    <div class="hero-inner">
+      <nav class="breadcrumbs">
+        <a href="https://www.zerabooks.com">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="https://www.zerabooks.com/converters">Converters</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span style="color:#fff">CSV to OFX</span>
+      </nav>
+      <div class="hero-badges">
+        <span class="badge badge-primary">CSV to OFX</span>
+        <span class="badge badge-secondary">Multi-Software Compatible</span>
+      </div>
+      <h1>CSV to OFX Converter for Accounting Software</h1>
+      <p class="hero-description">Convert CSV bank transaction files to OFX format for QuickBooks, MYOB, Sage, and other accounting platforms. Zera Books handles column mapping, FITID generation, and AI categorization — producing valid OFX without manual file editing.</p>
+      <div class="hero-ctas">
+        <a href="https://www.zerabooks.com/auth" class="btn-primary">Try Zera Books for one week <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="https://www.zerabooks.com/converters/csv-to-ofx-converter" class="btn-secondary">See full converter details</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <span>Trustpilot</span>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+        </div>
+        <div class="trust-item">
+          <span style="background:#C62828;color:#fff;font-size:7px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;">G2</span>
+          <span>High Performer</span>
+        </div>
+        <div class="trust-item"><span>99.6% accuracy</span></div>
+        <div class="trust-item"><span>3.2M+ docs trained</span></div>
+      </div>
+    </div>
+  </section>
 
-  <p>OFX (Open Financial Exchange) is the open standard for financial data exchange, accepted by most accounting software that isn't QuickBooks. If you have transaction data in CSV and need to import it into Xero, Sage, MYOB, or Wave, OFX is usually the cleanest route.</p>
+  <section class="tldr-section">
+    <div class="tldr-box">
+      <div class="tldr-card">
+        <h2 class="tldr-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          TL;DR — CSV to OFX Conversion
+        </h2>
+        <div class="tldr-grid">
+          <div>
+            <p style="font-weight:600;color:#0A1628;margin-bottom:12px;">What goes wrong with manual OFX creation:</p>
+            <ul class="tldr-list">
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>OFX is XML-based — hand-editing breaks the structure easily</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Free converters produce OFX that fails MYOB or Sage validation</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>FITID collisions create duplicate transactions after re-import</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>No categorization — still coding every transaction manually</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-weight:600;color:#0A1628;margin-bottom:12px;">What Zera Books does:</p>
+            <ul class="tldr-list">
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Generates valid OFX from any CSV layout automatically</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Collision-resistant FITIDs prevent duplicate imports</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Compatible with QuickBooks, MYOB, Sage, and other OFX-supporting tools</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>AI categorizes transactions before export — $79/month unlimited</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h2>OFX vs QBO: What's the Difference</h2>
+  <section class="content-section">
+    <div class="content-wrap">
+      <div class="content-grid">
+        <div class="main-content">
+          <div class="article-sections">
 
-  <p>QBO is Intuit's proprietary version of OFX. The core structure is identical — both use SGML-based tags for transactions — but QBO has Intuit-specific headers and is only accepted by QuickBooks products. OFX is the open standard accepted by everyone else. If you're importing into anything other than QuickBooks, use OFX.</p>
+            <div id="ofx-vs-qbo">
+              <div class="section-header">
+                <div class="section-num">1</div>
+                <h2>OFX vs QBO: Which Format Do You Need?</h2>
+              </div>
+              <div class="prose">
+                <p>OFX (Open Financial Exchange) is an open standard for financial data. QBO is Intuit's proprietary variant, specifically designed for QuickBooks. The internal structure is nearly identical — the difference is in the file header and some Intuit-specific extensions.</p>
+                <p>Use QBO if you're importing into QuickBooks Online or QuickBooks Desktop. Use OFX if you're importing into MYOB, Sage, Money, or another OFX-compatible platform that isn't QuickBooks-specific.</p>
+              </div>
+              <div style="overflow-x:auto;">
+                <table class="comparison-table">
+                  <thead><tr><th>Format</th><th>Standard</th><th>Compatible Software</th><th>Zera Books Support</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>QBO</strong></td><td>Intuit proprietary OFX</td><td>QuickBooks Online, Desktop</td><td class="cell-good">Full support</td></tr>
+                    <tr><td><strong>OFX 1.x</strong></td><td>OFX open standard (SGML)</td><td>MYOB, Sage, Money, various</td><td class="cell-good">Full support</td></tr>
+                    <tr><td><strong>OFX 2.x</strong></td><td>OFX open standard (XML)</td><td>Modern banking apps, APIs</td><td class="cell-good">Full support</td></tr>
+                    <tr><td><strong>CSV</strong></td><td>Plain text</td><td>Varies by software</td><td class="cell-good">Input format — converts to OFX/QBO</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="callout">
+                <p><strong>When in doubt:</strong> If you're using QuickBooks, export QBO. For MYOB, Sage, and most other platforms, export OFX. Zera Books generates both from the same CSV input. <a href="https://www.zerabooks.com/converters/csv-to-ofx-converter">See the full CSV to OFX converter</a>.</p>
+              </div>
+            </div>
 
-  <h2>OFX File Structure</h2>
+            <div id="ofx-structure">
+              <div class="section-header">
+                <div class="section-num">2</div>
+                <h2>What a Valid OFX File Contains</h2>
+              </div>
+              <div class="prose">
+                <p>OFX files are structured hierarchically. The header defines the file version and encoding; the body contains account information and transaction records. Manual CSV-to-OFX conversion breaks most often in the header section or FITID generation.</p>
+              </div>
+              <div style="overflow-x:auto;">
+                <table class="comparison-table">
+                  <thead><tr><th>OFX Element</th><th>Purpose</th><th>Common Error in Manual Conversion</th><th>Zera Books</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>OFXHEADER</strong></td><td>File version declaration</td><td>Wrong version string breaks parsing</td><td class="cell-good">Auto-generated correctly</td></tr>
+                    <tr><td><strong>BANKID</strong></td><td>Bank routing number</td><td>Often left blank, fails strict validators</td><td class="cell-good">Extracted from statement data</td></tr>
+                    <tr><td><strong>ACCTID</strong></td><td>Account number</td><td>Missing or incorrect</td><td class="cell-good">Auto-detected from CSV data</td></tr>
+                    <tr><td><strong>DTSTART/DTEND</strong></td><td>Transaction date range</td><td>Hardcoded wrong, causes rejections</td><td class="cell-good">Calculated from actual transaction dates</td></tr>
+                    <tr><td><strong>FITID</strong></td><td>Unique transaction ID</td><td>Sequential IDs collide on re-import</td><td class="cell-good">Hash-based, collision-resistant</td></tr>
+                    <tr><td><strong>TRNAMT</strong></td><td>Signed transaction amount</td><td>Positive/negative signs incorrect</td><td class="cell-good">Unified from debit/credit columns</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
-  <p>An OFX 1.x file (the version most accounting software accepts) uses a header block followed by tagged transaction data:</p>
+            <div id="conversion-process">
+              <div class="section-header">
+                <div class="section-num">3</div>
+                <h2>How CSV to OFX Conversion Works</h2>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="step-num">1</div>
+                  <div>
+                    <h3>Upload your CSV file</h3>
+                    <p>Upload one file or a batch. Zera Books auto-detects column headers. If absent, confirm column assignments in a one-time review.</p>
+                    <div class="step-detail">UTF-8 and Windows-1252 encodings accepted. Comma, semicolon, and tab delimiters auto-detected.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="step-num">2</div>
+                  <div>
+                    <h3>Data cleaning and validation</h3>
+                    <p>Dates normalized to YYYYMMDD. Debit/Credit columns consolidated to signed Amount. Special characters that break OFX parsing removed from descriptions.</p>
+                    <div class="step-detail">Error rows flagged for review. You decide whether to fix or exclude before OFX generation.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="step-num">3</div>
+                  <div>
+                    <h3>AI categorization</h3>
+                    <p>Each transaction mapped to account categories compatible with your target accounting software. Review confidence scores and override where needed.</p>
+                    <div class="step-detail">Corrections improve future accuracy for similar transactions in your account.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-row">
+                  <div class="step-num">4</div>
+                  <div>
+                    <h3>OFX file generation</h3>
+                    <p>Valid OFX generated with correct header, collision-resistant FITIDs, and DTSTART/DTEND range. Download and import into your accounting software.</p>
+                    <div class="step-detail">Choose OFX 1.x (SGML) or OFX 2.x (XML) based on your software's requirements.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-  <pre>OFXHEADER:100
-DATA:OFXSGML
-VERSION:151
-SECURITY:NONE
-ENCODING:USASCII
-CHARSET:1252
-COMPRESSION:NONE
-OLDFILEUID:NONE
-NEWFILEUID:NONE
+            <div class="mid-cta">
+              <div style="position:absolute;bottom:0;right:0;width:400px;height:400px;pointer-events:none;"><svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="midGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.2"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#midGrad)"/></svg></div>
+              <h3 style="position:relative;z-index:2;">Valid OFX from any CSV in minutes</h3>
+              <p style="position:relative;z-index:2;">Correct structure, collision-resistant FITIDs, AI categorization. Compatible with MYOB, Sage, QuickBooks, and more. $79/month unlimited.</p>
+              <a href="https://www.zerabooks.com/auth" class="btn-primary" style="position:relative;z-index:2;">Try for one week <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
 
-&lt;OFX&gt;
-  &lt;BANKMSGSRSV1&gt;
-    &lt;STMTTRNRS&gt;
-      &lt;STMTRS&gt;
-        &lt;BANKTRANLIST&gt;
-          &lt;STMTTRN&gt;
-            &lt;TRNTYPE&gt;DEBIT
-            &lt;DTPOSTED&gt;20250115120000
-            &lt;TRNAMT&gt;-247.50
-            &lt;FITID&gt;20250115-24750-0
-            &lt;NAME&gt;Office Supplies Co
-          &lt;/STMTTRN&gt;
-        &lt;/BANKTRANLIST&gt;
-      &lt;/STMTRS&gt;
-    &lt;/STMTTRNRS&gt;
-  &lt;/BANKMSGSRSV1&gt;
-&lt;/OFX&gt;</pre>
+            <div id="software-compatibility">
+              <div class="section-header">
+                <div class="section-num">4</div>
+                <h2>OFX Software Compatibility</h2>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                  <h3>MYOB</h3>
+                  <p>MYOB AccountRight and Essentials accept OFX 1.x for bank statement import under Banking &gt; Import Statement.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                  <h3>Sage</h3>
+                  <p>Sage 50 and Sage Business Cloud accept OFX for bank transaction imports. Zera Books exports Sage-compatible OFX with correct account structure.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                  <h3>QuickBooks</h3>
+                  <p>While QuickBooks prefers QBO, it also accepts OFX. Zera Books can export either format from the same CSV input.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                  <h3>International platforms</h3>
+                  <p>European, Australian, and Canadian accounting platforms that support OFX 2.x (XML) are compatible with Zera Books' output.</p>
+                </div>
+              </div>
+            </div>
 
-  <h2>Mapping CSV Columns to OFX Fields</h2>
+            <div id="faq">
+              <div class="section-header">
+                <div class="section-num">5</div>
+                <h2>Frequently Asked Questions</h2>
+              </div>
+              <div class="faq-item">
+                <h3>What is OFX format and which software accepts it?</h3>
+                <p>OFX (Open Financial Exchange) is an open standard for financial data exchange. Software that accepts OFX includes MYOB, Sage, Microsoft Money, and various European accounting platforms. QuickBooks uses QBO, a proprietary Intuit variant of OFX.</p>
+              </div>
+              <div class="faq-item">
+                <h3>What is the difference between OFX and QBO?</h3>
+                <p>QBO is Intuit's proprietary modification of OFX, specifically for QuickBooks. OFX works with a broader range of accounting software. The internal structure is very similar — the main difference is the file header and some Intuit-specific extensions in QBO.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Can I convert a CSV from any bank to OFX?</h3>
+                <p>Yes. Zera Books accepts CSV files from any bank in any column layout. Date, amount, and description columns are auto-detected. Separate debit and credit columns are consolidated into a single signed amount field as OFX requires.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Does OFX conversion include transaction categorization?</h3>
+                <p>Yes. Zera Books AI categorizes each transaction before generating the OFX file. You review and adjust suggested categories, then export. The OFX includes account code metadata compatible with your target software.</p>
+              </div>
+            </div>
 
-  <table>
-    <thead>
-      <tr><th>CSV Column</th><th>OFX Tag</th><th>Notes</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Date</td><td>DTPOSTED</td><td>Format: YYYYMMDD120000</td></tr>
-      <tr><td>Amount</td><td>TRNAMT</td><td>Negative for outflows</td></tr>
-      <tr><td>Description</td><td>NAME</td><td>Truncate at 32 chars</td></tr>
-      <tr><td>Memo / Notes</td><td>MEMO</td><td>Additional description</td></tr>
-      <tr><td>(generated)</td><td>FITID</td><td>Unique ID per transaction</td></tr>
-      <tr><td>(derived)</td><td>TRNTYPE</td><td>DEBIT if negative, CREDIT if positive</td></tr>
-    </tbody>
-  </table>
+            <div>
+              <h2 style="font-size:1.5rem;color:#0A1628;margin-bottom:20px;">Related Resources</h2>
+              <div class="related-grid">
+                <a href="https://www.zerabooks.com/converters" class="related-card"><h4>All Zera Books Converters</h4><p>Every format — OFX, QBO, IIF, CSV, Excel, and pre-formatted exports for 8+ accounting platforms.</p><span class="link-arrow">View converters →</span></a>
+                <a href="https://www.zerabooks.com/alternatives" class="related-card"><h4>OFX Converter Alternatives</h4><p>Compare Zera Books against ProperSoft, MoneyThumb, and other OFX conversion tools.</p><span class="link-arrow">Compare tools →</span></a>
+                <a href="https://www.zerabooks.com/import" class="related-card"><h4>Software Import Guides</h4><p>Step-by-step import instructions for MYOB, Sage, QuickBooks, Xero, and 12 other platforms.</p><span class="link-arrow">Browse guides →</span></a>
+                <a href="/converters/csv-to-qbo/" class="related-card"><h4>CSV to QBO Converter</h4><p>Convert CSV to QuickBooks-specific QBO format for QBO bank feed import.</p><span class="link-arrow">See converter →</span></a>
+              </div>
+            </div>
 
-  <div class="callout">
-    <strong>Software compatibility:</strong> Xero, Sage 50, MYOB AccountRight, Wave, and Zoho Books all accept OFX 1.x. OFX 2.0 (XML-based) has narrower support — stick with OFX 1.x for the broadest compatibility.
-  </div>
+          </div>
+        </div>
 
-  <h2>Common Conversion Issues</h2>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <div class="toc-card">
+              <h3>On This Page</h3>
+              <nav class="toc-nav">
+                <a href="#ofx-vs-qbo">OFX vs QBO</a>
+                <a href="#ofx-structure">OFX File Structure</a>
+                <a href="#conversion-process">Conversion Process</a>
+                <a href="#software-compatibility">Software Compatibility</a>
+                <a href="#faq">FAQ</a>
+              </nav>
+            </div>
+            <div class="sidebar-cta">
+              <h4>Convert CSV to OFX</h4>
+              <p>Any CSV layout. Valid OFX output. $79/mo unlimited.</p>
+              <a href="https://www.zerabooks.com/auth" class="btn-primary">Start one-week trial <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <ul>
-    <li><strong>Encoding errors:</strong> Special characters in descriptions (ampersands, accented letters) must be escaped or removed for valid SGML</li>
-    <li><strong>Date format:</strong> DTPOSTED requires the time component — use YYYYMMDD120000, not just YYYYMMDD</li>
-    <li><strong>Amount sign:</strong> Some CSV exports use absolute values with a separate debit/credit column — combine these before conversion</li>
-  </ul>
+  <section class="final-cta">
+    <div class="final-cta-gradient">
+      <svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="ctaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.25"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#ctaGrad)"/></svg>
+    </div>
+    <div class="final-cta-inner">
+      <h2>Convert CSV to valid OFX without manual file editing</h2>
+      <p>Zera Books generates properly structured OFX from any CSV layout, with AI categorization included. One week free, then $79/month unlimited.</p>
+      <a href="https://www.zerabooks.com/auth" class="btn-primary" style="font-size:1.1rem;padding:18px 36px;">Try Zera Books for one week <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </section>
 
-  <p>Convert your CSV files to OFX using the <a href="https://www.zerabooks.com/converters/csv-to-ofx-converter">CSV to OFX converter</a> on Zera Books. For PDF-source documents, the <a href="https://www.zerabooks.com/converters/bank-statement-to-xero">bank statement to Xero converter</a> handles both extraction and OFX formatting.</p>
+  <footer class="site-footer">
+    <p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation · <a href="https://www.zerabooks.com/features/pdf-to-csv-converter">PDF to CSV</a> · <a href="https://www.zerabooks.com/alternatives">Alternatives</a> · <a href="https://www.zerabooks.com/guides">Guides</a></p>
+  </footer>
 
-  <div class="faq">
-    <h3>Frequently Asked Questions</h3>
-
-    <h3>What is OFX format?</h3>
-    <p>OFX (Open Financial Exchange) is an open SGML-based standard for financial data. It's accepted by Xero, Sage, MYOB, Wave, and most non-Intuit accounting software.</p>
-
-    <h3>What is the difference between OFX and QBO?</h3>
-    <p>QBO is Intuit's proprietary OFX variant — same core structure, Intuit-specific headers. OFX is the open standard used by all other accounting platforms.</p>
-
-    <h3>Which accounting software accepts OFX imports?</h3>
-    <p>Xero, Sage, MYOB, Wave, and Zoho Books all accept OFX. QuickBooks accepts QBO (Intuit's variant) rather than standard OFX.</p>
-  </div>
-
-  <footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
 </body>
 </html>

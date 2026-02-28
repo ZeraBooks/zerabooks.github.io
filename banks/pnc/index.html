@@ -3,113 +3,393 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PNC Bank Statement Converter | Zera Books Resources</title>
-  <meta name="description" content="Convert PNC Bank statements to Excel, CSV, QBO, or IIF. Covers PNC's PDF and CSV export formats, statement quirks, and direct QuickBooks/Xero import.">
+  <title>PNC Bank Statement Converter — Excel, CSV, QBO (2025) | Zera Books</title>
+  <meta name="description" content="Convert PNC Bank statements to Excel, CSV, QBO, or Xero format instantly. Zera Books handles digital and scanned PNC PDFs with 99.6% accuracy and AI transaction categorization.">
   <link rel="canonical" href="https://zerabooks.github.io/banks/pnc/">
-  <meta property="og:title" content="PNC Bank Statement Converter">
-  <meta property="og:description" content="Convert PNC Bank statements to Excel, CSV, QBO, or IIF for QuickBooks, Xero, and other accounting software.">
+  <meta property="og:title" content="PNC Bank Statement Converter — Excel, CSV, QBO (2025)">
+  <meta property="og:description" content="Convert PNC Bank statements to Excel, CSV, or QBO with 99.6% accuracy. AI categorization, multi-account detection, no templates needed.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://zerabooks.github.io/banks/pnc/">
   <meta property="og:site_name" content="Zera Books Resources">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebPage", "name": "PNC Bank Statement Converter", "description": "Convert PNC Bank statements to Excel, CSV, QBO, or IIF.", "url": "https://zerabooks.github.io/banks/pnc/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "headline": "PNC Bank Statement Converter — Export to Excel, CSV, QBO (2025)",
+    "description": "Convert PNC Bank statements to Excel, CSV, QBO, or Xero format with 99.6% accuracy.",
+    "url": "https://zerabooks.github.io/banks/pnc/",
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-02-28",
+    "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" },
+    "author": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" }
+  }
   </script>
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-    { "@type": "Question", "name": "What formats can I download PNC Bank statements in?", "acceptedAnswer": { "@type": "Answer", "text": "PNC Online Banking allows download of statements as PDF or CSV. PNC also supports OFX and QFX downloads for direct bank feed connections to QuickBooks. PDF statements are available for up to 7 years online." } },
-    { "@type": "Question", "name": "Does PNC Bank CSV export work with QuickBooks directly?", "acceptedAnswer": { "@type": "Answer", "text": "PNC's CSV export uses a 6-column format: Date, Description, Withdrawals (-), Deposits (+), Balance. QuickBooks requires different columns, so the PNC CSV needs reformatting before import. Use Zera Books to handle this automatically." } },
-    { "@type": "Question", "name": "How do I convert a PNC PDF statement to Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Upload the PNC PDF to Zera Books and select Excel as the output format. PNC statements are digital PDFs (not scanned), so extraction is accurate and fast. Multi-page PNC statements are supported." } }
-  ] }
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can Zera Books convert PNC Bank statements to Excel or CSV?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Zera Books converts PNC Bank statements — both digital PDFs downloaded from PNC Online Banking and scanned paper statements — to Excel, CSV, QBO, and IIF. The AI extracts date, description, debit, credit, and running balance columns accurately, including multi-page monthly statements." } },
+      { "@type": "Question", "name": "Does Zera Books handle PNC Virtual Wallet statements?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Zera Books processes PNC Virtual Wallet statements and separates the Spend, Reserve, and Growth sub-accounts into individual output files automatically using multi-account auto-detection." } },
+      { "@type": "Question", "name": "How long does it take to convert a PNC Bank statement?", "acceptedAnswer": { "@type": "Answer", "text": "Most PNC statement conversions complete in under 60 seconds. A 12-month batch typically finishes in under 5 minutes." } },
+      { "@type": "Question", "name": "What PNC statement formats does Zera Books support?", "acceptedAnswer": { "@type": "Answer", "text": "Zera Books dynamically processes any PNC Bank format — monthly personal statements, quarterly business statements, PNC Online Banking PDF exports, and older scanned paper statements. No template configuration is required." } }
+    ]
+  }
   </script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #0A1628; line-height: 1.7; }
+    h1, h2, h3, h4 { font-family: 'Jost', sans-serif; font-weight: 700; line-height: 1.2; }
+    a { color: #00D4AA; text-decoration: none; }
+    a:hover { color: #00E5B8; }
+    .hero { background: #0A1628; position: relative; overflow: hidden; }
+    .hero-gradient { position: absolute; bottom: 0; right: 0; width: 600px; height: 600px; pointer-events: none; }
+    .hero-inner { max-width: 1400px; margin: 0 auto; padding: 80px 24px 64px; position: relative; z-index: 2; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumbs a { color: rgba(255,255,255,0.5); }
+    .breadcrumbs a:hover { color: #fff; }
+    .breadcrumbs svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; }
+    .badge-primary { background: rgba(0,212,170,0.2); color: #00D4AA; }
+    .badge-secondary { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 20px; max-width: 800px; }
+    .hero-description { font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: 32px; line-height: 1.7; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: #00D4AA; color: #0A1628; font-weight: 600; font-size: 1rem; border-radius: 8px; transition: background 0.2s; border: none; cursor: pointer; }
+    .btn-primary:hover { background: #00E5B8; color: #0A1628; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: rgba(255,255,255,0.1); color: #fff; font-weight: 600; font-size: 1rem; border-radius: 8px; transition: background 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    .trust-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 32px; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+    .stars { display: flex; gap: 2px; }
+    .stars svg { width: 12px; height: 12px; }
+    .tldr-section { padding: 32px 0; background: #fff; }
+    .tldr-box { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .tldr-card { background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.25); border-radius: 16px; padding: 32px; }
+    .tldr-title { font-size: 1.5rem; color: #0A1628; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .tldr-title svg { color: #00D4AA; width: 24px; height: 24px; }
+    .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .tldr-list { list-style: none; }
+    .tldr-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: rgba(10,22,40,0.75); }
+    .tldr-list svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+    .icon-check { color: #00D4AA; }
+    .icon-x { color: rgba(10,22,40,0.3); }
+    .content-section { padding: 64px 0; background: #fff; }
+    .content-wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+    .article-sections > * + * { margin-top: 64px; }
+    .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .section-num { width: 44px; height: 44px; background: #00D4AA; color: #0A1628; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+    .section-header h2 { font-size: clamp(1.3rem, 3vw, 1.75rem); color: #0A1628; }
+    .prose p { margin-bottom: 16px; color: rgba(10,22,40,0.75); font-size: 1.05rem; }
+    .prose a { color: #00D4AA; border-bottom: 1px solid rgba(0,212,170,0.3); }
+    .prose a:hover { border-bottom-color: #00D4AA; }
+    .comparison-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin: 24px 0; }
+    .comparison-table thead tr { background: #0A1628; }
+    .comparison-table th { padding: 16px 20px; text-align: left; color: #fff; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 0.9rem; }
+    .comparison-table td { padding: 14px 20px; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; }
+    .comparison-table tbody tr:nth-child(even) { background: #F5FFFC; }
+    .comparison-table tbody tr:nth-child(odd) { background: #fff; }
+    .cell-good { color: #00D4AA; font-weight: 600; }
+    .cell-bad { color: rgba(10,22,40,0.4); }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .feature-card { background: #F5FFFC; border-radius: 12px; padding: 24px; }
+    .feature-card h3 { font-size: 1.05rem; color: #0A1628; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.9rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .feature-icon { width: 48px; height: 48px; background: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+    .feature-icon svg { width: 24px; height: 24px; color: #00D4AA; }
+    .callout { background: rgba(0,212,170,0.08); border-left: 4px solid #00D4AA; border-radius: 0 12px 12px 0; padding: 24px; margin: 24px 0; }
+    .callout p { margin: 0; color: rgba(10,22,40,0.8); }
+    .callout strong { color: #0A1628; }
+    .mid-cta { background: #0A1628; border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; position: relative; overflow: hidden; }
+    .mid-cta h3 { color: #fff; font-size: 1.5rem; margin-bottom: 12px; position: relative; z-index: 2; }
+    .mid-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; z-index: 2; }
+    .mid-cta .btn-primary { position: relative; z-index: 2; }
+    .faq-item { background: #F5FFFC; border: 1px solid rgba(0,212,170,0.15); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .faq-item h3 { font-size: 1.05rem; color: #0A1628; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.95rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .sidebar { position: relative; }
+    .sidebar-inner { position: sticky; top: 24px; }
+    .toc-card { background: #F5FFFC; border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+    .toc-card h3 { font-size: 1.1rem; color: #0A1628; margin-bottom: 16px; }
+    .toc-nav a { display: block; padding: 8px 0; font-size: 0.875rem; color: rgba(10,22,40,0.6); transition: color 0.15s; }
+    .toc-nav a:hover { color: #00D4AA; }
+    .sidebar-cta { background: #0A1628; border-radius: 16px; padding: 24px; text-align: center; }
+    .sidebar-cta h4 { color: #fff; font-size: 1.05rem; margin-bottom: 8px; }
+    .sidebar-cta p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 16px; }
+    .sidebar-cta .btn-primary { width: 100%; justify-content: center; padding: 14px 24px; }
+    .step-card { background: #fff; border: 2px solid rgba(10,22,40,0.08); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .step-card:hover { border-color: rgba(0,212,170,0.3); }
+    .step-row { display: flex; gap: 16px; align-items: flex-start; }
+    .step-card h3 { font-size: 1.05rem; margin-bottom: 6px; color: #0A1628; }
+    .step-card p { font-size: 0.9rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .step-detail { background: #F5FFFC; border-radius: 8px; padding: 12px 16px; margin-top: 10px; font-size: 0.85rem; color: rgba(10,22,40,0.7); }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .related-card { background: #F5FFFC; border-radius: 12px; padding: 24px; transition: box-shadow 0.2s; display: block; color: inherit; }
+    .related-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .related-card h4 { font-size: 1rem; color: #0A1628; margin-bottom: 8px; }
+    .related-card p { font-size: 0.85rem; color: rgba(10,22,40,0.6); margin-bottom: 12px; }
+    .related-card .link-arrow { font-size: 0.85rem; color: #00D4AA; font-weight: 600; }
+    .final-cta { background: #0A1628; padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+    .final-cta-gradient { position: absolute; bottom: 0; right: 0; width: 500px; height: 500px; pointer-events: none; }
+    .final-cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+    .final-cta h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 32px; }
+    .site-footer { background: #0A1628; border-top: 1px solid rgba(255,255,255,0.1); padding: 24px; text-align: center; }
+    .site-footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+    .site-footer a { color: rgba(255,255,255,0.6); }
+    .site-footer a:hover { color: #00D4AA; }
+    @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    @media (max-width: 768px) { .hero-inner { padding: 60px 20px 48px; } .tldr-grid { grid-template-columns: 1fr; } .feature-grid { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } .comparison-table { font-size: 0.85rem; } .comparison-table th, .comparison-table td { padding: 10px 12px; } }
+    @media (max-width: 480px) { .hero-ctas { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } }
   </style>
 </head>
 <body>
 
-<h1>PNC Bank Statement Converter: PDF and CSV to Accounting Software</h1>
+  <section class="hero">
+    <div class="hero-gradient">
+      <svg viewBox="0 0 600 600" width="100%" height="100%">
+        <defs><linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs>
+        <polygon points="600,600 600,0 0,600" fill="url(#heroGrad)"/>
+      </svg>
+    </div>
+    <div class="hero-inner">
+      <nav class="breadcrumbs">
+        <a href="https://www.zerabooks.com">Zera Books</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="https://www.zerabooks.com/banks">Bank Converters</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span style="color:#fff">PNC Bank</span>
+      </nav>
+      <div class="hero-badges">
+        <span class="badge badge-primary">PNC Bank Converter</span>
+        <span class="badge badge-secondary">Updated February 2025</span>
+      </div>
+      <h1>PNC Bank Statement Converter</h1>
+      <p class="hero-description">Convert PNC Bank statements to Excel, CSV, QBO, or Xero format in under 60 seconds. Zera Books handles every PNC statement type — Virtual Wallet, business checking, savings, and credit card — with 99.6% accuracy and automatic AI categorization.</p>
+      <div class="hero-ctas">
+        <a href="https://www.zerabooks.com/auth" class="btn-primary">Try Zera Books for one week <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter" class="btn-secondary">Full PNC guide →</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <span>Trustpilot</span>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+        </div>
+        <div class="trust-item"><span style="background:#C62828;color:#fff;font-size:7px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;">G2</span><span>High Performer</span></div>
+        <div class="trust-item"><span>99.6% accuracy</span></div>
+        <div class="trust-item"><span>3.2M+ docs trained</span></div>
+      </div>
+    </div>
+  </section>
 
-<p>PNC Bank statements are available as PDF or CSV from PNC Online Banking. PNC's PDF statements are digital (not scanned), which means transaction data extracts cleanly. PNC also offers OFX/QFX downloads for direct feed connections.</p>
+  <section class="tldr-section">
+    <div class="tldr-box">
+      <div class="tldr-card">
+        <h2 class="tldr-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          TL;DR — PNC Bank Statement Conversion
+        </h2>
+        <div class="tldr-grid">
+          <div>
+            <p style="font-weight:600;color:#0A1628;margin-bottom:12px;">What basic converters do with PNC files:</p>
+            <ul class="tldr-list">
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>PNC's multi-column layout breaks into garbled rows</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Fail on Virtual Wallet PDFs with Spend/Reserve/Growth sub-accounts</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Merge multiple accounts into one undifferentiated sheet</li>
+              <li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Leave all transaction categorization to you manually</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-weight:600;color:#0A1628;margin-bottom:12px;">What Zera Books does with PNC statements:</p>
+            <ul class="tldr-list">
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Recognizes PNC's exact layout — digital and scanned — no templates</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Splits Virtual Wallet sub-accounts into separate clean files</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>AI categorizes every transaction for QuickBooks or Xero</li>
+              <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>$79/month unlimited — no per-page fees regardless of volume</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="callout">
-  Convert PNC Bank statements to Excel, CSV, QBO, or IIF with <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter">Zera Books</a>. Upload the PDF and get a formatted output ready for QuickBooks, Xero, Sage, or any other accounting platform.
-</div>
+  <section class="content-section">
+    <div class="content-wrap">
+      <div class="content-grid">
+        <div class="main-content">
+          <div class="article-sections">
 
-<h2>PNC Statement Formats Available Online</h2>
+            <div id="pnc-formats">
+              <div class="section-header">
+                <div class="section-num">1</div>
+                <h2>PNC Bank Statement Formats and What Gets Extracted</h2>
+              </div>
+              <div class="prose">
+                <p>PNC generates several distinct statement layouts depending on account type. Personal Virtual Wallet statements divide transactions across Spend, Reserve, and Growth sub-accounts on a single PDF — a layout that trips up most generic converters. Business checking statements use a different column order, and older paper statements from PNC's mid-Atlantic and Midwest branches use a two-column transaction layout that requires proper OCR handling.</p>
+                <p>Zera Books has processed enough PNC statements to recognize all of these formats automatically. There is no template to configure and no mapping step before you can download your output. The AI was trained on 2.8 million bank statements, PNC's formats included.</p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                  <h3>Virtual Wallet statements</h3>
+                  <p>Spend, Reserve, and Growth sub-accounts extracted and separated into individual output files automatically.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+                  <h3>Business checking and savings</h3>
+                  <p>Business account statements with check images, wire details, and ACH references all parsed correctly.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                  <h3>PNC credit card statements</h3>
+                  <p>Core, Cash Rewards, and Premier Traveler credit card statements with interest and payment records included.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <h3>Scanned paper statements</h3>
+                  <p>Zera OCR handles older PNC paper statements at 95%+ accuracy — including branch-issued statements with two-column formats.</p>
+                </div>
+              </div>
+            </div>
 
-<table>
-  <thead><tr><th>Format</th><th>Where to Download</th><th>Best For</th></tr></thead>
-  <tbody>
-    <tr><td>PDF</td><td>Accounts &gt; Statements &gt; View/Download</td><td>Archive, conversion to Excel/QBO</td></tr>
-    <tr><td>CSV</td><td>Activity &gt; Download Transactions</td><td>Quick spreadsheet work (needs reformatting for QBO)</td></tr>
-    <tr><td>OFX/QFX</td><td>Activity &gt; Download Transactions &gt; select format</td><td>Direct QuickBooks bank feed connection</td></tr>
-  </tbody>
-</table>
+            <div id="how-to-convert">
+              <div class="section-header">
+                <div class="section-num">2</div>
+                <h2>How to Convert PNC Bank Statements: Step by Step</h2>
+              </div>
+              <div class="prose">
+                <p>The process takes three steps. There is no account linking, no credential sharing with PNC, and no template setup. You upload the PDF, Zera AI processes it, and you download a clean file ready for QuickBooks, Xero, or Excel.</p>
+              </div>
+              <div class="step-card"><div class="step-row"><div class="section-num">1</div><div><h3>Download your PNC statement PDF</h3><p>Log into PNC Online Banking, navigate to Statements, and download the monthly PDF. For business accounts, select the specific account and period. Password-protected PDFs are supported — enter the password at upload.</p><div class="step-detail">PNC allows up to 7 years of statement history in Online Banking. For year-end reconciliation, download all 12 months and batch-upload them to Zera Books at once.</div></div></div></div>
+              <div class="step-card"><div class="step-row"><div class="section-num">2</div><div><h3>Upload to Zera Books</h3><p>Drag the PDF into Zera Books or select it from your client folder. For multiple months, select all files at once — batch processing handles up to 50 statements simultaneously.</p><div class="step-detail">If the PDF contains multiple PNC accounts (common with business packages), multi-account auto-detection identifies each account and creates separate output files labeled by account type and last-4 digits.</div></div></div></div>
+              <div class="step-card"><div class="step-row"><div class="section-num">3</div><div><h3>Download your formatted output</h3><p>Choose Excel, CSV, QBO (QuickBooks Online), IIF (QuickBooks Desktop), or pre-formatted Xero CSV. Transactions are already AI-categorized — review suggestions and adjust any before export.</p><div class="step-detail">The QBO file imports directly into QuickBooks Online as a bank feed. The Xero CSV maps to Zera Books' Xero import format with account codes pre-populated.</div></div></div></div>
+              <div class="callout">
+                <p><strong>PNC-specific note:</strong> PNC's digital PDFs use text layers, making extraction fast and accurate. For older statements that were printed and re-scanned, <a href="https://www.zerabooks.com/features/zera-ocr">Zera OCR</a> handles those at the same accuracy level. The full <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter">PNC Bank statement converter guide</a> covers format-specific edge cases.</p>
+              </div>
+            </div>
 
-<h2>PNC PDF Statement Quirks</h2>
+            <div class="mid-cta">
+              <div style="position:absolute;bottom:0;right:0;width:400px;height:400px;pointer-events:none;"><svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="midGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.2"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#midGrad)"/></svg></div>
+              <h3>Process PNC statements in under 60 seconds</h3>
+              <p>Upload, extract, categorize, and export — no templates, no manual cleanup.</p>
+              <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
 
-<p>PNC business account PDFs sometimes include a "Virtual Wallet" summary section at the top before transaction detail. Converters that don't handle this will include the summary figures as transactions. <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter">Zera Books</a> recognizes the PNC statement structure and ignores non-transaction sections.</p>
+            <div id="output-formats">
+              <div class="section-header">
+                <div class="section-num">3</div>
+                <h2>Output Formats for PNC Bank Statements</h2>
+              </div>
+              <div class="prose">
+                <p>PNC Online Banking offers a limited CSV export through account activity, but it requires manual date filtering and leaves all transactions uncategorized. Zera Books takes the statement PDF and produces a properly formatted file for whichever platform you use — categorization included.</p>
+              </div>
+              <div style="overflow-x:auto;">
+                <table class="comparison-table">
+                  <thead><tr><th>Output Format</th><th>Use For</th><th>Categorization Included</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Excel (XLSX)</strong></td><td>Review, analysis, client delivery</td><td class="cell-good">Yes — GL codes in separate column</td></tr>
+                    <tr><td><strong>CSV</strong></td><td>Sage, Wave, Zoho, generic import</td><td class="cell-good">Yes — category column included</td></tr>
+                    <tr><td><strong>QBO</strong></td><td>QuickBooks Online direct import</td><td class="cell-good">Yes — mapped to QBO chart of accounts</td></tr>
+                    <tr><td><strong>IIF</strong></td><td>QuickBooks Desktop</td><td class="cell-good">Yes — account codes pre-mapped</td></tr>
+                    <tr><td><strong>Xero CSV</strong></td><td>Xero bank import</td><td class="cell-good">Yes — Xero account codes</td></tr>
+                    <tr><td><strong>NetSuite / Oracle CSV</strong></td><td>Enterprise accounting</td><td class="cell-good">Yes — pre-formatted headers</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="color:rgba(10,22,40,0.6);font-size:0.9rem;">See <a href="https://www.zerabooks.com/converters">all converter formats</a> and <a href="https://www.zerabooks.com/import">platform import guides</a>.</p>
+            </div>
 
-<p>PNC statements for accounts with multiple account numbers on the same statement (e.g., checking and money market combined) are handled by Zera Books' multi-account detection — each account gets a separate output file.</p>
+            <div id="multi-account">
+              <div class="section-header">
+                <div class="section-num">4</div>
+                <h2>PNC Multi-Account Detection and Batch Processing</h2>
+              </div>
+              <div class="prose">
+                <p>Business clients often receive a single PNC PDF consolidating checking, savings, and credit accounts. Most converters treat this as a single account and mix all transactions. Zera Books identifies account boundaries within the PDF and creates a separate output file for each account — labeled by type and last-4 digits.</p>
+                <p>For bookkeeping firms handling multiple PNC business clients, batch upload lets you load all statements at once. Each converts independently, and the client dashboard tracks every conversion by client folder with full history and audit trail.</p>
+              </div>
+              <div class="callout">
+                <p><strong>Time comparison:</strong> Firms processing 10 PNC business clients with 3 accounts each used to spend roughly 2 hours separating and formatting statements monthly. With Zera Books batch upload and multi-account detection, the same job takes under 15 minutes. See <a href="https://www.zerabooks.com/solutions/bank-reconciliation">bank reconciliation automation</a> for the full workflow.</p>
+              </div>
+            </div>
 
-<h2>PNC CSV Export Limitations</h2>
+            <div id="faq">
+              <div class="section-header">
+                <div class="section-num">5</div>
+                <h2>Frequently Asked Questions — PNC Bank Statements</h2>
+              </div>
+              <div class="faq-item"><h3>Can Zera Books convert PNC Bank statements to Excel or CSV?</h3><p>Yes. Zera Books converts PNC Bank statements — both digital PDFs downloaded from PNC Online Banking and scanned paper statements — to Excel, CSV, QBO, and IIF with 99.6% accuracy.</p></div>
+              <div class="faq-item"><h3>Does Zera Books handle PNC Virtual Wallet statements?</h3><p>Yes. Zera Books processes PNC Virtual Wallet statements and separates the Spend, Reserve, and Growth sub-accounts into individual output files automatically using multi-account auto-detection.</p></div>
+              <div class="faq-item"><h3>How long does it take to convert a PNC Bank statement?</h3><p>Most PNC statement conversions complete in under 60 seconds. A 12-month batch typically finishes in under 5 minutes. The AI processes pages simultaneously rather than sequentially.</p></div>
+              <div class="faq-item"><h3>What PNC statement formats does Zera Books support?</h3><p>Zera Books dynamically processes any PNC Bank format — monthly personal, quarterly business, PNC Online Banking exports, and older scanned paper statements. No template configuration required. See the full <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter">PNC Bank converter page</a>.</p></div>
+            </div>
 
-<p>PNC's CSV download uses this column structure:</p>
+            <div>
+              <h2 style="font-size:1.5rem;color:#0A1628;margin-bottom:20px;">Related Resources</h2>
+              <div class="related-grid">
+                <a href="https://www.zerabooks.com/banks" class="related-card"><h4>All Bank Statement Converters</h4><p>Bank-specific guides for 45+ US and Canadian banks.</p><span class="link-arrow">Browse all banks →</span></a>
+                <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter" class="related-card"><h4>PNC Bank Converter — Full Guide</h4><p>Detailed walkthrough of PNC statement formats and output options.</p><span class="link-arrow">Read full guide →</span></a>
+                <a href="/bank-statements/" class="related-card"><h4>Bank Statement Conversion Guide</h4><p>How AI extraction works for digital and scanned bank PDFs.</p><span class="link-arrow">Learn more →</span></a>
+                <a href="https://www.zerabooks.com/guides" class="related-card"><h4>Bookkeeping Guides</h4><p>Step-by-step workflows for accountants processing client statements.</p><span class="link-arrow">See guides →</span></a>
+              </div>
+            </div>
 
-<table>
-  <thead><tr><th>Column</th><th>Format</th></tr></thead>
-  <tbody>
-    <tr><td>Date</td><td>MM/DD/YYYY</td></tr>
-    <tr><td>Description</td><td>Text</td></tr>
-    <tr><td>Withdrawals</td><td>Positive (money out)</td></tr>
-    <tr><td>Deposits</td><td>Positive (money in)</td></tr>
-    <tr><td>Balance</td><td>Running balance</td></tr>
-  </tbody>
-</table>
+          </div>
+        </div>
 
-<p>This does not match what QuickBooks or Xero expect for CSV import. You need to combine Withdrawals and Deposits into a single signed Amount column and remove the Balance column before importing.</p>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <div class="toc-card">
+              <h3>On This Page</h3>
+              <nav class="toc-nav">
+                <a href="#pnc-formats">PNC Statement Formats</a>
+                <a href="#how-to-convert">How to Convert</a>
+                <a href="#output-formats">Output Formats</a>
+                <a href="#multi-account">Multi-Account & Batch</a>
+                <a href="#faq">FAQ</a>
+              </nav>
+            </div>
+            <div class="sidebar-cta">
+              <h4>Convert PNC Statements</h4>
+              <p>99.6% accuracy. No templates. $79/mo unlimited.</p>
+              <a href="https://www.zerabooks.com/auth" class="btn-primary">Start one-week trial <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <div style="margin-top:24px;padding:20px;background:#F5FFFC;border-radius:12px;">
+              <p style="font-size:0.8rem;color:rgba(10,22,40,0.6);margin-bottom:12px;font-weight:600;">MORE BANK CONVERTERS</p>
+              <nav class="toc-nav">
+                <a href="/banks/us-bank/">US Bank</a>
+                <a href="/banks/regions/">Regions Bank</a>
+                <a href="/banks/fifth-third/">Fifth Third Bank</a>
+                <a href="/banks/key-bank/">KeyBank</a>
+                <a href="/banks/huntington/">Huntington Bank</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h2>Conversion Steps</h2>
+  <section class="final-cta">
+    <div class="final-cta-gradient">
+      <svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="ctaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.25"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#ctaGrad)"/></svg>
+    </div>
+    <div class="final-cta-inner">
+      <h2>Ready to convert your PNC statements?</h2>
+      <p>Upload any PNC Bank statement and get clean, categorized data in Excel, CSV, QBO, or Xero format. No templates. No per-page fees. One week free.</p>
+      <a href="https://www.zerabooks.com/auth" class="btn-primary" style="font-size:1.1rem;padding:18px 36px;">Try Zera Books for one week <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </section>
 
-<ol>
-  <li>Log into PNC Online Banking</li>
-  <li>Go to <strong>Accounts</strong> &gt; <strong>Statements</strong> and download the PDF for the period you need</li>
-  <li>Upload to <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter">Zera Books</a></li>
-  <li>Select your output format (Excel, CSV, QBO, IIF)</li>
-  <li>Download the converted file and import into your accounting software</li>
-</ol>
+  <footer class="site-footer">
+    <p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation · <a href="https://www.zerabooks.com/products/bank-statements">Bank Statement Processing</a> · <a href="https://www.zerabooks.com/alternatives">Alternatives</a> · <a href="/banks/">More Bank Converters</a></p>
+  </footer>
 
-<div class="faq">
-  <h3>Frequently Asked Questions</h3>
-
-  <h3>What formats can I download PNC Bank statements in?</h3>
-  <p>PNC Online Banking allows download of statements as PDF or CSV. PNC also supports OFX and QFX downloads for direct bank feed connections to QuickBooks. PDF statements are available for up to 7 years online.</p>
-
-  <h3>Does PNC Bank CSV export work with QuickBooks directly?</h3>
-  <p>PNC's CSV export uses a 6-column format: Date, Description, Withdrawals (-), Deposits (+), Balance. QuickBooks requires different columns, so the PNC CSV needs reformatting before import. Use Zera Books to handle this automatically.</p>
-
-  <h3>How do I convert a PNC PDF statement to Excel?</h3>
-  <p>Upload the PNC PDF to Zera Books and select Excel as the output format. PNC statements are digital PDFs (not scanned), so extraction is accurate and fast. Multi-page PNC statements are supported.</p>
-</div>
-
-<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
 </body>
 </html>

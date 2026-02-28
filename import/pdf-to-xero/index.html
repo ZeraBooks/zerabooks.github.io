@@ -1,107 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF to Xero: Import Bank Statements | Zera Books Resources</title>
-  <meta name="description" content="How to import PDF bank statements into Xero. Convert PDF to OFX or CSV, handle scanned statements with OCR, and import via Xero bank upload.">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Xero: How to Import a PDF Bank Statement into Xero (2025) | Zera Books</title>
+  <meta name="description" content="How to import a PDF bank statement into Xero. Convert PDF to CSV format with correct Xero column headers step by step. Works with scanned PDFs, multi-page statements, and any bank.">
   <link rel="canonical" href="https://zerabooks.github.io/import/pdf-to-xero/">
-  <meta property="og:title" content="PDF to Xero: Import Bank Statements">
-  <meta property="og:description" content="How to import PDF bank statements into Xero. Convert PDF to OFX or CSV and import via Xero bank upload.">
+  <meta property="og:title" content="PDF to Xero: How to Import a PDF Bank Statement into Xero (2025) | Zera Books">
+  <meta property="og:description" content="How to import a PDF bank statement into Xero. Convert PDF to CSV format with correct Xero column headers step by step.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://zerabooks.github.io/import/pdf-to-xero/">
   <meta property="og:site_name" content="Zera Books Resources">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebPage", "name": "PDF to Xero Bank Statement Import", "description": "How to import PDF bank statements into Xero.", "url": "https://zerabooks.github.io/import/pdf-to-xero/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  {"@context":"https://schema.org","@type":"WebPage","headline":"PDF to Xero: How to Import a PDF Bank Statement into Xero (2025)","description":"How to import a PDF bank statement into Xero. Convert PDF to CSV with correct Xero column headers.","url":"https://zerabooks.github.io/import/pdf-to-xero/","datePublished":"2025-01-15","dateModified":"2025-02-28","publisher":{"@type":"Organization","name":"Zera Books","url":"https://www.zerabooks.com"},"author":{"@type":"Organization","name":"Zera Books","url":"https://www.zerabooks.com"}}
   </script>
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-    { "@type": "Question", "name": "Can Xero import PDF bank statements?", "acceptedAnswer": { "@type": "Answer", "text": "No. Xero cannot extract transactions from PDFs. You must convert the PDF to OFX, CSV, QIF, or OFC format first, then upload via Accounting > Bank Accounts > Import a Statement." } },
-    { "@type": "Question", "name": "What is the best format to convert PDF to for Xero?", "acceptedAnswer": { "@type": "Answer", "text": "OFX is the best format for Xero imports. It requires no column mapping, includes transaction IDs to prevent duplicates, and Xero reads the date range automatically. CSV works but requires manual column mapping." } },
-    { "@type": "Question", "name": "How do I import a scanned bank statement into Xero?", "acceptedAnswer": { "@type": "Answer", "text": "Scanned statements need OCR before they can be converted. Upload the scanned PDF to Zera Books, which uses OCR to extract text and converts to OFX or CSV ready for Xero. Accuracy is 95%+ for clean scans." } }
-  ] }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I import a PDF directly into Xero?","acceptedAnswer":{"@type":"Answer","text":"No. Xero accepts CSV, OFX, and QIF for bank statement imports. Convert the PDF to Xero-formatted CSV using Zera Books first, then import via Xero's bank reconciliation screen."}},
+      {"@type":"Question","name":"What CSV format does Xero require for bank statement imports?","acceptedAnswer":{"@type":"Answer","text":"Xero requires a CSV with Date, Amount, Payee, Description, and Reference columns. Date must be in DD/MM/YYYY or MM/DD/YYYY format matching your Xero region. Zera Books auto-formats to Xero's exact specification."}},
+      {"@type":"Question","name":"Does Zera Books handle scanned PDF statements for Xero import?","acceptedAnswer":{"@type":"Answer","text":"Yes. Zera OCR processes image-based and scanned PDFs with 95%+ accuracy, converting them to Xero-ready CSV. 300+ DPI scans produce the best results."}},
+      {"@type":"Question","name":"Can Zera Books separate multi-account PDFs for Xero?","acceptedAnswer":{"@type":"Answer","text":"Yes. Multi-account PDFs are automatically split into separate CSV files — one per account — each formatted for Xero import into the matching bank account."}}]}
   </script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #0A1628; line-height: 1.7; }
+    h1, h2, h3, h4 { font-family: 'Jost', sans-serif; font-weight: 700; line-height: 1.2; }
+    a { color: #00D4AA; text-decoration: none; }
+    a:hover { color: #00E5B8; }
+    .hero { background: #0A1628; position: relative; overflow: hidden; }
+    .hero-gradient { position: absolute; bottom: 0; right: 0; width: 600px; height: 600px; pointer-events: none; }
+    .hero-inner { max-width: 1400px; margin: 0 auto; padding: 80px 24px 64px; position: relative; z-index: 2; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumbs a { color: rgba(255,255,255,0.5); }
+    .breadcrumbs a:hover { color: #fff; }
+    .breadcrumbs svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .badge { display: inline-flex; align-items: center; padding: 6px 16px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; }
+    .badge-primary { background: rgba(0,212,170,0.2); color: #00D4AA; }
+    .badge-secondary { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 20px; max-width: 800px; }
+    .hero-description { font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: 32px; line-height: 1.7; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: #00D4AA; color: #0A1628; font-weight: 600; font-size: 1rem; border-radius: 8px; transition: background 0.2s; }
+    .btn-primary:hover { background: #00E5B8; color: #0A1628; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: rgba(255,255,255,0.1); color: #fff; font-weight: 600; font-size: 1rem; border-radius: 8px; transition: background 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    .trust-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 32px; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+    .stars { display: flex; gap: 2px; }
+    .stars svg { width: 12px; height: 12px; }
+    .tldr-section { padding: 32px 0; background: #fff; }
+    .tldr-box { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .tldr-card { background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.25); border-radius: 16px; padding: 32px; }
+    .tldr-title { font-size: 1.5rem; color: #0A1628; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .tldr-title svg { color: #00D4AA; width: 24px; height: 24px; }
+    .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .tldr-list { list-style: none; }
+    .tldr-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: rgba(10,22,40,0.75); }
+    .tldr-list svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+    .icon-check { color: #00D4AA; }
+    .icon-x { color: rgba(10,22,40,0.3); }
+    .content-section { padding: 64px 0; background: #fff; }
+    .content-wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+    .article-sections > * + * { margin-top: 64px; }
+    .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .section-num { width: 44px; height: 44px; background: #00D4AA; color: #0A1628; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+    .section-header h2 { font-size: clamp(1.3rem, 3vw, 1.75rem); color: #0A1628; }
+    .prose p { margin-bottom: 16px; color: rgba(10,22,40,0.75); font-size: 1.05rem; }
+    .prose a { color: #00D4AA; border-bottom: 1px solid rgba(0,212,170,0.3); }
+    .prose a:hover { border-bottom-color: #00D4AA; }
+    .comparison-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin: 24px 0; }
+    .comparison-table thead tr { background: #0A1628; }
+    .comparison-table th { padding: 16px 20px; text-align: left; color: #fff; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 0.9rem; }
+    .comparison-table td { padding: 14px 20px; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; }
+    .comparison-table tbody tr:nth-child(even) { background: #F5FFFC; }
+    .comparison-table tbody tr:nth-child(odd) { background: #fff; }
+    .cell-good { color: #00D4AA; font-weight: 600; }
+    .cell-bad { color: rgba(10,22,40,0.4); }
+    .callout { background: rgba(0,212,170,0.08); border-left: 4px solid #00D4AA; border-radius: 0 12px 12px 0; padding: 24px; margin: 24px 0; }
+    .callout p { margin: 0; color: rgba(10,22,40,0.8); }
+    .callout strong { color: #0A1628; }
+    .mid-cta { background: #0A1628; border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; position: relative; overflow: hidden; }
+    .mid-cta h3 { color: #fff; font-size: 1.5rem; margin-bottom: 12px; }
+    .mid-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .faq-item { background: #F5FFFC; border: 1px solid rgba(0,212,170,0.15); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .faq-item h3 { font-size: 1.05rem; color: #0A1628; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.95rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .sidebar { position: relative; }
+    .sidebar-inner { position: sticky; top: 24px; }
+    .toc-card { background: #F5FFFC; border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+    .toc-card h3 { font-size: 1.1rem; color: #0A1628; margin-bottom: 16px; }
+    .toc-nav a { display: block; padding: 8px 0; font-size: 0.875rem; color: rgba(10,22,40,0.6); border-bottom: none; transition: color 0.15s; }
+    .toc-nav a:hover { color: #00D4AA; }
+    .sidebar-cta { background: #0A1628; border-radius: 16px; padding: 24px; text-align: center; }
+    .sidebar-cta h4 { color: #fff; font-size: 1.05rem; margin-bottom: 8px; }
+    .sidebar-cta p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 16px; }
+    .sidebar-cta .btn-primary { width: 100%; justify-content: center; padding: 14px 24px; }
+    .step-card { background: #fff; border: 2px solid rgba(10,22,40,0.08); border-radius: 12px; padding: 24px; margin-bottom: 16px; transition: border-color 0.2s; }
+    .step-card:hover { border-color: rgba(0,212,170,0.3); }
+    .step-row { display: flex; gap: 16px; align-items: flex-start; }
+    .step-card h3 { font-size: 1.05rem; margin-bottom: 6px; color: #0A1628; }
+    .step-card p { font-size: 0.9rem; color: rgba(10,22,40,0.7); margin: 0; }
+    .step-detail { background: #F5FFFC; border-radius: 8px; padding: 12px 16px; margin-top: 10px; font-size: 0.85rem; color: rgba(10,22,40,0.7); }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .related-card { background: #F5FFFC; border-radius: 12px; padding: 24px; transition: box-shadow 0.2s; }
+    .related-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .related-card h4 { font-size: 1rem; color: #0A1628; margin-bottom: 8px; }
+    .related-card p { font-size: 0.85rem; color: rgba(10,22,40,0.6); margin-bottom: 12px; }
+    .related-card .link-arrow { font-size: 0.85rem; color: #00D4AA; font-weight: 600; }
+    .final-cta { background: #0A1628; padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+    .final-cta-gradient { position: absolute; bottom: 0; right: 0; width: 500px; height: 500px; pointer-events: none; }
+    .final-cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+    .final-cta h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 32px; }
+    .site-footer { background: #0A1628; border-top: 1px solid rgba(255,255,255,0.1); padding: 24px; text-align: center; }
+    .site-footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+    .site-footer a { color: rgba(255,255,255,0.6); }
+    .site-footer a:hover { color: #00D4AA; }
+    @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    @media (max-width: 768px) { .hero-inner { padding: 60px 20px 48px; } .tldr-grid { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } .comparison-table { font-size: 0.85rem; } .comparison-table th, .comparison-table td { padding: 10px 12px; } }
+    @media (max-width: 480px) { .hero-ctas { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } }
   </style>
 </head>
 <body>
+  <section class="hero">
+    <div class="hero-gradient"><svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#heroGrad)"/></svg></div>
+    <div class="hero-inner">
+      <nav class="breadcrumbs">
+        <a href="https://www.zerabooks.com">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="/import/">Import Guides</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span style="color:#fff">PDF to Xero</span>
+      </nav>
+      <div class="hero-badges">
+        <span class="badge badge-primary">Import Guide</span>
+        <span class="badge badge-secondary">PDF to Xero</span>
+        <span class="badge badge-secondary">Updated 2025</span>
+      </div>
+      <h1>How to Import a PDF Bank Statement into Xero</h1>
+      <p class="hero-description">Xero does not accept PDF bank statements. You need to convert the PDF to a properly formatted CSV first. This guide walks through the entire process: converting your PDF with Zera Books, formatting for Xero's column requirements, and importing through Xero's bank reconciliation screen.</p>
+      <div class="hero-ctas">
+        <a href="https://www.zerabooks.com/auth" class="btn-primary">Convert PDF to Xero CSV — try for one week <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#step-by-step" class="btn-secondary">Jump to steps</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span>Trustpilot</span><div class="stars"><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#00B67A"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div>
+        <div class="trust-item"><span style="background:#C62828;color:#fff;font-size:7px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;">G2</span><span>High Performer</span></div>
+        <div class="trust-item"><span>99.6% accuracy</span></div>
+        <div class="trust-item"><span>3.2M+ docs trained</span></div>
+      </div>
+    </div>
+  </section>
 
-<h1>PDF to Xero: How to Import Bank Statements</h1>
+  <section class="tldr-section">
+    <div class="tldr-box">
+      <div class="tldr-card">
+        <h2 class="tldr-title"><svg viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>TL;DR &mdash; PDF to Xero</h2>
+        <div class="tldr-grid">
+          <div><p style="font-weight:600;color:#0A1628;margin-bottom:12px;">The manual process:</p><ul class="tldr-list"><li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Xero rejects PDF uploads — CSV, OFX, or QIF required</li><li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Manual data entry from PDF takes 30-90 minutes per statement</li><li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Generic CSV converters produce wrong column headers for Xero</li><li><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Date format mismatches cause Xero import failures</li></ul></div>
+          <div><p style="font-weight:600;color:#0A1628;margin-bottom:12px;">With Zera Books:</p><ul class="tldr-list"><li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Upload any PDF — digital or scanned — get Xero-formatted CSV</li><li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Correct Xero column headers: Date, Amount, Payee, Description, Reference</li><li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Date format auto-matched to your Xero region settings</li><li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>AI categorization mapped to your Xero chart of accounts</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>Xero cannot read PDF files. The path for getting PDF bank statements into Xero is: convert the PDF to OFX or CSV, then upload via Xero's bank statement import. This applies whether the PDF came from your bank's online portal or was scanned from paper.</p>
+  <section class="content-section">
+    <div class="content-wrap">
+      <div class="content-grid">
+        <div class="main-content">
+          <div class="article-sections">
 
-<div class="callout">
-  <strong>Fastest workflow:</strong> Upload your PDF to <a href="https://www.zerabooks.com/import/pdf-to-xero">Zera Books</a> → download OFX → import into Xero in under 2 minutes. Works with digital PDFs, scanned images, and password-protected files.
-</div>
+            <div id="xero-formats">
+              <div class="section-header"><div class="section-num">1</div><h2>What File Formats Does Xero Accept?</h2></div>
+              <div class="prose"><p>Xero's bank statement import accepts three formats. PDF is not one of them. Understanding the differences helps you choose the right conversion output.</p></div>
+              <div style="overflow-x:auto;"><table class="comparison-table">
+                <thead><tr><th>Format</th><th>Xero Support</th><th>Column Mapping</th><th>Best For</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>CSV</strong></td><td class="cell-good">Full support</td><td>Requires correct headers</td><td class="cell-good">Most common — Zera Books default for Xero</td></tr>
+                  <tr><td><strong>OFX</strong></td><td class="cell-good">Full support</td><td>Auto-mapped</td><td>When available from bank directly</td></tr>
+                  <tr><td><strong>QIF</strong></td><td>Supported</td><td>Auto-mapped</td><td>Legacy format, limited metadata</td></tr>
+                  <tr><td><strong>PDF</strong></td><td class="cell-bad">Not accepted</td><td class="cell-bad">N/A</td><td class="cell-bad">Must convert to CSV first</td></tr>
+                </tbody>
+              </table></div>
+              <div class="callout"><p><strong>Why CSV over OFX for Xero?</strong> CSV gives you the most control over what Xero imports. The <a href="https://www.zerabooks.com/import/xero-bank-statement-import">Zera Books Xero import</a> preset generates CSV with exact Xero column headers, so there's no manual mapping step.</p></div>
+            </div>
 
-<h2>Complete Workflow</h2>
+            <div id="csv-spec">
+              <div class="section-header"><div class="section-num">2</div><h2>Xero CSV Column Specification</h2></div>
+              <div class="prose"><p>Xero is particular about CSV structure. Generic CSV exports from other tools often fail because the column names don't match what Xero expects.</p></div>
+              <div style="overflow-x:auto;"><table class="comparison-table">
+                <thead><tr><th>Column</th><th>Required</th><th>Format</th><th>Notes</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Date</strong></td><td class="cell-good">Yes</td><td>DD/MM/YYYY or MM/DD/YYYY</td><td>Must match your Xero org's region setting</td></tr>
+                  <tr><td><strong>Amount</strong></td><td class="cell-good">Yes</td><td>Signed number (-50.00 or 50.00)</td><td>Negative for debits, positive for credits</td></tr>
+                  <tr><td><strong>Payee</strong></td><td>Optional</td><td>Text</td><td>Mapped to Contact in Xero for reconciliation matching</td></tr>
+                  <tr><td><strong>Description</strong></td><td>Optional</td><td>Text</td><td>Shown in transaction detail</td></tr>
+                  <tr><td><strong>Reference</strong></td><td>Optional</td><td>Text</td><td>Check numbers, transaction IDs</td></tr>
+                </tbody>
+              </table></div>
+              <div class="callout"><p><strong>Zera Books handles this automatically.</strong> Select "Xero" as the export format — the CSV is generated with these exact column headers, dates matched to your region, and amounts signed correctly. See the <a href="https://www.zerabooks.com/features/pdf-to-csv-converter">PDF to CSV converter specs</a> for technical details.</p></div>
+            </div>
 
-<ol>
-  <li><strong>Download the PDF</strong> from your bank's online banking portal. Most banks keep 12-24 months of PDF statements available.</li>
-  <li><strong>Convert to OFX</strong> using <a href="https://www.zerabooks.com/import/pdf-to-xero">Zera Books</a>. Upload the PDF and select OFX as output format.</li>
-  <li><strong>In Xero:</strong> Go to <strong>Accounting</strong> &gt; <strong>Bank Accounts</strong> &gt; click the account</li>
-  <li>Click <strong>Import a Statement</strong></li>
-  <li>Upload the OFX file — Xero reads it automatically, no column mapping needed</li>
-  <li>Review imported transactions in the <strong>Reconcile</strong> tab</li>
-</ol>
+            <div id="step-by-step">
+              <div class="section-header"><div class="section-num">3</div><h2>Step-by-Step: PDF to Xero Import</h2></div>
+              <div class="prose"><p>The complete workflow from PDF bank statement to reconciled transactions in Xero.</p></div>
+              <div class="step-card"><div class="step-row"><div class="section-num">1</div><div><h3>Upload your PDF to Zera Books</h3><p>Go to <a href="https://www.zerabooks.com/auth">zerabooks.com</a> and upload your bank statement PDF. Drag and drop or click to browse. Accepts digital PDFs, scanned documents, password-protected files, and multi-page statements from any bank.</p><div class="step-detail">The Zera Books platform dynamically processes any bank format — trained on 3.2 million documents. No template setup or bank selection required.</div></div></div></div>
+              <div class="step-card"><div class="step-row"><div class="section-num">2</div><div><h3>AI extraction and preview (under 2 minutes)</h3><p>Zera AI extracts every transaction: dates, amounts, descriptions, running balances, and account numbers. For scanned PDFs, <a href="https://www.zerabooks.com/features/zera-ocr">Zera OCR</a> processes the image first. Review the transaction preview before exporting.</p><div class="step-detail">Multi-account PDFs (checking + savings + credit card in one file) are automatically separated into individual files. Each gets its own CSV for import into the matching Xero bank account.</div></div></div></div>
+              <div class="step-card"><div class="step-row"><div class="section-num">3</div><div><h3>Export as Xero CSV</h3><p>Select "Xero" as the export format. The generated CSV includes correct column headers (Date, Amount, Payee, Description, Reference), region-appropriate date formatting, and signed amounts.</p><div class="step-detail">For batch processing, upload multiple PDFs and export all Xero CSVs at once. <a href="https://www.zerabooks.com/products/bank-statements">Zera Books handles 50+ statements</a> in a single batch — ideal for month-end close across multiple clients.</div></div></div></div>
+              <div class="step-card"><div class="step-row"><div class="section-num">4</div><div><h3>Import CSV into Xero</h3><p>In Xero, go to <strong>Accounting</strong> &gt; <strong>Bank Accounts</strong> &gt; select the account &gt; <strong>Import a Statement</strong>. Upload the CSV file. Xero reads the headers and maps columns automatically because the Zera Books export matches Xero's expected format.</p><div class="step-detail">Confirm the date range and account mapping. Click Import. Transactions appear in the bank reconciliation screen within seconds.</div></div></div></div>
+              <div class="step-card"><div class="step-row"><div class="section-num">5</div><div><h3>Reconcile in Xero</h3><p>Imported transactions appear in the Reconcile tab. Xero suggests matches against existing invoices, bills, and contacts. AI categorization from <a href="https://www.zerabooks.com/features/ai-categorization">Zera Books</a> pre-populates account codes, reducing manual work.</p><div class="step-detail">For recurring transactions, Xero learns from your reconciliation patterns. Combined with Zera Books' AI categorization, most transactions need just a single click to confirm.</div></div></div></div>
+            </div>
 
-<h2>Digital PDF vs Scanned Statement</h2>
+            <div class="mid-cta">
+              <div style="position:absolute;bottom:0;right:0;width:400px;height:400px;pointer-events:none;"><svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="midGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.2"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#midGrad)"/></svg></div>
+              <h3 style="position:relative;z-index:2;">Convert any PDF to Xero-ready CSV in minutes</h3>
+              <p style="position:relative;z-index:2;">Digital and scanned PDFs. Any bank worldwide. Correct Xero column headers. AI categorization. $79/month unlimited.</p>
+              <a href="https://www.zerabooks.com/auth" class="btn-primary" style="position:relative;z-index:2;">Try for one week <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
 
-<table>
-  <thead><tr><th>Type</th><th>How to Tell</th><th>Conversion Method</th></tr></thead>
-  <tbody>
-    <tr><td>Digital PDF</td><td>Text highlights when you click and drag over it</td><td>Direct text extraction — fast, very accurate</td></tr>
-    <tr><td>Image/Scanned PDF</td><td>Text doesn't highlight — it's a photo embedded in PDF</td><td>OCR needed — Zera Books handles automatically</td></tr>
-    <tr><td>Password-Protected</td><td>Asks for password when opening</td><td>Enter password in Zera Books or unlock file first</td></tr>
-  </tbody>
-</table>
+            <div id="common-errors">
+              <div class="section-header"><div class="section-num">4</div><h2>Common Xero Import Errors and Fixes</h2></div>
+              <div class="step-card"><div class="step-row"><div style="width:44px;height:44px;background:rgba(10,22,40,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h3>'Date format not recognized' error</h3><p>Xero expects DD/MM/YYYY for UK/AU/NZ orgs and MM/DD/YYYY for US orgs. Zera Books detects your region and formats dates accordingly — this error doesn't occur with Zera Books exports.</p></div></div></div>
+              <div class="step-card"><div class="step-row"><div style="width:44px;height:44px;background:rgba(10,22,40,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h3>'Unable to map columns' error</h3><p>Generic CSV exports use headers like "Transaction Date" or "Debit/Credit" instead of Xero's expected "Date" and "Amount." The <a href="https://www.zerabooks.com/converters">Zera Books Xero preset</a> uses the exact header names Xero requires.</p></div></div></div>
+              <div class="step-card"><div class="step-row"><div style="width:44px;height:44px;background:rgba(10,22,40,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h3>Duplicate transactions after import</h3><p>Overlapping date ranges between bank feeds and CSV imports create duplicates. Zera Books' <a href="https://www.zerabooks.com/features/data-extraction">duplicate detection</a> removes overlapping transactions before export.</p></div></div></div>
+              <div class="step-card"><div class="step-row"><div style="width:44px;height:44px;background:rgba(10,22,40,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h3>Amounts showing as wrong sign</h3><p>Xero treats positive amounts as money in and negative as money out. Some converters use separate debit/credit columns instead of signed values. Zera Books consolidates to a single signed Amount column matching Xero's convention.</p></div></div></div>
+            </div>
 
-<h2>Why OFX Over CSV for Xero</h2>
+            <div id="faq">
+              <div class="section-header"><div class="section-num">5</div><h2>Frequently Asked Questions</h2></div>
+              <div class="faq-item"><h3>Can I import a PDF bank statement directly into Xero?</h3><p>No. Xero accepts CSV, OFX, and QIF files. Convert your PDF to Xero-formatted CSV using <a href="https://www.zerabooks.com/import/xero-bank-statement-import">Zera Books</a>, then import via Accounting &gt; Bank Accounts &gt; Import a Statement.</p></div>
+              <div class="faq-item"><h3>What CSV format does Xero require?</h3><p>Date, Amount, Payee, Description, and Reference columns. Date must match your Xero region (DD/MM/YYYY for UK/AU/NZ, MM/DD/YYYY for US). Amount must be signed. Zera Books generates this automatically.</p></div>
+              <div class="faq-item"><h3>Does Zera Books handle scanned PDF statements for Xero?</h3><p>Yes. Zera OCR processes scanned and image-based PDFs with 95%+ accuracy, then converts to Xero-ready CSV. Scan quality of 300+ DPI produces the best results.</p></div>
+              <div class="faq-item"><h3>Can Zera Books separate multi-account PDFs for Xero import?</h3><p>Yes. When a single PDF contains multiple accounts, Zera Books generates separate CSV files for each. Import each into the matching Xero bank account.</p></div>
+            </div>
 
-<p>OFX files include a FITID field (Financial Institution Transaction ID) for each transaction. Xero uses this to prevent importing the same transaction twice if you upload overlapping date ranges. CSV imports don't have this protection — if you upload the same period twice, you'll get duplicates in the Reconcile tab.</p>
+            <div>
+              <h2 style="font-size:1.5rem;color:#0A1628;margin-bottom:20px;">Related Resources</h2>
+              <div class="related-grid"><a href="/import/xero/" class="related-card"><h4>Xero Bank Statement Import Guide</h4><p>Full guide to importing bank statements into Xero from any source.</p><span class="link-arrow">See guide &rarr;</span></a><a href="/import/csv-to-xero/" class="related-card"><h4>CSV to Xero Import</h4><p>Format and import CSV files into Xero's bank reconciliation.</p><span class="link-arrow">See guide &rarr;</span></a><a href="https://www.zerabooks.com/alternatives" class="related-card"><h4>Converter Alternatives</h4><p>Compare Zera Books against 350+ alternative tools for accountants.</p><span class="link-arrow">See alternatives &rarr;</span></a><a href="https://www.zerabooks.com/guides" class="related-card"><h4>Accounting Workflow Guides</h4><p>Step-by-step guides for bank reconciliation, month-end close, and more.</p><span class="link-arrow">Browse guides &rarr;</span></a></div>
+            </div>
+          </div>
+        </div>
 
-<p>OFX also skips the column mapping step. There's no screen asking you which column is the date. Xero reads the structured format directly.</p>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <div class="toc-card">
+              <h3>On This Page</h3>
+              <nav class="toc-nav"><a href="#xero-formats">Xero File Formats</a><a href="#csv-spec">CSV Column Spec</a><a href="#step-by-step">Step-by-Step Import</a><a href="#common-errors">Common Errors</a><a href="#faq">FAQ</a></nav>
+            </div>
+            <div class="sidebar-cta">
+              <h4>Convert PDF to Xero CSV</h4>
+              <p>Any bank. Digital or scanned. Correct Xero headers. $79/mo unlimited.</p>
+              <a href="https://www.zerabooks.com/auth" class="btn-primary">Start one-week trial <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h2>Multi-Account PDFs</h2>
+  <section class="final-cta">
+    <div class="final-cta-gradient"><svg viewBox="0 0 600 600" width="100%" height="100%"><defs><linearGradient id="ctaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4AA" stop-opacity="0.25"/><stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/></linearGradient></defs><polygon points="600,600 600,0 0,600" fill="url(#ctaGrad)"/></svg></div>
+    <div class="final-cta-inner">
+      <h2>Convert any PDF bank statement to Xero in minutes</h2>
+      <p>Digital or scanned PDFs, any bank format worldwide. Zera Books generates Xero-ready CSV with AI categorization mapped to your chart of accounts. $79/month unlimited.</p>
+      <a href="https://www.zerabooks.com/auth" class="btn-primary" style="font-size:1.1rem;padding:18px 36px;">Try Zera Books for one week <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </section>
 
-<p>If your client's PDF statement includes both a checking account and savings account (common with business banking PDFs), <a href="https://www.zerabooks.com/import/pdf-to-xero">Zera Books</a> detects both accounts and splits the output into separate files. Import each file into its corresponding Xero bank account separately.</p>
-
-<h2>Historical Statement Imports</h2>
-
-<p>If you're setting up Xero for a new client with years of statements to import, download PDFs year by year and batch them together. Zera Books processes up to 50+ statements in a single batch, outputting a separate OFX file per statement. Then import them into Xero in chronological order to keep the bank register clean.</p>
-
-<div class="faq">
-  <h3>Frequently Asked Questions</h3>
-
-  <h3>Can Xero import PDF bank statements?</h3>
-  <p>No. Xero cannot extract transactions from PDFs. You must convert the PDF to OFX, CSV, QIF, or OFC format first, then upload via Accounting &gt; Bank Accounts &gt; Import a Statement.</p>
-
-  <h3>What is the best format to convert PDF to for Xero?</h3>
-  <p>OFX is the best format for Xero imports. It requires no column mapping, includes transaction IDs to prevent duplicates, and Xero reads the date range automatically. CSV works but requires manual column mapping.</p>
-
-  <h3>How do I import a scanned bank statement into Xero?</h3>
-  <p>Scanned statements need OCR before they can be converted. Upload the scanned PDF to Zera Books, which uses OCR to extract text and converts to OFX or CSV ready for Xero. Accuracy is 95%+ for clean scans.</p>
-</div>
-
-<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+  <footer class="site-footer">
+    <p>Published by <a href="https://www.zerabooks.com">Zera Books</a> &middot; AI-powered bookkeeping automation for accounting professionals &middot; <a href="https://www.zerabooks.com/import">Import Guides</a> &middot; <a href="https://www.zerabooks.com/converters">Converters</a> &middot; <a href="/import/">All Import Guides</a></p>
+  </footer>
 </body>
 </html>

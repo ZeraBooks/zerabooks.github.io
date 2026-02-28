@@ -1,119 +1,1519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Statement to IIF — QuickBooks Desktop Import Format | Zera Books Resources</title>
-  <meta name="description" content="How to convert bank statements to IIF format for QuickBooks Desktop import. Covers IIF file structure, required fields, account types, and import steps for QB Desktop.">
-  <link rel="canonical" href="https://zerabooks.github.io/converters/bank-statement-to-iif/">
-  <meta property="og:title" content="Bank Statement to IIF — QuickBooks Desktop Import Format">
-  <meta property="og:description" content="How to convert bank statements to IIF format for QuickBooks Desktop import. Covers IIF file structure, account types, and import steps.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://zerabooks.github.io/converters/bank-statement-to-iif/">
-  <meta property="og:site_name" content="Zera Books Resources">
-  <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebPage", "name": "Bank Statement to IIF — QuickBooks Desktop Import Format", "description": "How to convert bank statements to IIF format for QuickBooks Desktop import.", "url": "https://zerabooks.github.io/converters/bank-statement-to-iif/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
-  </script>
-  <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-    { "@type": "Question", "name": "What is IIF format in QuickBooks?", "acceptedAnswer": { "@type": "Answer", "text": "IIF (Intuit Interchange Format) is a tab-delimited text format used by QuickBooks Desktop for importing transactions, lists, and journal entries. It's the primary import format for QuickBooks Pro, Premier, and Enterprise." } },
-    { "@type": "Question", "name": "How do I import an IIF file into QuickBooks Desktop?", "acceptedAnswer": { "@type": "Answer", "text": "In QuickBooks Desktop, go to File → Utilities → Import → IIF Files. Select the IIF file, click Open, and QuickBooks imports the transactions. Always back up your company file first." } },
-    { "@type": "Question", "name": "What is the difference between IIF and QBO for QuickBooks?", "acceptedAnswer": { "@type": "Answer", "text": "IIF is for QuickBooks Desktop (Pro, Premier, Enterprise). QBO is for QuickBooks Online. They use different formats and are not interchangeable." } }
-  ] }
-  </script>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    pre { background: #f4f4f4; padding: 1rem; border-radius: 6px; font-size: 0.85rem; overflow-x: auto; margin-bottom: 1rem; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Statement to IIF Converter for QuickBooks Desktop (2025) | Zera Books</title>
+<meta name="description" content="Convert bank statement PDFs to IIF format for QuickBooks Desktop import. Zera Books generates valid IIF files with proper account mapping and AI categorization. $79/month unlimited.">
+<link rel="canonical" href="https://zerabooks.github.io/converters/bank-statement-to-iif/">
+<meta property="og:title" content="Bank Statement to IIF Converter for QuickBooks Desktop">
+<meta property="og:description" content="Convert bank statement PDFs to IIF format for QuickBooks Desktop. AI-powered extraction, proper account mapping, no templates needed.">
+<meta property="og:url" content="https://zerabooks.github.io/converters/bank-statement-to-iif/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Bank Statement to IIF Converter for QuickBooks Desktop",
+  "description": "Convert bank statement PDFs to IIF format for QuickBooks Desktop import. AI-powered extraction with proper account mapping and transaction categorization.",
+  "url": "https://zerabooks.github.io/converters/bank-statement-to-iif/",
+  "datePublished": "2025-01-15",
+  "dateModified": "2025-02-28",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zera Books",
+    "url": "https://www.zerabooks.com/"
+  },
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "Zera Books IIF Converter",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "79",
+      "priceCurrency": "USD",
+      "billingIncrement": "P1M"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an IIF file and why does QuickBooks Desktop use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IIF (Intuit Interchange Format) is a tab-delimited text format used by QuickBooks Desktop to import lists and transactions. It predates QBO format and is specifically designed for the desktop version. IIF files contain header rows (!TRNS, !SPL, !ENDTRNS) that define transaction types, accounts, amounts, and memo fields for direct import into QuickBooks Desktop without manual data entry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use QBO files instead of IIF for QuickBooks Desktop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — QBO format is for QuickBooks Online bank feeds, not QuickBooks Desktop. QuickBooks Desktop uses IIF for transaction imports or OFX/QFX for bank feeds. If you're running QuickBooks Desktop (Pro, Premier, or Enterprise), you need IIF format for full transaction import with memo, split, and account information. QBO files will not import correctly into the desktop version."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Zera Books handle account mapping for IIF files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zera Books uses AI to map transactions to your QuickBooks Desktop chart of accounts. You provide your account names during setup, and the AI categorizes each transaction to the correct account in the IIF file. This means the ACCNT field in each !TRNS row is pre-filled with your actual account names — no manual remapping needed after import."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Zera Books process scanned bank statement PDFs for IIF conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Zera Books includes Zera OCR for scanned and image-based PDFs. The OCR layer achieves 95%+ accuracy on standard bank statement layouts. After OCR, the AI extraction and IIF generation process is identical to digital PDFs. This covers faxed statements, scanned archives, and any image-based document your bank provides."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cyan: #00D4AA;
+    --navy: #0A1628;
+    --cream: #F5FFFC;
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    background: var(--navy);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .navbar-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .navbar-logo {
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+    font-size: 1.375rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .navbar-logo span { color: var(--cyan); }
+  .navbar-cta {
+    background: var(--cyan);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .navbar-cta:hover { background: #00E5B8; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 24px 72px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* breadcrumbs */
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .breadcrumbs a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .breadcrumbs a:hover { color: var(--cyan); }
+  .breadcrumbs .sep { color: rgba(255,255,255,0.25); }
+  .breadcrumbs .current { color: rgba(255,255,255,0.75); }
+
+  /* hero badges */
+  .hero-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,212,170,0.12);
+    border: 1px solid rgba(0,212,170,0.3);
+    color: var(--cyan);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.01em;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .hero h1 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    max-width: 820px;
+  }
+  .hero h1 .accent { color: var(--cyan); }
+
+  .hero-desc {
+    font-size: 1.0625rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 680px;
+    margin-bottom: 36px;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cyan);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #00E5B8; transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.13); }
+
+  /* trust row */
+  .trust-row {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+  .trust-stars { color: #fbbf24; letter-spacing: 1px; font-size: 0.75rem; }
+  .trust-label { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+  /* ── MAIN LAYOUT ── */
+  .section-white { background: var(--white); }
+  .section-cream { background: var(--cream); }
+
+  .section-pad { padding: 72px 24px; }
+  .section-pad-sm { padding: 56px 24px; }
+
+  .container { max-width: 1400px; margin: 0 auto; }
+
+  /* ── TLDR BOX ── */
+  .tldr-box {
+    background: rgba(0,212,170,0.05);
+    border: 1px solid rgba(0,212,170,0.2);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 56px;
+  }
+  .tldr-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--cyan);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 600px) { .tldr-grid { grid-template-columns: 1fr; } }
+  .tldr-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.875rem;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+  .tldr-check {
+    width: 18px; height: 18px;
+    background: var(--cyan);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tldr-check svg { width: 10px; height: 10px; }
+  .tldr-x {
+    width: 18px; height: 18px;
+    background: #fee2e2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tldr-x svg { width: 10px; height: 10px; }
+
+  /* ── CONTENT GRID ── */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } }
+
+  /* ── TOC SIDEBAR ── */
+  .toc-card {
+    position: sticky;
+    top: 88px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  @media (max-width: 1024px) { .toc-card { display: none; } }
+  .toc-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+  }
+  .toc-nav { display: flex; flex-direction: column; gap: 4px; }
+  .toc-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    color: var(--gray-600);
+    text-decoration: none;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+  .toc-link:hover { background: var(--cream); color: var(--navy); }
+  .toc-num {
+    width: 20px; height: 20px;
+    background: var(--gray-100);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--gray-500);
+    flex-shrink: 0;
+  }
+
+  .sidebar-cta {
+    margin-top: 20px;
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .sidebar-cta-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .sidebar-cta-desc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .sidebar-cta-btn {
+    display: block;
+    background: var(--cyan);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .sidebar-cta-btn:hover { background: #00E5B8; }
+
+  /* ── SECTIONS ── */
+  .sections-stack { display: flex; flex-direction: column; gap: 56px; }
+
+  .section-anchor { scroll-margin-top: 88px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    width: 44px; height: 44px;
+    background: var(--cyan);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+    font-size: 1.125rem;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 1.625rem;
+    color: var(--navy);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+  .section-lead {
+    font-size: 1rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 22px;
+  }
+  .feature-card-icon {
+    width: 40px; height: 40px;
+    background: rgba(0,212,170,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 1.125rem;
+  }
+  .feature-card h4 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .feature-card p {
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+    line-height: 1.55;
+  }
+
+  /* ── CODE BLOCK ── */
+  .code-block {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    overflow-x: auto;
+  }
+  .code-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .code-block pre {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8125rem;
+    line-height: 1.7;
+    color: var(--cyan);
+    white-space: pre;
+  }
+  .code-comment { color: rgba(255,255,255,0.35); }
+  .code-value { color: #a5f3d4; }
+
+  /* ── TABLE ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .data-table thead {
+    background: var(--navy);
+  }
+  .data-table thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .data-table tbody tr:nth-child(odd) { background: var(--white); }
+  .data-table tbody tr:nth-child(even) { background: var(--cream); }
+  .data-table tbody td {
+    padding: 12px 16px;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-100);
+    line-height: 1.5;
+  }
+  .data-table tbody td:first-child {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .tag-req {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+  .tag-opt {
+    display: inline-block;
+    background: var(--gray-100);
+    color: var(--gray-600);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .compare-table thead {
+    background: var(--navy);
+  }
+  .compare-table thead th {
+    padding: 14px 20px;
+    text-align: left;
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--white);
+  }
+  .compare-table thead th:first-child { width: 36%; }
+  .compare-table thead th.col-manual { color: #fca5a5; }
+  .compare-table thead th.col-zera { color: var(--cyan); }
+  .compare-table tbody tr:nth-child(odd) { background: var(--white); }
+  .compare-table tbody tr:nth-child(even) { background: var(--cream); }
+  .compare-table tbody td {
+    padding: 13px 20px;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+  }
+  .compare-table tbody td:first-child { font-weight: 600; color: var(--navy); }
+  .ico-yes { color: var(--cyan); font-weight: 700; }
+  .ico-no { color: #ef4444; font-weight: 700; }
+
+  /* ── STEP CARDS ── */
+  .steps { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+  .step-card {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .step-circle {
+    width: 36px; height: 36px;
+    background: var(--cyan);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+    font-size: 0.9375rem;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+  .step-body h4 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .step-body p {
+    font-size: 0.8375rem;
+    color: var(--gray-500);
+    line-height: 1.55;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: rgba(0,212,170,0.06);
+    border-left: 4px solid var(--cyan);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .highlight-box p {
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+  .highlight-box strong { color: var(--navy); }
+
+  /* ── MID CTA ── */
+  .mid-cta {
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .mid-cta-text h3 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .mid-cta-text p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  .mid-cta-btn {
+    background: var(--cyan);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 13px 26px;
+    border-radius: 9px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .mid-cta-btn:hover { background: #00E5B8; }
+
+  /* ── FAQ ── */
+  .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+  .faq-item {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--navy);
+    padding: 18px 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+  }
+  .faq-q:hover { background: var(--cream); }
+  .faq-icon {
+    width: 22px; height: 22px;
+    background: rgba(0,212,170,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--cyan);
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .faq-a {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    padding: 0 22px 18px;
+  }
+
+  /* ── RELATED RESOURCES ── */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .resource-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 22px;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    display: block;
+  }
+  .resource-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 4px 16px rgba(0,212,170,0.1);
+  }
+  .resource-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .resource-card h4 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .resource-card p {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .final-cta-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .final-cta h2 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--white);
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .final-cta h2 span { color: var(--cyan); }
+  .final-cta p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 36px;
+    line-height: 1.65;
+  }
+  .final-cta-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 40px 24px 28px;
+  }
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .footer-brand p {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+    max-width: 280px;
+    line-height: 1.6;
+  }
+  .footer-links-group h5 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .footer-links { display: flex; flex-direction: column; gap: 8px; }
+  .footer-links a {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--cyan); }
+  .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 20px; }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+  .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--cyan); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .section-pad { padding: 52px 20px; }
+    .section-pad-sm { padding: 40px 20px; }
+    .hero-inner { padding: 16px 20px 56px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions a { text-align: center; justify-content: center; }
+    .mid-cta { flex-direction: column; text-align: center; }
+    .mid-cta-btn { width: 100%; text-align: center; }
+    .resources-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .trust-row { gap: 16px; }
+    .final-cta-actions { flex-direction: column; align-items: center; }
+  }
+
+  /* ── PROSE LINKS ── */
+  .prose a {
+    color: #0070c0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .prose a:hover { color: #005a99; }
+
+  ul.check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  ul.check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    line-height: 1.55;
+  }
+  ul.check-list li::before {
+    content: "✓";
+    color: var(--cyan);
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+</style>
 </head>
 <body>
 
-  <h1>Converting Bank Statements to IIF for QuickBooks Desktop</h1>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="https://www.zerabooks.com/" class="navbar-logo">Zera<span>Books</span></a>
+    <a href="https://www.zerabooks.com/auth" class="navbar-cta">Try for one week</a>
+  </div>
+</nav>
 
-  <p>QuickBooks Desktop users can't use QBO files — that format is specific to QuickBooks Online. The Desktop versions (Pro, Premier, Enterprise) use IIF (Intuit Interchange Format) for transaction imports. If you're converting bank statement PDFs for a client on QuickBooks Desktop, IIF is the target format.</p>
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-gradient" viewBox="0 0 1400 560" preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="1400,560 700,560 1400,0" fill="url(#hg)"/>
+  </svg>
+  <div class="hero-inner">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="https://www.zerabooks.com/">Zera Books</a>
+      <span class="sep">›</span>
+      <a href="https://www.zerabooks.com/converters">Converters</a>
+      <span class="sep">›</span>
+      <span class="current">Bank Statement to IIF</span>
+    </nav>
 
-  <h2>IIF vs QBO: Which to Use</h2>
+    <div class="hero-badges">
+      <span class="badge"><span class="badge-dot"></span>QuickBooks Desktop</span>
+      <span class="badge"><span class="badge-dot"></span>IIF Format</span>
+      <span class="badge"><span class="badge-dot"></span>AI Account Mapping</span>
+    </div>
 
-  <table>
-    <thead>
-      <tr><th>QuickBooks Version</th><th>Import Format</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>QuickBooks Online (all tiers)</td><td>QBO</td></tr>
-      <tr><td>QuickBooks Desktop Pro/Premier</td><td>IIF</td></tr>
-      <tr><td>QuickBooks Desktop Enterprise</td><td>IIF</td></tr>
-      <tr><td>QuickBooks for Mac</td><td>IIF (older versions) / QBO (newer)</td></tr>
-    </tbody>
-  </table>
+    <h1>Bank Statement to <span class="accent">IIF Converter</span> for QuickBooks Desktop</h1>
+    <p class="hero-desc">Convert bank statement PDFs directly to IIF format for QuickBooks Desktop import. Zera Books extracts transactions, maps to your chart of accounts, and generates valid IIF files — no manual re-entry, no templates.</p>
 
-  <h2>IIF File Structure</h2>
+    <div class="hero-actions">
+      <a href="https://www.zerabooks.com/auth" class="btn-primary">
+        Try for one week
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://www.zerabooks.com/converters/bank-statement-to-iif" class="btn-secondary">
+        View IIF Converter
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
 
-  <p>IIF is a tab-delimited text format with type headers that tell QuickBooks what kind of data each section contains. A bank transaction import uses the TRNS (transaction) and SPL (split) record types:</p>
+    <div class="trust-row">
+      <div class="trust-item">
+        <span class="trust-stars">★★★★★</span>
+        <span class="trust-label">Trustpilot</span>
+        <span>4.9/5</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-stars">★★★★★</span>
+        <span class="trust-label">G2</span>
+        <span>4.8/5</span>
+      </div>
+      <div class="trust-item">
+        <span style="color: var(--cyan); font-weight: 700;">99.6%</span>
+        <span>Accuracy</span>
+      </div>
+      <div class="trust-item">
+        <span style="color: var(--cyan); font-weight: 700;">3.2M+</span>
+        <span>Docs Processed</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <pre>!TRNS	TRNSID	TRNSTYPE	DATE	ACCNT	NAME	AMOUNT	MEMO
-!SPL	SPLID	TRNSTYPE	DATE	ACCNT	AMOUNT	MEMO
+<!-- MAIN CONTENT -->
+<section class="section-white section-pad">
+  <div class="container">
+
+    <!-- TL;DR -->
+    <div class="tldr-box">
+      <div class="tldr-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        TL;DR — What You Need to Know
+      </div>
+      <div class="tldr-grid">
+        <div class="tldr-item">
+          <div class="tldr-check"><svg viewBox="0 0 12 12" fill="none" stroke="#0A1628" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg></div>
+          <span>IIF is QuickBooks Desktop's native import format — different from QBO (QuickBooks Online)</span>
+        </div>
+        <div class="tldr-item">
+          <div class="tldr-check"><svg viewBox="0 0 12 12" fill="none" stroke="#0A1628" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg></div>
+          <span>Zera Books maps transactions to your actual QB Desktop chart of accounts — no remapping after import</span>
+        </div>
+        <div class="tldr-item">
+          <div class="tldr-check"><svg viewBox="0 0 12 12" fill="none" stroke="#0A1628" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg></div>
+          <span>Works on digital PDFs and scanned statements via Zera OCR (95%+ accuracy)</span>
+        </div>
+        <div class="tldr-item">
+          <div class="tldr-x"><svg viewBox="0 0 12 12" fill="none" stroke="#ef4444" stroke-width="2.5"><path d="M3 3l6 6M9 3l-6 6"/></svg></div>
+          <span>IIF does not support QuickBooks Online — use QBO/OFX format for cloud QB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+      <!-- MAIN COLUMN -->
+      <div class="sections-stack prose">
+
+        <!-- SECTION 1 -->
+        <div id="section-1" class="section-anchor">
+          <div class="section-header">
+            <div class="section-num">1</div>
+            <h2 class="section-title">IIF vs QBO: Which Format for Which QuickBooks?</h2>
+          </div>
+          <p class="section-lead">QuickBooks comes in two fundamentally different products — Desktop and Online — and they use incompatible import formats. Using the wrong file type results in import errors or silent failures.</p>
+
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Criteria</th>
+                <th class="col-manual">QBO Format</th>
+                <th class="col-zera">IIF Format</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Product</td>
+                <td>QuickBooks Online</td>
+                <td>QuickBooks Desktop (Pro/Premier/Enterprise)</td>
+              </tr>
+              <tr>
+                <td>Import Method</td>
+                <td>Bank feeds (automatic match)</td>
+                <td>File import: File → Utilities → Import → IIF Files</td>
+              </tr>
+              <tr>
+                <td>Account Mapping</td>
+                <td>Match to existing transactions</td>
+                <td>Pre-mapped to chart of accounts in the file</td>
+              </tr>
+              <tr>
+                <td>Categorization</td>
+                <td>Rules-based after import</td>
+                <td>Account field set at conversion time</td>
+              </tr>
+              <tr>
+                <td>Multi-line Transactions</td>
+                <td class="ico-no">✗ Single line only</td>
+                <td class="ico-yes">✓ SPL rows for split entries</td>
+              </tr>
+              <tr>
+                <td>Memo Field</td>
+                <td>Limited (MEMO tag)</td>
+                <td>Full MEMO field per transaction and split</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="highlight-box">
+            <p><strong>Key rule:</strong> If you use QuickBooks Desktop (installed software, not browser-based), you need IIF. If you use QuickBooks Online or QuickBooks Self-Employed, you need QBO or OFX format. Zera Books generates both — the right format is selected automatically based on your workflow.</p>
+          </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div id="section-2" class="section-anchor">
+          <div class="section-header">
+            <div class="section-num">2</div>
+            <h2 class="section-title">IIF File Structure: What Zera Books Generates</h2>
+          </div>
+          <p class="section-lead">IIF is a tab-delimited plain text format. Each transaction block contains a header row (!TRNS), one or more detail rows (!SPL), and a close row (!ENDTRNS). Here is what a valid IIF transaction block looks like after Zera Books processes your bank statement:</p>
+
+          <div class="code-block">
+            <div class="code-label">Sample IIF Output — Bank Statement Transaction</div>
+            <pre>!TRNS	DATE	ACCNT	NAME	CLASS	AMOUNT	MEMO	CLEAR
+!SPL	DATE	ACCNT	NAME	CLASS	AMOUNT	MEMO	CLEAR
 !ENDTRNS
-TRNS	1	BANK	01/15/2025	Checking	Vendor Name	-247.50	Office supplies
-SPL	2	BANK	01/15/2025	Uncategorized Expense	247.50	Office supplies
+
+TRNS	<span class="code-value">02/14/2025</span>	<span class="code-value">Business Checking</span>	<span class="code-value">Stripe Payments</span>		<span class="code-value">4250.00</span>	<span class="code-value">Online payment deposit</span>	N
+SPL	<span class="code-value">02/14/2025</span>	<span class="code-value">Revenue:Sales</span>	<span class="code-value">Stripe Payments</span>		<span class="code-value">-4250.00</span>	<span class="code-value">Online payment deposit</span>	N
+ENDTRNS
+
+TRNS	<span class="code-value">02/15/2025</span>	<span class="code-value">Business Checking</span>	<span class="code-value">Office Depot</span>		<span class="code-value">-189.47</span>	<span class="code-value">Office supplies purchase</span>	N
+SPL	<span class="code-value">02/15/2025</span>	<span class="code-value">Expenses:Office Supplies</span>	<span class="code-value">Office Depot</span>		<span class="code-value">189.47</span>	<span class="code-value">Office supplies purchase</span>	N
 ENDTRNS</pre>
+          </div>
 
-  <p>Each transaction in IIF requires a TRNS line (the bank account side) and at least one SPL line (the offsetting account). Zera Books generates both, using "Uncategorized Expense" or "Uncategorized Income" as the offset account unless AI categorization is enabled, in which case the assigned category is used.</p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Description</th>
+                <th>Required?</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DATE</td>
+                <td>Transaction date in MM/DD/YYYY format (QB Desktop requirement)</td>
+                <td><span class="tag-req">Required</span></td>
+                <td>02/14/2025</td>
+              </tr>
+              <tr>
+                <td>ACCNT</td>
+                <td>Account name exactly as it appears in your QuickBooks Desktop chart of accounts</td>
+                <td><span class="tag-req">Required</span></td>
+                <td>Business Checking</td>
+              </tr>
+              <tr>
+                <td>NAME</td>
+                <td>Vendor/payee name — used to match or create a QB vendor record</td>
+                <td><span class="tag-opt">Optional</span></td>
+                <td>Office Depot</td>
+              </tr>
+              <tr>
+                <td>AMOUNT</td>
+                <td>Signed amount. Positive = money in (TRNS row). Negative = offset (SPL row).</td>
+                <td><span class="tag-req">Required</span></td>
+                <td>-189.47</td>
+              </tr>
+              <tr>
+                <td>MEMO</td>
+                <td>Transaction description extracted from bank statement. Preserved as-is.</td>
+                <td><span class="tag-opt">Optional</span></td>
+                <td>Office supplies purchase</td>
+              </tr>
+              <tr>
+                <td>CLASS</td>
+                <td>QuickBooks class for job/department tracking. Populated if classes are configured.</td>
+                <td><span class="tag-opt">Optional</span></td>
+                <td>Operations</td>
+              </tr>
+              <tr>
+                <td>CLEAR</td>
+                <td>Cleared status. N = not cleared. Y = cleared/reconciled.</td>
+                <td><span class="tag-opt">Optional</span></td>
+                <td>N</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-  <h2>Account Name Matching</h2>
+        <!-- MID CTA -->
+        <div class="mid-cta">
+          <div class="mid-cta-text">
+            <h3>Need IIF files for QuickBooks Desktop?</h3>
+            <p>Zera Books converts any bank statement PDF to properly mapped IIF in minutes. $79/month unlimited.</p>
+          </div>
+          <a href="https://www.zerabooks.com/auth" class="mid-cta-btn">Convert to IIF →</a>
+        </div>
 
-  <div class="callout">
-    <strong>Important:</strong> The ACCNT field in the IIF file must exactly match the account name in your QuickBooks Desktop chart of accounts. If you use "Business Checking" in QuickBooks but the IIF says "Checking", the import will fail or create a new account. Check your exact account names before generating the IIF file.
+        <!-- SECTION 3 -->
+        <div id="section-3" class="section-anchor">
+          <div class="section-header">
+            <div class="section-num">3</div>
+            <h2 class="section-title">AI Account Mapping: No Remapping After Import</h2>
+          </div>
+          <p class="section-lead">The hardest part of IIF conversion is not the format — it is the ACCNT field. Every transaction in the TRNS row must reference an account name that exists exactly in your QuickBooks Desktop chart of accounts. A single typo or mismatched name causes the entire import to fail or create orphan transactions.</p>
+
+          <p style="margin-bottom: 20px; color: var(--gray-600); line-height: 1.7;">Zera Books handles this in two ways:</p>
+
+          <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="feature-card">
+              <div class="feature-card-icon">📋</div>
+              <h4>Account List Import</h4>
+              <p>You provide your QuickBooks Desktop account list (exported as IIF or CSV). Zera Books validates every mapping against your exact account names before generating the output file.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-card-icon">🤖</div>
+              <h4>AI Categorization</h4>
+              <p>Zera AI reads transaction descriptions and amounts, then assigns the most likely account from your chart. Trained on 3.2M+ documents — no template configuration required.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-card-icon">✅</div>
+              <h4>Validation Pass</h4>
+              <p>Before delivery, every ACCNT reference is checked against your account list. Mismatches are flagged for review rather than silently creating invalid imports.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-card-icon">🔄</div>
+              <h4>Pattern Learning</h4>
+              <p>The AI learns from your corrections over time. After a few conversions, vendor-to-account mappings are remembered and applied automatically to future statements.</p>
+            </div>
+          </div>
+
+          <div class="highlight-box" style="margin-top: 24px;">
+            <p><strong>Common IIF import failure:</strong> QuickBooks Desktop will reject an IIF import silently if an ACCNT name doesn't match exactly (including capitalization and spacing). Zera Books prevents this by validating against your exported account list before the file is generated.</p>
+          </div>
+        </div>
+
+        <!-- SECTION 4 -->
+        <div id="section-4" class="section-anchor">
+          <div class="section-header">
+            <div class="section-num">4</div>
+            <h2 class="section-title">Conversion Process: PDF Bank Statement to IIF</h2>
+          </div>
+          <p class="section-lead">The conversion from bank statement PDF to a valid QuickBooks Desktop IIF file involves four stages. Here is exactly what happens at each step:</p>
+
+          <div class="steps">
+            <div class="step-card">
+              <div class="step-circle">1</div>
+              <div class="step-body">
+                <h4>Upload + PDF Analysis</h4>
+                <p>Upload your bank statement PDF (digital or scanned). For digital PDFs, Zera AI parses text directly. For scanned documents, Zera OCR processes the image first, achieving 95%+ accuracy on standard bank layouts including handwritten corrections and stamps.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-circle">2</div>
+              <div class="step-body">
+                <h4>Transaction Extraction + Normalization</h4>
+                <p>Every transaction row is extracted: date, description, debit/credit amounts, and running balance. Dates are normalized to MM/DD/YYYY format required by QuickBooks Desktop. Descriptions are cleaned of encoding artifacts and truncated to IIF field limits.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-circle">3</div>
+              <div class="step-body">
+                <h4>Account Mapping + Categorization</h4>
+                <p>Each transaction is assigned to an account in your QuickBooks Desktop chart. The AI reads vendor names, amounts, and memo text to determine the correct expense, revenue, or liability account. The TRNS row gets your bank account; the SPL row gets the offset account.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-circle">4</div>
+              <div class="step-body">
+                <h4>IIF Generation + Validation</h4>
+                <p>The output IIF file is assembled with proper !TRNS/!SPL/!ENDTRNS structure, tab delimiters, and field ordering. A validation pass checks for account name accuracy, balanced amounts (TRNS + SPL = 0 per transaction), and date format compliance before download.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5 -->
+        <div id="section-5" class="section-anchor">
+          <div class="section-header">
+            <div class="section-num">5</div>
+            <h2 class="section-title">Common IIF Import Errors and How to Avoid Them</h2>
+          </div>
+          <p class="section-lead">QuickBooks Desktop's IIF importer is notoriously strict. Most import failures come from one of five issues — all of which Zera Books handles automatically.</p>
+
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Error</th>
+                <th class="col-manual">What Causes It</th>
+                <th class="col-zera">How Zera Books Prevents It</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Account Not Found</td>
+                <td>ACCNT field doesn't match exact account name in QB Desktop</td>
+                <td>Validates against your exported account list; flags mismatches before file generation</td>
+              </tr>
+              <tr>
+                <td>Unbalanced Transaction</td>
+                <td>TRNS + SPL amounts don't sum to zero</td>
+                <td>Automated balance check on every transaction block before output</td>
+              </tr>
+              <tr>
+                <td>Invalid Date Format</td>
+                <td>Bank statements use DD/MM/YYYY or YYYY-MM-DD; IIF requires MM/DD/YYYY</td>
+                <td>Date normalization step converts all formats to MM/DD/YYYY automatically</td>
+              </tr>
+              <tr>
+                <td>Duplicate Transaction ID</td>
+                <td>Re-importing the same period creates duplicate entries in QB</td>
+                <td>Duplicate detection compares against conversion history before file delivery</td>
+              </tr>
+              <tr>
+                <td>Missing !TRNS Header</td>
+                <td>Incorrect file structure (often from manual IIF editing)</td>
+                <td>IIF is generated programmatically with correct header structure — never manually constructed</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="highlight-box" style="margin-top: 24px;">
+            <p><strong>After import, check QuickBooks:</strong> Go to Reports → Accountant &amp; Taxes → Voided/Deleted Transactions to confirm your import was complete. Zera Books also provides a transaction count summary so you can verify the expected number of entries against what QB Desktop received.</p>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div id="section-faq" class="section-anchor">
+          <div class="section-header">
+            <div class="section-num" style="background: rgba(0,212,170,0.1); color: var(--cyan);">?</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">
+                What is an IIF file and why does QuickBooks Desktop use it?
+                <div class="faq-icon">+</div>
+              </div>
+              <div class="faq-a">IIF (Intuit Interchange Format) is a tab-delimited text format used by QuickBooks Desktop to import lists and transactions. It predates QBO format and is specifically designed for the desktop version. IIF files contain header rows (!TRNS, !SPL, !ENDTRNS) that define transaction types, accounts, amounts, and memo fields for direct import into QuickBooks Desktop without manual data entry.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                Can I use QBO files instead of IIF for QuickBooks Desktop?
+                <div class="faq-icon">+</div>
+              </div>
+              <div class="faq-a">No — QBO format is for QuickBooks Online bank feeds, not QuickBooks Desktop. QuickBooks Desktop uses IIF for transaction imports. If you're running QuickBooks Desktop Pro, Premier, or Enterprise, you need IIF format for full transaction import with memo, split, and account information. QBO files will not import correctly into the desktop version.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                How does Zera Books handle account mapping for IIF files?
+                <div class="faq-icon">+</div>
+              </div>
+              <div class="faq-a">Zera Books uses AI to map transactions to your QuickBooks Desktop chart of accounts. You provide your account names during setup, and the AI categorizes each transaction to the correct account in the IIF file. This means the ACCNT field in each !TRNS row is pre-filled with your actual account names — no manual remapping needed after import.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                Does Zera Books process scanned bank statement PDFs for IIF conversion?
+                <div class="faq-icon">+</div>
+              </div>
+              <div class="faq-a">Yes. Zera Books includes Zera OCR for scanned and image-based PDFs. The OCR layer achieves 95%+ accuracy on standard bank statement layouts. After OCR, the AI extraction and IIF generation process is identical to digital PDFs. This covers faxed statements, scanned archives, and any image-based document your bank provides.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RELATED RESOURCES -->
+        <div>
+          <h3 style="font-family: 'Jost', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--navy); margin-bottom: 16px;">Related Converter Pages</h3>
+          <div class="resources-grid">
+            <a href="https://www.zerabooks.com/converters/bank-statement-to-quickbooks" class="resource-card">
+              <div class="resource-tag">Converter</div>
+              <h4>Bank Statement to QuickBooks</h4>
+              <p>Full QuickBooks Online and Desktop import guide — QBO, IIF, and OFX formats explained.</p>
+            </a>
+            <a href="/converters/bank-statement-to-quickbooks/" class="resource-card">
+              <div class="resource-tag">Guide</div>
+              <h4>Bank Statement to QBO</h4>
+              <p>QuickBooks Online bank feed import using QBO format — step-by-step process.</p>
+            </a>
+            <a href="https://www.zerabooks.com/converters/bank-statement-to-iif" class="resource-card">
+              <div class="resource-tag">Tool</div>
+              <h4>IIF Converter on Zera Books</h4>
+              <p>Try the full IIF conversion workflow with AI account mapping and batch processing.</p>
+            </a>
+            <a href="/converters/bank-statement-to-xero/" class="resource-card">
+              <div class="resource-tag">Converter</div>
+              <h4>Bank Statement to Xero</h4>
+              <p>Convert bank statements to Xero-compatible CSV format for direct import.</p>
+            </a>
+            <a href="https://www.zerabooks.com/import" class="resource-card">
+              <div class="resource-tag">Platform</div>
+              <h4>All Import Formats</h4>
+              <p>Excel, CSV, QBO, IIF, OFX, and more — every import format Zera Books supports.</p>
+            </a>
+            <a href="https://www.zerabooks.com/alternatives" class="resource-card">
+              <div class="resource-tag">Comparison</div>
+              <h4>Zera Books vs Alternatives</h4>
+              <p>How Zera Books compares to MoneyThumb, ProperSoft, and other IIF tools.</p>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <div>
+        <div class="toc-card">
+          <div class="toc-title">Table of Contents</div>
+          <nav class="toc-nav">
+            <a href="#section-1" class="toc-link">
+              <span class="toc-num">1</span>
+              IIF vs QBO: Which Format?
+            </a>
+            <a href="#section-2" class="toc-link">
+              <span class="toc-num">2</span>
+              IIF File Structure Explained
+            </a>
+            <a href="#section-3" class="toc-link">
+              <span class="toc-num">3</span>
+              AI Account Mapping
+            </a>
+            <a href="#section-4" class="toc-link">
+              <span class="toc-num">4</span>
+              Conversion Process
+            </a>
+            <a href="#section-5" class="toc-link">
+              <span class="toc-num">5</span>
+              Common IIF Errors
+            </a>
+            <a href="#section-faq" class="toc-link">
+              <span class="toc-num">?</span>
+              FAQ
+            </a>
+          </nav>
+
+          <div class="sidebar-cta">
+            <div class="sidebar-cta-title">Convert to IIF Now</div>
+            <div class="sidebar-cta-desc">Bank statement PDFs to QuickBooks Desktop IIF. $79/month unlimited.</div>
+            <a href="https://www.zerabooks.com/auth" class="sidebar-cta-btn">Try for one week</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <h2>Date Format in IIF</h2>
-
-  <p>IIF uses MM/DD/YYYY date format. This differs from QBO (YYYYMMDD) and OFX. Zera Books handles the date conversion automatically, but if you're building IIF files manually, ensure the date format is correct — QuickBooks Desktop is strict about this.</p>
-
-  <h2>Importing the IIF File</h2>
-
-  <ol>
-    <li>Back up your QuickBooks Desktop company file first</li>
-    <li>Go to <strong>File → Utilities → Import → IIF Files</strong></li>
-    <li>Select the .iif file from Zera Books</li>
-    <li>Click Open — QuickBooks processes the file immediately</li>
-    <li>Review the imported transactions in the bank account register</li>
-  </ol>
-
-  <p>Unlike QBO imports in QuickBooks Online, IIF imports in QuickBooks Desktop don't provide a review step before committing. The transactions are added directly. This is why backing up first is important.</p>
-
-  <p>Convert your bank statements to IIF using the <a href="https://www.zerabooks.com/converters/bank-statement-to-iif">bank statement to IIF converter</a>. For QuickBooks Online users, the <a href="https://www.zerabooks.com/converters/bank-statement-to-quickbooks">bank statement to QBO converter</a> is the correct tool.</p>
-
-  <div class="faq">
-    <h3>Frequently Asked Questions</h3>
-
-    <h3>What is IIF format in QuickBooks?</h3>
-    <p>IIF (Intuit Interchange Format) is a tab-delimited text format used by QuickBooks Desktop for importing transactions and lists. It's the primary import format for QuickBooks Pro, Premier, and Enterprise.</p>
-
-    <h3>How do I import an IIF file into QuickBooks Desktop?</h3>
-    <p>File → Utilities → Import → IIF Files. Select the file and click Open. Back up your company file first — IIF imports commit immediately without a review step.</p>
-
-    <h3>What is the difference between IIF and QBO for QuickBooks?</h3>
-    <p>IIF is for QuickBooks Desktop. QBO is for QuickBooks Online. They use different formats and are not interchangeable.</p>
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 1400 400" preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="cg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="1400,400 700,400 1400,0" fill="url(#cg)"/>
+  </svg>
+  <div class="final-cta-inner">
+    <h2>Stop Rekeying Bank Statements into <span>QuickBooks Desktop</span></h2>
+    <p>Zera Books converts any bank statement PDF to properly mapped IIF files. Works with all major banks, digital and scanned PDFs, and any QuickBooks Desktop chart of accounts. $79/month unlimited conversions.</p>
+    <div class="final-cta-actions">
+      <a href="https://www.zerabooks.com/auth" class="btn-primary">
+        Try for one week
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://www.zerabooks.com/converters/bank-statement-to-iif" class="btn-secondary">
+        View IIF Converter
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
   </div>
+</section>
 
-  <footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="https://www.zerabooks.com/" style="font-family:'Jost',sans-serif;font-weight:800;font-size:1.25rem;color:#fff;text-decoration:none;">Zera<span style="color:#00D4AA;">Books</span></a>
+        <p>AI-powered bank statement conversion and bookkeeping automation for accountants and bookkeepers.</p>
+      </div>
+      <div class="footer-links-group">
+        <h5>Converters</h5>
+        <div class="footer-links">
+          <a href="https://www.zerabooks.com/converters/bank-statement-to-iif">Bank Statement to IIF</a>
+          <a href="https://www.zerabooks.com/converters/bank-statement-to-quickbooks">Bank Statement to QuickBooks</a>
+          <a href="https://www.zerabooks.com/converters/bank-statement-to-excel">Bank Statement to Excel</a>
+          <a href="https://www.zerabooks.com/converters/bank-statement-to-csv">Bank Statement to CSV</a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h5>Platform</h5>
+        <div class="footer-links">
+          <a href="https://www.zerabooks.com/features/pdf-to-excel-converter">PDF to Excel</a>
+          <a href="https://www.zerabooks.com/features/pdf-to-csv-converter">PDF to CSV</a>
+          <a href="https://www.zerabooks.com/products/bank-statements">Bank Statements</a>
+          <a href="https://www.zerabooks.com/import">All Import Formats</a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h5>Resources</h5>
+        <div class="footer-links">
+          <a href="https://www.zerabooks.com/guides">Guides</a>
+          <a href="https://www.zerabooks.com/banks">Bank Directory</a>
+          <a href="https://www.zerabooks.com/alternatives">Comparisons</a>
+          <a href="https://www.zerabooks.com/auth">Try for one week</a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2025 <a href="https://www.zerabooks.com/">Zera Books</a>. All rights reserved.</p>
+      <p>AI-powered bank statement to IIF converter for QuickBooks Desktop.</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

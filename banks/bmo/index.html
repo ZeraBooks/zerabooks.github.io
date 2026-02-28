@@ -3,105 +3,611 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMO Bank of Montreal Statement Converter | Zera Books Resources</title>
-  <meta name="description" content="Convert BMO Bank of Montreal statements to Excel, CSV, QBO, or IIF. Covers BMO's PDF format, eStatement download steps, and QuickBooks/Xero import for Canadian businesses.">
-  <link rel="canonical" href="https://zerabooks.github.io/banks/bmo/">
-  <meta property="og:title" content="BMO Bank of Montreal Statement Converter">
-  <meta property="og:description" content="Convert BMO Bank of Montreal statements to Excel, CSV, QBO, or IIF for QuickBooks and Xero. For Canadian accountants and bookkeepers.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://zerabooks.github.io/banks/bmo/">
-  <meta property="og:site_name" content="Zera Books Resources">
+  <title>BMO Bank of Montreal Statement Converter — Excel, CSV, QBO | Zera Books</title>
+  <meta name="description" content="Convert BMO Bank of Montreal statements to Excel, CSV, or QBO instantly. Zera Books handles BMO's CAD/USD accounts, BMO Mastercard reward columns, business checking, and multi-account batch processing with 99.6% accuracy.">
+  <link rel="canonical" href="https://zerabooks-backlinks.github.io/banks/bmo/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebPage", "name": "BMO Bank of Montreal Statement Converter", "description": "Convert BMO Bank of Montreal statements to Excel, CSV, QBO, or IIF.", "url": "https://zerabooks.github.io/banks/bmo/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "BMO Bank of Montreal Statement Converter",
+    "description": "Convert BMO Bank of Montreal personal and business statements to Excel, CSV, or QBO with Zera Books AI — 99.6% accuracy, CAD/USD multi-currency, no templates required.",
+    "url": "https://zerabooks-backlinks.github.io/banks/bmo/",
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-02-28",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Zera Books",
+      "url": "https://www.zerabooks.com"
+    },
+    "mainEntity": {
+      "@type": "SoftwareApplication",
+      "name": "Zera Books",
+      "url": "https://www.zerabooks.com/banks/bank-of-montreal-statement-converter",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "79",
+        "priceCurrency": "USD",
+        "billingPeriod": "P1M"
+      }
+    }
+  }
   </script>
+
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-    { "@type": "Question", "name": "How do I download BMO Bank of Montreal statements as PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Log into BMO Online Banking, go to Accounts, select your account, then click Statements. eStatements are downloadable as PDF for up to 7 years. BMO also offers statement downloads from BMO Business Banking Online for business accounts." } },
-    { "@type": "Question", "name": "Does BMO support QuickBooks Online Canada bank feeds?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BMO connects to QuickBooks Online Canada for direct bank feeds. For older statements or the BMO Harris US accounts, download PDF statements and convert to QBO using Zera Books." } },
-    { "@type": "Question", "name": "What is the BMO CSV export format?", "acceptedAnswer": { "@type": "Answer", "text": "BMO CSV exports use: Date, Payee, Transaction Amount, Balance. The date is in DD/MM/YYYY format. A negative Transaction Amount is a debit (withdrawal). This format works after removing the Balance column and converting the date to your accounting software's expected format." } }
-  ] }
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Zera Books support BMO statements that contain both CAD and USD accounts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Zera Books detects the currency for each BMO account and adds a currency code column to every output row. When BMO bundles multiple accounts into a single PDF, Zera Books splits them into separate files — one per account, each labeled with the correct currency."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Zera Books handle BMO Mastercard statements with rewards columns?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. BMO World Elite and BMO Cashback Mastercard statements include reward points or cashback columns beside transaction amounts. Zera Books identifies and excludes these columns from the financial output, ensuring only monetary transaction data appears in your Excel or CSV file."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Zera Books handle BMO business account statements with cheque listings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMO business chequing statements often include a separate section listing cleared cheques by cheque number, payee, and amount. Zera Books parses this section and merges the entries into the main chronological transaction list, so your output file includes all transactions in date order."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to convert a BMO statement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most BMO statements convert in under 30 seconds. Long business statements (25+ pages) typically complete in under 90 seconds. Batch uploads of 50+ BMO statements are supported — results are available as each file completes."
+        }
+      }
+    ]
+  }
   </script>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
-    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
-    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
-    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
-    a:hover { color: #00D4AA; }
-    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-    li { margin-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
-    th { background: #0A1628; color: #fff; font-weight: 600; }
-    tr:nth-child(even) { background: #f8fffe; }
-    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-    .faq h3 { margin-top: 0; }
-    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
-    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: #0A1628; background: #fff; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { font-family: 'Jost', sans-serif; font-weight: 700; }
+
+    .max-w { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero { background: #0A1628; position: relative; overflow: hidden; }
+    .hero svg.bg-grad { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .hero-inner { position: relative; z-index: 10; padding: 72px 24px 64px; max-width: 1400px; margin: 0 auto; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 20px; flex-wrap: wrap; }
+    .breadcrumbs a { color: rgba(255,255,255,0.55); }
+    .breadcrumbs a:hover { color: #00D4AA; }
+    .breadcrumbs span { color: rgba(255,255,255,0.3); }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; font-family: 'Jost', sans-serif; }
+    .badge-cyan { background: rgba(0,212,170,0.15); color: #00D4AA; border: 1px solid rgba(0,212,170,0.3); }
+    .badge-white { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.15); }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); color: #fff; line-height: 1.15; margin-bottom: 16px; max-width: 780px; }
+    .hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.72); max-width: 680px; margin-bottom: 28px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: #00D4AA; color: #0A1628; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 15px; border-radius: 8px; transition: background 0.2s; }
+    .btn-primary:hover { background: #00E5B8; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85); font-family: 'Jost', sans-serif; font-weight: 600; font-size: 15px; border-radius: 8px; transition: border-color 0.2s; }
+    .btn-secondary:hover { border-color: #00D4AA; color: #00D4AA; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.6); }
+    .stars { color: #00D4AA; font-size: 14px; letter-spacing: 1px; }
+
+    /* TL;DR */
+    .tldr { background: #fff; padding: 64px 24px; }
+    .tldr-inner { max-width: 1400px; margin: 0 auto; }
+    .tldr-box { background: rgba(0,212,170,0.05); border: 1px solid rgba(0,212,170,0.2); border-radius: 12px; padding: 32px; }
+    .tldr-box h2 { font-size: 1.3rem; color: #0A1628; margin-bottom: 20px; }
+    .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .tldr-col h3 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; font-family: 'Jost', sans-serif; }
+    .tldr-col.bad h3 { color: #888; }
+    .tldr-col.good h3 { color: #00D4AA; }
+    .tldr-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.4; }
+    .icon-x { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+    .icon-x circle { fill: #f5f5f5; }
+    .icon-x path { stroke: #bbb; stroke-width: 1.5; fill: none; }
+    .icon-check { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+    .icon-check circle { fill: rgba(0,212,170,0.15); }
+    .icon-check path { stroke: #00D4AA; stroke-width: 1.8; fill: none; }
+
+    /* Content Grid */
+    .content-section { padding: 72px 24px; }
+    .content-section.cream { background: #F5FFFC; }
+    .content-section.white { background: #fff; }
+    .content-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 300px; gap: 64px; }
+    .article { }
+    .article-section { margin-bottom: 56px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-num { width: 32px; height: 32px; background: rgba(0,212,170,0.15); color: #00D4AA; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .article-section h2 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); color: #0A1628; }
+    .article-section p { color: #444; margin-bottom: 14px; font-size: 0.97rem; line-height: 1.7; }
+    .article-section ul { padding-left: 0; list-style: none; margin-bottom: 14px; }
+    .article-section ul li { padding: 6px 0 6px 20px; position: relative; color: #444; font-size: 0.97rem; }
+    .article-section ul li::before { content: '→'; position: absolute; left: 0; color: #00D4AA; font-weight: 700; }
+
+    /* Feature Cards */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+    .card { background: rgba(0,212,170,0.06); border: 1px solid rgba(0,212,170,0.15); border-radius: 10px; padding: 20px; }
+    .card h4 { font-size: 0.95rem; color: #0A1628; margin-bottom: 6px; }
+    .card p { font-size: 0.88rem; color: #555; line-height: 1.5; }
+
+    /* Step Cards */
+    .steps { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+    .step { display: flex; gap: 16px; align-items: flex-start; background: #fff; border: 1px solid #e8f4f0; border-radius: 10px; padding: 20px; }
+    .step-num { width: 36px; height: 36px; background: #00D4AA; color: #0A1628; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-weight: 800; font-size: 15px; flex-shrink: 0; }
+    .step-content h4 { font-size: 0.97rem; color: #0A1628; margin-bottom: 4px; }
+    .step-content p { font-size: 0.9rem; color: #555; line-height: 1.5; }
+
+    /* Comparison Table */
+    .compare-table { width: 100%; border-collapse: collapse; margin-top: 20px; border-radius: 10px; overflow: hidden; border: 1px solid #e8f4f0; }
+    .compare-table thead { background: #0A1628; }
+    .compare-table thead th { padding: 14px 18px; text-align: left; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85); }
+    .compare-table thead th:first-child { color: #00D4AA; }
+    .compare-table tbody tr:nth-child(odd) { background: #fff; }
+    .compare-table tbody tr:nth-child(even) { background: #F5FFFC; }
+    .compare-table tbody td { padding: 12px 18px; font-size: 0.9rem; color: #444; border-bottom: 1px solid #e8f4f0; }
+    .compare-table tbody td:first-child { font-weight: 600; color: #0A1628; }
+    .check-cell { color: #00D4AA; font-size: 16px; }
+    .x-cell { color: #bbb; font-size: 16px; }
+
+    /* Mid CTA */
+    .mid-cta { background: #0A1628; border-radius: 12px; padding: 32px; margin: 40px 0; position: relative; overflow: hidden; }
+    .mid-cta h3 { font-size: 1.4rem; color: #fff; margin-bottom: 8px; }
+    .mid-cta p { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 20px; }
+    .mid-cta .btn-primary { font-size: 14px; padding: 12px 24px; }
+
+    /* Sidebar */
+    .sidebar { }
+    .sidebar-sticky { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 20px; }
+    .toc-box { background: #fff; border: 1px solid #e8f4f0; border-radius: 12px; padding: 24px; }
+    .toc-box h3 { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #0A1628; margin-bottom: 16px; font-family: 'Jost', sans-serif; }
+    .toc-box nav a { display: block; padding: 7px 0; border-bottom: 1px solid #f0f8f5; font-size: 0.88rem; color: #555; transition: color 0.2s; }
+    .toc-box nav a:last-child { border-bottom: none; }
+    .toc-box nav a:hover { color: #00D4AA; }
+    .sidebar-cta { background: #0A1628; border-radius: 12px; padding: 24px; text-align: center; }
+    .sidebar-cta h3 { font-size: 1rem; color: #fff; margin-bottom: 8px; }
+    .sidebar-cta p { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .sidebar-cta .btn-primary { width: 100%; justify-content: center; font-size: 14px; padding: 12px; }
+    .sidebar-links { background: #F5FFFC; border: 1px solid #d0ede6; border-radius: 12px; padding: 20px; }
+    .sidebar-links h3 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #0A1628; margin-bottom: 12px; font-family: 'Jost', sans-serif; }
+    .sidebar-links a { display: block; padding: 6px 0; font-size: 0.88rem; color: #00897B; border-bottom: 1px solid rgba(0,212,170,0.1); }
+    .sidebar-links a:last-child { border-bottom: none; }
+    .sidebar-links a:hover { color: #00D4AA; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+    .faq-item { border: 1px solid #e8f4f0; border-radius: 10px; padding: 20px; }
+    .faq-item h4 { font-size: 0.97rem; color: #0A1628; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; color: #555; line-height: 1.6; }
+
+    /* Related Resources */
+    .related { padding: 64px 24px; background: #fff; }
+    .related-inner { max-width: 1400px; margin: 0 auto; }
+    .related h2 { font-size: 1.8rem; color: #0A1628; margin-bottom: 32px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .related-card { border: 1px solid #e8f4f0; border-radius: 10px; padding: 24px; background: #F5FFFC; }
+    .related-card .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #00D4AA; margin-bottom: 8px; font-family: 'Jost', sans-serif; }
+    .related-card h3 { font-size: 0.97rem; color: #0A1628; margin-bottom: 6px; }
+    .related-card p { font-size: 0.85rem; color: #666; line-height: 1.5; margin-bottom: 12px; }
+    .related-card a { font-size: 0.88rem; color: #00897B; font-weight: 600; }
+    .related-card a:hover { color: #00D4AA; }
+
+    /* Final CTA */
+    .final-cta { background: #0A1628; padding: 80px 24px; position: relative; overflow: hidden; text-align: center; }
+    .final-cta svg.bg-grad { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .final-cta-inner { position: relative; z-index: 10; max-width: 700px; margin: 0 auto; }
+    .final-cta h2 { font-size: clamp(1.6rem, 3vw, 2.5rem); color: #fff; margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.65); margin-bottom: 32px; font-size: 1.02rem; }
+    .final-cta .btn-primary { font-size: 16px; padding: 16px 36px; }
+
+    /* Footer */
+    footer { background: #060d1a; padding: 32px 24px; text-align: center; }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
+    footer a { color: rgba(255,255,255,0.5); }
+    footer a:hover { color: #00D4AA; }
+
+    @media (max-width: 1024px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .tldr-grid { grid-template-columns: 1fr; }
+      .hero-inner { padding: 52px 20px 48px; }
+    }
+    @media (max-width: 480px) {
+      .cta-row { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
+    }
   </style>
 </head>
 <body>
 
-<h1>BMO Bank of Montreal Statement Converter: PDF to Excel, QBO, CSV</h1>
+<!-- HERO -->
+<section class="hero">
+  <svg class="bg-grad" viewBox="0 0 1400 520" preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="hg" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="1400,0 1400,520 700,520" fill="url(#hg)"/>
+  </svg>
+  <div class="hero-inner">
+    <nav class="breadcrumbs">
+      <a href="https://www.zerabooks.com/">Zera Books</a>
+      <span>›</span>
+      <a href="https://www.zerabooks.com/banks">Bank Converters</a>
+      <span>›</span>
+      <span>BMO Statement Converter</span>
+    </nav>
+    <div class="badge-row">
+      <span class="badge badge-cyan">BMO Compatible</span>
+      <span class="badge badge-cyan">CAD &amp; USD Accounts</span>
+      <span class="badge badge-white">BMO Mastercard</span>
+      <span class="badge badge-white">99.6% Accuracy</span>
+    </div>
+    <h1>BMO Bank of Montreal Statement Converter — Excel, CSV &amp; QBO</h1>
+    <p class="hero-desc">Zera Books AI converts BMO Bank of Montreal personal and business statements — including BMO Mastercard reward columns, multi-currency CAD/USD accounts, and business cheque listings — to structured data files ready for QuickBooks, Xero, or Sage.</p>
+    <div class="cta-row">
+      <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week →</a>
+      <a href="https://www.zerabooks.com/banks/bank-of-montreal-statement-converter" class="btn-secondary">See BMO Converter</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><span class="stars">★★★★★</span> Trustpilot 4.9</div>
+      <div class="trust-item">✦ G2 Top Performer</div>
+      <div class="trust-item">✦ 99.6% accuracy</div>
+      <div class="trust-item">✦ 3.2M+ docs processed</div>
+    </div>
+  </div>
+</section>
 
-<p>BMO (Bank of Montreal) is one of Canada's oldest and largest banks. In Canada, BMO provides eStatements through BMO Online Banking and BMO Business Banking Online. BMO also operates as BMO Harris Bank in the US. Both Canadian and US BMO statements can be converted to Excel, CSV, and accounting import formats.</p>
+<!-- TL;DR -->
+<section class="tldr">
+  <div class="tldr-inner">
+    <div class="tldr-box">
+      <h2>⚡ TL;DR — What Makes Zera Books Different for BMO Statements</h2>
+      <div class="tldr-grid">
+        <div class="tldr-col bad">
+          <h3>Basic PDF Converters</h3>
+          <div class="tldr-item">
+            <svg class="icon-x" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="M5 5l6 6M11 5l-6 6"/></svg>
+            Mix BMO Mastercard reward points with transaction amounts
+          </div>
+          <div class="tldr-item">
+            <svg class="icon-x" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="M5 5l6 6M11 5l-6 6"/></svg>
+            Merge CAD and USD accounts without currency labels
+          </div>
+          <div class="tldr-item">
+            <svg class="icon-x" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="M5 5l6 6M11 5l-6 6"/></svg>
+            Miss cheque register sections in business statements
+          </div>
+          <div class="tldr-item">
+            <svg class="icon-x" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="M5 5l6 6M11 5l-6 6"/></svg>
+            Require manual template setup for each statement type
+          </div>
+        </div>
+        <div class="tldr-col good">
+          <h3>Zera Books</h3>
+          <div class="tldr-item">
+            <svg class="icon-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="M4.5 8l2.5 2.5 5-5"/></svg>
+            Reward/cashback columns isolated — only financial data extracted
+          </div>
+          <div class="tldr-item">
+            <svg class="icon-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="M4.5 8l2.5 2.5 5-5"/></svg>
+            CAD/USD detected per account, separate file with currency column
+          </div>
+          <div class="tldr-item">
+            <svg class="icon-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="M4.5 8l2.5 2.5 5-5"/></svg>
+            Business cheque listings merged into chronological transaction list
+          </div>
+          <div class="tldr-item">
+            <svg class="icon-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/><path d="M4.5 8l2.5 2.5 5-5"/></svg>
+            No templates — all BMO statement formats recognized automatically
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="callout">
-  Convert BMO Bank of Montreal statements to Excel, QBO, CSV, or IIF with <a href="https://www.zerabooks.com/banks/bank-of-montreal-statement-converter">Zera Books</a>. Handles BMO personal, business, and BMO Harris US account formats. Supports both CAD and USD statements.
-</div>
+<!-- CONTENT -->
+<section class="content-section white">
+  <div class="content-grid">
+    <article class="article">
 
-<h2>BMO Statement Download Options</h2>
+      <!-- Section 1 -->
+      <div class="article-section" id="section-1">
+        <div class="section-header">
+          <div class="section-num">1</div>
+          <h2>BMO Statement Formats and What Gets Extracted</h2>
+        </div>
+        <p>BMO Bank of Montreal issues statements across personal banking, business banking, and credit card products. The layout and column structure differ meaningfully between product types — and Zera Books handles all of them without configuration.</p>
+        <p>BMO personal chequing and savings statements (Performance, Premium Rate Savings, Smart Chequing) use a standard date-description-amount-balance layout. Entries are listed chronologically with debits shown as negative amounts or in a separate debit column depending on the statement generation. Zera Books normalizes both layouts into a consistent debit/credit split in the output.</p>
+        <p><strong>BMO Mastercard statements</strong> — including the <strong>BMO World Elite Mastercard</strong> and <strong>BMO CashBack Mastercard</strong> — present a challenge for basic converters: reward points or cashback amounts appear in a column immediately beside the transaction amount. A converter that reads all numeric columns as financial data will include point values (often hundreds per transaction) as dollar amounts, producing wildly inflated figures. Zera Books identifies the reward column by header label and excludes it from the <a href="https://www.zerabooks.com/banks/bank-of-montreal-statement-converter" style="color:#00897B;">BMO statement extraction</a>.</p>
+        <div class="card-grid">
+          <div class="card">
+            <h4>Personal Chequing &amp; Savings</h4>
+            <p>BMO Smart, Performance Chequing, Premium Rate Savings — all standard layouts extracted cleanly.</p>
+          </div>
+          <div class="card">
+            <h4>BMO Mastercard</h4>
+            <p>World Elite, CashBack Mastercard — reward/cashback columns isolated, only monetary data extracted.</p>
+          </div>
+          <div class="card">
+            <h4>Business Accounts</h4>
+            <p>Business Current Account, Business Builder — cheque register sections merged into chronological output.</p>
+          </div>
+          <div class="card">
+            <h4>Investment &amp; Line of Credit</h4>
+            <p>BMO InvestorLine, Home Equity Line of Credit — interest and fee lines correctly identified.</p>
+          </div>
+        </div>
+        <p style="margin-top:16px;">BMO's business chequing statements frequently include a "Cheques Paid" or "Cleared Cheques" section at the end of the PDF, listing issued cheques by cheque number, date cleared, and amount. This section is separate from the main transaction table but contains financially significant data. Zera Books parses this section and integrates the entries into the main chronological transaction list so no transactions are missed.</p>
+      </div>
 
-<table>
-  <thead><tr><th>Format</th><th>Location in BMO Online</th><th>Availability</th></tr></thead>
-  <tbody>
-    <tr><td>PDF eStatement</td><td>Accounts &gt; Statements</td><td>Up to 7 years</td></tr>
-    <tr><td>CSV</td><td>Account Activity &gt; Download</td><td>Up to 7 years</td></tr>
-    <tr><td>OFX</td><td>Account Activity &gt; Download &gt; select format</td><td>Up to 7 years</td></tr>
-  </tbody>
-</table>
+      <!-- Section 2 -->
+      <div class="article-section" id="section-2">
+        <div class="section-header">
+          <div class="section-num">2</div>
+          <h2>How to Convert BMO Statements: Step by Step</h2>
+        </div>
+        <p>BMO Online Banking provides PDF statements for up to <strong>7 years of history</strong> for personal accounts. Business accounts typically have up to <strong>5 years of PDF statement history</strong> available. Statements are accessed via the Accounts section under "View Statements" or "eStatements."</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Download PDF Statements from BMO Online Banking</h4>
+              <p>Log into BMO Online Banking, select your account, navigate to Statements, and download the PDF files for the periods you need to convert.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Upload to Zera Books</h4>
+              <p>Drag and drop your BMO PDFs — single statements, multi-month bundles, or batches of 50+ files at once. Password-protected PDFs and scanned image-based statements are accepted.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Zera AI Processes and Organizes</h4>
+              <p>Zera AI identifies account type (personal vs. business, chequing vs. credit card), extracts all transactions including cheque register sections, applies auto-categorization using QuickBooks/Xero charts of accounts, and detects currency (CAD or USD).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Download Your Formatted Output</h4>
+              <p>Download as Excel (.xlsx), CSV, QBO (QuickBooks Online), or IIF (QuickBooks Desktop). Multi-account PDFs produce separate files per account, each with date, description, amount, balance, category, and currency columns.</p>
+            </div>
+          </div>
+        </div>
 
-<h2>BMO PDF Statement Format</h2>
+        <div class="mid-cta">
+          <h3>Convert Your BMO Statements Now</h3>
+          <p>All BMO account types supported — no templates, no manual column mapping.</p>
+          <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week →</a>
+        </div>
+      </div>
 
-<p>BMO personal checking statements use a standard table: Date, Description, Withdrawals, Deposits, Balance. Transaction descriptions include the payee name for Interac debit purchases, cheque number for cheques, and the sending/receiving institution for wire transfers.</p>
+      <!-- Section 3 -->
+      <div class="article-section" id="section-3">
+        <div class="section-header">
+          <div class="section-num">3</div>
+          <h2>Output Formats for BMO Statements</h2>
+        </div>
+        <p>Zera Books exports BMO statement data in formats pre-configured for every major accounting platform. Files are ready to import without manual column remapping. The <a href="https://www.zerabooks.com/converters" style="color:#00897B;">Zera Books converter</a> handles all necessary field transformations before export.</p>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Output Format</th>
+              <th>Use Case</th>
+              <th>Auto-Categorized</th>
+              <th>CAD/USD Column</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Excel (.xlsx)</td>
+              <td>Manual review, reconciliation, month-end close</td>
+              <td class="check-cell">✓</td>
+              <td class="check-cell">✓</td>
+            </tr>
+            <tr>
+              <td>CSV</td>
+              <td>Sage, Wave, Zoho Books, NetSuite, FreshBooks</td>
+              <td class="check-cell">✓</td>
+              <td class="check-cell">✓</td>
+            </tr>
+            <tr>
+              <td>QBO</td>
+              <td>QuickBooks Online direct import</td>
+              <td class="check-cell">✓</td>
+              <td class="check-cell">✓</td>
+            </tr>
+            <tr>
+              <td>IIF</td>
+              <td>QuickBooks Desktop</td>
+              <td class="check-cell">✓</td>
+              <td class="check-cell">✓</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:16px;">Firms using QuickBooks Online or Xero can also push BMO transactions directly via Zera Books' API integration — eliminating the manual <a href="https://www.zerabooks.com/import" style="color:#00897B;">file import step</a> entirely. Transactions land in the ledger with categories pre-assigned.</p>
+      </div>
 
-<p>BMO Business Banking statements are often more detailed — they include a period summary at the top (number of deposits, number of withdrawals, service charges), followed by the transaction list. The service charge line items at the bottom of business statements are actual charges and should be included in the transaction import, not excluded.</p>
+      <!-- Section 4 -->
+      <div class="article-section" id="section-4">
+        <div class="section-header">
+          <div class="section-num">4</div>
+          <h2>CAD/USD Multi-Currency and Multi-Account Detection</h2>
+        </div>
+        <p>BMO Bank of Montreal is Canada's oldest bank and serves a large cross-border client base, particularly in the US Midwest (BMO has a significant US presence through BMO Harris Bank). Many BMO business clients hold both CAD and USD accounts, and BMO sometimes bundles multiple account statements into a single PDF download.</p>
+        <p>Zera Books addresses BMO's multi-currency and multi-account scenarios with dedicated detection logic:</p>
+        <ul>
+          <li><strong>CAD accounts:</strong> Currency detected from the account header — every output row includes a "CAD" currency code column.</li>
+          <li><strong>USD accounts:</strong> Identified separately — every output row labeled "USD." CAD and USD accounts are never mixed in the same output file.</li>
+          <li><strong>Combined PDFs:</strong> When BMO generates a single PDF covering multiple accounts, Zera Books' multi-account detection splits the document — one output file per account, each with its own currency label.</li>
+          <li><strong>BMO Harris USD accounts:</strong> US-side BMO Harris Bank statements are also supported by the same engine.</li>
+        </ul>
+        <p>For accounting firms serving BMO clients with cross-border operations — common in Ontario and Manitoba for US-trade businesses — <a href="https://www.zerabooks.com/features/zera-ocr" style="color:#00897B;">Zera OCR</a> handles scanned BMO statements where machine-readable currency data may be absent. The <a href="https://www.zerabooks.com/solutions/bank-reconciliation" style="color:#00897B;">bank reconciliation workflow</a> stores each client's CAD and USD BMO files separately in the client dashboard.</p>
+        <div class="card-grid">
+          <div class="card">
+            <h4>Currency Detection</h4>
+            <p>CAD and USD identified per account — currency code column in every output row.</p>
+          </div>
+          <div class="card">
+            <h4>Multi-Account Split</h4>
+            <p>BMO combined PDFs split into separate files per account automatically.</p>
+          </div>
+          <div class="card">
+            <h4>BMO Harris Support</h4>
+            <p>US-side BMO Harris Bank statement formats recognized alongside Canadian BMO layouts.</p>
+          </div>
+          <div class="card">
+            <h4>Batch Processing</h4>
+            <p>Upload 50+ BMO statements at once — all accounts and currencies processed in one run.</p>
+          </div>
+        </div>
+      </div>
 
-<h2>BMO Harris Bank (US)</h2>
+      <!-- Section 5: FAQ -->
+      <div class="article-section" id="section-5">
+        <div class="section-header">
+          <div class="section-num">5</div>
+          <h2>Frequently Asked Questions — BMO Statement Conversion</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h4>Does Zera Books support BMO statements that contain both CAD and USD accounts?</h4>
+            <p>Yes. Zera Books detects the currency for each BMO account and adds a currency code column to every output row. When BMO bundles multiple accounts into a single PDF, Zera Books splits them into separate files — one per account, each labeled with the correct currency.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Can Zera Books handle BMO Mastercard statements with rewards columns?</h4>
+            <p>Yes. BMO World Elite and BMO CashBack Mastercard statements include reward points or cashback columns beside transaction amounts. Zera Books identifies and excludes these columns from the financial output, ensuring only monetary transaction data appears in your Excel or CSV file.</p>
+          </div>
+          <div class="faq-item">
+            <h4>How does Zera Books handle BMO business account statements with cheque listings?</h4>
+            <p>BMO business chequing statements often include a separate section listing cleared cheques by cheque number, payee, and amount. Zera Books parses this section and merges the entries into the main chronological transaction list, so your output file includes all transactions in date order.</p>
+          </div>
+          <div class="faq-item">
+            <h4>How long does it take to convert a BMO statement?</h4>
+            <p>Most BMO statements convert in under 30 seconds. Long business statements (25+ pages) typically complete in under 90 seconds. Batch uploads of 50+ BMO statements are supported — results are available as each file completes processing.</p>
+          </div>
+        </div>
+      </div>
 
-<p>BMO Harris Bank statements (US clients) use a similar format to Canadian BMO but with USD amounts and MM/DD/YYYY date format. Business accounts with BMO Harris often have a "Previous Balance" header row at the top of the transaction table that must be excluded from conversion. Zera Books handles this automatically for both BMO Canada and BMO Harris US formats.</p>
+    </article>
 
-<h2>BMO CSV Format Details</h2>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-sticky">
+        <div class="toc-box">
+          <h3>Table of Contents</h3>
+          <nav>
+            <a href="#section-1">1. BMO Statement Formats</a>
+            <a href="#section-2">2. Step-by-Step Conversion</a>
+            <a href="#section-3">3. Output Formats</a>
+            <a href="#section-4">4. CAD/USD Multi-Currency</a>
+            <a href="#section-5">5. FAQ</a>
+          </nav>
+        </div>
+        <div class="sidebar-cta">
+          <h3>Convert BMO Statements</h3>
+          <p>$79/month unlimited — all accounts, all currencies.</p>
+          <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week</a>
+        </div>
+        <div class="sidebar-links">
+          <h3>Canadian Banks</h3>
+          <a href="/banks/rbc/">RBC Royal Bank Converter</a>
+          <a href="/banks/scotiabank/">Scotiabank Converter</a>
+          <a href="/banks/cibc/">CIBC Statement Converter</a>
+          <a href="https://www.zerabooks.com/banks">All Bank Converters</a>
+        </div>
+        <div class="sidebar-links">
+          <h3>Related Resources</h3>
+          <a href="https://www.zerabooks.com/guides">Conversion Guides</a>
+          <a href="/bank-statements/">Bank Statement Tips</a>
+          <a href="https://www.zerabooks.com/alternatives">Converter Alternatives</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
 
-<p>BMO's CSV export uses a signed Transaction Amount column (negative for withdrawals) which is actually closer to what QuickBooks and Xero expect than most Canadian bank exports. You still need to remove the Balance column and adjust the date format (DD/MM/YYYY to MM/DD/YYYY for US-region QuickBooks). Zera Books outputs clean formatted CSV from the source PDF.</p>
+<!-- RELATED RESOURCES -->
+<section class="related">
+  <div class="related-inner">
+    <h2>Related Resources</h2>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="tag">Bank Converter</div>
+        <h3>RBC Royal Bank Statement Converter</h3>
+        <p>Convert RBC personal and business statements including bilingual English/French PDFs and CAD/USD accounts.</p>
+        <a href="/banks/rbc/">Convert RBC Statements →</a>
+      </div>
+      <div class="related-card">
+        <div class="tag">Bank Converter</div>
+        <h3>Scotiabank Statement Converter</h3>
+        <p>Handle Scotiabank Scene+ reward columns and international CAD/USD accounts without manual cleanup.</p>
+        <a href="/banks/scotiabank/">Convert Scotiabank Statements →</a>
+      </div>
+      <div class="related-card">
+        <div class="tag">Bank Converter</div>
+        <h3>CIBC Statement Converter</h3>
+        <p>Convert CIBC and Simplii Financial statements — Aventura reward columns isolated, multi-currency supported.</p>
+        <a href="/banks/cibc/">Convert CIBC Statements →</a>
+      </div>
+      <div class="related-card">
+        <div class="tag">Guide</div>
+        <h3>Canadian Bank Statement Conversion Guide</h3>
+        <p>CAD/USD multi-currency handling, Big Five bank statement differences, and batch processing for Canadian firms.</p>
+        <a href="https://www.zerabooks.com/guides">Read the Guide →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>Conversion Steps</h2>
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <svg class="bg-grad" viewBox="0 0 1400 400" preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="fg" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="1400,0 1400,400 600,400" fill="url(#fg)"/>
+  </svg>
+  <div class="final-cta-inner">
+    <h2>Start Converting BMO Statements Today</h2>
+    <p>Zera Books handles all BMO Bank of Montreal account types — personal chequing, business accounts, Mastercard credit cards, and USD accounts — with CAD/USD currency detection and AI categorization. $79/month unlimited.</p>
+    <a href="https://www.zerabooks.com/auth" class="btn-primary">Try for one week →</a>
+  </div>
+</section>
 
-<ol>
-  <li>Log into BMO Online Banking</li>
-  <li>Go to <strong>Accounts</strong> &gt; <strong>Statements</strong></li>
-  <li>Download the PDF eStatement for the period needed</li>
-  <li>Upload to <a href="https://www.zerabooks.com/banks/bank-of-montreal-statement-converter">Zera Books</a></li>
-  <li>Select output format (Excel, QBO, CSV, IIF)</li>
-  <li>Import into QuickBooks Online Canada, Xero, or your accounting platform</li>
-</ol>
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <a href="https://www.zerabooks.com">Zera Books</a> — AI-powered bank statement converter for accountants and bookkeepers. <a href="https://www.zerabooks.com/banks/bank-of-montreal-statement-converter">BMO Statement Converter</a> · <a href="https://www.zerabooks.com/banks">All Banks</a> · <a href="https://www.zerabooks.com/converters">Converters</a></p>
+</footer>
 
-<div class="faq">
-  <h3>Frequently Asked Questions</h3>
-
-  <h3>How do I download BMO Bank of Montreal statements as PDF?</h3>
-  <p>Log into BMO Online Banking, go to Accounts, select your account, then click Statements. eStatements are downloadable as PDF for up to 7 years. BMO also offers statement downloads from BMO Business Banking Online for business accounts.</p>
-
-  <h3>Does BMO support QuickBooks Online Canada bank feeds?</h3>
-  <p>Yes. BMO connects to QuickBooks Online Canada for direct bank feeds. For older statements or the BMO Harris US accounts, download PDF statements and convert to QBO using Zera Books.</p>
-
-  <h3>What is the BMO CSV export format?</h3>
-  <p>BMO CSV exports use: Date, Payee, Transaction Amount, Balance. The date is in DD/MM/YYYY format. A negative Transaction Amount is a debit (withdrawal). This format works after removing the Balance column and converting the date to your accounting software's expected format.</p>
-</div>
-
-<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
 </body>
 </html>
