@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoho Books Bank Statement Import Guide | Zera Books Resources</title>
+  <meta name="description" content="How to import bank statements into Zoho Books. OFX and CSV import steps, required column formats, and handling PDF statements for Zoho reconciliation.">
+  <link rel="canonical" href="https://zerabooks.github.io/import/zoho/">
+  <meta property="og:title" content="Zoho Books Bank Statement Import Guide">
+  <meta property="og:description" content="How to import bank statements into Zoho Books. OFX and CSV import steps, required column formats, and handling PDF statements.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/import/zoho/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "Zoho Books Bank Statement Import Guide", "description": "How to import bank statements into Zoho Books.", "url": "https://zerabooks.github.io/import/zoho/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "What file formats does Zoho Books accept for bank imports?", "acceptedAnswer": { "@type": "Answer", "text": "Zoho Books accepts OFX, CSV, and TSV files for bank statement imports. OFX is preferred as it preserves transaction IDs for duplicate prevention." } },
+    { "@type": "Question", "name": "How do I import a PDF bank statement into Zoho Books?", "acceptedAnswer": { "@type": "Answer", "text": "Zoho Books cannot process PDFs. Convert the PDF to OFX or CSV first, then import via Banking > your bank account > Import Statement. Zera Books handles the PDF-to-OFX conversion automatically." } },
+    { "@type": "Question", "name": "What is the Zoho Books CSV import column order?", "acceptedAnswer": { "@type": "Answer", "text": "Zoho Books CSV requires: Date (MM/DD/YYYY), Payee Name (optional), Transaction ID (optional), Transaction Type (debit/credit), Amount. Column headers must match exactly." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>Zoho Books Bank Statement Import: Step-by-Step Guide</h1>
+
+<p>Zoho Books supports importing bank statements as OFX, CSV, or TSV files. It also has a bank feeds feature connecting to many banks directly, but the manual import is needed for banks without a feed, or to load historical data.</p>
+
+<div class="callout">
+  <strong>PDF statements?</strong> <a href="https://www.zerabooks.com/import/zoho-books-bank-statement-import">Zera Books</a> converts PDF bank statements from any bank to OFX or Zoho-compatible CSV. Direct integration — push converted transactions straight to your Zoho reconciliation queue.
+</div>
+
+<h2>Import Steps in Zoho Books</h2>
+
+<ol>
+  <li>Go to <strong>Banking</strong> in the left sidebar</li>
+  <li>Click the bank account you want to import into</li>
+  <li>Select <strong>Import Statement</strong> from the top menu</li>
+  <li>Choose your file type (OFX, CSV, or TSV)</li>
+  <li>Upload the file and map columns if using CSV</li>
+  <li>Preview transactions, then click <strong>Import</strong></li>
+</ol>
+
+<h2>Zoho Books CSV Format</h2>
+
+<table>
+  <thead><tr><th>Column Header</th><th>Format</th><th>Required</th></tr></thead>
+  <tbody>
+    <tr><td>Date</td><td>MM/DD/YYYY</td><td>Yes</td></tr>
+    <tr><td>Payee Name</td><td>Text</td><td>No (but helps with auto-matching)</td></tr>
+    <tr><td>Transaction ID</td><td>Alphanumeric</td><td>No (used for duplicate prevention)</td></tr>
+    <tr><td>Transaction Type</td><td>"debit" or "credit"</td><td>No (if using signed Amount)</td></tr>
+    <tr><td>Amount</td><td>Positive number</td><td>Yes</td></tr>
+    <tr><td>Description</td><td>Text</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<p>If you don't include a Transaction Type column, use a signed Amount instead (negative for withdrawals, positive for deposits). Don't include both — Zoho will get confused about direction.</p>
+
+<h2>OFX Import</h2>
+
+<p>OFX is the cleanest option for Zoho Books. Upload via the same Import Statement screen and Zoho reads the file structure directly with no column mapping. The FITID field in OFX acts as a unique transaction ID, preventing reimport of the same transaction.</p>
+
+<h2>After Import</h2>
+
+<p>Imported transactions land in the <strong>Uncategorized</strong> section of your bank account in Zoho Books. From there, you can match them against open invoices, create rules for recurring payees, or manually code them. Zoho's auto-categorization learns from your patterns over time.</p>
+
+<div class="callout">
+  <a href="https://www.zerabooks.com/import/zoho-books-bank-statement-import">Zera Books</a> exports pre-formatted files for Zoho Books with AI-powered categorization applied — transactions arrive in Zoho already coded to your chart of accounts.
+</div>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>What file formats does Zoho Books accept for bank imports?</h3>
+  <p>Zoho Books accepts OFX, CSV, and TSV files for bank statement imports. OFX is preferred as it preserves transaction IDs for duplicate prevention.</p>
+
+  <h3>How do I import a PDF bank statement into Zoho Books?</h3>
+  <p>Zoho Books cannot process PDFs. Convert the PDF to OFX or CSV first, then import via Banking &gt; your bank account &gt; Import Statement. Zera Books handles the PDF-to-OFX conversion automatically.</p>
+
+  <h3>What is the Zoho Books CSV import column order?</h3>
+  <p>Zoho Books CSV requires: Date (MM/DD/YYYY), Payee Name (optional), Transaction ID (optional), Transaction Type (debit/credit), Amount. Column headers must match exactly.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

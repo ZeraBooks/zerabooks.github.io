@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to QuickBooks: Import Bank Statements | Zera Books Resources</title>
+  <meta name="description" content="How to get PDF bank statements into QuickBooks. Convert PDF to QBO or CSV, handle scanned statements, and import via QuickBooks Banking upload.">
+  <link rel="canonical" href="https://zerabooks.github.io/import/pdf-to-quickbooks/">
+  <meta property="og:title" content="PDF to QuickBooks: Import Bank Statements">
+  <meta property="og:description" content="How to get PDF bank statements into QuickBooks. Convert PDF to QBO or CSV and import via QuickBooks Banking upload.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/import/pdf-to-quickbooks/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "PDF to QuickBooks Bank Statement Import", "description": "How to get PDF bank statements into QuickBooks.", "url": "https://zerabooks.github.io/import/pdf-to-quickbooks/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "Can QuickBooks read PDF bank statements?", "acceptedAnswer": { "@type": "Answer", "text": "No. QuickBooks cannot extract data from PDF files. You must convert the PDF to QBO, CSV, or IIF format first, then upload via Banking > Upload transactions." } },
+    { "@type": "Question", "name": "What is the best format to convert PDF bank statements to for QuickBooks?", "acceptedAnswer": { "@type": "Answer", "text": "QBO (Web Connect) format is best for QuickBooks. It requires no column mapping, preserves transaction types, and uses QuickBooks' built-in duplicate detection. CSV works but requires manual column mapping during import." } },
+    { "@type": "Question", "name": "How do I import a scanned paper bank statement into QuickBooks?", "acceptedAnswer": { "@type": "Answer", "text": "Scanned statements (image PDFs) require OCR to extract text before conversion. Zera Books uses OCR with 95%+ accuracy to process scanned statements and convert them to QBO or CSV for QuickBooks import." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>PDF to QuickBooks: How to Import Bank Statements</h1>
+
+<p>QuickBooks does not read PDF files. The workflow is always: convert the PDF to QBO or CSV, then upload that file into QuickBooks. This applies to both digital PDFs and scanned paper statements.</p>
+
+<div class="callout">
+  <strong>Quickest path:</strong> Upload your PDF to <a href="https://www.zerabooks.com/import/pdf-to-quickbooks">Zera Books</a> → get back a QBO or CSV file → import into QuickBooks in under 2 minutes. Works with digital PDFs, scanned statements, and password-protected files.
+</div>
+
+<h2>Two Types of PDF Statements</h2>
+
+<p>The conversion approach depends on whether your PDF is digital or scanned:</p>
+
+<table>
+  <thead><tr><th>PDF Type</th><th>What It Means</th><th>Extraction Method</th></tr></thead>
+  <tbody>
+    <tr><td>Digital PDF</td><td>Text is selectable when you click on it</td><td>Direct text extraction — fast and accurate</td></tr>
+    <tr><td>Scanned/Image PDF</td><td>It's a photo of the statement, no selectable text</td><td>OCR required — Zera Books uses 95%+ accuracy OCR</td></tr>
+    <tr><td>Password Protected</td><td>Locked, requires password to open</td><td>Unlock first, or use a tool that accepts the password</td></tr>
+  </tbody>
+</table>
+
+<h2>Step-by-Step Workflow</h2>
+
+<ol>
+  <li><strong>Get the PDF:</strong> Download from your bank's online portal, or scan a paper statement at 300 DPI or higher</li>
+  <li><strong>Convert to QBO:</strong> Use <a href="https://www.zerabooks.com/import/pdf-to-quickbooks">Zera Books</a> — upload the PDF and select QBO as the output format</li>
+  <li><strong>Open QuickBooks:</strong> Go to <strong>Banking</strong> &gt; <strong>Upload transactions</strong></li>
+  <li><strong>Select the account:</strong> Choose which bank account the statement belongs to</li>
+  <li><strong>Upload the QBO file:</strong> QuickBooks reads the file and creates transactions in "For Review"</li>
+  <li><strong>Review and categorize:</strong> Match transactions to existing ones or categorize new ones</li>
+</ol>
+
+<h2>Why QBO Over CSV?</h2>
+
+<p>QBO format skips the column mapping step. When you upload a QBO file, QuickBooks reads the bank ID, date range, and transaction details automatically. There's no step where you tell QuickBooks which column is the date or the amount. It also uses QuickBooks' duplicate prevention based on transaction IDs embedded in the QBO file.</p>
+
+<p>CSV is fine for smaller imports where you want to review the data manually before it enters QuickBooks. For multi-month or multi-client processing, QBO is faster.</p>
+
+<h2>Multi-Account Statements</h2>
+
+<p>Some PDF statements include multiple accounts (e.g., checking + savings on the same document). <a href="https://www.zerabooks.com/import/pdf-to-quickbooks">Zera Books</a> auto-detects multiple accounts in a single PDF and splits them into separate files — one per account — ready for separate QuickBooks imports.</p>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>Can QuickBooks read PDF bank statements?</h3>
+  <p>No. QuickBooks cannot extract data from PDF files. You must convert the PDF to QBO, CSV, or IIF format first, then upload via Banking &gt; Upload transactions.</p>
+
+  <h3>What is the best format to convert PDF bank statements to for QuickBooks?</h3>
+  <p>QBO (Web Connect) format is best for QuickBooks. It requires no column mapping, preserves transaction types, and uses QuickBooks' built-in duplicate detection. CSV works but requires manual column mapping during import.</p>
+
+  <h3>How do I import a scanned paper bank statement into QuickBooks?</h3>
+  <p>Scanned statements (image PDFs) require OCR to extract text before conversion. Zera Books uses OCR with 95%+ accuracy to process scanned statements and convert them to QBO or CSV for QuickBooks import.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

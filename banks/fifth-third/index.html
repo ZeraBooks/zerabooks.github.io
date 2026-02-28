@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fifth Third Bank Statement Converter | Zera Books Resources</title>
+  <meta name="description" content="Convert Fifth Third Bank statements to Excel, CSV, QBO, or IIF. Covers Fifth Third's PDF format, export options, and QuickBooks/Xero import steps.">
+  <link rel="canonical" href="https://zerabooks.github.io/banks/fifth-third/">
+  <meta property="og:title" content="Fifth Third Bank Statement Converter">
+  <meta property="og:description" content="Convert Fifth Third Bank statements to Excel, CSV, QBO, or IIF for QuickBooks, Xero, and other accounting software.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/banks/fifth-third/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "Fifth Third Bank Statement Converter", "description": "Convert Fifth Third Bank statements to Excel, CSV, QBO, or IIF.", "url": "https://zerabooks.github.io/banks/fifth-third/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "How do I download Fifth Third Bank statements?", "acceptedAnswer": { "@type": "Answer", "text": "Log into Fifth Third online banking, go to Accounts > Statements, and select the month you need. PDF statements are available for up to 7 years. Transaction history can be exported as CSV or OFX from Account Details > Export." } },
+    { "@type": "Question", "name": "Does Fifth Third Bank support QuickBooks bank feeds?", "acceptedAnswer": { "@type": "Answer", "text": "Fifth Third supports direct QuickBooks Online bank feeds via OAuth connection. You can also download OFX/QFX files manually from online banking. For accounts not supporting the direct feed, convert the PDF with Zera Books and import as QBO." } },
+    { "@type": "Question", "name": "What format does Fifth Third use for CSV exports?", "acceptedAnswer": { "@type": "Answer", "text": "Fifth Third CSV exports include: Date, Description, Amount (negative for debits), Running Balance. The Balance column must be removed before importing into QuickBooks or Xero." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>Fifth Third Bank Statement Converter: PDF to Excel, QBO, CSV</h1>
+
+<p>Fifth Third Bank serves clients across the Midwest and Southeast US. Fifth Third's online banking provides PDF statements and transaction exports. The PDF statements are digital and convert cleanly — no OCR required for standard statement PDFs.</p>
+
+<div class="callout">
+  Convert Fifth Third Bank statements to Excel, QBO, CSV, or IIF with <a href="https://www.zerabooks.com/banks/fifth-third-bank-statement-converter">Zera Books</a>. Handles Fifth Third's multi-page business statements and merchant card activity reports.
+</div>
+
+<h2>Fifth Third Bank Download Options</h2>
+
+<table>
+  <thead><tr><th>Format</th><th>Location</th><th>Availability</th></tr></thead>
+  <tbody>
+    <tr><td>PDF Statement</td><td>Accounts &gt; Statements</td><td>Up to 7 years</td></tr>
+    <tr><td>CSV</td><td>Account Details &gt; Export Transactions</td><td>Up to 18 months</td></tr>
+    <tr><td>OFX/QFX</td><td>Account Details &gt; Export Transactions</td><td>Up to 18 months</td></tr>
+  </tbody>
+</table>
+
+<h2>Fifth Third PDF Statement Structure</h2>
+
+<p>Fifth Third personal account PDFs list transactions in a single table with Date, Description, Debit, Credit, and Balance columns. Business account PDFs are more detailed — they typically include separate sections for deposits, checks, electronic transactions, and fees.</p>
+
+<p>The separate-section layout means transaction rows don't always follow a single table structure. Basic PDF converters often miss transactions from the "Checks Paid" or "Fees" sections. Zera Books processes Fifth Third's multi-section layout and captures all transaction types.</p>
+
+<h2>Fifth Third Business Banking</h2>
+
+<p>Fifth Third business clients often have multiple accounts on the same statement (checking, savings, line of credit). Each account starts a new section. Zera Books detects account boundaries in Fifth Third business PDFs and outputs a separate converted file per account.</p>
+
+<h2>Conversion Steps</h2>
+
+<ol>
+  <li>Log into Fifth Third online banking</li>
+  <li>Go to <strong>Accounts</strong> &gt; <strong>Statements</strong></li>
+  <li>Download the PDF for the period you need</li>
+  <li>Upload to <a href="https://www.zerabooks.com/banks/fifth-third-bank-statement-converter">Zera Books</a></li>
+  <li>Select output format (Excel, QBO, CSV, IIF)</li>
+  <li>Import into your accounting software</li>
+</ol>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>How do I download Fifth Third Bank statements?</h3>
+  <p>Log into Fifth Third online banking, go to Accounts &gt; Statements, and select the month you need. PDF statements are available for up to 7 years. Transaction history can be exported as CSV or OFX from Account Details &gt; Export.</p>
+
+  <h3>Does Fifth Third Bank support QuickBooks bank feeds?</h3>
+  <p>Fifth Third supports direct QuickBooks Online bank feeds via OAuth connection. You can also download OFX/QFX files manually from online banking. For accounts not supporting the direct feed, convert the PDF with Zera Books and import as QBO.</p>
+
+  <h3>What format does Fifth Third use for CSV exports?</h3>
+  <p>Fifth Third CSV exports include: Date, Description, Amount (negative for debits), Running Balance. The Balance column must be removed before importing into QuickBooks or Xero.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

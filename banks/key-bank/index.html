@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyBank Statement Converter | Zera Books Resources</title>
+  <meta name="description" content="Convert KeyBank statements to Excel, CSV, QBO, or IIF. Covers KeyBank's PDF format, online export options, and import steps for QuickBooks and Xero.">
+  <link rel="canonical" href="https://zerabooks.github.io/banks/key-bank/">
+  <meta property="og:title" content="KeyBank Statement Converter">
+  <meta property="og:description" content="Convert KeyBank statements to Excel, CSV, QBO, or IIF for QuickBooks, Xero, and other accounting software.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/banks/key-bank/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "KeyBank Statement Converter", "description": "Convert KeyBank statements to Excel, CSV, QBO, or IIF.", "url": "https://zerabooks.github.io/banks/key-bank/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "How do I download KeyBank statements online?", "acceptedAnswer": { "@type": "Answer", "text": "In KeyBank Online Banking, go to Accounts > Statements to download PDF statements. To export transaction data, go to Account Activity and use the Download/Export option to select CSV, OFX, or QFX format." } },
+    { "@type": "Question", "name": "Can I import KeyBank statements directly into QuickBooks?", "acceptedAnswer": { "@type": "Answer", "text": "KeyBank supports direct QuickBooks Online integration via bank feed. For manual imports or historical statements, download the PDF from KeyBank and convert to QBO using Zera Books, then upload via QuickBooks Banking > Upload transactions." } },
+    { "@type": "Question", "name": "Does KeyBank CSV export include all transaction details?", "acceptedAnswer": { "@type": "Answer", "text": "KeyBank's CSV export includes Date, Description, Debit, Credit, and Balance columns. The description is sometimes truncated compared to the full memo on the PDF statement. Converting from PDF via Zera Books preserves the complete transaction description." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>KeyBank Statement Converter: PDF to Excel, QBO, CSV</h1>
+
+<p>KeyBank (KeyCorp) is headquartered in Cleveland and operates across the Northeast, Northwest, and Rocky Mountain regions. KeyBank's online banking provides PDF statements and activity exports in CSV, OFX, and QFX formats.</p>
+
+<div class="callout">
+  Convert KeyBank statements to Excel, QBO, CSV, or IIF with <a href="https://www.zerabooks.com/banks/key-bank-statement-converter">Zera Books</a>. Handles KeyBank's business and personal account PDF formats.
+</div>
+
+<h2>KeyBank Statement Download Options</h2>
+
+<table>
+  <thead><tr><th>Format</th><th>Location</th><th>Availability</th></tr></thead>
+  <tbody>
+    <tr><td>PDF Statement</td><td>Accounts &gt; Statements</td><td>Up to 7 years</td></tr>
+    <tr><td>CSV</td><td>Account Activity &gt; Export</td><td>Up to 90 days per export</td></tr>
+    <tr><td>OFX/QFX</td><td>Account Activity &gt; Export &gt; select format</td><td>Up to 90 days per export</td></tr>
+  </tbody>
+</table>
+
+<h2>KeyBank PDF Format Details</h2>
+
+<p>KeyBank personal checking statements list transactions chronologically with Date, Description, Debit, Credit, and Balance columns. The description field often contains the full merchant name plus location code (e.g., "POS DEBIT AMAZON.COM AMZN.COM/BILL WA").</p>
+
+<p>KeyBank business statements use a different layout: transactions are grouped by type (Deposits, Checks, Other Debits, Electronic Credits). The totals row for each section can confuse basic extractors. Zera Books handles KeyBank's grouped layout and excludes section totals from the transaction list.</p>
+
+<h2>KeyBank Merchant Services Statements</h2>
+
+<p>Businesses using KeyBank Merchant Services receive a separate statement for card processing activity. These are different documents from the bank account statement. Zera Books can process both — upload them as separate files if you need to reconcile merchant deposits against the bank account.</p>
+
+<h2>Conversion Steps</h2>
+
+<ol>
+  <li>Log into KeyBank Online Banking</li>
+  <li>Navigate to <strong>Accounts</strong> &gt; <strong>Statements</strong></li>
+  <li>Download the PDF for the period you need</li>
+  <li>Upload to <a href="https://www.zerabooks.com/banks/key-bank-statement-converter">Zera Books</a></li>
+  <li>Select output format and download the converted file</li>
+  <li>Import into QuickBooks, Xero, Sage, or your accounting platform</li>
+</ol>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>How do I download KeyBank statements online?</h3>
+  <p>In KeyBank Online Banking, go to Accounts &gt; Statements to download PDF statements. To export transaction data, go to Account Activity and use the Download/Export option to select CSV, OFX, or QFX format.</p>
+
+  <h3>Can I import KeyBank statements directly into QuickBooks?</h3>
+  <p>KeyBank supports direct QuickBooks Online integration via bank feed. For manual imports or historical statements, download the PDF from KeyBank and convert to QBO using Zera Books, then upload via QuickBooks Banking &gt; Upload transactions.</p>
+
+  <h3>Does KeyBank CSV export include all transaction details?</h3>
+  <p>KeyBank's CSV export includes Date, Description, Debit, Credit, and Balance columns. The description is sometimes truncated compared to the full memo on the PDF statement. Converting from PDF via Zera Books preserves the complete transaction description.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

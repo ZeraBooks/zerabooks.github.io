@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US Bank Statement Converter | Zera Books Resources</title>
+  <meta name="description" content="Convert US Bank statements to Excel, CSV, QBO, or IIF. Covers US Bank's PDF format, transaction CSV exports, and how to import into QuickBooks or Xero.">
+  <link rel="canonical" href="https://zerabooks.github.io/banks/us-bank/">
+  <meta property="og:title" content="US Bank Statement Converter">
+  <meta property="og:description" content="Convert US Bank statements to Excel, CSV, QBO, or IIF for QuickBooks, Xero, and other accounting software.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/banks/us-bank/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "US Bank Statement Converter", "description": "Convert US Bank statements to Excel, CSV, QBO, or IIF.", "url": "https://zerabooks.github.io/banks/us-bank/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "How do I download my US Bank statement as a CSV?", "acceptedAnswer": { "@type": "Answer", "text": "In US Bank online banking, go to Accounts > Account Activity > Download. You can select a date range and choose CSV, OFX, or QFX format. PDF statements are available under Statements & Notices." } },
+    { "@type": "Question", "name": "Does US Bank offer QBO files for QuickBooks?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. US Bank online banking offers QFX (Quicken) and OFX downloads from the Account Activity download menu. QFX files import directly into QuickBooks Online. For the best results, use the PDF and convert via Zera Books for full control over the output format." } },
+    { "@type": "Question", "name": "Why does my US Bank CSV export have extra rows?", "acceptedAnswer": { "@type": "Answer", "text": "US Bank CSV exports include a header row with account information and sometimes a balance row at the top and bottom. These must be removed before importing into QuickBooks or Xero. Zera Books removes these automatically during conversion." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>US Bank Statement Converter: PDF and CSV to Accounting Software</h1>
+
+<p>US Bank (U.S. Bancorp) offers PDF statements, CSV transaction exports, and OFX/QFX downloads from online banking. The PDF statements are clean digital documents that convert accurately. The CSV exports include extra header rows that need cleanup before importing into accounting software.</p>
+
+<div class="callout">
+  Convert US Bank PDF or CSV statements to Excel, QBO, CSV, or IIF with <a href="https://www.zerabooks.com/banks/us-bank-statement-converter">Zera Books</a>. Handles US Bank's account header rows and balance rows automatically.
+</div>
+
+<h2>US Bank Download Options</h2>
+
+<table>
+  <thead><tr><th>Format</th><th>Location in Online Banking</th><th>Date Range</th></tr></thead>
+  <tbody>
+    <tr><td>PDF Statement</td><td>Accounts &gt; Statements & Notices</td><td>Up to 7 years</td></tr>
+    <tr><td>CSV</td><td>Account Activity &gt; Download Transactions</td><td>Up to 18 months</td></tr>
+    <tr><td>OFX</td><td>Account Activity &gt; Download Transactions</td><td>Up to 18 months</td></tr>
+    <tr><td>QFX (Quicken)</td><td>Account Activity &gt; Download Transactions</td><td>Up to 18 months</td></tr>
+  </tbody>
+</table>
+
+<h2>US Bank CSV Format</h2>
+
+<p>US Bank CSV downloads typically start with a few rows of account metadata before the transaction data begins. The transaction columns are:</p>
+
+<ul>
+  <li>Date (MM/DD/YYYY)</li>
+  <li>Transaction (description)</li>
+  <li>Name (payee or additional description)</li>
+  <li>Memo (reference text)</li>
+  <li>Amount (signed — negative for debits)</li>
+</ul>
+
+<p>The "Name" column often contains useful payee information that the "Transaction" column doesn't. When converting, it helps to merge these two columns for better transaction descriptions in your accounting software.</p>
+
+<h2>US Bank Business Accounts</h2>
+
+<p>US Bank business checking and business savings statements use a slightly different format than personal accounts. Business PDFs often include a "Previous Balance" and "New Balance" line at the end of the transaction list. These must be excluded from the imported transactions.</p>
+
+<p>US Bank business accounts with multiple signatories sometimes receive statements that don't have a direct online download option — paper statements can be scanned and processed with <a href="https://www.zerabooks.com/banks/us-bank-statement-converter">Zera Books</a> OCR.</p>
+
+<h2>Conversion Steps</h2>
+
+<ol>
+  <li>Log into US Bank online banking</li>
+  <li>Navigate to your account &gt; <strong>Statements & Notices</strong></li>
+  <li>Download the PDF for the statement period you need</li>
+  <li>Upload to <a href="https://www.zerabooks.com/banks/us-bank-statement-converter">Zera Books</a></li>
+  <li>Select output: Excel, CSV, QBO, or IIF</li>
+  <li>Import the converted file into QuickBooks, Xero, or your accounting software</li>
+</ol>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>How do I download my US Bank statement as a CSV?</h3>
+  <p>In US Bank online banking, go to Accounts &gt; Account Activity &gt; Download. You can select a date range and choose CSV, OFX, or QFX format. PDF statements are available under Statements &amp; Notices.</p>
+
+  <h3>Does US Bank offer QBO files for QuickBooks?</h3>
+  <p>Yes. US Bank online banking offers QFX (Quicken) and OFX downloads from the Account Activity download menu. QFX files import directly into QuickBooks Online. For the best results, use the PDF and convert via Zera Books for full control over the output format.</p>
+
+  <h3>Why does my US Bank CSV export have extra rows?</h3>
+  <p>US Bank CSV exports include a header row with account information and sometimes a balance row at the top and bottom. These must be removed before importing into QuickBooks or Xero. Zera Books removes these automatically during conversion.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

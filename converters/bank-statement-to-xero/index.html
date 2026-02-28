@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Statement to Xero Import Format Converter | Zera Books Resources</title>
+  <meta name="description" content="How to convert bank statement PDFs to CSV format for Xero bank feed import. Covers Xero's required columns, date formats, and import steps.">
+  <link rel="canonical" href="https://zerabooks.github.io/converters/bank-statement-to-xero/">
+  <meta property="og:title" content="Bank Statement to Xero Import Format Converter">
+  <meta property="og:description" content="How to convert bank statement PDFs to CSV format for Xero bank feed import. Covers Xero's required columns, date formats, and import steps.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/converters/bank-statement-to-xero/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "Bank Statement to Xero Import Format Converter", "description": "How to convert bank statement PDFs to CSV format for Xero bank feed import.", "url": "https://zerabooks.github.io/converters/bank-statement-to-xero/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "What CSV format does Xero require for bank statement import?", "acceptedAnswer": { "@type": "Answer", "text": "Xero requires a CSV with columns: Date, Amount, Payee (optional), Description, Reference (optional), Check Number (optional). Date must be in DD/MM/YYYY or MM/DD/YYYY format depending on your Xero region settings." } },
+    { "@type": "Question", "name": "Does Xero accept OFX files for bank import?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Xero also accepts OFX and QIF files in addition to CSV. Zera Books can output OFX format, which some accountants prefer for Xero imports." } },
+    { "@type": "Question", "name": "How do I import a CSV bank statement into Xero?", "acceptedAnswer": { "@type": "Answer", "text": "In Xero, go to Accounting → Bank Accounts → Import a statement. Select your bank account, upload the CSV file, map the columns, and click Import." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <h1>Converting Bank Statements to Xero-Compatible Import Format</h1>
+
+  <p>Xero's bank reconciliation works best when transactions are imported directly rather than entered manually. For banks with direct feeds set up, this happens automatically. For banks without Xero connectivity — or for historical statements predating your feed — you need to convert the PDF to a format Xero accepts.</p>
+
+  <h2>Formats Xero Accepts for Bank Import</h2>
+
+  <p>Xero accepts three file types for manual bank statement import:</p>
+
+  <table>
+    <thead>
+      <tr><th>Format</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CSV</td><td>Most common; requires specific column mapping</td></tr>
+      <tr><td>OFX</td><td>Standard financial exchange format; no column mapping needed</td></tr>
+      <tr><td>QIF</td><td>Older Quicken format; limited in Xero's newer interface</td></tr>
+    </tbody>
+  </table>
+
+  <p>CSV is the most flexible since you can verify the data before import. OFX is faster for bulk imports because Xero parses the structure automatically.</p>
+
+  <h2>Required CSV Columns for Xero</h2>
+
+  <p>Xero's CSV import requires these columns at minimum:</p>
+
+  <ul>
+    <li><strong>Date</strong> — must match your Xero region's date format setting</li>
+    <li><strong>Amount</strong> — positive for money in, negative for money out</li>
+    <li><strong>Description</strong> — transaction narrative</li>
+  </ul>
+
+  <p>Optional columns Xero also reads: Payee, Reference, Check Number. Zera Books outputs all of these when present in the source statement.</p>
+
+  <div class="callout">
+    <strong>Date format tip:</strong> Xero's date format setting (DD/MM/YYYY vs MM/DD/YYYY) is set per organization. Zera Books' Xero export matches the format you select — make sure it aligns with your Xero organization's regional setting to avoid import errors.
+  </div>
+
+  <h2>Step-by-Step: Importing into Xero</h2>
+
+  <ol>
+    <li>In Xero, go to <strong>Accounting → Bank Accounts</strong></li>
+    <li>Click the bank account you want to import into</li>
+    <li>Click <strong>Import a statement</strong></li>
+    <li>Upload the CSV or OFX file from Zera Books</li>
+    <li>For CSV: map the columns in Xero's import wizard</li>
+    <li>Review the transaction count and date range, then click <strong>Import</strong></li>
+  </ol>
+
+  <h2>Avoiding Duplicate Transactions in Xero</h2>
+
+  <p>Xero uses date, amount, and description to detect potential duplicates during import. If you upload overlapping statements, Xero will flag likely duplicates for you to review before they're added to the feed. The AI-generated descriptions from Zera Books are consistent, which makes Xero's duplicate detection more reliable.</p>
+
+  <p>Convert your PDF bank statements for Xero using the <a href="https://www.zerabooks.com/converters/bank-statement-to-xero">bank statement to Xero converter</a>. For CSV-specific conversion details, see the <a href="https://www.zerabooks.com/converters/bank-statement-csv-converter">bank statement CSV converter</a>.</p>
+
+  <div class="faq">
+    <h3>Frequently Asked Questions</h3>
+
+    <h3>What CSV format does Xero require for bank statement import?</h3>
+    <p>At minimum: Date, Amount, Description. Optional: Payee, Reference, Check Number. Date format must match your Xero organization's regional setting.</p>
+
+    <h3>Does Xero accept OFX files for bank import?</h3>
+    <p>Yes. Xero accepts OFX and QIF in addition to CSV. OFX requires no column mapping since Xero parses the structure automatically.</p>
+
+    <h3>How do I import a CSV bank statement into Xero?</h3>
+    <p>Go to Accounting → Bank Accounts → Import a statement, upload the file, map columns (for CSV), and click Import.</p>
+  </div>
+
+  <footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

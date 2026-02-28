@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PNC Bank Statement Converter | Zera Books Resources</title>
+  <meta name="description" content="Convert PNC Bank statements to Excel, CSV, QBO, or IIF. Covers PNC's PDF and CSV export formats, statement quirks, and direct QuickBooks/Xero import.">
+  <link rel="canonical" href="https://zerabooks.github.io/banks/pnc/">
+  <meta property="og:title" content="PNC Bank Statement Converter">
+  <meta property="og:description" content="Convert PNC Bank statements to Excel, CSV, QBO, or IIF for QuickBooks, Xero, and other accounting software.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/banks/pnc/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "PNC Bank Statement Converter", "description": "Convert PNC Bank statements to Excel, CSV, QBO, or IIF.", "url": "https://zerabooks.github.io/banks/pnc/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "What formats can I download PNC Bank statements in?", "acceptedAnswer": { "@type": "Answer", "text": "PNC Online Banking allows download of statements as PDF or CSV. PNC also supports OFX and QFX downloads for direct bank feed connections to QuickBooks. PDF statements are available for up to 7 years online." } },
+    { "@type": "Question", "name": "Does PNC Bank CSV export work with QuickBooks directly?", "acceptedAnswer": { "@type": "Answer", "text": "PNC's CSV export uses a 6-column format: Date, Description, Withdrawals (-), Deposits (+), Balance. QuickBooks requires different columns, so the PNC CSV needs reformatting before import. Use Zera Books to handle this automatically." } },
+    { "@type": "Question", "name": "How do I convert a PNC PDF statement to Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Upload the PNC PDF to Zera Books and select Excel as the output format. PNC statements are digital PDFs (not scanned), so extraction is accurate and fast. Multi-page PNC statements are supported." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>PNC Bank Statement Converter: PDF and CSV to Accounting Software</h1>
+
+<p>PNC Bank statements are available as PDF or CSV from PNC Online Banking. PNC's PDF statements are digital (not scanned), which means transaction data extracts cleanly. PNC also offers OFX/QFX downloads for direct feed connections.</p>
+
+<div class="callout">
+  Convert PNC Bank statements to Excel, CSV, QBO, or IIF with <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter">Zera Books</a>. Upload the PDF and get a formatted output ready for QuickBooks, Xero, Sage, or any other accounting platform.
+</div>
+
+<h2>PNC Statement Formats Available Online</h2>
+
+<table>
+  <thead><tr><th>Format</th><th>Where to Download</th><th>Best For</th></tr></thead>
+  <tbody>
+    <tr><td>PDF</td><td>Accounts &gt; Statements &gt; View/Download</td><td>Archive, conversion to Excel/QBO</td></tr>
+    <tr><td>CSV</td><td>Activity &gt; Download Transactions</td><td>Quick spreadsheet work (needs reformatting for QBO)</td></tr>
+    <tr><td>OFX/QFX</td><td>Activity &gt; Download Transactions &gt; select format</td><td>Direct QuickBooks bank feed connection</td></tr>
+  </tbody>
+</table>
+
+<h2>PNC PDF Statement Quirks</h2>
+
+<p>PNC business account PDFs sometimes include a "Virtual Wallet" summary section at the top before transaction detail. Converters that don't handle this will include the summary figures as transactions. <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter">Zera Books</a> recognizes the PNC statement structure and ignores non-transaction sections.</p>
+
+<p>PNC statements for accounts with multiple account numbers on the same statement (e.g., checking and money market combined) are handled by Zera Books' multi-account detection — each account gets a separate output file.</p>
+
+<h2>PNC CSV Export Limitations</h2>
+
+<p>PNC's CSV download uses this column structure:</p>
+
+<table>
+  <thead><tr><th>Column</th><th>Format</th></tr></thead>
+  <tbody>
+    <tr><td>Date</td><td>MM/DD/YYYY</td></tr>
+    <tr><td>Description</td><td>Text</td></tr>
+    <tr><td>Withdrawals</td><td>Positive (money out)</td></tr>
+    <tr><td>Deposits</td><td>Positive (money in)</td></tr>
+    <tr><td>Balance</td><td>Running balance</td></tr>
+  </tbody>
+</table>
+
+<p>This does not match what QuickBooks or Xero expect for CSV import. You need to combine Withdrawals and Deposits into a single signed Amount column and remove the Balance column before importing.</p>
+
+<h2>Conversion Steps</h2>
+
+<ol>
+  <li>Log into PNC Online Banking</li>
+  <li>Go to <strong>Accounts</strong> &gt; <strong>Statements</strong> and download the PDF for the period you need</li>
+  <li>Upload to <a href="https://www.zerabooks.com/banks/pnc-bank-statement-converter">Zera Books</a></li>
+  <li>Select your output format (Excel, CSV, QBO, IIF)</li>
+  <li>Download the converted file and import into your accounting software</li>
+</ol>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>What formats can I download PNC Bank statements in?</h3>
+  <p>PNC Online Banking allows download of statements as PDF or CSV. PNC also supports OFX and QFX downloads for direct bank feed connections to QuickBooks. PDF statements are available for up to 7 years online.</p>
+
+  <h3>Does PNC Bank CSV export work with QuickBooks directly?</h3>
+  <p>PNC's CSV export uses a 6-column format: Date, Description, Withdrawals (-), Deposits (+), Balance. QuickBooks requires different columns, so the PNC CSV needs reformatting before import. Use Zera Books to handle this automatically.</p>
+
+  <h3>How do I convert a PNC PDF statement to Excel?</h3>
+  <p>Upload the PNC PDF to Zera Books and select Excel as the output format. PNC statements are digital PDFs (not scanned), so extraction is accurate and fast. Multi-page PNC statements are supported.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

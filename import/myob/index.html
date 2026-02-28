@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYOB Bank Statement Import Guide | Zera Books Resources</title>
+  <meta name="description" content="How to import bank statements into MYOB AccountRight and MYOB Essentials. OFX and CSV import steps, field requirements, and PDF statement handling.">
+  <link rel="canonical" href="https://zerabooks.github.io/import/myob/">
+  <meta property="og:title" content="MYOB Bank Statement Import Guide">
+  <meta property="og:description" content="How to import bank statements into MYOB AccountRight and MYOB Essentials. OFX and CSV import steps and field requirements.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/import/myob/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "MYOB Bank Statement Import Guide", "description": "How to import bank statements into MYOB AccountRight and MYOB Essentials.", "url": "https://zerabooks.github.io/import/myob/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "What file format does MYOB use for bank statement imports?", "acceptedAnswer": { "@type": "Answer", "text": "MYOB AccountRight accepts OFX files for bank statement import. MYOB Essentials (the online version) also accepts CSV. OFX is the standard format for MYOB bank feeds and manual statement imports." } },
+    { "@type": "Question", "name": "How do I import a PDF bank statement into MYOB?", "acceptedAnswer": { "@type": "Answer", "text": "MYOB cannot read PDF files. You must convert the PDF to OFX or CSV first, then import via Banking > Bank Transactions > Import Statement. Zera Books converts Australian and New Zealand bank statements to MYOB-compatible OFX." } },
+    { "@type": "Question", "name": "Why is my MYOB bank import showing transactions on the wrong side?", "acceptedAnswer": { "@type": "Answer", "text": "MYOB uses a signed amount convention where credits (money in) are positive and debits (money out) are negative. If your CSV has debits as positive, transactions will post to the wrong side. Reverse the sign on your amount column before importing." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>MYOB Bank Statement Import: Step-by-Step Guide</h1>
+
+<p>MYOB AccountRight and MYOB Essentials both support bank statement imports, but the process differs slightly. MYOB primarily uses OFX format — the same format used by Australian and New Zealand banks for their statement downloads.</p>
+
+<div class="callout">
+  <strong>PDF or scanned statements?</strong> <a href="https://www.zerabooks.com/import/myob-bank-statement-import">Zera Books</a> converts statements from ANZ, Commonwealth, NAB, Westpac, and all Australian/NZ banks to MYOB-compatible OFX. Handles multi-page and scanned PDFs with 95%+ OCR accuracy.
+</div>
+
+<h2>MYOB AccountRight Import Steps</h2>
+
+<ol>
+  <li>Go to <strong>Banking</strong> menu &gt; <strong>Bank Transactions</strong></li>
+  <li>Click <strong>Import Statement</strong></li>
+  <li>Select the bank account from the dropdown</li>
+  <li>Choose your OFX or CSV file</li>
+  <li>MYOB previews the transactions — review dates and amounts</li>
+  <li>Click <strong>Import</strong> to add to the bank transaction list</li>
+  <li>Allocate transactions in the <strong>Bank Transactions</strong> window</li>
+</ol>
+
+<h2>MYOB Essentials Import</h2>
+
+<p>In MYOB Essentials (online), go to <strong>Banking</strong> &gt; select your account &gt; <strong>Import statement</strong>. The process is similar but the interface is web-based. MYOB Essentials accepts both OFX and CSV. CSV column requirements:</p>
+
+<table>
+  <thead><tr><th>Column</th><th>Format</th></tr></thead>
+  <tbody>
+    <tr><td>Date</td><td>DD/MM/YYYY (Australian format)</td></tr>
+    <tr><td>Description</td><td>Text — appears as transaction memo</td></tr>
+    <tr><td>Amount</td><td>Positive for credits, negative for debits</td></tr>
+  </tbody>
+</table>
+
+<h2>Australian Bank CSV Downloads</h2>
+
+<p>Most Australian banks export CSV files with their own column structure that doesn't match MYOB directly. Common issues:</p>
+
+<ul>
+  <li><strong>ANZ:</strong> Exports with separate Debit/Credit columns — combine into a single signed Amount</li>
+  <li><strong>CommBank:</strong> Includes a Balance column MYOB ignores — remove it to avoid import confusion</li>
+  <li><strong>Westpac:</strong> Date format is sometimes DD-MM-YYYY (dashes, not slashes) — MYOB may reject this</li>
+  <li><strong>NAB:</strong> Exports include a transaction type code column — remove before importing into MYOB</li>
+</ul>
+
+<div class="callout">
+  <a href="https://www.zerabooks.com/import/myob-bank-statement-import">Zera Books</a> handles all Australian and NZ bank formats and outputs clean OFX files ready for MYOB. No manual column cleanup required.
+</div>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>What file format does MYOB use for bank statement imports?</h3>
+  <p>MYOB AccountRight accepts OFX files for bank statement import. MYOB Essentials (the online version) also accepts CSV. OFX is the standard format for MYOB bank feeds and manual statement imports.</p>
+
+  <h3>How do I import a PDF bank statement into MYOB?</h3>
+  <p>MYOB cannot read PDF files. You must convert the PDF to OFX or CSV first, then import via Banking &gt; Bank Transactions &gt; Import Statement. Zera Books converts Australian and New Zealand bank statements to MYOB-compatible OFX.</p>
+
+  <h3>Why is my MYOB bank import showing transactions on the wrong side?</h3>
+  <p>MYOB uses a signed amount convention where credits (money in) are positive and debits (money out) are negative. If your CSV has debits as positive, transactions will post to the wrong side. Reverse the sign on your amount column before importing.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

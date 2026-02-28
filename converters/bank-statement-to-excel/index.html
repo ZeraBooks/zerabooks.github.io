@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Statement to Excel Converter | Zera Books Resources</title>
+  <meta name="description" content="How to convert bank statement PDFs to structured Excel files. Covers column output, AI categorization, multi-account splitting, and Excel features for reconciliation.">
+  <link rel="canonical" href="https://zerabooks.github.io/converters/bank-statement-to-excel/">
+  <meta property="og:title" content="Bank Statement to Excel Converter">
+  <meta property="og:description" content="How to convert bank statement PDFs to structured Excel files with AI categorization and proper column structure for accounting workflows.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/converters/bank-statement-to-excel/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "Bank Statement to Excel Converter", "description": "How to convert bank statement PDFs to structured Excel files for accounting and reconciliation.", "url": "https://zerabooks.github.io/converters/bank-statement-to-excel/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "What columns does Zera Books include in the Excel output for bank statements?", "acceptedAnswer": { "@type": "Answer", "text": "Date, Description, Debit, Credit, Balance, and Category (AI-assigned). Columns use proper Excel data types: dates as date values, amounts as numbers — not text strings." } },
+    { "@type": "Question", "name": "Can I convert a bank statement to Excel with categories pre-filled?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Zera Books adds an AI-assigned Category column to the Excel output. You can review and adjust categories in the Zera Books interface before exporting, or adjust them in Excel afterward." } },
+    { "@type": "Question", "name": "Does the Excel output include formulas or just data?", "acceptedAnswer": { "@type": "Answer", "text": "Data only — no formulas embedded. This ensures the file opens cleanly without external references or calculation errors. You can add your own formulas after opening." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <h1>Converting Bank Statements to Excel: Getting Data That's Ready to Use</h1>
+
+  <p>The difference between a useful Excel file and a frustrating one comes down to data types. When amounts are stored as text strings instead of numbers, SUM formulas return zero. When dates are text instead of date values, sorting and filtering don't work. A proper bank statement to Excel conversion outputs actual Excel data types, not just the visual appearance of numbers and dates.</p>
+
+  <h2>Excel Output Column Structure</h2>
+
+  <table>
+    <thead>
+      <tr><th>Column</th><th>Excel Data Type</th><th>Format</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Date</td><td>Date</td><td>Formatted as date value, sortable and filterable</td></tr>
+      <tr><td>Description</td><td>Text</td><td>Clean string, no trailing spaces</td></tr>
+      <tr><td>Debit</td><td>Number</td><td>2 decimal places, no currency symbols</td></tr>
+      <tr><td>Credit</td><td>Number</td><td>2 decimal places, no currency symbols</td></tr>
+      <tr><td>Balance</td><td>Number</td><td>Running balance as number</td></tr>
+      <tr><td>Category</td><td>Text</td><td>AI-assigned; blank if unclassified</td></tr>
+    </tbody>
+  </table>
+
+  <p>Because amounts are stored as numbers, SUMIF by category works immediately. Because dates are date values, a pivot table can group by month or quarter without any pre-processing.</p>
+
+  <h2>AI Categorization in the Excel Output</h2>
+
+  <div class="callout">
+    <strong>Category column included:</strong> Zera Books adds an AI-assigned Category column using standard chart of accounts labels (e.g., "Office Supplies", "Travel", "Payroll", "Revenue"). Categories use confidence scores — low-confidence assignments are flagged so you know which ones to review.
+  </div>
+
+  <p>The categorization adapts per client. After the first month of corrections, the model applies your adjustments to recurring vendors consistently. "Amazon Web Services" doesn't get re-categorized as "Shopping" if you've classified it as "Software" before.</p>
+
+  <h2>Multi-Account Statements</h2>
+
+  <p>When a PDF contains multiple accounts, Zera Books produces a separate Excel sheet (or separate file, depending on settings) for each account. The account number and account type are included in the sheet header so you can identify which sheet belongs to which account without cross-referencing the original PDF.</p>
+
+  <h2>Large Statement Files</h2>
+
+  <p>A full year of transactions for an active business account can exceed 5,000 rows. Excel handles this comfortably, but long statements from PDFs benefit from Zera Books' chunked processing — 50-page PDFs are processed in parallel segments and then reassembled in correct order, so large files don't time out or produce partial results.</p>
+
+  <p>Convert your bank statements to Excel using the <a href="https://www.zerabooks.com/converters/bank-statement-to-excel">bank statement to Excel converter</a>. For direct QuickBooks import without Excel as an intermediate step, see <a href="https://www.zerabooks.com/converters/bank-statement-to-quickbooks">bank statement to QuickBooks</a>.</p>
+
+  <div class="faq">
+    <h3>Frequently Asked Questions</h3>
+
+    <h3>What columns does Zera Books include in the Excel output for bank statements?</h3>
+    <p>Date (as date value), Description, Debit, Credit, Balance, and Category — all in proper Excel data types, not text strings.</p>
+
+    <h3>Can I convert a bank statement to Excel with categories pre-filled?</h3>
+    <p>Yes. An AI-assigned Category column is included. Review and adjust in Zera Books before exporting, or adjust in Excel after opening.</p>
+
+    <h3>Does the Excel output include formulas or just data?</h3>
+    <p>Data only — no embedded formulas. Add your own formulas after opening.</p>
+  </div>
+
+  <footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

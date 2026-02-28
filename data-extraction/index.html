@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Document Data Extraction Pipeline — Zera Books | Zera Books Resources</title>
+  <meta name="description" content="Zera Books data extraction pipeline: OCR, AI parsing, cleaning, deduplication, and categorization for bank statements, invoices, and financial documents.">
+  <link rel="canonical" href="https://zerabooks.github.io/data-extraction/">
+  <meta property="og:title" content="Financial Document Data Extraction Pipeline — Zera Books">
+  <meta property="og:description" content="Zera Books data extraction pipeline: OCR, AI parsing, cleaning, deduplication, and categorization for bank statements, invoices, and financial documents.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/data-extraction/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Financial Document Data Extraction Pipeline — Zera Books",
+    "description": "Zera Books data extraction pipeline covering OCR, AI parsing, cleaning, deduplication, and categorization.",
+    "url": "https://zerabooks.github.io/data-extraction/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Zera Books",
+      "url": "https://www.zerabooks.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What steps does Zera Books apply during data extraction?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zera Books runs: (1) OCR for scanned pages, (2) AI-based structural parsing to identify transaction tables, (3) field-level extraction, (4) data cleaning and normalization, (5) duplicate detection, and (6) AI categorization. All steps are automated."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Zera Books handle multi-currency bank statements?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zera Books detects currency symbols and codes in transaction amounts. Each transaction is tagged with its currency in the output. Multi-currency statements are not automatically converted but are extracted with currency labels preserved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Zera Books clean up transaction descriptions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Zera Books standardizes transaction descriptions by removing excess whitespace, normalizing capitalization, and resolving common bank truncation patterns for known vendors."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; color: #0A1628; }
+    .faq p { margin-bottom: 0.5rem; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <p><a href="/">← Zera Books Resources</a></p>
+
+  <h1>Data Extraction Pipeline</h1>
+
+  <p>The <a href="https://www.zerabooks.com/features/data-extraction">Zera Books data extraction pipeline</a> is the sequence of automated steps that transforms a raw PDF into clean, structured, categorized transaction data. Each step runs without manual intervention.</p>
+
+  <div class="callout">
+    <strong>Six automated steps from upload to output.</strong> OCR → structural parsing → field extraction → data cleaning → deduplication → categorization.
+  </div>
+
+  <h2>Pipeline Steps</h2>
+  <ol>
+    <li>
+      <strong>Input detection</strong> — The system checks whether the uploaded file has a text layer (digital PDF) or is image-only (scanned PDF). Mixed files are flagged at the page level.
+    </li>
+    <li>
+      <strong>OCR (scanned pages only)</strong> — Zera OCR processes image-only pages, converting them to text. MICR font recognition applies to check documents.
+    </li>
+    <li>
+      <strong>Structural parsing</strong> — Zera AI identifies the document type, locates transaction tables, identifies header rows, column positions, and section boundaries. No templates used.
+    </li>
+    <li>
+      <strong>Field-level extraction</strong> — Individual fields are extracted: date, description, debit, credit, balance, account identifier, and document-type-specific fields.
+    </li>
+    <li>
+      <strong>Data cleaning and normalization</strong> — Dates normalized to YYYY-MM-DD. Amounts converted to numeric. Descriptions cleaned. Currency detected and labeled. Multi-line descriptions joined.
+    </li>
+    <li>
+      <strong>Duplicate detection</strong> — Transactions matching on date, amount, and description across overlapping statement periods are flagged and optionally removed.
+    </li>
+    <li>
+      <strong>AI categorization</strong> — Each transaction description is mapped to a chart of accounts category with a confidence score.
+    </li>
+    <li>
+      <strong>Output generation</strong> — XLSX, CSV, QBO, IIF, or pre-formatted exports produced and stored in the client folder.
+    </li>
+  </ol>
+
+  <h2>Data Cleaning Details</h2>
+  <table>
+    <thead>
+      <tr><th>Issue</th><th>How It's Handled</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Inconsistent date formats</td><td>Normalized to YYYY-MM-DD regardless of source</td></tr>
+      <tr><td>Amounts with currency symbols</td><td>Stripped to numeric value; currency labeled separately</td></tr>
+      <tr><td>Comma-formatted amounts (1,234.56)</td><td>Converted to plain numeric (1234.56)</td></tr>
+      <tr><td>Parentheses for negatives (1,234.56)</td><td>Converted to standard negative format</td></tr>
+      <tr><td>Multi-line transaction descriptions</td><td>Joined into single field with delimiter</td></tr>
+      <tr><td>Excess whitespace in descriptions</td><td>Collapsed to single space</td></tr>
+      <tr><td>Bank abbreviations for known vendors</td><td>Expanded where recognized (e.g., "AMZN" → "Amazon")</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Duplicate Detection Logic</h2>
+  <p>Duplicates occur when a client provides overlapping statement periods — January's statement plus a Q1 summary that includes January again. Exact-match deduplication fails when description formatting differs slightly between documents. Zera Books uses fuzzy matching on the description field combined with exact matching on date and amount, so minor formatting differences don't create false negatives.</p>
+
+  <p>Full pipeline details at <a href="https://www.zerabooks.com/features/data-extraction">zerabooks.com/features/data-extraction</a>.</p>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+    <h3>What steps does Zera Books apply during data extraction?</h3>
+    <p>Zera Books runs: (1) OCR for scanned pages, (2) AI-based structural parsing, (3) field-level extraction, (4) data cleaning and normalization, (5) duplicate detection, and (6) AI categorization. All steps are automated.</p>
+  </div>
+
+  <div class="faq">
+    <h3>How does Zera Books handle multi-currency bank statements?</h3>
+    <p>Zera Books detects currency symbols and codes in transaction amounts. Each transaction is tagged with its currency in the output. Multi-currency statements are extracted with currency labels preserved (not auto-converted).</p>
+  </div>
+
+  <div class="faq">
+    <h3>Does Zera Books clean up transaction descriptions?</h3>
+    <p>Yes. Zera Books standardizes transaction descriptions by removing excess whitespace, normalizing capitalization, and resolving common bank truncation patterns for known vendors.</p>
+  </div>
+
+  <footer>
+    <p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p>
+  </footer>
+</body>
+</html>

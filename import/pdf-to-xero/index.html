@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Xero: Import Bank Statements | Zera Books Resources</title>
+  <meta name="description" content="How to import PDF bank statements into Xero. Convert PDF to OFX or CSV, handle scanned statements with OCR, and import via Xero bank upload.">
+  <link rel="canonical" href="https://zerabooks.github.io/import/pdf-to-xero/">
+  <meta property="og:title" content="PDF to Xero: Import Bank Statements">
+  <meta property="og:description" content="How to import PDF bank statements into Xero. Convert PDF to OFX or CSV and import via Xero bank upload.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/import/pdf-to-xero/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "PDF to Xero Bank Statement Import", "description": "How to import PDF bank statements into Xero.", "url": "https://zerabooks.github.io/import/pdf-to-xero/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "Can Xero import PDF bank statements?", "acceptedAnswer": { "@type": "Answer", "text": "No. Xero cannot extract transactions from PDFs. You must convert the PDF to OFX, CSV, QIF, or OFC format first, then upload via Accounting > Bank Accounts > Import a Statement." } },
+    { "@type": "Question", "name": "What is the best format to convert PDF to for Xero?", "acceptedAnswer": { "@type": "Answer", "text": "OFX is the best format for Xero imports. It requires no column mapping, includes transaction IDs to prevent duplicates, and Xero reads the date range automatically. CSV works but requires manual column mapping." } },
+    { "@type": "Question", "name": "How do I import a scanned bank statement into Xero?", "acceptedAnswer": { "@type": "Answer", "text": "Scanned statements need OCR before they can be converted. Upload the scanned PDF to Zera Books, which uses OCR to extract text and converts to OFX or CSV ready for Xero. Accuracy is 95%+ for clean scans." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>PDF to Xero: How to Import Bank Statements</h1>
+
+<p>Xero cannot read PDF files. The path for getting PDF bank statements into Xero is: convert the PDF to OFX or CSV, then upload via Xero's bank statement import. This applies whether the PDF came from your bank's online portal or was scanned from paper.</p>
+
+<div class="callout">
+  <strong>Fastest workflow:</strong> Upload your PDF to <a href="https://www.zerabooks.com/import/pdf-to-xero">Zera Books</a> → download OFX → import into Xero in under 2 minutes. Works with digital PDFs, scanned images, and password-protected files.
+</div>
+
+<h2>Complete Workflow</h2>
+
+<ol>
+  <li><strong>Download the PDF</strong> from your bank's online banking portal. Most banks keep 12-24 months of PDF statements available.</li>
+  <li><strong>Convert to OFX</strong> using <a href="https://www.zerabooks.com/import/pdf-to-xero">Zera Books</a>. Upload the PDF and select OFX as output format.</li>
+  <li><strong>In Xero:</strong> Go to <strong>Accounting</strong> &gt; <strong>Bank Accounts</strong> &gt; click the account</li>
+  <li>Click <strong>Import a Statement</strong></li>
+  <li>Upload the OFX file — Xero reads it automatically, no column mapping needed</li>
+  <li>Review imported transactions in the <strong>Reconcile</strong> tab</li>
+</ol>
+
+<h2>Digital PDF vs Scanned Statement</h2>
+
+<table>
+  <thead><tr><th>Type</th><th>How to Tell</th><th>Conversion Method</th></tr></thead>
+  <tbody>
+    <tr><td>Digital PDF</td><td>Text highlights when you click and drag over it</td><td>Direct text extraction — fast, very accurate</td></tr>
+    <tr><td>Image/Scanned PDF</td><td>Text doesn't highlight — it's a photo embedded in PDF</td><td>OCR needed — Zera Books handles automatically</td></tr>
+    <tr><td>Password-Protected</td><td>Asks for password when opening</td><td>Enter password in Zera Books or unlock file first</td></tr>
+  </tbody>
+</table>
+
+<h2>Why OFX Over CSV for Xero</h2>
+
+<p>OFX files include a FITID field (Financial Institution Transaction ID) for each transaction. Xero uses this to prevent importing the same transaction twice if you upload overlapping date ranges. CSV imports don't have this protection — if you upload the same period twice, you'll get duplicates in the Reconcile tab.</p>
+
+<p>OFX also skips the column mapping step. There's no screen asking you which column is the date. Xero reads the structured format directly.</p>
+
+<h2>Multi-Account PDFs</h2>
+
+<p>If your client's PDF statement includes both a checking account and savings account (common with business banking PDFs), <a href="https://www.zerabooks.com/import/pdf-to-xero">Zera Books</a> detects both accounts and splits the output into separate files. Import each file into its corresponding Xero bank account separately.</p>
+
+<h2>Historical Statement Imports</h2>
+
+<p>If you're setting up Xero for a new client with years of statements to import, download PDFs year by year and batch them together. Zera Books processes up to 50+ statements in a single batch, outputting a separate OFX file per statement. Then import them into Xero in chronological order to keep the bank register clean.</p>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>Can Xero import PDF bank statements?</h3>
+  <p>No. Xero cannot extract transactions from PDFs. You must convert the PDF to OFX, CSV, QIF, or OFC format first, then upload via Accounting &gt; Bank Accounts &gt; Import a Statement.</p>
+
+  <h3>What is the best format to convert PDF to for Xero?</h3>
+  <p>OFX is the best format for Xero imports. It requires no column mapping, includes transaction IDs to prevent duplicates, and Xero reads the date range automatically. CSV works but requires manual column mapping.</p>
+
+  <h3>How do I import a scanned bank statement into Xero?</h3>
+  <p>Scanned statements need OCR before they can be converted. Upload the scanned PDF to Zera Books, which uses OCR to extract text and converts to OFX or CSV ready for Xero. Accuracy is 95%+ for clean scans.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>

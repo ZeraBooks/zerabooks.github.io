@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xero Bank Statement Import Guide | Zera Books Resources</title>
+  <meta name="description" content="How to import bank statements into Xero. Covers OFX, CSV, and direct bank feed setup. Includes required column format and common error fixes.">
+  <link rel="canonical" href="https://zerabooks.github.io/import/xero/">
+  <meta property="og:title" content="Xero Bank Statement Import Guide">
+  <meta property="og:description" content="How to import bank statements into Xero. Covers OFX, CSV, and direct bank feed setup. Includes required column format and common error fixes.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zerabooks.github.io/import/xero/">
+  <meta property="og:site_name" content="Zera Books Resources">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebPage", "name": "Xero Bank Statement Import Guide", "description": "How to import bank statements into Xero using OFX, CSV, or direct bank feeds.", "url": "https://zerabooks.github.io/import/xero/", "publisher": { "@type": "Organization", "name": "Zera Books", "url": "https://www.zerabooks.com" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "What format does Xero use to import bank statements?", "acceptedAnswer": { "@type": "Answer", "text": "Xero accepts OFX, QIF, CSV, and OFC files for manual bank imports. OFX is the most reliable. CSV imports require four specific columns: Date, Amount, Payee, Description." } },
+    { "@type": "Question", "name": "How do I import a PDF statement into Xero?", "acceptedAnswer": { "@type": "Answer", "text": "Xero does not read PDF files. Convert the PDF to OFX or CSV first using a converter like Zera Books, then upload via Accounting > Bank Accounts > Import a Statement." } },
+    { "@type": "Question", "name": "Why is Xero showing wrong dates after CSV import?", "acceptedAnswer": { "@type": "Answer", "text": "Xero reads the date format set in your organisation's settings. If your CSV uses DD/MM/YYYY but Xero is set to MM/DD/YYYY, dates for the first 12 days of each month will swap. Match the date format in the file to your Xero regional setting." } }
+  ] }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; color: #1a1a2e; line-height: 1.7; }
+    h1 { font-size: 1.8rem; color: #0A1628; margin-bottom: 1rem; border-bottom: 3px solid #00D4AA; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.3rem; color: #0A1628; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; color: #0A1628; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #00997a; text-decoration: none; border-bottom: 1px solid #00D4AA; }
+    a:hover { color: #00D4AA; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #0A1628; color: #fff; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fffe; }
+    .faq { background: #f8fffe; border: 1px solid #e0f0ec; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .faq h3 { margin-top: 0; }
+    .callout { background: #f0fdf9; border-left: 4px solid #00D4AA; padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+    footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    @media (max-width: 600px) { body { padding: 1rem; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<h1>Xero Bank Statement Import: Step-by-Step Guide</h1>
+
+<p>Xero accepts bank statement files in OFX, QIF, CSV, and OFC formats. The manual import option is useful when your bank doesn't have a direct Xero bank feed or when you need to import historical transactions not covered by the feed.</p>
+
+<div class="callout">
+  <strong>Recommended format:</strong> OFX gives you the cleanest import into Xero — no column mapping needed. If you have PDF statements, <a href="https://www.zerabooks.com/import/xero-bank-statement-import">Zera Books</a> converts them directly to OFX or Xero-formatted CSV in under 60 seconds.
+</div>
+
+<h2>Manual Import Steps</h2>
+
+<ol>
+  <li>In Xero, go to <strong>Accounting</strong> &gt; <strong>Bank Accounts</strong></li>
+  <li>Click the bank account you want to import into</li>
+  <li>Select <strong>Import a Statement</strong> (top right)</li>
+  <li>Upload your OFX, QIF, or CSV file</li>
+  <li>For CSV: map the columns (Date, Amount, Payee, Description, Reference)</li>
+  <li>Review imported transactions in the <strong>Reconcile</strong> tab</li>
+</ol>
+
+<h2>CSV Column Requirements</h2>
+
+<p>Xero's CSV import is flexible but you must tell it which column is which during upload. The minimum required columns are:</p>
+
+<table>
+  <thead><tr><th>Column</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Date</td><td>Must match your Xero date format setting</td></tr>
+    <tr><td>Amount</td><td>Negative for money out, positive for money in. Or use separate Spent/Received columns.</td></tr>
+    <tr><td>Payee</td><td>Optional but improves auto-matching</td></tr>
+    <tr><td>Description</td><td>Maps to transaction narration in Xero</td></tr>
+    <tr><td>Reference</td><td>Optional — useful for cheque numbers or invoice refs</td></tr>
+  </tbody>
+</table>
+
+<h2>OFX Import</h2>
+
+<p>OFX files require no column mapping in Xero. The file contains structured transaction data including FITID (unique transaction ID), which Xero uses to prevent duplicates. If you import the same date range twice, Xero will skip transactions it has already seen.</p>
+
+<h2>Duplicate Handling</h2>
+
+<p>Xero uses the transaction date, amount, and description to flag potential duplicates. If your bank feed overlaps with a manual import, you will see duplicates flagged in the Reconcile tab. Delete the duplicate before coding the transaction.</p>
+
+<h2>Common Issues</h2>
+
+<ul>
+  <li><strong>File size limit:</strong> Xero caps manual imports at 5 MB. For larger files, split by month.</li>
+  <li><strong>Password-protected PDFs:</strong> Must be unlocked before conversion. Zera Books handles password-protected files directly.</li>
+  <li><strong>Multi-currency accounts:</strong> The currency in your import file must match the account's currency in Xero.</li>
+</ul>
+
+<div class="callout">
+  <a href="https://www.zerabooks.com/import/xero-bank-statement-import">Zera Books</a> has a direct Xero API integration — converted transactions can be pushed straight to your Xero reconciliation queue without manual file uploads. Supports batch processing of 50+ statements.
+</div>
+
+<div class="faq">
+  <h3>Frequently Asked Questions</h3>
+
+  <h3>What format does Xero use to import bank statements?</h3>
+  <p>Xero accepts OFX, QIF, CSV, and OFC files for manual bank imports. OFX is the most reliable. CSV imports require four specific columns: Date, Amount, Payee, Description.</p>
+
+  <h3>How do I import a PDF statement into Xero?</h3>
+  <p>Xero does not read PDF files. Convert the PDF to OFX or CSV first using a converter like Zera Books, then upload via Accounting &gt; Bank Accounts &gt; Import a Statement.</p>
+
+  <h3>Why is Xero showing wrong dates after CSV import?</h3>
+  <p>Xero reads the date format set in your organisation's settings. If your CSV uses DD/MM/YYYY but Xero is set to MM/DD/YYYY, dates for the first 12 days of each month will swap. Match the date format in the file to your Xero regional setting.</p>
+</div>
+
+<footer><p>Published by <a href="https://www.zerabooks.com">Zera Books</a> · AI-powered bookkeeping automation for accounting professionals.</p></footer>
+</body>
+</html>
