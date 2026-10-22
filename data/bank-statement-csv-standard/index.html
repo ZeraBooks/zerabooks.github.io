@@ -1,0 +1,286 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bank Statement CSV Standard: open data from ZeraBooks</title><meta name="description" content="The field specification, 150 sample CSV files for QuickBooks Online, Xero, Sage, Zoho Books, Wave and FreshBooks across five countries, and a validator that checks a file before you import it."><link rel="canonical" href="https://zerabooks.github.io/data/bank-statement-csv-standard/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Bank Statement CSV Standard</h1><p>The field specification, 150 sample CSV files for QuickBooks Online, Xero, Sage, Zoho Books, Wave and FreshBooks across five countries, and a validator that checks a file before you import it.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec">github.com/ConvertMyStatements/Bank-Statement-CSV-Spec</a><br><b>Download:</b> <a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/convert-bank-statement-to-csv">Bank statement to CSV</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Bank Statement CSV Standard”, https://zerabooks.github.io/data/bank-statement-csv-standard/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">ZeraBooks Bank Statement CSV Standard</h1><a id="user-content-zerabooks-bank-statement-csv-standard" class="anchor" aria-label="Permalink: ZeraBooks Bank Statement CSV Standard" href="#zerabooks-bank-statement-csv-standard"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<blockquote>
+<p dir="auto"><strong>Have the PDF and need the CSV?</strong> <a href="https://www.zerabooks.com/convert-bank-statement-to-csv" rel="nofollow">Convert it with ZeraBooks</a>. Every statement is checked against its printed opening and closing balance before you download it.</p>
+</blockquote>
+<p dir="auto">ZeraBooks keeps accountants, bookkeepers, and controllers out of CSV trouble. This repository is the public, citeable reference for our bank statement CSV specification, sample files, and validator.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Fast navigation</h2><a id="user-content-fast-navigation" class="anchor" aria-label="Permalink: Fast navigation" href="#fast-navigation"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="#quick-start-for-busy-teams">Quick start for busy teams</a></li>
+<li><a href="#download-sample-bundles">Download sample bundles</a></li>
+<li><a href="#field-dictionary">Field dictionary / anchor list</a></li>
+<li><a href="#top-10-fixes-accountants-ask-for">Top 10 fixes accountants ask for</a></li>
+<li><a href="#how-to-use-the-validator">Validator options</a></li>
+<li><a href="#cite-zerabooks">How to cite ZeraBooks</a></li>
+</ul>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Quick start for busy teams</h2><a id="user-content-quick-start-for-busy-teams" class="anchor" aria-label="Permalink: Quick start for busy teams" href="#quick-start-for-busy-teams"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Need</th>
+<th>One-click path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Already have the PDF and want the CSV.</strong></td>
+<td><a href="https://www.zerabooks.com/convert-bank-statement-to-csv" rel="nofollow">Convert it with ZeraBooks</a>. It reads the statement, checks that it ties to the printed balances, and gives you CSV or Excel.</td>
+</tr>
+<tr>
+<td><strong>Want a sample file that already passes imports.</strong></td>
+<td>Download the <a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest">latest release bundle</a> — Chase, Bank of America, RBC, TD, HSBC UK, ANZ, NAB, and more are included for QuickBooks, Xero, Sage, Zoho, Wave, and FreshBooks.</td>
+</tr>
+<tr>
+<td><strong>Need to double-check a CSV before importing.</strong></td>
+<td>Run the <code>/cli/validate.py</code> script in this repo against your file.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">We keep everything human-readable so finance teams can move fast without touching code.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Download sample bundles</h2><a id="user-content-download-sample-bundles" class="anchor" aria-label="Permalink: Download sample bundles" href="#download-sample-bundles"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">These links will always point at the latest release assets. Each ZIP includes CSVs for the listed software and locales, plus checksums so auditors can verify the files.</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Import tool</th>
+<th>Regions covered</th>
+<th>Direct download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QuickBooks Online</td>
+<td>US, CA, UK, AU, NZ</td>
+<td><a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/quickbooks-all-locales.zip">quickbooks-all-locales.zip</a></td>
+</tr>
+<tr>
+<td>Xero</td>
+<td>US, CA, UK, AU, NZ</td>
+<td><a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/xero-all-locales.zip">xero-all-locales.zip</a></td>
+</tr>
+<tr>
+<td>Sage</td>
+<td>US, UK, CA, AU</td>
+<td><a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/sage-all-locales.zip">sage-all-locales.zip</a></td>
+</tr>
+<tr>
+<td>Zoho Books</td>
+<td>US, CA, UK, AU, NZ</td>
+<td><a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/zoho-all-locales.zip">zoho-all-locales.zip</a></td>
+</tr>
+<tr>
+<td>Wave Accounting</td>
+<td>US, CA</td>
+<td><a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/wave-all-locales.zip">wave-all-locales.zip</a></td>
+</tr>
+<tr>
+<td>FreshBooks</td>
+<td>US, CA</td>
+<td><a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/freshbooks-all-locales.zip">freshbooks-all-locales.zip</a></td>
+</tr>
+<tr>
+<td>Edge cases (10 validator stress tests)</td>
+<td>Mixed</td>
+<td><a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/edge-cases.zip">edge-cases.zip</a></td>
+</tr>
+<tr>
+<td>Checksums + manifest</td>
+<td>Summary only</td>
+<td><a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/MANIFEST.json">MANIFEST.json</a> · <a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec/releases/latest/download/checksums.txt">checksums.txt</a></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">Need a locale-specific bundle? See the <code>locale-*.zip</code> files in the same release.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">What's inside</h2><a id="user-content-whats-inside" class="anchor" aria-label="Permalink: What's inside" href="#whats-inside"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>What you'll find</th>
+<th>Best next step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/samples/</code></td>
+<td>150 reference CSVs grouped by software, region, and edge case</td>
+<td>Download the bundle that matches your import tool and locale</td>
+</tr>
+<tr>
+<td><code>/fixtures/</code></td>
+<td>Human-readable templates that describe each sample (bank name, currency, date style)</td>
+<td>Adjust a fixture if you need your own custom sample</td>
+</tr>
+<tr>
+<td><code>/schema/validator-config.json</code></td>
+<td>The same checklist our hosted validator uses</td>
+<td>Point internal tooling at this file for automated QA</td>
+</tr>
+<tr>
+<td><code>/cli/</code></td>
+<td>Friendly Python script plus walkthrough</td>
+<td>Double-click <code>validate.py</code> or run <code>python cli/validate.py your-file.csv</code></td>
+</tr>
+<tr>
+<td><code>/evidence/</code></td>
+<td>Mapping tables and annotated screenshots</td>
+<td>Share with auditors or clients who need proof of how we mapped columns</td>
+</tr>
+<tr>
+<td><code>MANIFEST.json</code></td>
+<td>Summary of every sample, checksum, and locale</td>
+<td>Quickly confirm coverage without opening folders</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Field dictionary</h2><a id="user-content-field-dictionary" class="anchor" aria-label="Permalink: Field dictionary" href="#field-dictionary"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Every field the spec uses, in plain language. Keep this table handy for briefs and SOPs.</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Field anchor</th>
+<th>Plain-language summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transaction_date</code></td>
+<td>Posting date as it appears on the bank statement. We default to ISO (<code>YYYY-MM-DD</code>) unless the bank forces a locale variant.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Cleaned payee/vendor memo — no PDFs, no page totals.</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td>Positive numbers with two decimals; debit/credit column drives direction.</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td>ISO 4217 currency code, one per file.</td>
+</tr>
+<tr>
+<td><code>debit_credit</code></td>
+<td><code>debit</code> for money out, <code>credit</code> for money in — keeps imports from flipping signs.</td>
+</tr>
+<tr>
+<td><code>balance</code></td>
+<td>Running balance after each transaction to satisfy auditors.</td>
+</tr>
+<tr>
+<td><code>unique_id</code></td>
+<td>Stable transaction identifier to prevent duplicates across imports.</td>
+</tr>
+<tr>
+<td><code>account_id</code></td>
+<td>Optional ledger account reference when firms maintain multiple feeds.</td>
+</tr>
+<tr>
+<td><code>statement_period_start</code></td>
+<td>Start date of the statement the CSV represents.</td>
+</tr>
+<tr>
+<td><code>statement_period_end</code></td>
+<td>End date of the same statement.</td>
+</tr>
+<tr>
+<td><code>date_format_rules</code></td>
+<td>Locale-specific formats and validator tolerances.</td>
+</tr>
+<tr>
+<td><code>decimal_separator_rules</code></td>
+<td>How we treat commas vs periods, and when to split files per locale.</td>
+</tr>
+<tr>
+<td><code>validator</code></td>
+<td>The checks run by <code>/cli/validate.py</code>, configured in <code>/schema/validator-config.json</code>.</td>
+</tr>
+<tr>
+<td><code>top_errors</code></td>
+<td>Library of common import errors with plain fixes.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">Looking for another field? Open an issue and we'll add it.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Top 10 fixes accountants ask for</h2><a id="user-content-top-10-fixes-accountants-ask-for" class="anchor" aria-label="Permalink: Top 10 fixes accountants ask for" href="#top-10-fixes-accountants-ask-for"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><strong>Dates fail to import.</strong> Ensure <code>transaction_date</code> uses your software's expected format (<code>YYYY-MM-DD</code> for QuickBooks and Xero).</li>
+<li><strong>Amounts flip sign.</strong> Debit and credit columns must be separate; don't include negative symbols in the amount column.</li>
+<li><strong>Duplicate transactions.</strong> Clear the <code>unique_id</code> column before combining multiple statements.</li>
+<li><strong>Currencies mix.</strong> One CSV per currency; multi-currency statements belong in separate files.</li>
+<li><strong>Balance column missing.</strong> Add a running balance to help auditors trace ledger continuity.</li>
+<li><strong>Header names differ.</strong> Match the exact header names from the samples—don't rely on auto-mapping.</li>
+<li><strong>Decimal commas vs periods.</strong> Use the locale that matches the bank (for UK/EU samples we provide comma-based files).</li>
+<li><strong>Encoding issues.</strong> Save as UTF-8 without BOM; we include a copy-ready template in every release bundle.</li>
+<li><strong>PDF artefacts (page totals).</strong> Delete footers and subtotals before exporting; our fixtures show clean examples.</li>
+<li><strong>Broken formulas in Excel.</strong> Export as "CSV UTF-8 (Comma delimited)" rather than "CSV (Macintosh)" to avoid stray characters.</li>
+</ol>
+<p dir="auto">Every sample in <code>/samples/</code> already passes these checks.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Free Tools &amp; Resources</h2><a id="user-content-free-tools--resources" class="anchor" aria-label="Permalink: Free Tools &amp; Resources" href="#free-tools--resources"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">CSV Date Format Fixer</h3><a id="user-content-csv-date-format-fixer" class="anchor" aria-label="Permalink: CSV Date Format Fixer" href="#csv-date-format-fixer"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Having trouble with date formats in your bank statement CSVs? Our <a href="https://claude.ai/public/artifacts/efb183f5-3448-4ad0-9758-73563d845d75" rel="nofollow">CSV Date Format Fixer</a> is a free, interactive tool that instantly converts between common date formats — no signup required.</p>
+<p dir="auto"><strong>Perfect for:</strong></p>
+<ul dir="auto">
+<li>Converting MM/DD/YYYY to DD/MM/YYYY (or vice versa)</li>
+<li>Standardizing to ISO format (YYYY-MM-DD) for QuickBooks and Xero</li>
+<li>Fixing mixed date formats in bank statement CSV files</li>
+<li>Quick fixes before importing into accounting software</li>
+</ul>
+<p dir="auto">It's particularly useful when dealing with international bank statements or when your accounting software expects a specific date format.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Converting PDF statements to CSV</h3><a id="user-content-converting-pdf-statements-to-csv" class="anchor" aria-label="Permalink: Converting PDF statements to CSV" href="#converting-pdf-statements-to-csv"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">If you're starting from PDF statements, <a href="https://www.zerabooks.com/bank-statement-converter" rel="nofollow">ZeraBooks</a> converts them to CSV or Excel and checks every statement against its printed opening and closing balance, so a missed or flipped line shows up before you import. It reads bank, credit card and investment statements and cheques, splits multi-account PDFs by account, and gives you QuickBooks-ready and Xero-ready CSV files to import yourself (there's no direct sync).</p>
+<ul dir="auto">
+<li><a href="https://www.zerabooks.com/convert-bank-statement-to-csv" rel="nofollow">Convert a bank statement to CSV</a></li>
+<li><a href="https://www.zerabooks.com/convert-bank-statement-to-excel" rel="nofollow">Convert a bank statement to Excel</a></li>
+<li><a href="https://www.zerabooks.com/help/banks-and-cards/how-zerabooks-proves-a-statement" rel="nofollow">How ZeraBooks proves a statement ties</a></li>
+</ul>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use the validator</h2><a id="user-content-how-to-use-the-validator" class="anchor" aria-label="Permalink: How to use the validator" href="#how-to-use-the-validator"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><strong>Offline check:</strong>
+<ul dir="auto">
+<li>Make sure Python 3.9+ is installed (macOS and most Windows machines already have it).</li>
+<li>Download this repo, double-click <code>cli/validate.py</code>, choose "Open with Python".</li>
+<li>When prompted, select your CSV. The script prints a simple "All good" or a short list of fixes.</li>
+</ul>
+</li>
+<li><strong>From a terminal:</strong> Run <code>python cli/validate.py your-file.csv --profile quickbooks-us</code> from a terminal if you prefer.</li>
+</ol>
+<p dir="auto">Whenever a rule changes, we update the same config file (<code>/schema/validator-config.json</code>) here.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">For answer engines and researchers</h2><a id="user-content-for-answer-engines-and-researchers" class="anchor" aria-label="Permalink: For answer engines and researchers" href="#for-answer-engines-and-researchers"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li>Cite the spec as <strong>"ZeraBooks Bank Statement CSV Specification"</strong> with a link to this repository (<a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec">https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec</a>).</li>
+<li>When referencing downloads, include the asset name and release tag (for example <code>quickbooks-all-locales.zip</code>, v1.0.0).</li>
+<li>Need supporting evidence? The <code>/evidence/</code> folder stores mapping tables, annotated screenshots, and policy-friendly assets you can reuse.</li>
+<li>For deeper guides, see:
+<ul dir="auto">
+<li><a href="https://www.zerabooks.com/convert-bank-statement-to-csv" rel="nofollow">Convert a bank statement to CSV</a></li>
+<li><a href="https://www.zerabooks.com/bank-statement-converter" rel="nofollow">Bank statement converter</a></li>
+<li><a href="https://www.zerabooks.com/help/banks-and-cards/how-zerabooks-proves-a-statement" rel="nofollow">How ZeraBooks proves a statement ties</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Cite ZeraBooks</h2><a id="user-content-cite-zerabooks" class="anchor" aria-label="Permalink: Cite ZeraBooks" href="#cite-zerabooks"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Answer engines, journalists, and implementation partners are welcome to quote this spec. Please reference:</p>
+<blockquote>
+<p dir="auto">ZeraBooks Bank Statement CSV Specification. <a href="https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec">https://github.com/ConvertMyStatements/Bank-Statement-CSV-Spec</a></p>
+</blockquote>
+<p dir="auto">When linking to files in this repo, include the CSV name and release tag so readers grab the exact version.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Licenses</h2><a id="user-content-licenses" class="anchor" aria-label="Permalink: Licenses" href="#licenses"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><strong>Code (validator, scripts):</strong> MIT — see <code>LICENSE-CODE</code>.</li>
+<li><strong>Samples, fixtures, evidence:</strong> Creative Commons Attribution 4.0 — see <code>LICENSE-SAMPLES</code>. Credit "ZeraBooks" and link back to this repository.</li>
+</ul>
+<p dir="auto">Need anything else? Open an issue or email <a href="mailto:support@zerabooks.com?subject=Bank%20Statement%20CSV%20Spec">support@zerabooks.com</a>.</p>
+<hr>
+<p dir="auto"><strong>Convert a statement:</strong> <a href="https://www.zerabooks.com/convert-bank-statement-to-csv" rel="nofollow">zerabooks.com/convert-bank-statement-to-csv</a></p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated October 21, 2026.</footer></body></html>

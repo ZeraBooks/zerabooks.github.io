@@ -1,3 +1,3 @@
-# ZeraBooks
+# ZeraBooks open data
 
-This site has moved to https://www.zerabooks.com/. Every page here redirects there.
+The source for https://zerabooks.github.io/: an index of ZeraBooks' open reference data, one page per dataset under /data/. Older paths redirect to the matching page on https://www.zerabooks.com/.
