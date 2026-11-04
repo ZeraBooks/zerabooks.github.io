@@ -1,0 +1,155 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bank statement Excel template: open data from ZeraBooks</title><meta name="description" content="An Excel workbook for one bank statement: type the printed opening and closing balances, paste the transactions, and a check cell shows whether the month ties to the cent. A difference column marks the first row where your running balance and the bank&#x27;s stop agreeing."><link rel="canonical" href="https://zerabooks.github.io/data/bank-statement-excel-template/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Bank statement Excel template</h1><p>An Excel workbook for one bank statement: type the printed opening and closing balances, paste the transactions, and a check cell shows whether the month ties to the cent. A difference column marks the first row where your running balance and the bank&#x27;s stop agreeing.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/bank-statement-excel-template">github.com/ZeraBooks/bank-statement-excel-template</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/bank-statement-excel-template/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/convert-bank-statement-to-excel">Bank statement to Excel</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Bank statement Excel template”, https://zerabooks.github.io/data/bank-statement-excel-template/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Bank statement Excel template</h1><a id="user-content-bank-statement-excel-template" class="anchor" aria-label="Permalink: Bank statement Excel template" href="#bank-statement-excel-template"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">To turn a PDF bank statement into an Excel sheet you can trust, put one row
+per transaction under Date, Description, Money In and Money Out, then check
+that the printed opening balance plus money in minus money out equals the
+printed closing balance. This workbook does that check and shows the first
+row where the running balance stops matching.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bank-statement-template.xlsx</code></td>
+<td>The empty workbook. A Statement sheet with 500 formula rows, a check cell that turns green when the month ties, and a How to use sheet.</td>
+</tr>
+<tr>
+<td><code>bank-statement-sample.xlsx</code></td>
+<td>The same workbook filled with a fictional September 2026 business checking month: opening 4,210.55, five transactions, closing 5,622.13. It ties.</td>
+</tr>
+<tr>
+<td><code>bank-statement-template.csv</code></td>
+<td>The same columns as a header row, for tools that want CSV.</td>
+</tr>
+<tr>
+<td><code>bank-statement-sample.csv</code></td>
+<td>The sample month as plain values, with the worked-out columns filled in.</td>
+</tr>
+<tr>
+<td><code>build_template.py</code></td>
+<td>Rebuilds both workbooks with openpyxl, if you want to change the layout or the row count.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">All figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How the Statement sheet works</h2><a id="user-content-how-the-statement-sheet-works" class="anchor" aria-label="Permalink: How the Statement sheet works" href="#how-the-statement-sheet-works"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Cell or column</th>
+<th>You type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1, B2</td>
+<td>Account name and statement period</td>
+<td>Labels only</td>
+</tr>
+<tr>
+<td>B3, B4</td>
+<td>Opening and closing balance printed on the statement</td>
+<td>Inputs for the check</td>
+</tr>
+<tr>
+<td>B5, C5</td>
+<td>Nothing</td>
+<td><code>=ROUND(B3+SUM(E9:E508)-B4,2)</code>. 0.00 and "Ties to the cent" in green means every row is in. Anything else turns red and shows the gap.</td>
+</tr>
+<tr>
+<td>B6, C6</td>
+<td>Nothing</td>
+<td>Total money in and total money out, to compare with the statement's summary box</td>
+</tr>
+<tr>
+<td>A to D, from row 9</td>
+<td>Date, Description, Money In, Money Out</td>
+<td>Both amounts positive, as the bank prints them</td>
+</tr>
+<tr>
+<td>E Amount</td>
+<td>Nothing</td>
+<td>Money In minus Money Out, so money out is negative</td>
+</tr>
+<tr>
+<td>F Running balance</td>
+<td>Nothing</td>
+<td>Opening balance plus every Amount so far</td>
+</tr>
+<tr>
+<td>G Printed balance</td>
+<td>The bank's running balance, where it prints one</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>H Difference</td>
+<td>Nothing</td>
+<td>F minus G. The first row that turns red is where the error is.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>Download <code>bank-statement-template.xlsx</code> and save a copy per statement, for
+example <code>checking-2026-09.xlsx</code>.</li>
+<li>Type the printed opening and closing balances in B3 and B4.</li>
+<li>Paste the transactions from row 9. If they came from a converter or a bank
+export with one signed amount column, put positives in Money In and
+negatives, without the minus, in Money Out.</li>
+<li>Add the bank's running balance in column G if the statement prints one.</li>
+<li>Read C5. If it says Ties to the cent, the sheet is ready to reconcile from
+or to import.</li>
+</ol>
+<p dir="auto">Opens in Excel, Google Sheets, Numbers and LibreOffice. Dates are formatted
+MM/DD/YYYY.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Reading a gap</h2><a id="user-content-reading-a-gap" class="anchor" aria-label="Permalink: Reading a gap" href="#reading-a-gap"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Gap in B5</th>
+<th>Usual cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exactly twice one amount</td>
+<td>That amount is in the wrong column, money in typed as money out</td>
+</tr>
+<tr>
+<td>The amount of a real transaction</td>
+<td>That line is missing, often the first or last line on a page</td>
+</tr>
+<tr>
+<td>A small amount that divides by 9</td>
+<td>Two digits swapped on one row, such as 1,650.00 typed as 1,560.00</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Can Excel open a PDF bank statement directly?</h3><a id="user-content-can-excel-open-a-pdf-bank-statement-directly" class="anchor" aria-label="Permalink: Can Excel open a PDF bank statement directly?" href="#can-excel-open-a-pdf-bank-statement-directly"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Excel can pull some tables out of a PDF, but it doesn't split accounts, it
+struggles with descriptions that wrap onto a second line, and it never checks
+the totals. Whatever you use to get the rows out, this sheet is the check.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Why Money In and Money Out instead of one Amount column?</h3><a id="user-content-why-money-in-and-money-out-instead-of-one-amount-column" class="anchor" aria-label="Permalink: Why Money In and Money Out instead of one Amount column?" href="#why-money-in-and-money-out-instead-of-one-amount-column"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">It is the layout most bookkeepers reconcile from, because it matches how the
+statement prints the figures. Column E gives you the single signed amount
+that accounting software imports want.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Why are some cells blank in my converted file?</h3><a id="user-content-why-are-some-cells-blank-in-my-converted-file" class="anchor" aria-label="Permalink: Why are some cells blank in my converted file?" href="#why-are-some-cells-blank-in-my-converted-file"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">When the statement doesn't print a value, such as the running balance on some
+lines, the cell should stay blank rather than be guessed. Column H skips rows
+with no printed balance.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Step by step, from the PDF to a checked workbook:
+<a href="https://www.zerabooks.com/convert-bank-statement-to-excel">Convert a bank statement to Excel</a>.
+Hub: <a href="https://www.zerabooks.com/bank-statement-converter">Bank statement converter</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository, including the workbooks, are
+licensed under <a href="LICENSE">CC BY 4.0</a>. The code (<code>build_template.py</code>) is
+licensed under <a href="LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

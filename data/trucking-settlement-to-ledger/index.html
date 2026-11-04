@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trucking settlement to ledger: open data from ZeraBooks</title><meta name="description" content="A mapping table from weekly trucking settlement lines to accounts, two fictional settlements and a Python script that checks each settlement against its printed total and bank deposit before printing a balanced journal entry. A week that doesn&#x27;t tie, or has a line nobody has mapped, waits instead of"><link rel="canonical" href="https://zerabooks.github.io/data/trucking-settlement-to-ledger/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Trucking settlement to ledger</h1><p>A mapping table from weekly trucking settlement lines to accounts, two fictional settlements and a Python script that checks each settlement against its printed total and bank deposit before printing a balanced journal entry. A week that doesn&#x27;t tie, or has a line nobody has mapped, waits instead of posting.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/trucking-settlement-to-ledger">github.com/ZeraBooks/trucking-settlement-to-ledger</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/trucking-settlement-to-ledger/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/trucking-bookkeeping-automation">Trucking bookkeeping automation</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Trucking settlement to ledger”, https://zerabooks.github.io/data/trucking-settlement-to-ledger/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Trucking settlement to ledger</h1><a id="user-content-trucking-settlement-to-ledger" class="anchor" aria-label="Permalink: Trucking settlement to ledger" href="#trucking-settlement-to-ledger"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">To automate a trucking client's books, read each driver's weekly settlement,
+add the loads, subtract the deductions and check the result against the total
+payment printed on the settlement before anything posts. Then map every line
+to the driver's accounts, match the net to the bank deposit and post one
+balanced entry on the pay date.</p>
+<p dir="auto">This repository is that routine as files: a mapping table from settlement
+lines to accounts, two fictional weekly settlements and a script that turns
+them into journal entries and refuses to post a week that doesn't tie.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>settlement-mapping.csv</code></td>
+<td>15 common settlement line types (linehaul, fuel surcharge, fuel advances, insurance, escrow, 2290 savings, tolls, truck payments and more) with the account, debit or credit side, and a note on how to book each one. <code>decide_once</code> marks lines a person should look at before they post.</td>
+</tr>
+<tr>
+<td><code>sample-settlements.csv</code></td>
+<td>Two fictional weeks for one owner-operator, Northline Hauling: a normal week that nets 5,775.00 and a short week that nets minus 475.00. One row per settlement line plus the printed total.</td>
+</tr>
+<tr>
+<td><code>sample-bank-deposits.csv</code></td>
+<td>The fictional bank deposit the first settlement should match.</td>
+</tr>
+<tr>
+<td><code>settlement_to_ledger.py</code></td>
+<td>Checks each settlement and prints the journal entry. Python 3, standard library only.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto">Run the sample:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 settlement_to_ledger.py settlement-mapping.csv sample-settlements.csv sample-bank-deposits.csv"><pre class="notranslate"><code>python3 settlement_to_ledger.py settlement-mapping.csv sample-settlements.csv sample-bank-deposits.csv
+</code></pre></div>
+<p dir="auto">Add <code>--out journal.csv</code> to save the journal lines for import into your
+general ledger.</p>
+</li>
+<li>
+<p dir="auto">Edit <code>settlement-mapping.csv</code> so the account names match your client's
+chart. Add a row for every deduction type your carriers use.</p>
+</li>
+<li>
+<p dir="auto">Type or export each week's settlement in the same layout as
+<code>sample-settlements.csv</code>: earnings as positive amounts, deductions as
+negative amounts, and one <code>printed_total</code> row copied from the settlement.</p>
+</li>
+<li>
+<p dir="auto">Export the bank deposits for the same weeks and run the script again.</p>
+</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">What makes a settlement wait</h2><a id="user-content-what-makes-a-settlement-wait" class="anchor" aria-label="Permalink: What makes a settlement wait" href="#what-makes-a-settlement-wait"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The script posts nothing for a settlement when:</p>
+<ul dir="auto">
+<li>the printed total does not equal earnings minus deductions (it shows the
+difference);</li>
+<li>a line type has no account in the mapping file;</li>
+<li>a line is marked <code>decide_once</code>, such as a truck payment that still needs
+splitting into interest and principal;</li>
+<li>the net is positive and no bank deposit of that amount is within 3 days of
+the pay date.</li>
+</ul>
+<p dir="auto">A deposit left over with no settlement is listed at the end. It usually
+means a settlement is missing from the folder.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Worked example</h2><a id="user-content-worked-example" class="anchor" aria-label="Permalink: Worked example" href="#worked-example"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Northline Hauling's settlement for the week ending October 9, 2026:</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Settlement line</th>
+<th>Amount</th>
+<th>Account</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linehaul, 4 loads</td>
+<td>8,400.00</td>
+<td>Freight revenue</td>
+</tr>
+<tr>
+<td>Fuel surcharge</td>
+<td>1,260.00</td>
+<td>Freight revenue</td>
+</tr>
+<tr>
+<td>Fuel card advances</td>
+<td>(3,180.00)</td>
+<td>Fuel expense</td>
+</tr>
+<tr>
+<td>Cargo and liability insurance</td>
+<td>(420.00)</td>
+<td>Insurance expense</td>
+</tr>
+<tr>
+<td>Escrow held by the carrier</td>
+<td>(250.00)</td>
+<td>Escrow receivable</td>
+</tr>
+<tr>
+<td>ELD fee</td>
+<td>(35.00)</td>
+<td>Software and subscriptions</td>
+</tr>
+<tr>
+<td>Net deposit to checking</td>
+<td>5,775.00</td>
+<td>Operating checking</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">9,660.00 earned less 3,885.00 deducted is 5,775.00, the amount on the bank
+statement. The next week earns 1,210.00 against 1,685.00 of deductions, so
+nothing reaches the bank and 475.00 goes to a settlement payable until the
+carrier collects it.</p>
+<p dir="auto">All figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Why book the settlement gross instead of just the deposit?</h3><a id="user-content-why-book-the-settlement-gross-instead-of-just-the-deposit" class="anchor" aria-label="Permalink: Why book the settlement gross instead of just the deposit?" href="#why-book-the-settlement-gross-instead-of-just-the-deposit"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Booking only the deposit hides most of the revenue and every cost the carrier
+took out: fuel, insurance and escrow never reach the books, and the fuel
+figures for IFTA are missing.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Is escrow an expense?</h3><a id="user-content-is-escrow-an-expense" class="anchor" aria-label="Permalink: Is escrow an expense?" href="#is-escrow-an-expense"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">No. The carrier is holding the driver's money. It builds up as a receivable
+and comes back when the lease ends, less any charges. The same goes for Form
+2290 savings and maintenance reserves.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">How should a negative settlement be booked?</h3><a id="user-content-how-should-a-negative-settlement-be-booked" class="anchor" aria-label="Permalink: How should a negative settlement be booked?" href="#how-should-a-negative-settlement-be-booked"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">When deductions are bigger than the loads, book every line as usual and put
+the shortfall on a payable to the carrier. It clears when the carrier
+collects it from a later week.</p>
+<p dir="auto">For a full trucking chart of accounts, see
+<a href="https://github.com/ZeraBooks/chart-of-accounts-templates/tree/main/trucking">chart-of-accounts-templates/trucking</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://www.zerabooks.com/trucking-bookkeeping-automation">Trucking bookkeeping automation</a>
+on zerabooks.com, and the guide to
+<a href="https://www.zerabooks.com/bookkeeping-for-trucking">bookkeeping for trucking</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="LICENSE">CC BY 4.0</a>. The code (<code>*.py</code>) is licensed under <a href="LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

@@ -1,0 +1,128 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Month-end adjusting entries: open data from ZeraBooks</title><meta name="description" content="A CSV schedule and a script that drafts each month&#x27;s depreciation, prepaid spreads and loan interest with the calculation in the memo, so a reviewer can check every entry. Includes a log for the questions only the client can answer."><link rel="canonical" href="https://zerabooks.github.io/data/month-end-adjusting-entries/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Month-end adjusting entries</h1><p>A CSV schedule and a script that drafts each month&#x27;s depreciation, prepaid spreads and loan interest with the calculation in the memo, so a reviewer can check every entry. Includes a log for the questions only the client can answer.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/month-end-adjusting-entries">github.com/ZeraBooks/month-end-adjusting-entries</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/month-end-adjusting-entries/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/for-accountants">Accounting software for accountants</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Month-end adjusting entries”, https://zerabooks.github.io/data/month-end-adjusting-entries/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Month-end adjusting entries</h1><a id="user-content-month-end-adjusting-entries" class="anchor" aria-label="Permalink: Month-end adjusting entries" href="#month-end-adjusting-entries"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The month-end entries an accountant drafts for every client are the ones a
+bank statement can't show: depreciation, prepaid costs spread over the months
+they cover, and the interest part of a loan payment. Drafted from a schedule
+with the calculation in the memo, each one can be reviewed without opening a
+separate workpaper.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schedule.csv</code></td>
+<td>One row per recurring entry: fixed assets to depreciate, prepaid costs to spread and loans to split. Fictional sample rows.</td>
+</tr>
+<tr>
+<td><code>draft_entries.py</code></td>
+<td>Reads the schedule and drafts the entries for one month, with the math in each memo. Checks that debits equal credits. Python 3, standard library only.</td>
+</tr>
+<tr>
+<td><code>sample-output-2026-10.csv</code></td>
+<td>What the script drafts for October 2026 from the sample schedule: five entries, 1,395.00 each side.</td>
+</tr>
+<tr>
+<td><code>client-questions-log.csv</code></td>
+<td>A log for the questions only the client can answer (personal or business, what a transfer was for), with the answer and where it was booked.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto">Replace the sample rows in <code>schedule.csv</code> with the client's own:</p>
+<ul dir="auto">
+<li><code>depreciation</code>: cost in Amount, salvage value, useful life in Months and
+the first month in Start (YYYY-MM).</li>
+<li><code>prepaid</code>: the amount paid, the months it covers and the first month.</li>
+<li><code>loan_interest</code>: the balance at the start of the month from the loan
+statement and the annual rate. Update the balance each month.</li>
+</ul>
+</li>
+<li>
+<p dir="auto">Draft the month:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 draft_entries.py schedule.csv 2026-10 entries-2026-10.csv"><pre class="notranslate"><code>python3 draft_entries.py schedule.csv 2026-10 entries-2026-10.csv
+</code></pre></div>
+</li>
+<li>
+<p dir="auto">Review each entry against its memo, then post it in your ledger.</p>
+</li>
+</ol>
+<p dir="auto">Each month is rounded to the cent and the last month takes the remainder, so a
+36,000.00 van depreciated over 60 months adds up to exactly 36,000.00.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">The October 2026 sample</h2><a id="user-content-the-october-2026-sample" class="anchor" aria-label="Permalink: The October 2026 sample" href="#the-october-2026-sample"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Entry</th>
+<th>Calculation</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delivery van</td>
+<td>(36,000.00 - 0.00) / 60</td>
+<td>600.00</td>
+</tr>
+<tr>
+<td>Espresso machine</td>
+<td>(9,000.00 - 1,800.00) / 48</td>
+<td>150.00</td>
+</tr>
+<tr>
+<td>Insurance policy</td>
+<td>4,800.00 / 12</td>
+<td>400.00</td>
+</tr>
+<tr>
+<td>Software subscription</td>
+<td>1,140.00 / 12</td>
+<td>95.00</td>
+</tr>
+<tr>
+<td>Equipment loan interest</td>
+<td>25,000.00 x 7.2% / 12</td>
+<td>150.00</td>
+</tr>
+<tr>
+<td>Total</td>
+<td></td>
+<td>1,395.00</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">All figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">About the loan entry</h2><a id="user-content-about-the-loan-entry" class="anchor" aria-label="Permalink: About the loan entry" href="#about-the-loan-entry"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The entry assumes the whole loan payment was posted to the loan account when
+the bank statement was categorized. It moves the interest out: debit interest
+expense, credit the loan. If the lender's statement shows a different interest
+figure, because it counts actual days, use the lender's figure. Only the
+interest is an expense; the principal pays down the loan.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Should depreciation start in the month an asset is bought?</h3><a id="user-content-should-depreciation-start-in-the-month-an-asset-is-bought" class="anchor" aria-label="Permalink: Should depreciation start in the month an asset is bought?" href="#should-depreciation-start-in-the-month-an-asset-is-bought"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">That is a policy choice. A common one is a full month in the month the asset
+goes into service. Whatever you pick, use it for every asset and set Start to
+match.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Why spread a prepaid cost instead of expensing it?</h3><a id="user-content-why-spread-a-prepaid-cost-instead-of-expensing-it" class="anchor" aria-label="Permalink: Why spread a prepaid cost instead of expensing it?" href="#why-spread-a-prepaid-cost-instead-of-expensing-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">A 12-month insurance policy paid in July covers July to June. Spreading it puts
+each month's share in that month, so the P&amp;L for one month isn't hit by a
+year's cost.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">What goes in the client questions log?</h3><a id="user-content-what-goes-in-the-client-questions-log" class="anchor" aria-label="Permalink: What goes in the client questions log?" href="#what-goes-in-the-client-questions-log"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Anything you can't tell from the statement alone. Ask once, write down the
+answer and where you booked it, and the same vendor won't need asking next
+month.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://www.zerabooks.com/for-accountants">Accounting software for accountants</a>
+on ZeraBooks, and the
+<a href="https://www.zerabooks.com/month-end-close-checklist">month-end close checklist</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="LICENSE">CC BY 4.0</a>. The code (<code>draft_entries.py</code>) is licensed under
+<a href="LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

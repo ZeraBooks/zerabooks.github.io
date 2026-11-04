@@ -1,0 +1,161 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Veterinary bookkeeping kit: open data from ZeraBooks</title><meta name="description" content="A veterinary practice chart of accounts that keeps services, pharmacy, drugs and outside labs apart, with a month-end checklist. The fictional September shows card and patient financing deposits grossed up and an equipment loan payment split into interest and principal."><link rel="canonical" href="https://zerabooks.github.io/data/veterinary-bookkeeping-kit/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Veterinary bookkeeping kit</h1><p>A veterinary practice chart of accounts that keeps services, pharmacy, drugs and outside labs apart, with a month-end checklist. The fictional September shows card and patient financing deposits grossed up and an equipment loan payment split into interest and principal.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/veterinary-bookkeeping-kit">github.com/ZeraBooks/veterinary-bookkeeping-kit</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/veterinary-bookkeeping-kit/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/bookkeeping-for-veterinary-practices">Bookkeeping for veterinary practices</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Veterinary bookkeeping kit”, https://zerabooks.github.io/data/veterinary-bookkeeping-kit/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Veterinary practice bookkeeping kit</h1><a id="user-content-veterinary-practice-bookkeeping-kit" class="anchor" aria-label="Permalink: Veterinary practice bookkeeping kit" href="#veterinary-practice-bookkeeping-kit"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Bookkeeping for a veterinary practice keeps exam and service revenue apart
+from pharmacy and food sales, books drug and supply costs apart from outside
+lab fees, grosses card and patient financing deposits back up before their
+fees, and splits each equipment loan payment into interest and principal. This
+kit has the chart of accounts, a checklist and a worked month.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chart-of-accounts.csv</code></td>
+<td>A starting chart of accounts for a general practice: services and pharmacy as separate income, drugs, labs and cremation as separate costs, client deposits and equipment loans. Columns: Number, Name, Type, Detail, Notes.</td>
+</tr>
+<tr>
+<td><code>month-end-checklist.md</code></td>
+<td>Nine steps for closing a clinic's month, from grossing up deposits to locking the period.</td>
+</tr>
+<tr>
+<td><code>gross-ups.csv</code></td>
+<td>A fictional card batch and patient financing payout, each grossed back up to the full bill with the fee on its own column.</td>
+</tr>
+<tr>
+<td><code>loan-payments.csv</code></td>
+<td>A fictional equipment loan payment split into interest and principal.</td>
+</tr>
+<tr>
+<td><code>september-2026-month.csv</code></td>
+<td>The same fictional clinic's September 2026 on cash basis: every line, its account, and whether it counts in profit.</td>
+</tr>
+<tr>
+<td><code>check_vet_month.py</code></td>
+<td>Checks the gross-ups and the loan split and prints revenue, expenses and profit for the month. Python 3, standard library only.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto">Import <code>chart-of-accounts.csv</code> into your accounting software, or compare it
+with the accounts you have. Specialty and emergency hospitals usually split
+service revenue further.</p>
+</li>
+<li>
+<p dir="auto">Each month, fill in copies of <code>gross-ups.csv</code> from the processor statement
+and financing payout reports, and <code>loan-payments.csv</code> from the lender
+statements.</p>
+</li>
+<li>
+<p dir="auto">Run the check:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 check_vet_month.py gross-ups.csv loan-payments.csv september-2026-month.csv"><pre class="notranslate"><code>python3 check_vet_month.py gross-ups.csv loan-payments.csv september-2026-month.csv
+</code></pre></div>
+</li>
+<li>
+<p dir="auto">Work through <code>month-end-checklist.md</code> before you lock the month.</p>
+</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">The worked month</h2><a id="user-content-the-worked-month" class="anchor" aria-label="Permalink: The worked month" href="#the-worked-month"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Cedar Hollow Animal Clinic is a fictional two-vet general practice. September
+2026, cash basis:</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th></th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exams and services</td>
+<td>61,200.00</td>
+</tr>
+<tr>
+<td>Pharmacy and food sales</td>
+<td>14,800.00</td>
+</tr>
+<tr>
+<td>Services paid through patient financing</td>
+<td>3,500.00</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><strong>79,500.00</strong></td>
+</tr>
+<tr>
+<td>Card processor fees, 2.6% of 76,000.00</td>
+<td>1,976.00</td>
+</tr>
+<tr>
+<td>Financing provider fee, 7% of 3,500.00</td>
+<td>245.00</td>
+</tr>
+<tr>
+<td>Drugs and medical supplies</td>
+<td>18,940.00</td>
+</tr>
+<tr>
+<td>Reference lab invoices</td>
+<td>4,310.00</td>
+</tr>
+<tr>
+<td>Payroll, gross wages</td>
+<td>32,600.00</td>
+</tr>
+<tr>
+<td>Employer payroll taxes</td>
+<td>2,493.90</td>
+</tr>
+<tr>
+<td>Ultrasound loan interest</td>
+<td>412.50</td>
+</tr>
+<tr>
+<td>Rent</td>
+<td>6,800.00</td>
+</tr>
+<tr>
+<td>Cremation provider</td>
+<td>1,150.00</td>
+</tr>
+<tr>
+<td><strong>Expenses</strong></td>
+<td><strong>68,927.40</strong></td>
+</tr>
+<tr>
+<td><strong>Profit</strong></td>
+<td><strong>10,572.60</strong></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">The ultrasound payment was 1,992.50, but 1,580.00 of it was principal and went
+against the loan, so only 412.50 is a cost. The financing deposit was
+3,255.00; the 245.00 fee is shown on its own line so the service is still
+revenue at its full price.</p>
+<p dir="auto">All figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Is a vet clinic's bookkeeping the same as a human medical clinic's?</h3><a id="user-content-is-a-vet-clinics-bookkeeping-the-same-as-a-human-medical-clinics" class="anchor" aria-label="Permalink: Is a vet clinic's bookkeeping the same as a human medical clinic's?" href="#is-a-vet-clinics-bookkeeping-the-same-as-a-human-medical-clinics"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Partly. Payroll and equipment loans work the same. The difference is who pays:
+most pet insurance reimburses the pet owner after the visit, so the clinic is
+paid in full at checkout and has few insurance deposits to chase. The work is
+in the card and cash deposits and in running a pharmacy.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">How do I record a patient financing deposit?</h3><a id="user-content-how-do-i-record-a-patient-financing-deposit" class="anchor" aria-label="Permalink: How do I record a patient financing deposit?" href="#how-do-i-record-a-patient-financing-deposit"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Book the full bill as service revenue and the provider's fee as an expense.
+The deposit is the bill less the fee, so booking only the deposit makes every
+financed visit look cheaper than it was.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Is the whole equipment loan payment an expense?</h3><a id="user-content-is-the-whole-equipment-loan-payment-an-expense" class="anchor" aria-label="Permalink: Is the whole equipment loan payment an expense?" href="#is-the-whole-equipment-loan-payment-an-expense"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">No. Only the interest is. The principal pays the loan down, so it goes against
+the equipment loan balance, and the equipment itself is depreciated.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Full guide: <a href="https://www.zerabooks.com/bookkeeping-for-veterinary-practices">Bookkeeping for veterinary practices</a>. Related: <a href="https://www.zerabooks.com/bookkeeping-services">ZeraBooks bookkeeping services</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="LICENSE">CC BY 4.0</a>. Free to use and adapt with credit to ZeraBooks.
+The code (<code>*.py</code>) is licensed under <a href="LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

@@ -1,0 +1,168 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CPA shortage data: open data from ZeraBooks</title><meta name="description" content="39 figures on the CPA pipeline in one CSV: accounting graduates, CPA exam candidates and pass rates, licensed CPAs, accountants near retirement and what firms say about hiring. Every row links to its AICPA, NASBA or BLS source."><link rel="canonical" href="https://zerabooks.github.io/data/cpa-shortage-data/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>CPA shortage data</h1><p>39 figures on the CPA pipeline in one CSV: accounting graduates, CPA exam candidates and pass rates, licensed CPAs, accountants near retirement and what firms say about hiring. Every row links to its AICPA, NASBA or BLS source.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/cpa-shortage-data">github.com/ZeraBooks/cpa-shortage-data</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/cpa-shortage-data/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/research/cpa-shortage-statistics">CPA shortage statistics</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “CPA shortage data”, https://zerabooks.github.io/data/cpa-shortage-data/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">CPA shortage data</h1><a id="user-content-cpa-shortage-data" class="anchor" aria-label="Permalink: CPA shortage data" href="#cpa-shortage-data"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">U.S. schools awarded 55,152 accounting bachelor's and master's degrees in
+2023-24, down 6.6%, while BLS projects about 115,300 accountant and auditor
+openings a year through 2035. NASBA counted 650,667 actively licensed CPAs in
+August 2026. This repository has those figures and the rest of the pipeline
+data in one CSV, each linked to its AICPA, NASBA or BLS source.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/statistics.csv</code></td>
+<td>39 statistics, one per row: <code>id</code>, <code>statistic</code>, <code>value</code>, <code>unit</code>, <code>period</code>, <code>source_name</code>, <code>source_url</code>, <code>notes</code>. Numbers are plain so they sort and sum. Rows with unit <code>text</code> hold an answer in words, such as a survey's top issue.</td>
+</tr>
+<tr>
+<td><code>CITATION.cff</code></td>
+<td>Citation details for this collection.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Key figures</h2><a id="user-content-key-figures" class="anchor" aria-label="Permalink: Key figures" href="#key-figures"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Statistic</th>
+<th>Value</th>
+<th>Period</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accounting graduates, bachelor's plus master's</td>
+<td>55,152 (down 6.6%)</td>
+<td>2023-24</td>
+<td><a href="https://www.aicpa-cima.com/news/article/accounting-firms-report-strong-hiring-outlook-aicpa-report-finds">AICPA</a></td>
+</tr>
+<tr>
+<td>Accounting bachelor's degrees</td>
+<td>40,817 (down 3.3%)</td>
+<td>2023-24</td>
+<td><a href="https://www.aicpa-cima.com/news/article/accounting-firms-report-strong-hiring-outlook-aicpa-report-finds">AICPA</a></td>
+</tr>
+<tr>
+<td>4-year undergraduate accounting enrollment</td>
+<td>205,180 (up 8.9%)</td>
+<td>Spring 2026</td>
+<td><a href="https://www.aicpa-cima.com/news/article/u-s-accounting-undergraduate-enrollment-continues-to-outpace-growth-rate-for-business-majors-overall">AICPA</a></td>
+</tr>
+<tr>
+<td>New CPA exam candidates</td>
+<td>42,626 / 28,082</td>
+<td>2023 / 2024</td>
+<td><a href="https://www.aicpa-cima.com/news/article/accounting-firms-report-strong-hiring-outlook-aicpa-report-finds">AICPA</a></td>
+</tr>
+<tr>
+<td>Cumulative pass rate, FAR</td>
+<td>42%</td>
+<td>2025</td>
+<td><a href="https://www.aicpa-cima.com/professional-insights/article/the-new-cpa-exam-two-years-in">AICPA</a></td>
+</tr>
+<tr>
+<td>Actively licensed CPAs, 53 of 55 jurisdictions</td>
+<td>650,667</td>
+<td>Aug 27 2026</td>
+<td><a href="https://nasba.org/licensure/how-many-cpas/">NASBA</a></td>
+</tr>
+<tr>
+<td>Median age, employed accountants and auditors</td>
+<td>44.7</td>
+<td>2025</td>
+<td><a href="https://www.bls.gov/cps/cpsaat11b.htm">BLS CPS</a></td>
+</tr>
+<tr>
+<td>Accountants and auditors aged 55 and over</td>
+<td>479,000 of 1,766,000 (27.1%, our math)</td>
+<td>2025</td>
+<td><a href="https://www.bls.gov/cps/cpsaat11b.htm">BLS CPS</a></td>
+</tr>
+<tr>
+<td>Bookkeeping clerks aged 55 and over</td>
+<td>501,000 of 1,254,000 (40.0%, our math)</td>
+<td>2025</td>
+<td><a href="https://www.bls.gov/cps/cpsaat11b.htm">BLS CPS</a></td>
+</tr>
+<tr>
+<td>Average yearly openings, accountants and auditors</td>
+<td>115,300</td>
+<td>2025 to 2035</td>
+<td><a href="https://www.bls.gov/ooh/business-and-financial/accountants-and-auditors.htm">BLS OOH</a></td>
+</tr>
+<tr>
+<td>Top issue, CPA firms of every size but sole practitioners</td>
+<td>Finding qualified staff</td>
+<td>2024</td>
+<td><a href="https://www.aicpa-cima.com/news/article/staffing-irs-service-problems-and-leadership-development-are-top-issues-for">AICPA PCPS</a></td>
+</tr>
+<tr>
+<td>States that adopted the bachelor's plus experience path</td>
+<td>Half of the states</td>
+<td>Nov 2025</td>
+<td><a href="https://www.aicpa-cima.com/advocacy/article/state-policy-trends-shaping-accounting-in-2026">AICPA</a></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>Open <code>data/statistics.csv</code> in Excel or Google Sheets. Filter on the <code>id</code>
+prefix for one group: <code>pipeline</code>, <code>exam</code>, <code>workforce</code>, <code>firms</code> or
+<code>licensure</code>.</li>
+<li>Check <code>unit</code> and <code>period</code> before quoting. Enrollment is counted by spring
+term; degrees by academic year.</li>
+<li>Quote the original source next to each number, then cite this collection.</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Openings against graduates</h2><a id="user-content-openings-against-graduates" class="anchor" aria-label="Permalink: Openings against graduates" href="#openings-against-graduates"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">One rough way to see the gap. This comparison is ours, not a published ratio.</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Figure</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accountant and auditor openings a year, 2025 to 2035</td>
+<td>115,300</td>
+<td>BLS OOH</td>
+</tr>
+<tr>
+<td>Accounting bachelor's and master's graduates, 2023-24</td>
+<td>55,152</td>
+<td>AICPA</td>
+</tr>
+<tr>
+<td>New CPA exam candidates, 2024</td>
+<td>28,082</td>
+<td>AICPA</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">Openings include replacing people who retire or change jobs, and not every
+opening is filled by an accounting graduate, so the gap is not a precise
+shortage count.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Notes on the data</h2><a id="user-content-notes-on-the-data" class="anchor" aria-label="Permalink: Notes on the data" href="#notes-on-the-data"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li>Every figure was checked against its primary source on November 4, 2026.</li>
+<li>A licensed CPA and an employed accountant are different counts. NASBA counts
+licenses; BLS counts people working in the occupation. There is no official
+count of CPAs by age.</li>
+<li>The BLS CPS 2025 annual averages leave out October.</li>
+<li>The 55 and over shares are our math from the BLS table and say so in the
+<code>notes</code> column. None of these are ZeraBooks figures.</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The same figures with context: <a href="https://www.zerabooks.com/research/cpa-shortage-statistics">CPA shortage statistics</a> on zerabooks.com. Wages, jobs and firm counts: <a href="https://www.zerabooks.com/research/accounting-bookkeeping-statistics-2026">Accounting and bookkeeping statistics 2026</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="LICENSE">CC BY 4.0</a>. Free to use and adapt with credit to ZeraBooks.
+The underlying figures belong to the AICPA, NASBA and BLS.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

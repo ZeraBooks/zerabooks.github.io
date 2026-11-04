@@ -1,0 +1,141 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>General ledger software checklist: open data from ZeraBooks</title><meta name="description" content="A checklist and a requirements sheet for choosing or switching general ledger software, plus a fictional test month you can enter in any ledger. The expected trial balance and reports are listed, and two test files show whether the software refuses an unbalanced batch and protects a closed month."><link rel="canonical" href="https://zerabooks.github.io/data/general-ledger-software-checklist/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>General ledger software checklist</h1><p>A checklist and a requirements sheet for choosing or switching general ledger software, plus a fictional test month you can enter in any ledger. The expected trial balance and reports are listed, and two test files show whether the software refuses an unbalanced batch and protects a closed month.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/general-ledger-software-checklist">github.com/ZeraBooks/general-ledger-software-checklist</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/general-ledger-software-checklist/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/general-ledger-software">General ledger software</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “General ledger software checklist”, https://zerabooks.github.io/data/general-ledger-software-checklist/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">General ledger software checklist</h1><a id="user-content-general-ledger-software-checklist" class="anchor" aria-label="Permalink: General ledger software checklist" href="#general-ledger-software-checklist"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">General ledger software is the system of record for a business's books: it
+holds every account and transaction and produces the financial statements.
+To choose one, check that it is true double-entry, refuses entries that don't
+balance, locks closed months, logs every change, and builds every report from
+the same ledger, then test it with the same entries.</p>
+<p dir="auto">This repo has the checklist, a requirements sheet to score candidates side
+by side, a migration checklist, and a fictional test month you can enter in
+any ledger to see whether its reports come out right.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>checklist.md</code></td>
+<td>The checklist in six parts, with tick boxes.</td>
+</tr>
+<tr>
+<td><code>requirements.csv</code></td>
+<td>24 requirements, each with why it matters, how to test it, Must or Nice, and blank columns for two candidates.</td>
+</tr>
+<tr>
+<td><code>migration-checklist.md</code></td>
+<td>Moving from old software: handoff date, closing reports, mapping balances, uncleared items, first reconciliation.</td>
+</tr>
+<tr>
+<td><code>chart-of-accounts.csv</code></td>
+<td>An 11-account chart for the fictional test business.</td>
+</tr>
+<tr>
+<td><code>test-journal.csv</code></td>
+<td>Eight balanced October 2026 entries: owner money in, equipment on the card, prepaid insurance, an invoice, rent, a customer payment, one month of insurance and one month of depreciation.</td>
+</tr>
+<tr>
+<td><code>test-journal-unbalanced.csv</code></td>
+<td>The same batch with entry 5 off by 100.00. A good ledger posts none of it.</td>
+</tr>
+<tr>
+<td><code>test-closed-period.csv</code></td>
+<td>One entry dated October 31. After October is closed, a good ledger blocks it.</td>
+</tr>
+<tr>
+<td><code>check_journal.py</code></td>
+<td>Checks a journal batch (every entry balances, accounts exist, nothing in a closed period) and prints the trial balance, profit and loss and balance sheet totals it should produce. Python 3, standard library only.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">All figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto">Copy <code>requirements.csv</code> and put the names of the products you are looking
+at in place of Candidate A and Candidate B.</p>
+</li>
+<li>
+<p dir="auto">In a trial of each one, import <code>chart-of-accounts.csv</code> and
+<code>test-journal.csv</code>, then compare its reports with the expected results
+below.</p>
+</li>
+<li>
+<p dir="auto">Try <code>test-journal-unbalanced.csv</code> and <code>test-closed-period.csv</code> and note
+what each product does.</p>
+</li>
+<li>
+<p dir="auto">Check any batch of your own before you import it:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 check_journal.py test-journal.csv chart-of-accounts.csv
+python3 check_journal.py test-closed-period.csv chart-of-accounts.csv --closed-through 2026-10-31"><pre class="notranslate"><code>python3 check_journal.py test-journal.csv chart-of-accounts.csv
+python3 check_journal.py test-closed-period.csv chart-of-accounts.csv --closed-through 2026-10-31
+</code></pre></div>
+</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Expected results for the test month</h2><a id="user-content-expected-results-for-the-test-month" class="anchor" aria-label="Permalink: Expected results for the test month" href="#expected-results-for-the-test-month"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Report</th>
+<th>Figure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trial balance total</td>
+<td>28,966.67 debit and 28,966.67 credit</td>
+</tr>
+<tr>
+<td>Operating checking</td>
+<td>21,000.00</td>
+</tr>
+<tr>
+<td>Accounts receivable (invoice 1001)</td>
+<td>2,500.00 open</td>
+</tr>
+<tr>
+<td>Prepaid insurance</td>
+<td>1,100.00 (1,200.00 less one month of 100.00)</td>
+</tr>
+<tr>
+<td>Equipment, net</td>
+<td>2,333.33 (2,400.00 less 66.67 depreciation, 2,400.00 / 36)</td>
+</tr>
+<tr>
+<td>Net income for October</td>
+<td>4,533.33 (6,500.00 revenue less 1,966.67 expenses)</td>
+</tr>
+<tr>
+<td>Total assets</td>
+<td>26,933.33 = card 2,400.00 + equity 20,000.00 + net income 4,533.33</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">What is the best general ledger software?</h3><a id="user-content-what-is-the-best-general-ledger-software" class="anchor" aria-label="Permalink: What is the best general ledger software?" href="#what-is-the-best-general-ledger-software"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">It depends on who keeps the books. Large companies run ERP ledgers such as
+NetSuite or Sage Intacct; small businesses often use QuickBooks Online or
+Xero. Score the ones you are considering on <code>requirements.csv</code> with the same
+test month, and the differences show up quickly.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">What is an AI general ledger?</h3><a id="user-content-what-is-an-ai-general-ledger" class="anchor" aria-label="Permalink: What is an AI general ledger?" href="#what-is-an-ai-general-ledger"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">A ledger where AI does routine bookkeeping inside the system of record:
+reading statements, categorizing transactions and proposing entries. The
+ledger should still do every calculation, and every AI change should be
+logged with a way to undo it. The Automation rows in <code>requirements.csv</code> test
+for that.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Do I have to bring every old transaction into the new ledger?</h3><a id="user-content-do-i-have-to-bring-every-old-transaction-into-the-new-ledger" class="anchor" aria-label="Permalink: Do I have to bring every old transaction into the new ledger?" href="#do-i-have-to-bring-every-old-transaction-into-the-new-ledger"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">No. Start the new ledger from the old trial balance at a handoff date, plus
+open invoices, open bills and uncleared bank items. Keep the old books for
+the history.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">What an AI-native general ledger does:
+<a href="https://www.zerabooks.com/general-ledger-software">General ledger software</a>.
+Hub: <a href="https://www.zerabooks.com/ai-bookkeeping">AI bookkeeping</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="LICENSE">CC BY 4.0</a>. The code (<code>check_journal.py</code>) is licensed under
+<a href="LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

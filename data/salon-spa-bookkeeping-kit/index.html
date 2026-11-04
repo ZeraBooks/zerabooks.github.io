@@ -1,0 +1,149 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Salon and spa bookkeeping kit: open data from ZeraBooks</title><meta name="description" content="A salon and spa chart of accounts, a month-end checklist and a fictional October that pulls card deposits apart into services, retail and tips. A short script checks that tips payable nets to zero and that the deposits tie to the month."><link rel="canonical" href="https://zerabooks.github.io/data/salon-spa-bookkeeping-kit/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Salon and spa bookkeeping kit</h1><p>A salon and spa chart of accounts, a month-end checklist and a fictional October that pulls card deposits apart into services, retail and tips. A short script checks that tips payable nets to zero and that the deposits tie to the month.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/salon-spa-bookkeeping-kit">github.com/ZeraBooks/salon-spa-bookkeeping-kit</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/salon-spa-bookkeeping-kit/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/bookkeeping-for-salons-and-spas">Bookkeeping for salons and spas</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Salon and spa bookkeeping kit”, https://zerabooks.github.io/data/salon-spa-bookkeeping-kit/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Salon and spa bookkeeping kit</h1><a id="user-content-salon-and-spa-bookkeeping-kit" class="anchor" aria-label="Permalink: Salon and spa bookkeeping kit" href="#salon-and-spa-bookkeeping-kit"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Bookkeeping for a salon or spa keeps card tips as money owed to staff, books
+booth rent as income, separates retail product sales from services, holds gift
+cards as a liability until they are used, and grosses each card deposit back
+up before processor fees. This kit has the accounts, a checklist and a
+worked month that ties.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chart-of-accounts.csv</code></td>
+<td>A starting chart of accounts for a salon or spa: service, retail and booth rent income, tips payable, gift cards outstanding, backbar supplies apart from retail cost. Columns: Number, Name, Type, Detail, Notes.</td>
+</tr>
+<tr>
+<td><code>month-end-checklist.md</code></td>
+<td>Ten steps for closing a salon's month, from pulling card deposits apart to locking the period.</td>
+</tr>
+<tr>
+<td><code>card-deposits.csv</code></td>
+<td>A fictional month of card deposits, one row per week, each grossed up into services, retail and tips with the processor fee on its own column.</td>
+</tr>
+<tr>
+<td><code>october-2026-month.csv</code></td>
+<td>The same fictional salon's October 2026 on cash basis: every line, the account it goes to, and whether it counts in profit.</td>
+</tr>
+<tr>
+<td><code>check_salon_month.py</code></td>
+<td>Checks that every deposit reads across, that tips payable nets to zero, that deposits agree with the month, and prints revenue, expenses and profit. Python 3, standard library only.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto">Import <code>chart-of-accounts.csv</code> into your accounting software, or use it as
+a list to compare with the accounts you already have. Delete booth rent if
+you have no renters and the gift card lines if you don't sell them.</p>
+</li>
+<li>
+<p dir="auto">Each month, export the booking system's sales and tips summary and fill in
+a copy of <code>card-deposits.csv</code> from your processor statement.</p>
+</li>
+<li>
+<p dir="auto">Run the check:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 check_salon_month.py card-deposits.csv october-2026-month.csv"><pre class="notranslate"><code>python3 check_salon_month.py card-deposits.csv october-2026-month.csv
+</code></pre></div>
+</li>
+<li>
+<p dir="auto">Work through <code>month-end-checklist.md</code> before you lock the month.</p>
+</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">The worked month</h2><a id="user-content-the-worked-month" class="anchor" aria-label="Permalink: The worked month" href="#the-worked-month"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Juniper Hair Studio is a fictional salon with commission stylists and three
+booth renters. October 2026, cash basis:</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th></th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Card services</td>
+<td>28,400.00</td>
+</tr>
+<tr>
+<td>Card retail</td>
+<td>3,600.00</td>
+</tr>
+<tr>
+<td>Cash services</td>
+<td>1,850.00</td>
+</tr>
+<tr>
+<td>Booth rent, 3 renters at 900.00</td>
+<td>2,700.00</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><strong>36,550.00</strong></td>
+</tr>
+<tr>
+<td>Processor fees, 2.8% of 36,200.00 card volume</td>
+<td>1,013.60</td>
+</tr>
+<tr>
+<td>Retail restock</td>
+<td>1,450.00</td>
+</tr>
+<tr>
+<td>Backbar color and supplies</td>
+<td>960.00</td>
+</tr>
+<tr>
+<td>Stylist wages and commissions, gross</td>
+<td>14,300.00</td>
+</tr>
+<tr>
+<td>Employer payroll taxes</td>
+<td>1,093.95</td>
+</tr>
+<tr>
+<td>Rent</td>
+<td>4,500.00</td>
+</tr>
+<tr>
+<td><strong>Expenses</strong></td>
+<td><strong>23,317.55</strong></td>
+</tr>
+<tr>
+<td><strong>Profit</strong></td>
+<td><strong>13,232.45</strong></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">Card tips of 4,200.00 came in with the card sales and went out through
+payroll, so they sit in tips payable and never touch profit. The card volume
+the processor charges on (36,200.00) includes those tips, which is why the fee
+is worked out on more than the card sales.</p>
+<p dir="auto">All figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Are card tips salon revenue?</h3><a id="user-content-are-card-tips-salon-revenue" class="anchor" aria-label="Permalink: Are card tips salon revenue?" href="#are-card-tips-salon-revenue"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">No. Tips added on a card belong to the staff member. They land in your account
+with the sale, sit in tips payable, and go out to staff through payroll. Booked
+as revenue, the month looks better than it was and payroll looks worse.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Is booth rent income for the salon?</h3><a id="user-content-is-booth-rent-income-for-the-salon" class="anchor" aria-label="Permalink: Is booth rent income for the salon?" href="#is-booth-rent-income-for-the-salon"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Yes. Renters pay you to use a chair or room, and that rent is salon income,
+recorded apart from service sales. Whether a stylist is a renter or an
+employee depends on how the arrangement actually works; that is a question for
+your accountant.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">When does a gift card become revenue?</h3><a id="user-content-when-does-a-gift-card-become-revenue" class="anchor" aria-label="Permalink: When does a gift card become revenue?" href="#when-does-a-gift-card-become-revenue"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">When it is redeemed. A gift card sold in December is a service you owe later,
+so it sits in gift cards outstanding until the client uses it. Prepaid
+packages and memberships work the same way.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Full guide: <a href="https://www.zerabooks.com/bookkeeping-for-salons-and-spas">Bookkeeping for salons and spas</a>. Related: <a href="https://www.zerabooks.com/bookkeeping-services">ZeraBooks bookkeeping services</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="LICENSE">CC BY 4.0</a>. Free to use and adapt with credit to ZeraBooks.
+The code (<code>*.py</code>) is licensed under <a href="LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

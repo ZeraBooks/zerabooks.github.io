@@ -15,29 +15,49 @@ that tie.</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/ZeraBooks/statement-to-csv-spec/blob/main/google-sheets/README.md"><code>google-sheets/</code></a></td>
+<td><a href="google-sheets/"><code>google-sheets/</code></a></td>
 <td>A standard layout for statement rows in Google Sheets, import settings, check formulas and a sample file</td>
-<td><a href="https://www.zerabooks.com/bank-statement-to-google-sheets" rel="nofollow">How to get a bank statement into Google Sheets</a></td>
+<td><a href="https://www.zerabooks.com/bank-statement-to-google-sheets">How to get a bank statement into Google Sheets</a></td>
 </tr>
 <tr>
-<td><a href="https://github.com/ZeraBooks/statement-to-csv-spec/blob/main/credit-cards/README.md"><code>credit-cards/</code></a></td>
+<td><a href="credit-cards/"><code>credit-cards/</code></a></td>
 <td>Card statement rows with charges negative and payments positive, a tie-out formula and a sample that ties</td>
-<td><a href="https://www.zerabooks.com/credit-card-statement-to-excel" rel="nofollow">Converting a credit card statement to Excel</a></td>
+<td><a href="https://www.zerabooks.com/credit-card-statement-to-excel">Converting a credit card statement to Excel</a></td>
 </tr>
 <tr>
-<td><a href="https://github.com/ZeraBooks/statement-to-csv-spec/blob/main/xero/README.md"><code>xero/</code></a></td>
+<td><a href="xero/"><code>xero/</code></a></td>
 <td>The five-column layout for a Xero statement import, a sample that ties and a pre-import checker</td>
-<td><a href="https://www.zerabooks.com/bank-statement-to-xero" rel="nofollow">Importing a PDF bank statement into Xero</a></td>
+<td><a href="https://www.zerabooks.com/bank-statement-to-xero">Importing a PDF bank statement into Xero</a></td>
 </tr>
 <tr>
-<td><a href="https://github.com/ZeraBooks/statement-to-csv-spec/blob/main/invoices/README.md"><code>invoices/</code></a></td>
+<td><a href="wave/"><code>wave/</code></a></td>
+<td>Wave's 3-column upload layout, its card sign rule (purchases positive) and a card sample that ties</td>
+<td><a href="https://www.zerabooks.com/import/wave-bank-statement-import">Wave bank statement import</a></td>
+</tr>
+<tr>
+<td><a href="sage/"><code>sage/</code></a></td>
+<td>Sage Accounting's header order (Date, Description, Money in, Money out) and a chequing sample that ties</td>
+<td><a href="https://www.zerabooks.com/import/sage-bank-statement-import">Sage bank statement import</a></td>
+</tr>
+<tr>
+<td><a href="zoho-books/"><code>zoho-books/</code></a></td>
+<td>The Single Column with Negative Values layout for Zoho Books and a checking sample that ties</td>
+<td><a href="https://www.zerabooks.com/import/zoho-books-bank-statement-import">Zoho Books bank statement import</a></td>
+</tr>
+<tr>
+<td><a href="invoices/"><code>invoices/</code></a></td>
 <td>Invoice line items one row per line, with the two checks that catch misreads</td>
-<td><a href="https://www.zerabooks.com/invoice-to-excel" rel="nofollow">Invoice PDF to Excel</a></td>
+<td><a href="https://www.zerabooks.com/invoice-to-excel">Invoice PDF to Excel</a></td>
 </tr>
 <tr>
-<td><a href="https://github.com/ZeraBooks/statement-to-csv-spec/blob/main/financial-statements/README.md"><code>financial-statements/</code></a></td>
+<td><a href="financial-statements/"><code>financial-statements/</code></a></td>
 <td>Balance sheet and P&amp;L lines as Statement, Section, Line, Year, Amount, with a two-year sample that balances</td>
-<td><a href="https://www.zerabooks.com/financial-statements-to-excel" rel="nofollow">Financial statements to Excel</a></td>
+<td><a href="https://www.zerabooks.com/financial-statements-to-excel">Financial statements to Excel</a></td>
+</tr>
+<tr>
+<td><a href="normalize-export/"><code>normalize-export/</code></a></td>
+<td>A script that turns a bank export with Debit and Credit columns and dates like 3/2/26 into Date, Description, Amount, and checks it ties</td>
+<td><a href="https://www.zerabooks.com/convert-bank-statement-to-csv">Convert a bank statement to CSV</a></td>
 </tr>
 </tbody>
 </table></markdown-accessiblity-table>
@@ -49,9 +69,13 @@ that tie.</p>
 sample is complete. Swap in your own rows and the same formula checks them.</li>
 <li>Descriptions that contain a comma are quoted, so the file stays one row per
 transaction.</li>
+<li>To turn a Debit and Credit bank export into the Standard layout, run
+<code>python3 normalize-export/normalize_export.py normalize-export/sample-bank-export.csv --out standard.csv</code>
+(Python 3, standard library only).</li>
 </ul>
 <div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
 <p dir="auto">The content and data in this repository are licensed under
-<a href="https://github.com/ZeraBooks/statement-to-csv-spec/blob/main/LICENSE">CC BY 4.0</a>. Free to use and adapt with credit to ZeraBooks.</p>
-<p dir="auto">Maintained by <a href="https://www.zerabooks.com" rel="nofollow">ZeraBooks</a>.</p>
-</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated October 21, 2026.</footer></body></html>
+<a href="LICENSE">CC BY 4.0</a>. Free to use and adapt with credit to ZeraBooks. The
+scripts (<code>*.py</code>) in <code>normalize-export/</code> are licensed under <a href="LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>
