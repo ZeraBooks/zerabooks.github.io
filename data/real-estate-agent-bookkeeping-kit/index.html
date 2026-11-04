@@ -1,0 +1,225 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Real estate agent bookkeeping kit: open data from ZeraBooks</title><meta name="description" content="A chart of accounts and expense category list for a real estate agent or small team. A script ties each closing&#x27;s commission, brokerage split and fees to the deposit, and a fictional October shows the month booked gross with the mileage log totaled."><link rel="canonical" href="https://zerabooks.github.io/data/real-estate-agent-bookkeeping-kit/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Real estate agent bookkeeping kit</h1><p>A chart of accounts and expense category list for a real estate agent or small team. A script ties each closing&#x27;s commission, brokerage split and fees to the deposit, and a fictional October shows the month booked gross with the mileage log totaled.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/real-estate-agent-bookkeeping-kit">github.com/ZeraBooks/real-estate-agent-bookkeeping-kit</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/real-estate-agent-bookkeeping-kit/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/bookkeeping-for-real-estate-agents">Bookkeeping for real estate agents</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Real estate agent bookkeeping kit”, https://zerabooks.github.io/data/real-estate-agent-bookkeeping-kit/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Real estate agent bookkeeping kit</h1><a id="user-content-real-estate-agent-bookkeeping-kit" class="anchor" aria-label="Permalink: Real estate agent bookkeeping kit" href="#real-estate-agent-bookkeeping-kit"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">A real estate agent should run a separate business bank account, record each
+commission at its gross amount with the brokerage split and fees as expenses,
+log every business mile, and set money aside for quarterly estimated tax. This
+kit has a chart of accounts, an expense category list, a commission split
+check that ties each closing to the brokerage's deposit, a mileage log, and a
+fictional agent's month.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chart-of-accounts.csv</code></td>
+<td>A starting chart for an agent or small team: checking, tax savings, card, owner draws, gross commission, split and fees, operating expenses. Columns: Number, Name, Type, Detail, Notes.</td>
+</tr>
+<tr>
+<td><code>expense-categories.csv</code></td>
+<td>Common agent costs and the account each one goes to, with notes on gifts, referral fees and personal spending.</td>
+</tr>
+<tr>
+<td><code>closings-october-2026.csv</code></td>
+<td>Two fictional closings: sale price, commission rate, your side, split rate, fees and the deposit received.</td>
+</tr>
+<tr>
+<td><code>check_closings.py</code></td>
+<td>Works out your side, the split and the expected deposit for each closing, ties it to the deposit, and prints the gross entry.</td>
+</tr>
+<tr>
+<td><code>october-2026-month.csv</code></td>
+<td>A fictional agent's October 2026: every line, its account, and whether it counts in profit.</td>
+</tr>
+<tr>
+<td><code>mileage-log-october-2026.csv</code></td>
+<td>The same month's trips: date, from, to, purpose, miles, and whether it is business or commuting.</td>
+</tr>
+<tr>
+<td><code>check_agent_month.py</code></td>
+<td>Prints the month's profit by section, lists draws and tax savings apart, and totals business miles.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">Both scripts are Python 3, standard library only.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto">Import <code>chart-of-accounts.csv</code> into your accounting software, or compare it
+with the accounts you have. Use <code>expense-categories.csv</code> when you are not
+sure where a cost goes.</p>
+</li>
+<li>
+<p dir="auto">For each closing, copy the figures from the commission statement or
+disbursement sheet into a file shaped like <code>closings-october-2026.csv</code> and
+run:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 check_closings.py closings-october-2026.csv"><pre class="notranslate"><code>python3 check_closings.py closings-october-2026.csv
+</code></pre></div>
+<p dir="auto">If the deposit doesn't tie, the commission statement has a deduction you
+haven't recorded yet.</p>
+</li>
+<li>
+<p dir="auto">Keep the mileage log as you drive, not in April. At month end run:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 check_agent_month.py october-2026-month.csv mileage-log-october-2026.csv"><pre class="notranslate"><code>python3 check_agent_month.py october-2026-month.csv mileage-log-october-2026.csv
+</code></pre></div>
+</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">The worked month</h2><a id="user-content-the-worked-month" class="anchor" aria-label="Permalink: The worked month" href="#the-worked-month"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Dana is a fictional agent paid through a brokerage on a 20% split with a
+395.00 transaction fee per closing. Both October closings paid 5% in total,
+shared equally between the listing and buyer's agents.</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Closing</th>
+<th>Your side</th>
+<th>Split (20%)</th>
+<th>Transaction fee</th>
+<th>Other</th>
+<th>Deposit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14 Alder Court, listing side, 480,000.00</td>
+<td>12,000.00</td>
+<td>2,400.00</td>
+<td>395.00</td>
+<td>0.00</td>
+<td>9,205.00</td>
+</tr>
+<tr>
+<td>2207 Harbor View Drive, buyer side, 615,000.00</td>
+<td>15,375.00</td>
+<td>3,075.00</td>
+<td>395.00</td>
+<td>50.00 E&amp;O fee</td>
+<td>11,855.00</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>27,375.00</strong></td>
+<td><strong>5,475.00</strong></td>
+<td><strong>790.00</strong></td>
+<td><strong>50.00</strong></td>
+<td><strong>21,060.00</strong></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">Both deposits tie. Booking only the deposits would hide 6,315.00 of costs.</p>
+<p dir="auto">October, booked gross:</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th></th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gross commission income</td>
+<td>27,375.00</td>
+</tr>
+<tr>
+<td>Referral fees received</td>
+<td>1,500.00</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td><strong>28,875.00</strong></td>
+</tr>
+<tr>
+<td>Brokerage split</td>
+<td>5,475.00</td>
+</tr>
+<tr>
+<td>Transaction fees</td>
+<td>790.00</td>
+</tr>
+<tr>
+<td><strong>Cost of revenue</strong></td>
+<td><strong>6,265.00</strong></td>
+</tr>
+<tr>
+<td>Desk fee</td>
+<td>500.00</td>
+</tr>
+<tr>
+<td>MLS dues</td>
+<td>145.00</td>
+</tr>
+<tr>
+<td>E&amp;O fee</td>
+<td>50.00</td>
+</tr>
+<tr>
+<td>Marketing: listing photos and signs</td>
+<td>530.00</td>
+</tr>
+<tr>
+<td>Lead generation</td>
+<td>450.00</td>
+</tr>
+<tr>
+<td>Vehicle: fuel</td>
+<td>212.40</td>
+</tr>
+<tr>
+<td>Client gifts, 3 buyers at 120.00</td>
+<td>360.00</td>
+</tr>
+<tr>
+<td>Continuing education</td>
+<td>199.00</td>
+</tr>
+<tr>
+<td>Phone and CRM</td>
+<td>129.00</td>
+</tr>
+<tr>
+<td><strong>Operating expenses</strong></td>
+<td><strong>2,575.40</strong></td>
+</tr>
+<tr>
+<td><strong>Profit</strong></td>
+<td><strong>20,034.60</strong></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">Dana also moved 6,000.00 to tax savings and took a 5,000.00 owner draw. Neither
+is an expense, so neither is in profit.</p>
+<p dir="auto">The three closing gifts are booked at their full 360.00 with each buyer's name
+in the memo. The IRS limits the deduction to $25 per person per year (IRS
+Publication 463), so 75.00 is deductible. Your tax preparer applies the limit.</p>
+<p dir="auto">The mileage log shows 183 business miles: showings, an open house, a listing
+appointment, the inspection and appraisal, the two closings and placing a
+listing sign. The 18 miles from home to the brokerage office on regular office
+days are commuting and are left out.</p>
+<p dir="auto">The agent, properties and figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Is a real estate agent self-employed for taxes?</h3><a id="user-content-is-a-real-estate-agent-self-employed-for-taxes" class="anchor" aria-label="Permalink: Is a real estate agent self-employed for taxes?" href="#is-a-real-estate-agent-self-employed-for-taxes"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Almost always. The IRS treats licensed real estate agents as self-employed for
+federal tax purposes when nearly all their pay comes from sales and a written
+contract says they aren't employees. No tax is withheld from commissions, and
+the brokerage reports what it paid on Form 1099-NEC.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Should I record my commission gross or net?</h3><a id="user-content-should-i-record-my-commission-gross-or-net" class="anchor" aria-label="Permalink: Should I record my commission gross or net?" href="#should-i-record-my-commission-gross-or-net"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Gross. Record your side of the commission as income and the brokerage split
+and fees as expenses. Profit comes out the same either way, but gross books
+show what the brokerage costs you and match the 1099-NEC whichever way it is
+reported.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">When is estimated tax due?</h3><a id="user-content-when-is-estimated-tax-due" class="anchor" aria-label="Permalink: When is estimated tax due?" href="#when-is-estimated-tax-due"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">For 2026 income: April 15, June 15 and September 15, 2026, and January 15,
+2027. On top of income tax, self-employment tax is 15.3% (12.4% Social
+Security, 2.9% Medicare) once net earnings reach $400. Your tax preparer sets
+the amounts; current books tell them the profit so far.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Full guide: <a href="https://www.zerabooks.com/bookkeeping-for-real-estate-agents">Bookkeeping for real estate agents</a>. Related: <a href="https://www.zerabooks.com/bookkeeping-services">ZeraBooks bookkeeping services</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="https://github.com/ZeraBooks/real-estate-agent-bookkeeping-kit/blob/main/LICENSE">CC BY 4.0</a>. Free to use and adapt with credit to ZeraBooks.
+The code (<code>*.py</code>) is licensed under <a href="https://github.com/ZeraBooks/real-estate-agent-bookkeeping-kit/blob/main/LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

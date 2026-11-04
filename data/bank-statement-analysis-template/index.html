@@ -1,0 +1,159 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bank statement analysis template: open data from ZeraBooks</title><meta name="description" content="A summary template and a script that turn converted bank statement rows into monthly deposits net of transfers between your own accounts, withdrawals, closing, lowest and average daily balances, NSF and overdraft items and large deposits. The fictional sample covers three months of a landscaping company&#x27;s checking account."><link rel="canonical" href="https://zerabooks.github.io/data/bank-statement-analysis-template/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Bank statement analysis template</h1><p>A summary template and a script that turn converted bank statement rows into monthly deposits net of transfers between your own accounts, withdrawals, closing, lowest and average daily balances, NSF and overdraft items and large deposits. The fictional sample covers three months of a landscaping company&#x27;s checking account.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/bank-statement-analysis-template">github.com/ZeraBooks/bank-statement-analysis-template</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/bank-statement-analysis-template/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/bank-statement-analysis">Bank statement analysis</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Bank statement analysis template”, https://zerabooks.github.io/data/bank-statement-analysis-template/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Bank statement analysis template</h1><a id="user-content-bank-statement-analysis-template" class="anchor" aria-label="Permalink: Bank statement analysis template" href="#bank-statement-analysis-template"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Bank statement analysis turns months of statement rows into the figures a
+lender, court or auditor asks for: deposits after taking out transfers between
+your own accounts, withdrawals, month-end, lowest and average daily balances,
+NSF and overdraft items, large deposits and the payers who come back every
+month. This repo has a summary template, a fictional three-month sample, and a
+script that builds the summary from converted statement rows and checks each
+month against the printed balances first.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>analysis-summary-template.csv</code></td>
+<td>The summary layout, one row per month plus a total. Fill it by hand or let the script write it.</td>
+</tr>
+<tr>
+<td><code>converted-statements-jul-sep-2026.csv</code></td>
+<td>A fictional landscaping company's checking account, July to September 2026, one row per transaction. Columns: Account, Date, Description, Type, Amount, Own transfer.</td>
+</tr>
+<tr>
+<td><code>statement-balances.csv</code></td>
+<td>The opening and closing balance printed on each month's statement.</td>
+</tr>
+<tr>
+<td><code>analyze_statements.py</code></td>
+<td>Checks the rows against the printed balances, then prints the monthly summary, own-account transfers, untagged transfers, large deposits and repeat payers.</td>
+</tr>
+<tr>
+<td><code>summary-jul-sep-2026.csv</code></td>
+<td>What the script writes for the sample.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">The script is Python 3, standard library only.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto">Download every statement the reader asked for as PDF, for every account.
+The PDF carries the printed opening and closing balance that proves no page
+or month is missing.</p>
+</li>
+<li>
+<p dir="auto">Convert the statements to rows in the shape of
+<code>converted-statements-jul-sep-2026.csv</code>, and put each month's printed
+opening and closing in <code>statement-balances.csv</code>.</p>
+</li>
+<li>
+<p dir="auto">Tag transfers between the same owner's accounts with <code>Yes</code> in the Own
+transfer column. Convert the other account's statements too, so each
+transfer can be matched to its other side.</p>
+</li>
+<li>
+<p dir="auto">Run:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 analyze_statements.py converted-statements-jul-sep-2026.csv statement-balances.csv summary.csv"><pre class="notranslate"><code>python3 analyze_statements.py converted-statements-jul-sep-2026.csv statement-balances.csv summary.csv
+</code></pre></div>
+<p dir="auto">If a month's rows don't reach the printed closing balance, the script says
+so. Fix that before anyone relies on the summary.</p>
+</li>
+</ol>
+<p dir="auto">Lowest and average daily balances are worked out from the rows and the
+opening balance, using each day's end-of-day balance. If the statement has a
+daily balance section, check them against it.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">The worked example</h2><a id="user-content-the-worked-example" class="anchor" aria-label="Permalink: The worked example" href="#the-worked-example"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Fernhill Landscaping is a fictional company applying for an equipment loan
+with its July to September 2026 checking statements. July opens at 8,530.00.</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Month</th>
+<th>All deposits</th>
+<th>Own-account transfers in</th>
+<th>Business deposits</th>
+<th>Withdrawals</th>
+<th>Closing balance</th>
+<th>NSF or overdraft items</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>July</td>
+<td>48,300.00</td>
+<td>5,000.00</td>
+<td>43,300.00</td>
+<td>46,950.00</td>
+<td>9,880.00</td>
+<td>0</td>
+</tr>
+<tr>
+<td>August</td>
+<td>41,750.00</td>
+<td>0.00</td>
+<td>41,750.00</td>
+<td>47,210.00</td>
+<td>4,420.00</td>
+<td>2</td>
+</tr>
+<tr>
+<td>September</td>
+<td>52,600.00</td>
+<td>8,000.00</td>
+<td>44,600.00</td>
+<td>50,135.40</td>
+<td>6,884.60</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>Three months</strong></td>
+<td><strong>142,650.00</strong></td>
+<td><strong>13,000.00</strong></td>
+<td><strong>129,650.00</strong></td>
+<td><strong>144,295.40</strong></td>
+<td></td>
+<td><strong>3</strong></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">Average monthly business deposits are 43,216.67. Each closing follows from the
+one before: 8,530.00 + 48,300.00 - 46,950.00 = 9,880.00, then 4,420.00 and
+6,884.60, matching the printed statements.</p>
+<p dir="auto">What the script also finds:</p>
+<ul dir="auto">
+<li>The 13,000.00 moved from savings would overstate deposits by 10.0% if it
+were counted as income.</li>
+<li>August has a returned check (NSF fee on August 10) and an overdraft fee on
+August 21. September has one overdraft fee on September 9. The lowest daily
+balances were -2,510.00 in August and -1,705.00 in September.</li>
+<li>One large deposit: 14,500.00 from Westbrook School District on September 18,
+about twice the average business deposit of 7,202.78. A lender will ask for
+the contract or invoice behind it.</li>
+<li>Cedar Ridge Apartments, Hartley HOA and the card settlements came in every
+month. That steady repeat income reads very differently from one big job.</li>
+</ul>
+<p dir="auto">The company, payers and figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Why take out transfers between your own accounts?</h3><a id="user-content-why-take-out-transfers-between-your-own-accounts" class="anchor" aria-label="Permalink: Why take out transfers between your own accounts?" href="#why-take-out-transfers-between-your-own-accounts"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Money moved from savings to checking is not new income. Counted as a deposit,
+it makes the business look bigger than it is, and an underwriter will find it
+anyway by matching it to the savings statement.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Why check the printed balances before analyzing?</h3><a id="user-content-why-check-the-printed-balances-before-analyzing" class="anchor" aria-label="Permalink: Why check the printed balances before analyzing?" href="#why-check-the-printed-balances-before-analyzing"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">An analysis is only as good as its rows. When every month adds up from its
+printed opening balance to its printed closing balance, nobody can say a page
+or a transaction was left out.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">How many months of statements does a lender want?</h3><a id="user-content-how-many-months-of-statements-does-a-lender-want" class="anchor" aria-label="Permalink: How many months of statements does a lender want?" href="#how-many-months-of-statements-does-a-lender-want"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">It depends on the loan or the case. Ask for the list in writing before you
+download anything, and include every account, not just the main one.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Full guide: <a href="https://www.zerabooks.com/bank-statement-analysis">Bank statement analysis</a>. Related: <a href="https://www.zerabooks.com/bank-statement-converter">ZeraBooks bank statement converter</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="https://github.com/ZeraBooks/bank-statement-analysis-template/blob/main/LICENSE">CC BY 4.0</a>. Free to use and adapt with credit to ZeraBooks.
+The code (<code>*.py</code>) is licensed under <a href="https://github.com/ZeraBooks/bank-statement-analysis-template/blob/main/LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>

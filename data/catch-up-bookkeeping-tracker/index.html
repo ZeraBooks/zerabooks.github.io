@@ -1,0 +1,174 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Catch-up bookkeeping tracker: open data from ZeraBooks</title><meta name="description" content="A month-by-month catch-up tracker for every bank and card account, with a fictional shop nine months behind. A script lists missing statement months, works out each missing month&#x27;s net change from the balance chain, and flags months that don&#x27;t tie."><link rel="canonical" href="https://zerabooks.github.io/data/catch-up-bookkeeping-tracker/"><style>body{font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px 16px;color:#1f2328;background:#fff}a{color:#4329AE}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #d0d7de;padding:6px 10px}code{background:#f6f8fa;padding:2px 4px;border-radius:4px}pre{background:#f6f8fa;padding:12px;overflow-x:auto}header{border-bottom:1px solid #d0d7de;margin-bottom:24px;padding-bottom:12px}.box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:16px 0}footer{border-top:1px solid #d0d7de;margin-top:40px;padding-top:12px;font-size:14px;color:#57606a}</style></head><body><header><a href="https://zerabooks.github.io/">ZeraBooks open data</a> · <a href="https://www.zerabooks.com/">zerabooks.com</a></header><h1>Catch-up bookkeeping tracker</h1><p>A month-by-month catch-up tracker for every bank and card account, with a fictional shop nine months behind. A script lists missing statement months, works out each missing month&#x27;s net change from the balance chain, and flags months that don&#x27;t tie.</p><div class="box"><b>Repository:</b> <a href="https://github.com/ZeraBooks/catch-up-bookkeeping-tracker">github.com/ZeraBooks/catch-up-bookkeeping-tracker</a><br><b>Download:</b> <a href="https://github.com/ZeraBooks/catch-up-bookkeeping-tracker/releases/tag/v1.0.0">latest release (v1.0.0)</a><br><b>Guide:</b> <a href="https://www.zerabooks.com/catch-up-bookkeeping">Catch-up bookkeeping</a> on zerabooks.com explains the method with a worked example.<br><b>License:</b> see the repository. <b>Cite:</b> ZeraBooks, “Catch-up bookkeeping tracker”, https://zerabooks.github.io/data/catch-up-bookkeeping-tracker/</div><h2>README</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Catch-up bookkeeping tracker</h1><a id="user-content-catch-up-bookkeeping-tracker" class="anchor" aria-label="Permalink: Catch-up bookkeeping tracker" href="#catch-up-bookkeeping-tracker"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Catch-up bookkeeping fills in months that were never recorded. You start from
+the last month whose closing balance you trust, gather every bank and card
+statement since then, and work the months oldest first, reconciling each one
+before the next. This repo has a month-by-month tracker for every account, a
+script that lists missing statement months and months that don't tie, and a
+catch-up checklist, with a fictional business nine months behind.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Files</h2><a id="user-content-files" class="anchor" aria-label="Permalink: Files" href="#files"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>catch-up-tracker-template.csv</code></td>
+<td>A blank tracker. One row per account per month: statement received, printed opening and closing, imported, reconciled, books closing, notes.</td>
+</tr>
+<tr>
+<td><code>catch-up-tracker.csv</code></td>
+<td>The fictional example below, two days into its catch-up.</td>
+</tr>
+<tr>
+<td><code>catch_up_status.py</code></td>
+<td>Reads the tracker and lists missing statements, breaks in the balance chain, months that don't tie, and the next month to work on for each account.</td>
+</tr>
+<tr>
+<td><code>catch-up-checklist.md</code></td>
+<td>The order of work, what to gather, and when the catch-up is done.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">The script is Python 3, standard library only.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">How to use it</h2><a id="user-content-how-to-use-it" class="anchor" aria-label="Permalink: How to use it" href="#how-to-use-it"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto">For each account, put the last month you trust as its first row, with its
+closing balance.</p>
+</li>
+<li>
+<p dir="auto">Add a row for every month since then as statements come in. Copy the
+opening and closing balances printed on the statement.</p>
+</li>
+<li>
+<p dir="auto">As you record and reconcile each month, mark Imported and Reconciled and
+fill in the closing balance your books show.</p>
+</li>
+<li>
+<p dir="auto">Run:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="python3 catch_up_status.py catch-up-tracker.csv"><pre class="notranslate"><code>python3 catch_up_status.py catch-up-tracker.csv
+</code></pre></div>
+<p dir="auto">Add a month (for example <code>2026-09</code>) to say how far the catch-up should go.
+Without it, the script uses the latest month in the file.</p>
+</li>
+<li>
+<p dir="auto">Work the "Next" line for each account, then run it again.</p>
+</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">The worked example</h2><a id="user-content-the-worked-example" class="anchor" aria-label="Permalink: The worked example" href="#the-worked-example"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Halden Bike Repair is a fictional shop with a checking account, a savings
+account and a Visa card. Its books were last right at December 31, 2025. In
+October 2026 the owner sent nine months of statements, January to September.
+Two days in, the tracker shows this for checking:</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Printed opening</th>
+<th>Printed closing</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>December 2025 (last trusted)</td>
+<td></td>
+<td>22,418.60</td>
+<td>Starting point</td>
+</tr>
+<tr>
+<td>January</td>
+<td>22,418.60</td>
+<td>19,902.15</td>
+<td>Reconciled</td>
+</tr>
+<tr>
+<td>February</td>
+<td>19,902.15</td>
+<td>21,355.40</td>
+<td>Reconciled</td>
+</tr>
+<tr>
+<td>March</td>
+<td>21,355.40</td>
+<td>18,770.95</td>
+<td>Books show 18,686.95, 84.00 short</td>
+</tr>
+<tr>
+<td>April</td>
+<td>not sent</td>
+<td>not sent</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td>May</td>
+<td>20,114.30</td>
+<td>23,006.80</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>June</td>
+<td>23,006.80</td>
+<td>21,447.12</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>July</td>
+<td>21,447.12</td>
+<td>24,980.55</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>August</td>
+<td>24,980.55</td>
+<td>22,615.09</td>
+<td>Not started</td>
+</tr>
+<tr>
+<td>September</td>
+<td>22,615.09</td>
+<td>25,302.44</td>
+<td>Not started</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">What the script reports:</p>
+<ul dir="auto">
+<li><strong>Checking:</strong> April is missing. May opens at 20,114.30, which is 1,343.35
+above where March closed, so that is April's net change. March doesn't tie:
+the books are 84.00 below the statement, the size of one card fee entered
+twice. Fix March before anything else.</li>
+<li><strong>Savings:</strong> every statement is in and January to March are reconciled.
+Next is April.</li>
+<li><strong>Visa:</strong> July isn't in the file at all. August opens at 2,904.66 against
+June's 3,377.51, so July's net change is -472.85. January and February are
+reconciled; next is March.</li>
+</ul>
+<p dir="auto">In all, 27 account-months need to be caught up, 7 are reconciled and 20 are to
+go. Both missing statements were requested from the bank the same day.</p>
+<p dir="auto">The business and figures are fictional.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">FAQ</h2><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Where do you start when you are months behind?</h3><a id="user-content-where-do-you-start-when-you-are-months-behind" class="anchor" aria-label="Permalink: Where do you start when you are months behind?" href="#where-do-you-start-when-you-are-months-behind"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">At the most recent month whose closing balance in the books matches the bank.
+If no month ties, the job is a cleanup, not a catch-up, because months that
+were done wrong have to be fixed before new ones are added on top.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Do I need receipts to catch up?</h3><a id="user-content-do-i-need-receipts-to-catch-up" class="anchor" aria-label="Permalink: Do I need receipts to catch up?" href="#do-i-need-receipts-to-catch-up"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Not to start. Bank and card statements carry every transaction and the
+balances that prove each month. Receipts and invoices answer category
+questions, and the questions list tells you which ones matter.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">What deadlines does being behind put at risk?</h3><a id="user-content-what-deadlines-does-being-behind-put-at-risk" class="anchor" aria-label="Permalink: What deadlines does being behind put at risk?" href="#what-deadlines-does-being-behind-put-at-risk"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">For 2026, individual estimated tax is due April 15, June 15 and September 15,
+2026 and January 15, 2027. Form 1099-NEC is due to contractors and the IRS by
+January 31. Both need current books, and so does any lender or landlord asking
+for a recent profit and loss.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Learn more</h2><a id="user-content-learn-more" class="anchor" aria-label="Permalink: Learn more" href="#learn-more"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Full guide: <a href="https://www.zerabooks.com/catch-up-bookkeeping">Catch-up bookkeeping</a>. Related: <a href="https://www.zerabooks.com/bookkeeping-services">ZeraBooks bookkeeping services</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The content and data in this repository are licensed under
+<a href="https://github.com/ZeraBooks/catch-up-bookkeeping-tracker/blob/main/LICENSE">CC BY 4.0</a>. Free to use and adapt with credit to ZeraBooks.
+The code (<code>*.py</code>) is licensed under <a href="https://github.com/ZeraBooks/catch-up-bookkeeping-tracker/blob/main/LICENSE-CODE">MIT</a>.</p>
+<p dir="auto">Maintained by <a href="https://www.zerabooks.com">ZeraBooks</a>.</p>
+</article></div><footer>Published by <a href="https://www.zerabooks.com/">ZeraBooks</a>, bookkeeping software and bookkeeping services. All sample figures are fictional. Updated November 4, 2026.</footer></body></html>
