@@ -1,0 +1,43 @@
+bank,customer,account,period,date,description,amount,printed_balance
+Citi,Harbor Lane Studio LLC,Checking ...6630,06/01/26-06/30/26,2026-06-01,Opening Balance,,7412.90
+Citi,Harbor Lane Studio LLC,Checking ...6630,06/01/26-06/30/26,2026-06-03,Mobile Deposit,2300.00,9712.90
+Citi,Harbor Lane Studio LLC,Checking ...6630,06/01/26-06/30/26,2026-06-08,ACH Debit Gusto Payroll,-3118.44,6594.46
+Citi,Harbor Lane Studio LLC,Checking ...6630,06/01/26-06/30/26,2026-06-12,Online Transfer to Savings ...6648,-1000.00,5594.46
+Citi,Harbor Lane Studio LLC,Checking ...6630,06/01/26-06/30/26,2026-06-18,ACH Credit Stripe Transfer,1650.00,7244.46
+Citi,Harbor Lane Studio LLC,Checking ...6630,06/01/26-06/30/26,2026-06-30,Monthly Service Fee,-15.00,7229.46
+Citi,Harbor Lane Studio LLC,Savings Plus ...6648,06/01/26-06/30/26,2026-06-01,Opening Balance,,12000.00
+Citi,Harbor Lane Studio LLC,Savings Plus ...6648,06/01/26-06/30/26,2026-06-12,Online Transfer from Checking ...6630,1000.00,13000.00
+Citi,Harbor Lane Studio LLC,Savings Plus ...6648,06/01/26-06/30/26,2026-06-30,Interest Paid,4.12,13004.12
+U.S. Bank,Pinecrest Auto Detailing,Silver Business Checking ...2219,Dec 22 2025-Jan 21 2026,2025-12-22,Beginning Balance,,3845.10
+U.S. Bank,Pinecrest Auto Detailing,Silver Business Checking ...2219,Dec 22 2025-Jan 21 2026,2025-12-23,Debit Purchase Chemical Guys (card 0412),-312.48,3532.62
+U.S. Bank,Pinecrest Auto Detailing,Silver Business Checking ...2219,Dec 22 2025-Jan 21 2026,2025-12-29,Electronic Deposit From Square Inc,1200.00,4732.62
+U.S. Bank,Pinecrest Auto Detailing,Silver Business Checking ...2219,Dec 22 2025-Jan 21 2026,2026-01-02,Electronic Withdrawal To State Farm Ins,-286.00,4446.62
+U.S. Bank,Pinecrest Auto Detailing,Silver Business Checking ...2219,Dec 22 2025-Jan 21 2026,2026-01-06,Debit Purchase Shell Oil (card 0412),-61.20,4385.42
+U.S. Bank,Pinecrest Auto Detailing,Silver Business Checking ...2219,Dec 22 2025-Jan 21 2026,2026-01-09,Electronic Deposit From Square Inc,2764.35,7149.77
+U.S. Bank,Pinecrest Auto Detailing,Silver Business Checking ...2219,Dec 22 2025-Jan 21 2026,2026-01-12,Debit Purchase AutoZone (card 7781),-145.90,7003.87
+U.S. Bank,Pinecrest Auto Detailing,Silver Business Checking ...2219,Dec 22 2025-Jan 21 2026,2026-01-21,Monthly Maintenance Fee,-10.00,6993.87
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-08-31,Beginning Balance,,10240.55
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-09-04,Deposit,1875.00,12115.55
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-09-08,CCD Deposit Square Inc,4312.60,16428.15
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-09-10,Check 2041,-1200.00,15228.15
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-09-15,CCD Debit King Arthur Baking Co,-642.18,14585.97
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-09-17,Check 2043 (* break in sequence),-860.00,13725.97
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-09-22,CCD Deposit Square Inc,3980.15,17706.12
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-09-25,CCD Debit Paychex Payroll,-5410.92,12295.20
+TD Bank,Seaside Bakery LLC,Business checking ...8834,09/01/2026-09/30/2026,2026-09-30,Maintenance Fee,-25.00,12270.20
+PNC,Mill Creek Hauling LLC,Business Checking ...7740,06/01/2026-06/30/2026,2026-06-01,Beginning balance (printed 612.40-),,-612.40
+PNC,Mill Creek Hauling LLC,Business Checking ...7740,06/01/2026-06/30/2026,2026-06-02,ACH Credit Brookline Freight Settlement,2480.00,1867.60
+PNC,Mill Creek Hauling LLC,Business Checking ...7740,06/01/2026-06/30/2026,2026-06-03,Overdraft Item Fee,-36.00,1831.60
+PNC,Mill Creek Hauling LLC,Business Checking ...7740,06/01/2026-06/30/2026,2026-06-05,3214 Debit Card Purchase Pilot Travel Ctr,-418.22,1413.38
+PNC,Mill Creek Hauling LLC,Business Checking ...7740,06/01/2026-06/30/2026,2026-06-10,Corporate ACH Truck Lease Ryder,-1150.00,263.38
+PNC,Mill Creek Hauling LLC,Business Checking ...7740,06/01/2026-06/30/2026,2026-06-16,ACH Credit Brookline Freight Settlement,2915.50,3178.88
+PNC,Mill Creek Hauling LLC,Business Checking ...7740,06/01/2026-06/30/2026,2026-06-19,3214 Debit Card Purchase Love's Travel,-397.06,2781.82
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-09-15,Previous Balance (owed),,6240.18
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-09-18,Delta Air Lines (James Lee),642.80,
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-09-20,Event Rentals Plus (Maria Ortiz),1250.00,
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-09-22,Mobile Payment - Thank You,-6240.18,
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-09-30,The Home Depot (James Lee),118.45,
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-10-03,Party City refund (Maria Ortiz),-85.00,
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-10-07,Costco Wholesale (Maria Ortiz),212.37,
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-10-09,Canva (Priya Patel; 750.00 AUD foreign spend),486.20,
+American Express,Lakeview Events Co.,Business card ...31005,09/15/26-10/14/26,2026-10-14,New Balance (owed),,2624.82
