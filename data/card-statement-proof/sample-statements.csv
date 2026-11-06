@@ -1,12 +1,12 @@
 issuer,customer,account,period,date,description,type,card_member,amount_in_file,printed_balance
-Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,,Previous balance,,,,2413.08
-Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-08-29,"Payment, thank you",Payment,,1500.00,
-Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-02,"Clay supply, Laguna Clay Co",Charge,,-318.40,
-Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-09,Cashback Bonus redeemed as statement credit,Credit,,36.25,
-Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-12,"Shipping, UPS Store",Charge,,-94.17,
-Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-18,"Kiln parts, Skutt",Charge,,-1086.55,
-Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-26,Interest charge on purchases,Interest,,-21.94,
-Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,,New balance,,,,2397.89
+Discover,Ridgeback Pottery,Business card ...5512,08/27/2026-09/26/2026,,Previous balance,,,,2413.08
+Discover,Ridgeback Pottery,Business card ...5512,08/27/2026-09/26/2026,2026-08-29,"Payment, thank you",Payment,,1500.00,
+Discover,Ridgeback Pottery,Business card ...5512,08/27/2026-09/26/2026,2026-09-02,"Clay supply, Laguna Clay Co",Charge,,-318.40,
+Discover,Ridgeback Pottery,Business card ...5512,08/27/2026-09/26/2026,2026-09-09,Cashback Bonus redeemed as statement credit,Credit,,36.25,
+Discover,Ridgeback Pottery,Business card ...5512,08/27/2026-09/26/2026,2026-09-12,"Shipping, UPS Store",Charge,,-94.17,
+Discover,Ridgeback Pottery,Business card ...5512,08/27/2026-09/26/2026,2026-09-18,"Kiln parts, Skutt",Charge,,-1086.55,
+Discover,Ridgeback Pottery,Business card ...5512,08/27/2026-09/26/2026,2026-09-26,Interest charge on purchases,Interest,,-21.94,
+Discover,Ridgeback Pottery,Business card ...5512,08/27/2026-09/26/2026,,New balance,,,,2397.89
 American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,,Previous balance,,,,3105.62
 American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,2026-08-14,Mobile Payment - Thank You,Payment,,3105.62,
 American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,2026-08-16,B&H Photo,Charge,Ana Brooks,-845.00,

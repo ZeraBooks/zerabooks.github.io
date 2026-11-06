@@ -1,15 +1,15 @@
 bank,customer,account,period,section_as_printed,date,description,amount,printed_balance
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Opening,2026-10-01,Beginning balance,,9872.40
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Deposits & Credits,2026-10-03,Deposit,4150.00,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Withdrawals,2026-10-06,"Card Purchase, Floor & Decor",-1947.33,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Checks,2026-10-08,Check 2207,-980.00,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Automatic Transfers,2026-10-10,Automatic Transfer to Savings,-750.00,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Automatic Transfers,2026-10-15,"Automatic Transfer, Equipment Loan Payment",-1104.62,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Deposits & Credits,2026-10-17,"ACH Credit, Square",3268.90,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Withdrawals,2026-10-20,"ACH Debit, Sherwin-Williams",-286.15,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Checks,2026-10-23,Check 2208,-2300.00,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Fees,2026-10-31,Monthly Service Charge,-12.00,
-Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Closing,2026-10-31,Ending balance,,9911.20
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Opening,2026-10-01,Beginning balance,,9872.40
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Deposits & Credits,2026-10-03,Deposit,4150.00,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Withdrawals,2026-10-06,"Card Purchase, Floor & Decor",-1947.33,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Checks,2026-10-08,Check 2207,-980.00,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Automatic Transfers,2026-10-10,Automatic Transfer to Savings,-750.00,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Automatic Transfers,2026-10-15,"Automatic Transfer, Equipment Loan Payment",-1104.62,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Deposits & Credits,2026-10-17,"ACH Credit, Square",3268.90,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Withdrawals,2026-10-20,"ACH Debit, Sherwin-Williams",-286.15,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Checks,2026-10-23,Check 2208,-2300.00,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Fees,2026-10-31,Monthly Service Charge,-12.00,
+Regions,Mobile Bay Tile Co.,Business checking ...4471,"October 1, 2026 through October 31, 2026",Closing,2026-10-31,Ending balance,,9911.20
 Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Opening,2026-09-01,Beginning balance,,5226.19
 Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Credits,2026-09-02,Deposit,1840.00,
 Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Debits,2026-09-03,ACH Debit (Details: PetEdge Supply),-612.47,
