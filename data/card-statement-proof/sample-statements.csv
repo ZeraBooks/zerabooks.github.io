@@ -1,0 +1,30 @@
+issuer,customer,account,period,date,description,type,card_member,amount_in_file,printed_balance
+Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,,Previous balance,,,,2413.08
+Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-08-29,"Payment, thank you",Payment,,1500.00,
+Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-02,"Clay supply, Laguna Clay Co",Charge,,-318.40,
+Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-09,Cashback Bonus redeemed as statement credit,Credit,,36.25,
+Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-12,"Shipping, UPS Store",Charge,,-94.17,
+Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-18,"Kiln parts, Skutt",Charge,,-1086.55,
+Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,2026-09-26,Interest charge on purchases,Interest,,-21.94,
+Discover,Fernwood Ceramics,Business card ...5512,08/27/2026-09/26/2026,,New balance,,,,2397.89
+American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,,Previous balance,,,,3105.62
+American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,2026-08-14,Mobile Payment - Thank You,Payment,,3105.62,
+American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,2026-08-16,B&H Photo,Charge,Ana Brooks,-845.00,
+American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,2026-08-22,"United Airlines (travel detail: Ticket Number, Date of Departure)",Charge,Theo Grant,-1312.66,
+American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,2026-08-27,B&H Photo return,Credit,Ana Brooks,120.00,
+American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,2026-09-01,Adobe,Charge,Ana Brooks,-219.40,
+American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,2026-09-05,"Cafe in Lisbon (Foreign Spend line, no dollar amount of its own)",Charge,Theo Grant,-58.30,
+American Express,Silver Pine Photography,Business card ...41008,08/12/26-09/11/26,,New balance,,,,2315.36
+Capital One,Copperline Electric LLC,Spark card ...7720,October 2026,,Previous balance,,,,5602.33
+Capital One,Copperline Electric LLC,Spark card ...7720,October 2026,2026-10-04,Payment,Payment,,5000.00,
+Capital One,Copperline Electric LLC,Spark card ...7720,October 2026,2026-10-07,Graybar Electric,Charge,,-2906.00,
+Capital One,Copperline Electric LLC,Spark card ...7720,October 2026,2026-10-13,"Fuel, Wawa",Charge,,-389.60,
+Capital One,Copperline Electric LLC,Spark card ...7720,October 2026,2026-10-21,Home Depot,Charge,,-1244.18,
+Capital One,Copperline Electric LLC,Spark card ...7720,October 2026,2026-10-31,Interest charge,Interest,,-46.71,
+Capital One,Copperline Electric LLC,Spark card ...7720,October 2026,,New balance,,,,5188.82
+Citi,Harlow Street Deli,Co-branded card ...9031,September 2026,,Previous balance,,,,980.45
+Citi,Harlow Street Deli,Co-branded card ...9031,September 2026,2026-09-03,Payment,Payment,,980.45,
+Citi,Harlow Street Deli,Co-branded card ...9031,September 2026,2026-09-06,Costco Wholesale,Charge,,-1622.10,
+Citi,Harlow Street Deli,Co-branded card ...9031,September 2026,2026-09-15,Restaurant Depot,Charge,,-433.75,
+Citi,Harlow Street Deli,Co-branded card ...9031,September 2026,2026-09-19,Costco Wholesale return,Credit,,58.00,
+Citi,Harlow Street Deli,Co-branded card ...9031,September 2026,,New balance,,,,1997.85

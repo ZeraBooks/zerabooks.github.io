@@ -1,0 +1,45 @@
+bank,customer,account,period,section_as_printed,date,description,amount,printed_balance
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Opening,2026-10-01,Beginning balance,,9872.40
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Deposits & Credits,2026-10-03,Deposit,4150.00,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Withdrawals,2026-10-06,"Card Purchase, Floor & Decor",-1947.33,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Checks,2026-10-08,Check 2207,-980.00,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Automatic Transfers,2026-10-10,Automatic Transfer to Savings,-750.00,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Automatic Transfers,2026-10-15,"Automatic Transfer, Equipment Loan Payment",-1104.62,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Deposits & Credits,2026-10-17,"ACH Credit, Square",3268.90,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Withdrawals,2026-10-20,"ACH Debit, Sherwin-Williams",-286.15,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Checks,2026-10-23,Check 2208,-2300.00,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Fees,2026-10-31,Monthly Service Charge,-12.00,
+Regions,Bayou Tile & Stone LLC,Business checking ...4471,"October 1, 2026 through October 31, 2026",Closing,2026-10-31,Ending balance,,9911.20
+Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Opening,2026-09-01,Beginning balance,,5226.19
+Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Credits,2026-09-02,Deposit,1840.00,
+Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Debits,2026-09-03,ACH Debit (Details: PetEdge Supply),-612.47,
+Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Debits,2026-09-09,Check 1052,-450.00,
+Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Credits,2026-09-16,ACH Deposit (Details: Square),2975.35,
+Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Debits,2026-09-19,Service Charges - Prior Period,-31.50,
+Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Debits,2026-09-26,ACH Debit (Details: Gusto Payroll),-3388.12,
+Truist,Piedmont Pet Grooming,Business checking ...7714,09/01/2026-09/30/2026,Closing,2026-09-30,Ending balance,,5559.45
+Huntington,Maumee River Cycles,Business checking ...2085,09/01/26 to 09/30/26,Opening,2026-09-01,Beginning balance,,3941.07
+Huntington,Maumee River Cycles,Business checking ...2085,09/01/26 to 09/30/26,Credits (+),2026-09-04,Deposit,2260.00,
+Huntington,Maumee River Cycles,Business checking ...2085,09/01/26 to 09/30/26,Debits (-),2026-09-08,"ACH Debit, Quality Bicycle Products",-1618.90,
+Huntington,Maumee River Cycles,Business checking ...2085,09/01/26 to 09/30/26,Debits (-),2026-09-15,"ACH Debit, AEP Ohio",-220.00,
+Huntington,Maumee River Cycles,Business checking ...2085,09/01/26 to 09/30/26,Credits (+),2026-09-18,"ACH Credit, Shopify Payments",1385.45,
+Huntington,Maumee River Cycles,Business checking ...2085,09/01/26 to 09/30/26,Debits (-),2026-09-24,"Card Purchase, Adobe",-74.99,
+Huntington,Maumee River Cycles,Business checking ...2085,09/01/26 to 09/30/26,Total Fees (-),2026-09-30,Monthly Maintenance Fee,-15.00,
+Huntington,Maumee River Cycles,Business checking ...2085,09/01/26 to 09/30/26,Closing,2026-09-30,Ending balance,,5657.63
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Opening,2026-10-01,Beginning balance,,11508.26
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Deposits & Credits,2026-10-02,Deposit,4400.00,
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Checks,2026-10-05,Check 1418,-1275.00,
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Debits,2026-10-09,"ACH Debit, Rhode Island Energy",-96.30,
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Checks,2026-10-14,Check 1419,-340.00,
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Debits,2026-10-16,"ACH Debit, ADP Payroll",-2118.44,
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Deposits & Credits,2026-10-23,"ACH Credit, Stripe",1732.18,
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Interest Paid,2026-10-31,Interest Paid,1.37,
+Citizens,Narragansett Sail Loft LLC,Business checking ...6602,"October 1, 2026 to October 31, 2026",Closing,2026-10-31,Ending balance,,13812.07
+Fifth Third,Queen City Signs,Business checking ...3349,09/01/2026-09/30/2026,Opening,2026-09-01,Beginning balance,,7615.92
+Fifth Third,Queen City Signs,Business checking ...3349,09/01/2026-09/30/2026,Deposits,2026-09-03,Deposit,3120.00,
+Fifth Third,Queen City Signs,Business checking ...3349,09/01/2026-09/30/2026,Withdrawals/Debits,2026-09-08,"ACH Debit, 3M Commercial Graphics",-3205.41,
+Fifth Third,Queen City Signs,Business checking ...3349,09/01/2026-09/30/2026,Checks,2026-09-11,Check 5021,-1560.00,
+Fifth Third,Queen City Signs,Business checking ...3349,09/01/2026-09/30/2026,Withdrawals/Debits,2026-09-15,"Card Purchase, Uline",-418.60,
+Fifth Third,Queen City Signs,Business checking ...3349,09/01/2026-09/30/2026,Deposits,2026-09-22,"ACH Credit, Square",2447.80,
+Fifth Third,Queen City Signs,Business checking ...3349,09/01/2026-09/30/2026,Withdrawals/Debits,2026-09-30,Service Charge,-64.00,
+Fifth Third,Queen City Signs,Business checking ...3349,09/01/2026-09/30/2026,Closing,2026-09-30,Ending balance,,7935.71

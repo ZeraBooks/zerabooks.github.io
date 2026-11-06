@@ -1,0 +1,21 @@
+provider,customer,account,period,date,description,type,amount,printed_balance
+Relay,Lantern Hill Bindery LLC,Operating ...5520,October 2026,,Beginning balance,,,6420.55
+Relay,Lantern Hill Bindery LLC,Operating ...5520,October 2026,2026-10-02,Stripe transfer,Deposit,3915.00,
+Relay,Lantern Hill Bindery LLC,Operating ...5520,October 2026,2026-10-05,Transfer to Payroll ...5538,Transfer,-4000.00,
+Relay,Lantern Hill Bindery LLC,Operating ...5520,October 2026,2026-10-09,"Card purchase, Adobe",Withdrawal,-59.99,
+Relay,Lantern Hill Bindery LLC,Operating ...5520,October 2026,2026-10-16,Stripe transfer,Deposit,2604.20,
+Relay,Lantern Hill Bindery LLC,Operating ...5520,October 2026,2026-10-21,"ACH debit, Talas bookbinding supply",Withdrawal,-1236.48,
+Relay,Lantern Hill Bindery LLC,Operating ...5520,October 2026,,Ending balance,,,7643.28
+Relay,Lantern Hill Bindery LLC,Payroll ...5538,October 2026,,Beginning balance,,,812.30
+Relay,Lantern Hill Bindery LLC,Payroll ...5538,October 2026,2026-10-05,Transfer from Operating ...5520,Transfer,4000.00,
+Relay,Lantern Hill Bindery LLC,Payroll ...5538,October 2026,2026-10-15,"ACH debit, Gusto payroll",Withdrawal,-3742.18,
+Relay,Lantern Hill Bindery LLC,Payroll ...5538,October 2026,,Ending balance,,,1070.12
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Checking Account Statement ...2268,October 2026,,Beginning balance,,,1126.40
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Checking Account Statement ...2268,October 2026,2026-10-03,"ACH credit, Square",Deposit,845.00,
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Checking Account Statement ...2268,October 2026,2026-10-07,"Debit card, Costco",Withdrawal,-212.64,
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Checking Account Statement ...2268,October 2026,2026-10-14,"ACH credit, Square",Deposit,1190.00,
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Checking Account Statement ...2268,October 2026,2026-10-20,"Chime Checkbook check, rent",Withdrawal,-950.00,
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Checking Account Statement ...2268,October 2026,2026-10-27,"Debit card, Shell",Withdrawal,-48.20,
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Checking Account Statement ...2268,October 2026,,Ending balance,,,1950.56
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Savings Account Statement ...2276,October 2026,,Beginning balance,,,0.00
+Chime,"Marisol Vega (house cleaning, sole proprietor)",Savings Account Statement ...2276,October 2026,,Ending balance,,,0.00

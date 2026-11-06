@@ -1,0 +1,24 @@
+bank,bank_statements_online,credit_card_statements_online,older_or_missing_statements,note,zerabooks_guide
+Chase,"Up to 7 years, depending on the account",Not stated separately,Request from Chase,Activity CSV has no beginning or ending balance,https://www.zerabooks.com/chase-bank-statement-to-excel
+Bank of America,6 years,Unknown,"Up to 7 years on request, sometimes for a fee",,https://www.zerabooks.com/bank-of-america-statement-to-excel
+Wells Fargo,Up to 7 years,2 years,Request from Wells Fargo,Activity download covers recent activity only,https://www.zerabooks.com/wells-fargo-bank-statement-to-excel
+Capital One,Up to 7 years for open bank accounts,Unknown,"Request from Capital One, including closed accounts",Checking statements show online only for paperless accounts,https://www.zerabooks.com/capital-one-statement-to-excel
+Citi,Depends on the account and the site,Unknown,Request from Citi,More than one online banking site for businesses,https://www.zerabooks.com/citi-bank-statement-to-excel
+U.S. Bank,Up to 7 years,Unknown,Request from U.S. Bank,,https://www.zerabooks.com/us-bank-statement-to-excel
+TD Bank,Up to 7 years,Unknown,Request from TD Bank,"TD Bank, N.A. (U.S.), not TD Canada Trust",https://www.zerabooks.com/td-bank-statement-to-excel
+PNC,Up to 7 years,"About 4 years, on a separate card site",Request from PNC,,https://www.zerabooks.com/pnc-bank-statement-to-excel
+American Express,Not a bank account,Recent statements online; number not stated,"Statement archive, or ask American Express",,https://www.zerabooks.com/american-express-statement-to-excel
+Regions,Up to 7 years,7 years,"Order Statements & Check Copies, $5 each",,https://www.zerabooks.com/regions-bank-statement-to-excel
+Truist,Depends on the account,Unknown,Request from Truist,"Account history download covers up to 18 months, usually without balances",https://www.zerabooks.com/truist-bank-statement-to-excel
+Huntington,Up to 2 years,Unknown,Request from Huntington,"Investment statements on a computer only, not the app",https://www.zerabooks.com/huntington-bank-statement-to-excel
+Citizens,Unknown,Unknown,Request from Citizens,"Citizens Bank, N.A., not Citi",https://www.zerabooks.com/citizens-bank-statement-to-excel
+Fifth Third,24 months,Unknown,Request from Fifth Third,,https://www.zerabooks.com/fifth-third-bank-statement-to-excel
+Navy Federal,Up to 36 months,Up to 36 months (same statement groups),"Copies on request, online or by phone, for a fee per copy",Business accounts use a separate sign-in,https://www.zerabooks.com/banks/navy-federal-statement-converter
+Discover,Depends on the account,Depends on the account,Request from Discover,Moved accounts are on Capital One's site,https://www.zerabooks.com/discover-statement-to-excel
+Chime,Not stated by Chime,Not stated by Chime,Request from Chime support,No paper statements,https://www.zerabooks.com/chime-bank-statement-to-excel
+Bluevine,Not stated for PDFs,Not applicable,Unknown,CSV export reaches 18 months back,https://www.zerabooks.com/bluevine-bank-statement-to-excel
+Mercury,Unknown,Unknown,Unknown,Statement posted in the first few days of the next month,https://www.zerabooks.com/help/download-statements/mercury
+Relay,Kept online; number not stated,Unknown,Unknown,Card statements the day after the cycle closes,https://www.zerabooks.com/help/download-statements/relay
+Novo,Back to when the account was opened,Not applicable,Not needed,Ready on the 1st of the next month,https://www.zerabooks.com/help/download-statements/novo
+Brex,Kept online; number not stated,Kept online; number not stated,Unknown,Business account statements in the first week after month end,https://www.zerabooks.com/help/download-statements/brex
+Ally,Unknown,Not applicable,Request from Ally,"Checking and savings monthly, CDs quarterly",https://www.zerabooks.com/help/download-statements/ally
