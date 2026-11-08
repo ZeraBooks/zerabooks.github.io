@@ -1,0 +1,16 @@
+Section,Date,Description,Amount,Note
+Printed,2026-08-31,Opening balance (printed on statement),12406.18,
+Statement line,2026-09-02,Customer deposit - Hale residence,2850.00,
+Statement line,2026-09-05,ACH payroll provider,-4118.42,
+Statement line,2026-09-09,Card - Ferguson supply,-612.37,
+Statement line,2026-09-12,Mobile deposit,1975.00,
+Statement line,2026-09-16,Check 2038,-900.00,
+Statement line,2026-09-19,Loan payment - equipment note,-1240.00,
+Statement line,2026-09-23,Stripe transfer,3364.55,
+Statement line,2026-09-26,Card - fuel,-188.90,
+Statement line,2026-09-30,Monthly service fee,-16.00,
+Printed,2026-09-30,Closing balance (printed on statement),13520.04,
+Check 1,,Opening + deposits - withdrawals,13520.04,Must equal printed closing: difference 0.00
+Outstanding,2026-09-30,Deposit in transit - Okafor job,1200.00,"In books, not on statement yet"
+Outstanding,2026-09-28,Check 2041 not yet cleared,-650.00,"In books, not on statement yet"
+Check 2,,Book balance per ledger,14070.04,Closing + deposits in transit - outstanding checks

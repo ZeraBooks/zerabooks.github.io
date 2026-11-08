@@ -1,0 +1,12 @@
+Step,Item,Amount,Formula / note
+1,Printed opening balance,,From the statement
+1,Total deposits (extracted lines),,Sum of money-in lines
+1,Total withdrawals (extracted lines),,"Sum of money-out lines, as a positive number"
+1,Worked-out closing,,Opening + deposits - withdrawals
+1,Printed closing balance,,From the statement
+1,Difference (must be 0.00),,Worked-out closing - printed closing
+2,Deposits in transit,,"In the ledger, not on this statement"
+2,Outstanding checks and payments,,"In the ledger, not on this statement"
+2,Adjusted bank balance,,Printed closing + deposits in transit - outstanding
+2,Book balance for the account,,From the ledger on the statement date
+2,Difference (must be 0.00),,Adjusted bank balance - book balance
